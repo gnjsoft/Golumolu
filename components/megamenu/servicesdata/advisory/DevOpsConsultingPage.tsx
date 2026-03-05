@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Infinity, ArrowRight, Server, GitBranch, Terminal } from 'lucide-react';
+import { Infinity, ArrowRight, Server, GitBranch, Terminal, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const DevOpsConsultingPage: React.FC = () => {
@@ -17,6 +17,9 @@ const DevOpsConsultingPage: React.FC = () => {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20"></div>
         
         <div className={`relative z-10 transition-all duration-1000 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+            <Link to="/services/software-development" className="inline-flex items-center text-blue-400 hover:text-white mb-8 transition-colors font-bold">
+                <ArrowLeft className="mr-2 w-4 h-4" /> Back to Software Development
+            </Link>
             <Infinity size={80} className="mx-auto text-blue-500 mb-6 animate-pulse" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4">DevOps Consulting</h1>
             <p className="text-xl text-slate-400">Streamline your development pipeline and accelerate delivery.</p>

@@ -1,9 +1,49 @@
 import React, { useEffect } from 'react';
-import { Layout, Smartphone, Globe, ShoppingCart, Zap, Layers, ArrowRight, Code, Monitor, MousePointer } from 'lucide-react';
+import { Layout, Smartphone, Globe, ShoppingCart, Zap, Layers, ArrowRight, Code, Monitor, MousePointer, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const WebDevelopmentPage: React.FC = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  const capabilities = [
+    { 
+      icon: Layout, 
+      title: "Single Page Apps (SPA)", 
+      desc: "Fluid, app-like experiences using React, Vue, and Angular.",
+      color: "blue"
+    },
+    { 
+      icon: ShoppingCart, 
+      title: "E-Commerce", 
+      desc: "Custom storefronts, headless commerce, and payment integrations.",
+      color: "purple"
+    },
+    { 
+      icon: Globe, 
+      title: "Progressive Web Apps", 
+      desc: "Offline-capable web apps that install like native applications.",
+      color: "emerald"
+    },
+    { 
+      icon: Layers, 
+      title: "SaaS Platforms", 
+      desc: "Multi-tenant architecture built for scale and subscription models.",
+      color: "indigo"
+    },
+    { 
+      icon: Code, 
+      title: "Custom CMS", 
+      desc: "Tailored content management solutions specifically for your workflow.",
+      color: "amber"
+    },
+    { 
+      icon: MousePointer, 
+      title: "Interactive Portals", 
+      desc: "Customer and partner portals with complex data visualization.",
+      color: "rose"
+    }
+  ];
 
   return (
     <div className="bg-slate-50 min-h-screen pt-20 font-sans">
@@ -90,30 +130,73 @@ const WebDevelopmentPage: React.FC = () => {
       </div>
 
       {/* Services Grid */}
-      <div className="bg-white py-24">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-white py-24 relative overflow-hidden">
+         {/* Decorative background elements */}
+         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+         </div>
+
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-20">
-                <h2 className="text-3xl font-bold text-slate-900 mb-6">Capabilities</h2>
-                <p className="text-slate-600 text-lg">From complex enterprise platforms to simple, elegant landing pages, we cover the full spectrum of web development.</p>
+                <motion.h2 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="text-3xl md:text-5xl font-bold text-slate-900 mb-6"
+                >
+                  Our Capabilities
+                </motion.h2>
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="text-slate-600 text-lg"
+                >
+                  From complex enterprise platforms to simple, elegant landing pages, we cover the full spectrum of web development with precision and passion.
+                </motion.p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[
-                    { icon: Layout, title: "Single Page Apps (SPA)", desc: "Fluid, app-like experiences using React, Vue, and Angular." },
-                    { icon: ShoppingCart, title: "E-Commerce", desc: "Custom storefronts, headless commerce, and payment integrations." },
-                    { icon: Globe, title: "Progressive Web Apps", desc: "Offline-capable web apps that install like native applications." },
-                    { icon: Layers, title: "SaaS Platforms", desc: "Multi-tenant architecture built for scale and subscription models." },
-                    { icon: Code, title: "Custom CMS", desc: "Tailored content management solutions specifically for your workflow." },
-                    { icon: MousePointer, title: "Interactive Portals", desc: "Customer and partner portals with complex data visualization." }
-                ].map((item, idx) => (
-                    <div key={idx} className="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-100 hover:shadow-2xl transition-all duration-300">
-                        <div className="w-14 h-14 bg-white border border-slate-100 text-slate-900 rounded-2xl flex items-center justify-center shadow-sm mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                            <item.icon size={28} />
+                {capabilities.map((item, idx) => (
+                    <motion.div 
+                        key={idx} 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: idx * 0.1 }}
+                        whileHover={{ y: -10 }}
+                        className="group relative p-8 rounded-[2rem] bg-white border border-slate-100 hover:border-blue-200 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                    >
+                        {/* Hover Gradient Background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div className="relative z-10">
+                            <div className={`w-16 h-16 bg-slate-50 border border-slate-100 text-slate-900 rounded-2xl flex items-center justify-center shadow-sm mb-8 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                                <item.icon size={32} />
+                            </div>
+                            
+                            <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">{item.title}</h3>
+                            <p className="text-slate-600 leading-relaxed mb-8 text-base">{item.desc}</p>
+                            
+                            <div className="flex items-center justify-between">
+                                <div className="flex gap-1">
+                                    <div className="h-1.5 w-8 bg-blue-600 rounded-full"></div>
+                                    <div className="h-1.5 w-2 bg-slate-200 group-hover:bg-blue-300 transition-colors rounded-full"></div>
+                                    <div className="h-1.5 w-2 bg-slate-200 group-hover:bg-blue-200 transition-colors rounded-full"></div>
+                                </div>
+                                <div className="opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                                    <div className="flex items-center gap-2 text-blue-600 font-bold text-sm">
+                                        Learn More <ArrowRight size={16} />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                        <p className="text-slate-600 leading-relaxed mb-6">{item.desc}</p>
-                        <div className="h-1 w-12 bg-slate-200 group-hover:bg-blue-600 transition-all rounded-full"></div>
-                    </div>
+
+                        {/* Decorative corner element */}
+                        <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-50 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 blur-2xl"></div>
+                    </motion.div>
                 ))}
             </div>
          </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CheckCircle, Bug, Search, Smartphone, Monitor, Shield, ArrowRight } from 'lucide-react';
+import { CheckCircle, Bug, Search, Smartphone, Monitor, Shield, ArrowRight, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const TestingAndQaPage: React.FC = () => {
@@ -13,6 +13,9 @@ const TestingAndQaPage: React.FC = () => {
   return (
     <div className="bg-white min-h-screen pt-20 font-sans">
       <div className="bg-teal-50 py-24 px-4 text-center">
+          <Link to="/services/software-development" className="inline-flex items-center text-teal-600 hover:text-teal-800 mb-8 transition-colors font-bold">
+              <ArrowLeft className="mr-2 w-4 h-4" /> Back to Software Development
+          </Link>
           <div className="relative inline-block mb-8">
               <Search size={64} className={`text-teal-600 transition-transform duration-1000 ${scanned ? 'rotate-12 scale-110' : '-rotate-12 scale-100'}`} />
               {scanned && (

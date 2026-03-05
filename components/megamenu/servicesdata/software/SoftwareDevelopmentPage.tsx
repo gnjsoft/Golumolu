@@ -17,10 +17,18 @@ const SoftwareDevelopmentPage: React.FC = () => {
   const navigate = useNavigate();
 
   const handleStepClick = (title: string) => {
-    if (title === "Discovery") {
+    const routes: Record<string, string> = {
+      "Discovery": "/services/software-development/discovery",
+      "Development": "/services/web-development",
+      "Testing": "/services/testing-and-qa",
+      "Deployment": "/services/devops-consulting"
+    };
+    
+    const target = routes[title];
+    if (target) {
       // Small delay for animation feedback
       setTimeout(() => {
-        navigate('/services/software-development/discovery');
+        navigate(target);
       }, 300);
     }
   };
@@ -98,33 +106,31 @@ const SoftwareDevelopmentPage: React.FC = () => {
 
             <div className="grid md:grid-cols-4 gap-8">
                 {[
-                    { icon: Terminal, title: "Discovery", desc: "Requirement gathering & architecture planning." },
-                    { icon: Code2, title: "Development", desc: "Agile sprints with bi-weekly updates." },
-                    { icon: CheckCircle, title: "Testing", desc: "Automated QA & security auditing." },
-                    { icon: Rocket, title: "Deployment", desc: "CI/CD pipelines & cloud infrastructure." }
+                    { icon: Terminal, title: "Discovery", desc: "Requirement gathering & architecture planning.", linkText: "Explore Phase" },
+                    { icon: Code2, title: "Development", desc: "Agile sprints with bi-weekly updates.", linkText: "View Services" },
+                    { icon: CheckCircle, title: "Testing", desc: "Automated QA & security auditing.", linkText: "QA Solutions" },
+                    { icon: Rocket, title: "Deployment", desc: "CI/CD pipelines & cloud infrastructure.", linkText: "DevOps Stack" }
                 ].map((step, idx) => (
                     <motion.div 
                         key={idx} 
-                        whileHover={{ scale: 1.02 }}
+                        whileHover={{ scale: 1.02, y: -5 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => handleStepClick(step.title)}
-                        className={`relative p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all duration-300 group cursor-pointer ${step.title === 'Discovery' ? 'ring-2 ring-blue-600/0 hover:ring-blue-600/50' : ''}`}
+                        className="relative p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all duration-300 group cursor-pointer ring-2 ring-blue-600/0 hover:ring-blue-600/50"
                     >
                         <div className="w-14 h-14 bg-white text-blue-600 rounded-xl flex items-center justify-center shadow-sm mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
                             <step.icon size={28} />
                         </div>
                         <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                        <p className="text-slate-600 leading-relaxed">{step.desc}</p>
+                        <p className="text-slate-600 leading-relaxed mb-4">{step.desc}</p>
                         {idx !== 3 && (
                             <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
                                 <ArrowRight className="text-slate-300" />
                             </div>
                         )}
-                        {step.title === 'Discovery' && (
-                            <div className="mt-4 flex items-center text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                                Explore Phase <ArrowRight className="ml-1 w-4 h-4" />
-                            </div>
-                        )}
+                        <div className="mt-auto flex items-center text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                            {step.linkText} <ArrowRight className="ml-1 w-4 h-4" />
+                        </div>
                     </motion.div>
                 ))}
             </div>
