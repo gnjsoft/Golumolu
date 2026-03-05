@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { MapPin, Phone, Mail, Clock, ArrowRight, Calendar, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { CONTACT_DATA } from '../../../data/ContactData';
 
 const LocationsPage: React.FC = () => {
@@ -44,7 +45,7 @@ const LocationsPage: React.FC = () => {
         label: "CET", 
         phone: "+49 40 1234 5678",
         mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2370.637731773094!2d9.9815!3d53.5515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b18f18d7d8e6ad%3A0x2d87779269784b0!2sAxel-Springer-Platz%203%2C%2020355%20Hamburg%2C%20Germany!5e0!3m2!1sen!2sde!4v1710000000000!5m2!1sen!2sde",
-        image: "https://images.unsplash.com/photo-1560969184-10fe8719e090?auto=format&fit=crop&q=80&w=2000",
+        image: "https://assets.savills.com/properties/DE8936OM/654461DA-D698-4D68-8828-9F7F5C095835_l_gal.jpg",
         description: "Our European hub focusing on enterprise solutions, automotive tech, and industrial automation."
       }
   ];
@@ -164,13 +165,13 @@ const LocationsPage: React.FC = () => {
                    </div>
 
                    <div className="mt-12">
-                      <a 
-                        href="/#/contact"
+                      <Link 
+                        to="/contact"
                         className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-bold py-4 rounded-xl hover:bg-slate-800 transition-colors"
                       >
                          <Calendar size={18} />
                          Schedule a Visit
-                      </a>
+                      </Link>
                    </div>
                 </div>
 
@@ -200,9 +201,9 @@ const LocationsPage: React.FC = () => {
              <p className="text-lg text-slate-600 mb-8">
                 We serve clients globally regardless of location. Our remote teams are equipped with best-in-class collaboration tools to ensure seamless project delivery.
              </p>
-             <a href="/#/contact" className="inline-flex items-center gap-2 text-blue-600 font-bold hover:text-blue-800 text-lg transition-colors">
+             <Link to="/contact" className="inline-flex items-center gap-2 text-blue-600 font-bold hover:text-blue-800 text-lg transition-colors">
                 Contact us online <ArrowRight size={20} />
-             </a>
+             </Link>
           </div>
        </div>
     </div>

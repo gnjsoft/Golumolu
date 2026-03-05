@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { HashRouter, useLocation } from 'react-router-dom';
+import { BrowserRouter, useLocation } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import HomePage from './components/pages/HomePage';
 import Contact from './components/pages/Contact';
@@ -47,6 +47,7 @@ import DesktopDevelopmentPage from './components/megamenu/servicesdata/software/
 import ApiDevelopmentPage from './components/megamenu/servicesdata/software/ApiDevelopmentPage';
 import DatabaseDevelopmentPage from './components/megamenu/servicesdata/software/DatabaseDevelopmentPage';
 import SoftwareModernizationPage from './components/megamenu/servicesdata/software/SoftwareModernizationPage';
+import DiscoveryPage from './components/megamenu/servicesdata/software/DiscoveryPage';
 
 // Specific Mega Menu Pages (Services - Strategy & Advisory)
 import ItConsultingPage from './components/megamenu/servicesdata/advisory/ItConsultingPage';
@@ -264,6 +265,7 @@ const AppContent: React.FC = () => {
     case '/services/api-development': component = <ApiDevelopmentPage />; break;
     case '/services/database-development': component = <DatabaseDevelopmentPage />; break;
     case '/services/software-modernization': component = <SoftwareModernizationPage />; break;
+    case '/services/software-development/discovery': component = <DiscoveryPage />; break;
     
     // Services - Strategy & Advisory
     case '/services/it-consulting': component = <ItConsultingPage />; break;
@@ -441,9 +443,9 @@ const AppContent: React.FC = () => {
 const App: React.FC = () => {
   return (
     <AuthProvider>
-      <HashRouter>
+      <BrowserRouter>
         <AppContent />
-      </HashRouter>
+      </BrowserRouter>
     </AuthProvider>
   );
 };

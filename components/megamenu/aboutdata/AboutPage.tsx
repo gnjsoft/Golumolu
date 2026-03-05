@@ -59,8 +59,11 @@ const AboutPage: React.FC = () => {
                <p className="text-lg text-slate-600 leading-relaxed mb-6">
                  GnJ Worldwide is a premier technology solutions provider dedicated to helping organizations navigate the complexities of the digital age. With a footprint spanning India, Singapore, and Germany, we bring global expertise to local challenges.
                </p>
-               <p className="text-lg text-slate-600 leading-relaxed">
+               <p className="text-lg text-slate-600 leading-relaxed mb-6">
                  Our journey began with a simple mission: to deliver measurable business value through high-quality, scalable, and secure technology solutions.
+               </p>
+               <p className="text-lg text-slate-600 leading-relaxed italic border-l-4 border-yellow-400 pl-6 py-2 bg-slate-50 rounded-r-xl">
+                 Traditional information technology management function (or IT) should be the technology backbone that is responsible for the development, and management of digital and administrative solutions in a professional way. The technology backbone consists of all information technology systems and processes that support the running of the business's operations, through the management of end-user services, plus enterprise and business applications. It is where the essential business asset of a company resides, and the purpose is to provide operational efficiency to the company through reliability, security, and scalability.
                </p>
             </div>
             <div className="relative">
@@ -85,6 +88,33 @@ const AboutPage: React.FC = () => {
                     </div>
                 ))}
             </div>
+        </ScrollReveal>
+
+        {/* Germany Presence */}
+        <ScrollReveal delay={300}>
+          <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
+            <div className="order-2 md:order-1">
+               <div className="relative">
+                  <div className="absolute -inset-4 bg-blue-600/10 rounded-xl transform -rotate-3"></div>
+                  <img 
+                    src="https://images.unsplash.com/photo-1599946347341-6cd394793abc?auto=format&fit=crop&q=80&w=2070" 
+                    alt="Germany Presence" 
+                    className="relative rounded-xl shadow-2xl w-full h-[400px] object-cover" 
+                    referrerPolicy="no-referrer"
+                  />
+               </div>
+            </div>
+            <div className="order-1 md:order-2">
+               <h2 className="text-3xl font-bold text-slate-900 mb-6">Our European Hub</h2>
+               <div className="w-20 h-1.5 bg-blue-600 rounded-full mb-8"></div>
+               <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                 Our German operations represent our commitment to precision and engineering excellence. Located in the heart of Europe, our team focuses on high-performance systems and research-driven technology solutions.
+               </p>
+               <p className="text-lg text-slate-600 leading-relaxed">
+                 This strategic presence allows us to bridge the gap between Asian innovation and European industrial standards, providing our clients with truly global perspectives.
+               </p>
+            </div>
+          </div>
         </ScrollReveal>
 
         {/* Values */}

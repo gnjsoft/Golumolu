@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowUpRight, Filter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const PortfolioPage: React.FC = () => {
   const [active, setActive] = useState(false);
@@ -118,9 +119,9 @@ const PortfolioPage: React.FC = () => {
             <div className="max-w-4xl mx-auto px-4">
                 <h2 className="text-3xl font-bold mb-6">Have a project in mind?</h2>
                 <p className="text-blue-100 mb-8 text-lg">Let's build the next success story together.</p>
-                <a href="/#/contact" className="inline-block bg-yellow-400 text-slate-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-300 transition-colors">
+                <Link to="/contact" className="inline-block bg-yellow-400 text-slate-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-300 transition-colors">
                     Start Your Project
-                </a>
+                </Link>
             </div>
         </div>
     </div>

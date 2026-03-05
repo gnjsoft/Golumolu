@@ -9,10 +9,21 @@ import {
   ArrowRight, 
   Layers 
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
 
 const SoftwareDevelopmentPage: React.FC = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  const navigate = useNavigate();
+
+  const handleStepClick = (title: string) => {
+    if (title === "Discovery") {
+      // Small delay for animation feedback
+      setTimeout(() => {
+        navigate('/services/software-development/discovery');
+      }, 300);
+    }
+  };
 
   return (
     <div className="bg-white min-h-screen pt-20 font-sans selection:bg-blue-100 selection:text-blue-900">
@@ -92,7 +103,13 @@ const SoftwareDevelopmentPage: React.FC = () => {
                     { icon: CheckCircle, title: "Testing", desc: "Automated QA & security auditing." },
                     { icon: Rocket, title: "Deployment", desc: "CI/CD pipelines & cloud infrastructure." }
                 ].map((step, idx) => (
-                    <div key={idx} className="relative p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
+                    <motion.div 
+                        key={idx} 
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => handleStepClick(step.title)}
+                        className={`relative p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all duration-300 group cursor-pointer ${step.title === 'Discovery' ? 'ring-2 ring-blue-600/0 hover:ring-blue-600/50' : ''}`}
+                    >
                         <div className="w-14 h-14 bg-white text-blue-600 rounded-xl flex items-center justify-center shadow-sm mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
                             <step.icon size={28} />
                         </div>
@@ -103,7 +120,12 @@ const SoftwareDevelopmentPage: React.FC = () => {
                                 <ArrowRight className="text-slate-300" />
                             </div>
                         )}
-                    </div>
+                        {step.title === 'Discovery' && (
+                            <div className="mt-4 flex items-center text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                                Explore Phase <ArrowRight className="ml-1 w-4 h-4" />
+                            </div>
+                        )}
+                    </motion.div>
                 ))}
             </div>
         </div>

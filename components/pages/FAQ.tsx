@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Plus, Minus, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const FAQS = [
   {
@@ -45,10 +46,10 @@ const FAQ: React.FC = () => {
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
               Here are answers to some common questions about our services and processes. Can't find what you're looking for?
             </p>
-            <a href="#contact" className="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
+            <Link to="/contact" className="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
               Reach out to support
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </Link>
           </div>
 
           {/* Right Side - Accordion */}
