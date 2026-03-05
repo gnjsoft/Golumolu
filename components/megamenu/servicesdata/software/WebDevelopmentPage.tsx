@@ -159,45 +159,72 @@ const WebDevelopmentPage: React.FC = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {capabilities.map((item, idx) => (
-                    <motion.div 
-                        key={idx} 
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: idx * 0.1 }}
-                        whileHover={{ y: -10 }}
-                        className="group relative p-8 rounded-[2rem] bg-white border border-slate-100 hover:border-blue-200 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden"
-                    >
-                        {/* Hover Gradient Background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        
-                        <div className="relative z-10">
-                            <div className={`w-16 h-16 bg-slate-50 border border-slate-100 text-slate-900 rounded-2xl flex items-center justify-center shadow-sm mb-8 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
-                                <item.icon size={32} />
-                            </div>
+                {capabilities.map((item, idx) => {
+                    const colorMap: Record<string, string> = {
+                        blue: "bg-blue-50/50 border-blue-100/50 hover:border-blue-300",
+                        purple: "bg-purple-50/50 border-purple-100/50 hover:border-purple-300",
+                        emerald: "bg-emerald-50/50 border-emerald-100/50 hover:border-emerald-300",
+                        indigo: "bg-indigo-50/50 border-indigo-100/50 hover:border-indigo-300",
+                        amber: "bg-amber-50/50 border-amber-100/50 hover:border-amber-300",
+                        rose: "bg-rose-50/50 border-rose-100/50 hover:border-rose-300"
+                    };
+                    const iconColorMap: Record<string, string> = {
+                        blue: "text-blue-600",
+                        purple: "text-purple-600",
+                        emerald: "text-emerald-600",
+                        indigo: "text-indigo-600",
+                        amber: "text-amber-600",
+                        rose: "text-rose-600"
+                    };
+                    const accentColorMap: Record<string, string> = {
+                        blue: "bg-blue-600",
+                        purple: "bg-purple-600",
+                        emerald: "bg-emerald-600",
+                        indigo: "bg-indigo-600",
+                        amber: "bg-amber-600",
+                        rose: "bg-rose-600"
+                    };
+
+                    return (
+                        <motion.div 
+                            key={idx} 
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1 }}
+                            whileHover={{ y: -10 }}
+                            className={`group relative p-8 rounded-[2rem] border shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden ${colorMap[item.color]}`}
+                        >
+                            {/* Hover Gradient Background */}
+                            <div className={`absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                             
-                            <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">{item.title}</h3>
-                            <p className="text-slate-600 leading-relaxed mb-8 text-base">{item.desc}</p>
-                            
-                            <div className="flex items-center justify-between">
-                                <div className="flex gap-1">
-                                    <div className="h-1.5 w-8 bg-blue-600 rounded-full"></div>
-                                    <div className="h-1.5 w-2 bg-slate-200 group-hover:bg-blue-300 transition-colors rounded-full"></div>
-                                    <div className="h-1.5 w-2 bg-slate-200 group-hover:bg-blue-200 transition-colors rounded-full"></div>
+                            <div className="relative z-10">
+                                <div className={`w-16 h-16 bg-white border border-white/50 ${iconColorMap[item.color]} rounded-2xl flex items-center justify-center shadow-sm mb-8 group-hover:bg-slate-900 group-hover:text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                                    <item.icon size={32} />
                                 </div>
-                                <div className="opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500">
-                                    <div className="flex items-center gap-2 text-blue-600 font-bold text-sm">
-                                        Learn More <ArrowRight size={16} />
+                                
+                                <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:translate-x-1 transition-transform duration-300">{item.title}</h3>
+                                <p className="text-slate-600 leading-relaxed mb-8 text-base">{item.desc}</p>
+                                
+                                <div className="flex items-center justify-between">
+                                    <div className="flex gap-1">
+                                        <div className={`h-1.5 w-8 ${accentColorMap[item.color]} rounded-full`}></div>
+                                        <div className="h-1.5 w-2 bg-slate-200 rounded-full"></div>
+                                        <div className="h-1.5 w-2 bg-slate-200 rounded-full"></div>
+                                    </div>
+                                    <div className="opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                                        <div className={`flex items-center gap-2 font-bold text-sm ${iconColorMap[item.color]}`}>
+                                            Learn More <ArrowRight size={16} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Decorative corner element */}
-                        <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-blue-50 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 blur-2xl"></div>
-                    </motion.div>
-                ))}
+                            {/* Decorative corner element */}
+                            <div className="absolute -right-4 -bottom-4 w-24 h-24 bg-white/20 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 blur-2xl"></div>
+                        </motion.div>
+                    );
+                })}
             </div>
          </div>
       </div>
