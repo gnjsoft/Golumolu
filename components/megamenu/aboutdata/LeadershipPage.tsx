@@ -89,9 +89,9 @@ const LeadershipPage: React.FC = () => {
                         <img src={leader.image} alt={leader.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300"></div>
                         <div className="absolute bottom-0 left-0 w-full p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                             <a href="#" className="inline-flex items-center text-white hover:text-yellow-400 transition-colors">
+                             <button onClick={() => alert("LinkedIn profile is not available in this demo.")} className="inline-flex items-center text-white hover:text-yellow-400 transition-colors">
                                 <Linkedin className="mr-2" size={20} /> Connect on LinkedIn
-                             </a>
+                             </button>
                         </div>
                     </div>
                     <div className="p-6 border-t border-slate-100">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const OFFERINGS = [
   {
@@ -7,14 +8,14 @@ const OFFERINGS = [
     title: "Software development",
     description: "A software development company with 36 years of business excellence, we can engineer reliable, scalable and secure software solutions for any OS, browser and device. We bring together deep industry expertise and the latest IT advancements to deliver custom solutions and products that perfectly fit the needs and behavior of their users.",
     links: [
-      "Software consulting",
-      "Custom software development",
-      "Software development outsourcing",
-      "Software product development",
-      "Team augmentation",
-      "Cloud application development",
-      "Legacy software modernization",
-      "Post-launch support"
+      { name: "Software consulting", href: "/services/software-consulting" },
+      { name: "Custom software development", href: "/services/software-development" },
+      { name: "Software development outsourcing", href: "/services/it-outsourcing" },
+      { name: "Software product development", href: "/services/software-development" },
+      { name: "Team augmentation", href: "/services/it-outsourcing" },
+      { name: "Cloud application development", href: "/services/infrastructure-services" },
+      { name: "Legacy software modernization", href: "/services/software-modernization" },
+      { name: "Post-launch support", href: "/services/it-support" }
     ]
   },
   {
@@ -22,12 +23,12 @@ const OFFERINGS = [
     title: "IT consulting",
     description: "Our IT consulting experts provide strategic guidance to help you navigate the complex technology landscape. We assess your current infrastructure, identify opportunities for improvement, and design roadmaps that align technology with your business goals.",
     links: [
-      "Digital Transformation Strategy",
-      "IT Infrastructure Assessment",
-      "Technology Roadmap Design",
-      "IT Security Consulting",
-      "Cloud Migration Strategy",
-      "Enterprise Architecture"
+      { name: "Digital Transformation Strategy", href: "/services/digital-transformation" },
+      { name: "IT Infrastructure Assessment", href: "/services/infrastructure-services" },
+      { name: "Technology Roadmap Design", href: "/services/it-consulting" },
+      { name: "IT Security Consulting", href: "/services/cybersecurity" },
+      { name: "Cloud Migration Strategy", href: "/services/infrastructure-services" },
+      { name: "Enterprise Architecture", href: "/services/it-consulting" }
     ]
   },
   {
@@ -35,12 +36,12 @@ const OFFERINGS = [
     title: "Application services",
     description: "We offer comprehensive application services including management, modernization, and integration. Our team ensures your business applications are high-performing, secure, and adaptable to changing market demands.",
     links: [
-      "Application Management",
-      "Application Modernization",
-      "Application Integration",
-      "Application Security",
-      "API Management",
-      "Microservices Architecture"
+      { name: "Application Management", href: "/services/application-maintenance" },
+      { name: "Application Modernization", href: "/services/software-modernization" },
+      { name: "Application Integration", href: "/services/api-development" },
+      { name: "Application Security", href: "/services/cybersecurity" },
+      { name: "API Management", href: "/services/api-development" },
+      { name: "Microservices Architecture", href: "/services/software-development" }
     ]
   },
   {
@@ -48,12 +49,12 @@ const OFFERINGS = [
     title: "Testing & QA",
     description: "Ensure flawless performance with our rigorous Testing & QA services. We use automated and manual testing methodologies to detect bugs early, improve user experience, and accelerate time-to-market.",
     links: [
-      "Test Automation",
-      "Performance Testing",
-      "Security Testing",
-      "Mobile App Testing",
-      "Usability Testing",
-      "QA Consulting"
+      { name: "Test Automation", href: "/services/testing-and-qa" },
+      { name: "Performance Testing", href: "/services/testing-and-qa" },
+      { name: "Security Testing", href: "/services/security-testing" },
+      { name: "Mobile App Testing", href: "/services/testing-and-qa" },
+      { name: "Usability Testing", href: "/services/testing-and-qa" },
+      { name: "QA Consulting", href: "/services/testing-and-qa" }
     ]
   },
   {
@@ -61,12 +62,12 @@ const OFFERINGS = [
     title: "Data analytics",
     description: "Unlock the power of your data with our advanced analytics solutions. We help you collect, process, and visualize data to gain actionable insights that drive smarter business decisions.",
     links: [
-      "Business Intelligence",
-      "Data Warehousing",
-      "Big Data Analytics",
-      "Predictive Analytics",
-      "Data Visualization",
-      "Data Governance"
+      { name: "Business Intelligence", href: "/services/business-intelligence" },
+      { name: "Data Warehousing", href: "/services/data-warehousing" },
+      { name: "Big Data Analytics", href: "/services/data-analytics" },
+      { name: "Predictive Analytics", href: "/services/data-science" },
+      { name: "Data Visualization", href: "/services/data-analytics" },
+      { name: "Data Governance", href: "/services/data-analytics" }
     ]
   },
   {
@@ -74,12 +75,12 @@ const OFFERINGS = [
     title: "Help desk services",
     description: "Provide exceptional support to your users with our 24/7 help desk services. We resolve technical issues quickly, ensuring minimal downtime and high employee productivity.",
     links: [
-      "L1/L2/L3 Support",
-      "Incident Management",
-      "Service Desk Automation",
-      "Remote Support",
-      "On-site Support",
-      "Knowledge Base Management"
+      { name: "L1/L2/L3 Support", href: "/services/it-help-desk" },
+      { name: "Incident Management", href: "/services/it-help-desk" },
+      { name: "Service Desk Automation", href: "/services/it-help-desk" },
+      { name: "Remote Support", href: "/services/it-help-desk" },
+      { name: "On-site Support", href: "/services/it-support" },
+      { name: "Knowledge Base Management", href: "/services/it-help-desk" }
     ]
   },
   {
@@ -87,12 +88,12 @@ const OFFERINGS = [
     title: "Infrastructure services",
     description: "Build a resilient and scalable IT foundation with our infrastructure services. From data center management to cloud operations, we ensure your systems are always up and running.",
     links: [
-      "Cloud Infrastructure",
-      "Network Management",
-      "Server Management",
-      "Virtualization",
-      "Disaster Recovery",
-      "DevOps Implementation"
+      { name: "Cloud Infrastructure", href: "/services/infrastructure-services" },
+      { name: "Network Management", href: "/services/infrastructure-services" },
+      { name: "Server Management", href: "/services/infrastructure-services" },
+      { name: "Virtualization", href: "/services/infrastructure-services" },
+      { name: "Disaster Recovery", href: "/services/infrastructure-services" },
+      { name: "DevOps Implementation", href: "/services/devops-consulting" }
     ]
   },
   {
@@ -100,12 +101,12 @@ const OFFERINGS = [
     title: "Cybersecurity services",
     description: "Protect your digital assets with our robust cybersecurity services. We implement multi-layered security measures to defend against evolving threats and ensure compliance with industry standards.",
     links: [
-      "Threat Detection & Response",
-      "Vulnerability Assessment",
-      "Identity & Access Management",
-      "Compliance Management",
-      "Security Audits",
-      "Penetration Testing"
+      { name: "Threat Detection & Response", href: "/services/cybersecurity" },
+      { name: "Vulnerability Assessment", href: "/services/cybersecurity" },
+      { name: "Identity & Access Management", href: "/services/cybersecurity" },
+      { name: "Compliance Management", href: "/services/compliance-services" },
+      { name: "Security Audits", href: "/services/cybersecurity" },
+      { name: "Penetration Testing", href: "/services/penetration-testing" }
     ]
   }
 ];
@@ -164,25 +165,25 @@ const Offerings: React.FC = () => {
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 mb-12">
-                  {activeOffering.links.map((link, index) => (
-                    <a 
+                  {activeOffering.links.map((link: any, index: number) => (
+                    <Link 
                       key={index}
-                      href="#"
+                      to={link.href}
                       className="flex items-start group/link p-2 -ml-2 rounded-lg hover:bg-slate-50 transition-colors"
                     >
                       <div className="mt-1.5 w-1.5 h-1.5 bg-blue-500 rounded-sm mr-3 group-hover/link:bg-yellow-400 transition-colors" />
                       <span className="text-slate-700 font-medium group-hover/link:text-blue-600 underline decoration-slate-300 underline-offset-4 decoration-1 group-hover/link:decoration-blue-300 transition-all">
-                        {link}
+                        {link.name}
                       </span>
-                    </a>
+                    </Link>
                   ))}
                 </div>
 
                 <div className="flex justify-end">
-                  <button className="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
+                  <Link to="/services" className="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
                     Check details 
                     <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                  </button>
+                  </Link>
                 </div>
              </div>
           </div>

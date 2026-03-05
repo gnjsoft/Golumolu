@@ -156,9 +156,9 @@ const Footer: React.FC = () => {
           
           <div className="flex flex-wrap justify-center gap-6">
             {['User Policy', 'Terms & Conditions', 'Product Policy', 'Refund Policy', 'Guidelines'].map((link) => (
-              <a key={link} href="#" className="hover:text-yellow-400 transition-colors">
+              <Link key={link} to="/" className="hover:text-yellow-400 transition-colors">
                 {link}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

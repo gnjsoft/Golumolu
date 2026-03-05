@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { BrowserRouter, useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import HomePage from './components/pages/HomePage';
 import Contact from './components/pages/Contact';
@@ -204,6 +204,15 @@ import HiringPage from './components/megamenu/aboutdata/HiringPage';
 
 const AppContent: React.FC = () => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Handle legacy hash-based routing by redirecting to clean paths
+    if (window.location.hash.startsWith('#/')) {
+      const path = window.location.hash.substring(2);
+      navigate(`/${path}`, { replace: true });
+    }
+  }, [navigate]);
 
   // Route matching logic
   let component = <HomePage />;
