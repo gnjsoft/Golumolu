@@ -336,6 +336,13 @@ const AppContent: React.FC = () => {
     case '/industries/real-estate': component = <RealEstatePage />; break;
     case '/industries/construction': component = <ConstructionPage />; break;
     case '/industries/travel': component = <TravelPage />; break;
+    case '/industries/education': component = <ComingSoonPage />; break;
+    case '/industries/government': component = <ComingSoonPage />; break;
+    case '/industries/media': component = <ComingSoonPage />; break;
+    case '/industries/agriculture': component = <ComingSoonPage />; break;
+    case '/industries/legal': component = <ComingSoonPage />; break;
+    case '/industries/non-profit': component = <ComingSoonPage />; break;
+    case '/industries/automotive': component = <ComingSoonPage />; break;
 
     // Solutions - Operations
     case '/solutions/erp': component = <ErpPage />; break;

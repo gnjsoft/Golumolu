@@ -1,16 +1,27 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import { 
+  onAuthStateChanged, 
+  signInWithEmailAndPassword, 
+  createUserWithEmailAndPassword, 
+  signOut,
+  updateProfile,
+  User as FirebaseUser
+} from 'firebase/auth';
+import { auth } from '../firebase';
 
 interface User {
-  email: string;
-  name: string;
+  email: string | null;
+  name: string | null;
+  uid: string;
 }
 
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
-  login: (email: string, name: string) => void;
-  logout: () => void;
-  signup: (email: string, name: string) => void;
+  loading: boolean;
+  login: (email: string, password: string) => Promise<void>;
+  logout: () => Promise<void>;
+  signup: (email: string, password: string, name: string) => Promise<void>;
   loginWithGoogle: () => void;
   loginWithFacebook: () => void;
 }
@@ -19,54 +30,68 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check local storage for persisted session on mount
-    const storedUser = localStorage.getItem('gnj_user');
-    if (storedUser) {
-      try {
-        setUser(JSON.parse(storedUser));
-      } catch (e) {
-        console.error("Failed to parse user from local storage");
-        localStorage.removeItem('gnj_user');
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if (firebaseUser) {
+        setUser({
+          email: firebaseUser.email,
+          name: firebaseUser.displayName,
+          uid: firebaseUser.uid
+        });
+      } else {
+        setUser(null);
       }
-    }
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  const login = (email: string, name: string) => {
-    // Mock login logic
-    const newUser = { email, name };
-    setUser(newUser);
-    localStorage.setItem('gnj_user', JSON.stringify(newUser));
+  const login = async (email: string, password: string) => {
+    await signInWithEmailAndPassword(auth, email, password);
   };
 
-  const signup = (email: string, name: string) => {
-    // Mock signup logic (same as login for this demo)
-    login(email, name);
+  const signup = async (email: string, password: string, name: string) => {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(userCredential.user, {
+      displayName: name
+    });
+    // Update local state immediately after profile update
+    setUser({
+      email: userCredential.user.email,
+      name: name,
+      uid: userCredential.user.uid
+    });
   };
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('gnj_user');
+  const logout = async () => {
+    await signOut(auth);
   };
 
   const loginWithGoogle = () => {
-    // Mock Google Login
-    const newUser = { email: 'google.user@example.com', name: 'Google User' };
-    setUser(newUser);
-    localStorage.setItem('gnj_user', JSON.stringify(newUser));
+    // Mock Google Login - User can implement real Google Auth later if needed
+    console.log("Google login clicked");
   };
 
   const loginWithFacebook = () => {
     // Mock Facebook Login
-    const newUser = { email: 'facebook.user@example.com', name: 'Facebook User' };
-    setUser(newUser);
-    localStorage.setItem('gnj_user', JSON.stringify(newUser));
+    console.log("Facebook login clicked");
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated: !!user, login, logout, signup, loginWithGoogle, loginWithFacebook }}>
-      {children}
+    <AuthContext.Provider value={{ 
+      user, 
+      isAuthenticated: !!user, 
+      loading,
+      login, 
+      logout, 
+      signup, 
+      loginWithGoogle, 
+      loginWithFacebook 
+    }}>
+      {!loading && children}
     </AuthContext.Provider>
   );
 };

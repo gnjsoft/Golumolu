@@ -14,21 +14,19 @@ const LoginPage: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate network request
-    setTimeout(() => {
-        // Extract name from email for mock purposes
-        const name = email.split('@')[0];
-        // Capitalize first letter
-        const formattedName = name.charAt(0).toUpperCase() + name.slice(1);
-        
-        login(email, formattedName);
+    try {
+        await login(email, password);
         setIsLoading(false);
         navigate('/');
-    }, 1000);
+    } catch (error: any) {
+        console.error("Login error:", error);
+        alert(error.message || "Failed to sign in. Please check your credentials.");
+        setIsLoading(false);
+    }
   };
 
   const handleSocialLogin = (provider: 'google' | 'facebook') => {

@@ -234,7 +234,7 @@ const Navbar: React.FC = () => {
             {isAuthenticated ? (
               <div className="flex items-center gap-3 pl-2">
                 <div className="text-right">
-                  <div className="text-xs font-bold text-slate-900">{user?.name}</div>
+                  <div className="text-xs font-bold text-slate-900">{user?.name || user?.email?.split('@')[0]}</div>
                   <div className="text-[10px] text-slate-500">Member</div>
                 </div>
                 <button
@@ -473,10 +473,10 @@ const Navbar: React.FC = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
-                    {user?.name.charAt(0)}
+                    {(user?.name || user?.email || '?').charAt(0).toUpperCase()}
                   </div>
                   <div>
-                    <div className="font-bold text-slate-900">{user?.name}</div>
+                    <div className="font-bold text-slate-900">{user?.name || user?.email?.split('@')[0]}</div>
                     <div className="text-xs text-slate-500">{user?.email}</div>
                   </div>
                 </div>

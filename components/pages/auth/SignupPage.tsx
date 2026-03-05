@@ -15,16 +15,19 @@ const SignupPage: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate network request
-    setTimeout(() => {
-        signup(email, name);
+    try {
+        await signup(email, password, name);
         setIsLoading(false);
         navigate('/');
-    }, 1500);
+    } catch (error: any) {
+        console.error("Signup error:", error);
+        alert(error.message || "Failed to create account. Please try again.");
+        setIsLoading(false);
+    }
   };
 
   const handleSocialLogin = (provider: 'google' | 'facebook') => {
