@@ -42,7 +42,7 @@ const AboutPage: React.FC = () => {
             Empowering Innovation
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            Bridging the gap between complex technology and business goals since 1998.
+            Bridging the gap between complex technology and business goals since 2020.
           </p>
         </div>
       </div>
@@ -74,10 +74,10 @@ const AboutPage: React.FC = () => {
         <ScrollReveal delay={200}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-32 bg-slate-50 p-12 rounded-3xl">
                 {[
-                    { label: "Years Experience", value: "25+" },
+                    { label: "Years Experience", value: "6+" },
                     { label: "Projects Delivered", value: "350+" },
                     { label: "Global Offices", value: "3" },
-                    { label: "Team Members", value: "100+" }
+                    { label: "Team Members", value: "10+" }
                 ].map((stat, i) => (
                     <div key={i} className="text-center">
                         <div className="text-4xl font-bold text-blue-600 mb-2">{stat.value}</div>

@@ -17,11 +17,8 @@ const MissionPage: React.FC = () => {
   ];
 
   const milestones = [
-    { year: "1998", title: "Inception", desc: "GnJ Worldwide was founded in Mumbai with a small team of 5 visionaries." },
-    { year: "2005", title: "Global Expansion", desc: "Opened our first international office in Singapore to serve the APAC region." },
-    { year: "2012", title: "Enterprise Shift", desc: "Shifted focus to large-scale enterprise ERP and Cloud solutions." },
-    { year: "2018", title: "European Hub", desc: "Established our Germany office to better support European clients." },
-    { year: "2023", title: "AI Integration", desc: "Launched our dedicated AI & Machine Learning division." }
+    { year: "2025", title: "Inception", desc: "GnJ Worldwide was founded in Mumbai with a vision to redefine digital transformation." },
+    { year: "2026", title: "Global Reach", desc: "Expanded operations to serve clients across three continents in our first year." }
   ];
 
   return (

@@ -47,15 +47,15 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-bold mb-6 text-white border-b border-blue-800 pb-2 inline-block">Services</h3>
             <ul className="space-y-3">
               {[
-                'Cyber Security', 
-                'IT Support', 
-                'IT Infrastructure', 
-                'Refurbished, Rental Solutions', 
-                'Helpdesk Solutions'
+                { name: 'Cyber Security', href: '/services/cybersecurity' },
+                { name: 'IT Support', href: '/services/it-support' },
+                { name: 'IT Infrastructure', href: '/services/infrastructure-services' },
+                { name: 'Refurbished, Rental Solutions', href: '/hardware' },
+                { name: 'Helpdesk Solutions', href: '/services/it-help-desk' }
               ].map((item) => (
-                <li key={item}>
-                  <Link to="/services" className="text-slate-300 hover:text-yellow-400 transition-colors text-sm">
-                    {item}
+                <li key={item.name}>
+                  <Link to={item.href} className="text-slate-300 hover:text-yellow-400 transition-colors text-sm">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
                 'Augmentation'
               ].map((item) => (
                 <li key={item}>
-                  <Link to="/about" className="text-slate-300 hover:text-yellow-400 transition-colors text-sm">
+                  <Link to="/" className="text-slate-300 hover:text-yellow-400 transition-colors text-sm">
                     {item}
                   </Link>
                 </li>
