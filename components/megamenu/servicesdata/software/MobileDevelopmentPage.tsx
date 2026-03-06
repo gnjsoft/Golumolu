@@ -25,8 +25,10 @@ const MobileDevelopmentPage: React.FC = () => {
                         Apps that <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Inspire & Engage.</span>
                     </h1>
-                    <p className="text-xl text-slate-400 mb-10 max-w-lg mx-auto lg:mx-0">
-                        We design and develop premium iOS and Android applications that deliver seamless user experiences and drive retention.
+                    <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        We design and develop premium iOS and Android applications that deliver seamless user experiences and drive retention. 
+                        <br /><br />
+                        <strong>Empower Your Business with Innovative Mobile Solutions.</strong> At GNJ Worldwide, we specialize in crafting powerful, user-centric mobile applications that drive growth, engagement, and digital transformation. Whether you're a startup with a groundbreaking idea or an established business looking to expand your mobile presence, our team of expert developers and designers is here to bring your vision to life.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <button className="flex items-center justify-center gap-3 bg-white text-black px-6 py-3 rounded-xl font-bold hover:bg-slate-200 transition-colors">

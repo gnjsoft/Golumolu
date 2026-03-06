@@ -18,7 +18,7 @@ const DesktopDevelopmentPage: React.FC = () => {
                         <span className="text-blue-600">Desktop.</span>
                     </h1>
                     <p className="text-xl text-slate-500 mb-10 leading-relaxed">
-                        Unleash the full potential of hardware. We build robust, offline-first desktop applications for enterprise workflows.
+                       In an increasingly web-centric world, robust desktop applications continue to offer unparalleled performance, security, and user experience for businesses and individuals alike. These powerful software solutions provide dedicated functionality, often operating offline, integrating seamlessly with system hardware, and handling complex computational tasks with superior efficiency compared to browser-based alternatives. From specialized industry tools and enterprise resource planning systems to creative suites and high-demand data processing applications, custom desktop development delivers the precision and speed essential for mission-critical operations. For organizations seeking tailored solutions that maximize productivity and leverage system capabilities to their fullest, investing in expertly crafted desktop software is an enduring strategic advantage.
                     </p>
                     
                     <div className="flex gap-4">

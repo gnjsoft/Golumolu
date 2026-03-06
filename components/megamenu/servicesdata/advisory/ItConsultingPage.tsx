@@ -87,6 +87,60 @@ const ItConsultingPage: React.FC = () => {
              ))}
           </div>
         </div>
+
+        {/* Why Choose GNJ Worldwide for IT Support? Section */}
+        <div className={`mt-32 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why Choose GNJ Worldwide for IT Support?</h2>
+            <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
+            <p className="mt-6 text-lg text-slate-600 max-w-3xl mx-auto">
+              We go beyond basic troubleshooting. Our IT support services are designed to be proactive, strategic, and fully aligned with your business objectives.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Proactive Problem Solving",
+                desc: "We don't just fix issues; we anticipate them. Our monitoring systems detect potential problems before they impact your operations.",
+                icon: Lightbulb
+              },
+              {
+                title: "Deep Industry Expertise",
+                desc: "With decades of experience across various sectors, we understand the unique technological challenges and compliance requirements of your industry.",
+                icon: Briefcase
+              },
+              {
+                title: "Scalable Solutions",
+                desc: "Our support models grow with you. Whether you're expanding locally or globally, our IT infrastructure adapts to your changing needs seamlessly.",
+                icon: TrendingUp
+              },
+              {
+                title: "24/7 Dedicated Support",
+                desc: "Technology doesn't sleep, and neither do we. Our expert team is available around the clock to ensure your systems remain operational.",
+                icon: Target
+              },
+              {
+                title: "Strategic Alignment",
+                desc: "We ensure every IT decision supports your broader business goals, turning technology from a cost center into a strategic asset.",
+                icon: CheckCircle
+              },
+              {
+                title: "Vendor-Agnostic Approach",
+                desc: "We recommend the best solutions for your specific needs, not just the ones we partner with, ensuring unbiased and optimal technology choices.",
+                icon: Lightbulb
+              }
+            ].map((feature, idx) => (
+              <div key={idx} className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-xl hover:border-blue-100 transition-all duration-300 group">
+                <div className="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                  <feature.icon size={28} />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

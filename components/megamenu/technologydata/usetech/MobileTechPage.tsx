@@ -10,8 +10,10 @@ const MobileTechPage: React.FC = () => {
       <div className="bg-slate-900 text-white py-24 px-4 text-center">
           <Smartphone size={64} className="mx-auto text-blue-500 mb-6" />
           <h1 className="text-5xl md:text-7xl font-bold mb-6">Mobile Technologies</h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-10">
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed">
               Swift for iOS. Kotlin for Android. Flutter for everything. We master the stack to put your business in customers' pockets.
+              <br /><br />
+              <strong>Empower Your Business with Innovative Mobile Solutions.</strong> At GNJ Worldwide, we specialize in crafting powerful, user-centric mobile applications that drive growth, engagement, and digital transformation. Whether you're a startup with a groundbreaking idea or an established business looking to expand your mobile presence, our team of expert developers and designers is here to bring your vision to life.
           </p>
       </div>
 
