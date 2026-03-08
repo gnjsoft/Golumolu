@@ -4,9 +4,9 @@ import { ArrowRight, Code, Cpu, Server, ShieldCheck, Award, Globe } from 'lucide
 const SLIDES = [
   {
     id: 1,
-    title: "Expert Software Consulting",
+    title: "Empowering Your Digital Future",
     subtitle: "Partner with industry veterans to architect scalable software solutions. We guide your digital transformation with precision-engineered code and strategic development planning.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=2070",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=2070",
     bgColor: "bg-blue-50",
     pillColor: "bg-blue-100 text-blue-700",
     buttonColor: "bg-blue-600 hover:bg-blue-700",
@@ -116,7 +116,9 @@ const Hero: React.FC = () => {
 
           {/* Image Content */}
           <div className="order-1 lg:order-2 relative h-[400px] lg:h-[600px] flex items-center justify-center">
-            {SLIDES.map((s, index) => (
+            {SLIDES.map((s, index) => {
+              const SlideIcon = s.icon;
+              return (
               <div 
                 key={s.id}
                 className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-out transform ${
@@ -134,9 +136,22 @@ const Hero: React.FC = () => {
                      alt={s.title}
                      className="w-full h-full object-cover rounded-[2rem]"
                    />
+                   
+                   {/* Floating Badge */}
+                   {index === currentSlide && (
+                     <div className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/50 flex items-center gap-4 animate-bounce-slow z-20">
+                       <div className={`w-12 h-12 rounded-full flex items-center justify-center ${s.pillColor}`}>
+                         <SlideIcon size={24} />
+                       </div>
+                       <div>
+                         <div className="text-sm font-bold text-slate-900">Innovative Solutions</div>
+                         <div className="text-xs text-slate-500">Tailored for your business</div>
+                       </div>
+                     </div>
+                   )}
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
 
