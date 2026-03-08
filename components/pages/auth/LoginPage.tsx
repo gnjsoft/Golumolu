@@ -29,14 +29,21 @@ const LoginPage: React.FC = () => {
     }
   };
 
-  const handleSocialLogin = (provider: 'google' | 'facebook') => {
+  const handleSocialLogin = async (provider: 'google' | 'facebook') => {
       setIsLoading(true);
-      setTimeout(() => {
-          if (provider === 'google') loginWithGoogle();
-          else loginWithFacebook();
-          setIsLoading(false);
+      try {
+          if (provider === 'google') {
+              await loginWithGoogle();
+          } else {
+              await loginWithFacebook();
+          }
           navigate('/');
-      }, 800);
+      } catch (error: any) {
+          console.error("Social login error:", error);
+          alert(error.message || "Login failed. Please try again.");
+      } finally {
+          setIsLoading(false);
+      }
   };
 
   return (

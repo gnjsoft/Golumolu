@@ -5,6 +5,9 @@ import {
   createUserWithEmailAndPassword, 
   signOut,
   updateProfile,
+  signInWithPopup,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
   User as FirebaseUser
 } from 'firebase/auth';
 import { auth } from '../firebase';
@@ -22,8 +25,8 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   signup: (email: string, password: string, name: string) => Promise<void>;
-  loginWithGoogle: () => void;
-  loginWithFacebook: () => void;
+  loginWithGoogle: () => Promise<void>;
+  loginWithFacebook: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -70,14 +73,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     await signOut(auth);
   };
 
-  const loginWithGoogle = () => {
-    // Mock Google Login - User can implement real Google Auth later if needed
-    console.log("Google login clicked");
+  const loginWithGoogle = async () => {
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider);
   };
 
-  const loginWithFacebook = () => {
-    // Mock Facebook Login
-    console.log("Facebook login clicked");
+  const loginWithFacebook = async () => {
+    const provider = new FacebookAuthProvider();
+    await signInWithPopup(auth, provider);
   };
 
   return (
