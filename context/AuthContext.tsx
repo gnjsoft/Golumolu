@@ -7,7 +7,6 @@ import {
   updateProfile,
   signInWithPopup,
   GoogleAuthProvider,
-  FacebookAuthProvider,
   User as FirebaseUser
 } from 'firebase/auth';
 import { auth } from '../firebase';
@@ -26,7 +25,6 @@ interface AuthContextType {
   logout: () => Promise<void>;
   signup: (email: string, password: string, name: string) => Promise<void>;
   loginWithGoogle: () => Promise<void>;
-  loginWithFacebook: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -78,11 +76,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     await signInWithPopup(auth, provider);
   };
 
-  const loginWithFacebook = async () => {
-    const provider = new FacebookAuthProvider();
-    await signInWithPopup(auth, provider);
-  };
-
   return (
     <AuthContext.Provider value={{ 
       user, 
@@ -91,8 +84,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       login, 
       logout, 
       signup, 
-      loginWithGoogle, 
-      loginWithFacebook 
+      loginWithGoogle
     }}>
       {!loading && children}
     </AuthContext.Provider>

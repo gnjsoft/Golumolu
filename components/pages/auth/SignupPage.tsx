@@ -8,7 +8,7 @@ const SignupPage: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const { signup, loginWithGoogle, loginWithFacebook } = useAuth();
+    const { signup, loginWithGoogle } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -30,13 +30,11 @@ const SignupPage: React.FC = () => {
         }
     };
 
-    const handleSocialLogin = async (provider: 'google' | 'facebook') => {
+    const handleSocialLogin = async (provider: 'google') => {
         setIsLoading(true);
         try {
             if (provider === 'google') {
                 await loginWithGoogle(); // Wait for Google to respond
-            } else {
-                await loginWithFacebook(); // Wait for Facebook to respond
             }
             // Success hone par hi navigate karein
             navigate('/');
@@ -58,11 +56,11 @@ const SignupPage: React.FC = () => {
                     <p className="text-slate-500">Join GnJ Worldwide to get started</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="mb-6">
                     <button
                         onClick={() => handleSocialLogin('google')}
                         type="button"
-                        className="flex items-center justify-center gap-2 py-2.5 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors"
+                        className="w-full flex items-center justify-center gap-2 py-2.5 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors"
                     >
                         <svg className="w-5 h-5" viewBox="0 0 24 24">
                             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -70,17 +68,7 @@ const SignupPage: React.FC = () => {
                             <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.26.81-.58z" fill="#FBBC05" />
                             <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
                         </svg>
-                        <span className="text-sm font-semibold text-slate-600">Google</span>
-                    </button>
-                    <button
-                        onClick={() => handleSocialLogin('facebook')}
-                        type="button"
-                        className="flex items-center justify-center gap-2 py-2.5 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors"
-                    >
-                        <svg className="w-5 h-5 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036c-2.148 0-2.971.956-2.971 3.594v.376h3.428l-.532 3.667h-2.896v7.98c5.708-.757 10.112-5.636 10.112-11.517 0-6.425-5.209-11.634-11.634-11.634C5.209.243 0 5.452 0 11.877c0 5.881 4.404 10.76 10.112 11.517 0 0-1.011.297-1.011.297z" />
-                        </svg>
-                        <span className="text-sm font-semibold text-slate-600">Facebook</span>
+                        <span className="text-sm font-semibold text-slate-600">Continue with Google</span>
                     </button>
                 </div>
 
