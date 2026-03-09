@@ -3,7 +3,7 @@ import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCsK5ZuTia9d1UQ54qq4pJDxMfXU-DQ-J4",
-  authDomain: "gnj-worldwide.firebaseapp.com",
+  authDomain: "globalnextgen.in",
   projectId: "gnj-worldwide",
   storageBucket: "gnj-worldwide.firebasestorage.app",
   messagingSenderId: "833871275881",
