@@ -30,17 +30,23 @@ const SignupPage: React.FC = () => {
         }
     };
 
-    const handleSocialLogin = async (provider: 'google') => {
+    const handleSocialLogin = async () => {
         setIsLoading(true);
         try {
-            if (provider === 'google') {
-                await loginWithGoogle(); // Wait for Google to respond
-            }
-            // Success hone par hi navigate karein
+            // Sirf Google login call hoga
+            await loginWithGoogle();
+
+            // Success hone par hi redirect hoga
             navigate('/');
-        } catch (error) {
+        } catch (error: any) {
             console.error("Social login error:", error);
-            alert("Login failed. Please try again.");
+
+            // User ko error dikhane ke liye
+            if (error.code === 'auth/popup-closed-by-user') {
+                alert("Login window was closed. Please try again.");
+            } else {
+                alert(error.message || "Google login failed.");
+            }
         } finally {
             setIsLoading(false);
         }
@@ -58,7 +64,7 @@ const SignupPage: React.FC = () => {
 
                 <div className="mb-6">
                     <button
-                        onClick={() => handleSocialLogin('google')}
+                        onClick={() => handleSocialLogin()}
                         type="button"
                         className="w-full flex items-center justify-center gap-2 py-2.5 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors"
                     >

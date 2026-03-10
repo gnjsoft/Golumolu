@@ -72,8 +72,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const loginWithGoogle = async () => {
-    const provider = new GoogleAuthProvider();
-    await signInWithPopup(auth, provider);
+    try {
+      const provider = new GoogleAuthProvider();
+      // Force account selection to make it clearer for the user
+      provider.setCustomParameters({
+        prompt: 'select_account'
+      });
+      await signInWithPopup(auth, provider);
+    } catch (error: any) {
+      console.error("Google Auth Error:", error.code, error.message);
+      throw error;
+    }
   };
 
   return (

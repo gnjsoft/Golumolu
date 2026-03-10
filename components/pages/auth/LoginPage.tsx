@@ -63,7 +63,7 @@ const LoginPage: React.FC = () => {
 
                 <div className="mb-6">
                     <button
-                        onClick={() => handleSocialLogin('google')}
+                        onClick={() => handleSocialLogin()}
                         type="button"
                         className="w-full flex items-center justify-center gap-2 py-2.5 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors"
                     >
