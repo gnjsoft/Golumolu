@@ -43,7 +43,7 @@ const Contact: React.FC = () => {
         setIsSubmitting(true);
 
         // YAHAN APNA ZOHO FLOW WEBHOOK URL DALEIN
-        const ZOHO_WEBHOOK_URL = "APKA_ZOHO_FLOW_URL_HERE";
+        const ZOHO_WEBHOOK_URL = "https://flow.zoho.in/60066916827/flow/webhook/incoming?zapikey=1001.b001194ee9a2b9a60877ad72907e7353.3d496912d67777489c8c4336424abb14&isdebug=false";
 
         const payload = {
             ...formData,
@@ -342,8 +342,7 @@ const Contact: React.FC = () => {
                     </div>
 
                     {/* Right Side - Sidebar (No changes needed here) */}
-                    <div className="w-full lg:w-80 bg-blue-50/50 p-8 lg:p-10 flex flex-col gap-8 border-l border-slate-50">
-                        {/* ... existing sidebar content ... */}
+                    <div className="w-full lg:w-80 bg-blue-50/50 p-8 lg:p-10 flex flex-col gap-10 border-l border-slate-50">
                         <div>
                             <h3 className="font-semibold text-slate-900 mb-5">Get in touch instantly</h3>
                             <ul className="space-y-4">
@@ -372,6 +371,47 @@ const Contact: React.FC = () => {
                                     </button>
                                 </li>
                             </ul>
+                        </div>
+
+                        <div className="space-y-8">
+                            <div className="flex gap-4">
+                                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                                    <MapPin size={20} className="text-blue-600" />
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-slate-900 text-sm">Visit Us</h4>
+                                    <p className="text-blue-600 text-sm mt-1 leading-relaxed">
+                                        10th Floor, BKC Complex, Awfis, East Bandra, Mumbai, 400051 Maharashtra, India
+                                    </p>
+                                    <p className="text-slate-500 text-xs mt-1">Come say hello at our office</p>
+                                </div>
+                            </div>
+
+                            <div className="flex gap-4">
+                                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                                    <MapPin size={20} className="text-blue-600" />
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-slate-900 text-sm">Register Address</h4>
+                                    <p className="text-blue-600 text-sm mt-1 leading-relaxed">
+                                        32/147, Ramanand Nagar, Near Ram Mandir, Jalgaon, 425002 Maharashtra, India
+                                    </p>
+                                    <p className="text-slate-500 text-xs mt-1">Our Register Address</p>
+                                </div>
+                            </div>
+
+                            <div className="flex gap-4">
+                                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center shrink-0">
+                                    <MapPin size={20} className="text-blue-600" />
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-slate-900 text-sm">Singapore Office</h4>
+                                    <p className="text-blue-600 text-sm mt-1 leading-relaxed">
+                                        Office no.: 36, 5 Temasek Boulevard, 17th Floor Singapore, Central Singapore 038985
+                                    </p>
+                                    <p className="text-slate-500 text-xs mt-1">Our Singapore Headquarters</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
