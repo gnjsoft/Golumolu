@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
     const [message, setMessage] = useState('');
     const [isListening, setIsListening] = useState(false);
     const [showChat, setShowChat] = useState(false);
-    
+
     // --- ZOHO CRM INTEGRATION START ---
     const [formData, setFormData] = useState({
         firstName: '',
@@ -161,11 +161,11 @@ const Contact: React.FC = () => {
     }, []);
     // --- ZOHO CRM INTEGRATION END ---
 
-    const [chatMessages, setChatMessages] = useState<{sender: 'bot' | 'user', text: string}[]>([
+    const [chatMessages, setChatMessages] = useState<{ sender: 'bot' | 'user', text: string }[]>([
         { sender: 'bot', text: 'Hello! How can we help you today?' }
     ]);
     const [chatInput, setChatInput] = useState('');
-    
+
     const fileInputRef = useRef<HTMLInputElement>(null);
     const recognitionRef = useRef<any>(null);
     const chatEndRef = useRef<HTMLDivElement>(null);
@@ -268,7 +268,7 @@ const Contact: React.FC = () => {
     const handleChatSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!chatInput.trim()) return;
-        
+
         setChatMessages(prev => [...prev, { sender: 'user', text: chatInput }]);
         setChatInput('');
 
@@ -306,11 +306,11 @@ const Contact: React.FC = () => {
                         </div>
 
                         {/* ZOHO CRM WEB-TO-LEAD FORM */}
-                        <form 
-                            id="webform1011574000000598028" 
-                            action="https://crm.zoho.in/crm/WebToLeadForm" 
-                            name="WebToLeads1011574000000598028" 
-                            method="POST" 
+                        <form
+                            id="webform1011574000000598028"
+                            action="https://crm.zoho.in/crm/WebToLeadForm"
+                            name="WebToLeads1011574000000598028"
+                            method="POST"
                             onSubmit={(e) => {
                                 // @ts-ignore
                                 if (window.checkMandatory1011574000000598028 && !window.checkMandatory1011574000000598028()) {
@@ -321,14 +321,14 @@ const Contact: React.FC = () => {
                             className="space-y-5"
                         >
                             {/* Zoho Hidden Fields */}
-                            <input type='text' style={{display:'none'}} name='xnQsjsdp' value='cf7bd36beb1c64f66a0e87f8b0a94e633b40afa27134038a564fb09208b3a7bc' readOnly />
+                            <input type='text' style={{ display: 'none' }} name='xnQsjsdp' value='cf7bd36beb1c64f66a0e87f8b0a94e633b40afa27134038a564fb09208b3a7bc' readOnly />
                             <input type='hidden' name='zc_gad' id='zc_gad' value='' readOnly />
-                            <input type='text' style={{display:'none'}} name='xmIwtLD' value='dd13540ab1764c72e3bc0858c8adca168b9dccac578da049ef1298fc2f17650162185b05bbc3582c153b1da91f5dbeee' readOnly />
-                            <input type='text' style={{display:'none'}} name='actionType' value='TGVhZHM=' readOnly />
-                            <input type='text' style={{display:'none'}} name='returnURL' value='null' readOnly />
-                            <input type='text' style={{display:'none'}} id='ldeskuid' name='ldeskuid' />
-                            <input type='text' style={{display:'none'}} id='LDTuvid' name='LDTuvid' />
-                            <input type='text' style={{display: 'none'}} name='aG9uZXlwb3Q' value='' readOnly />
+                            <input type='text' style={{ display: 'none' }} name='xmIwtLD' value='dd13540ab1764c72e3bc0858c8adca168b9dccac578da049ef1298fc2f17650162185b05bbc3582c153b1da91f5dbeee' readOnly />
+                            <input type='text' style={{ display: 'none' }} name='actionType' value='TGVhZHM=' readOnly />
+                            <input type='text' style={{ display: 'none' }} name='returnURL' value='null' readOnly />
+                            <input type='text' style={{ display: 'none' }} id='ldeskuid' name='ldeskuid' />
+                            <input type='text' style={{ display: 'none' }} id='LDTuvid' name='LDTuvid' />
+                            <input type='text' style={{ display: 'none' }} name='aG9uZXlwb3Q' value='' readOnly />
 
                             <div className="relative group">
                                 <textarea
@@ -343,8 +343,8 @@ const Contact: React.FC = () => {
                                     type="button"
                                     onClick={toggleListening}
                                     className={`absolute bottom-4 right-4 transition-all p-2 rounded-full ${isListening
-                                            ? 'bg-red-500 text-white animate-pulse shadow-md'
-                                            : 'text-blue-500 hover:text-blue-700 hover:bg-blue-50'
+                                        ? 'bg-red-500 text-white animate-pulse shadow-md'
+                                        : 'text-blue-500 hover:text-blue-700 hover:bg-blue-50'
                                         }`}
                                     title={isListening ? "Stop listening" : "Start dictation"}
                                 >
@@ -353,61 +353,61 @@ const Contact: React.FC = () => {
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <input 
+                                <input
                                     id="First_Name"
                                     name="First Name"
                                     value={formData.firstName}
                                     onChange={handleInputChange}
-                                    type="text" 
-                                    placeholder="First Name" 
-                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                    type="text"
+                                    placeholder="First Name"
+                                    required
+                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
                                 />
-                                <input 
+                                <input
                                     id="Last_Name"
                                     name="Last Name"
                                     value={formData.lastName}
                                     onChange={handleInputChange}
-                                    type="text" 
-                                    placeholder="Last Name *" 
+                                    type="text"
+                                    placeholder="Last Name *"
                                     required
-                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
                                 />
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <input 
+                                <input
                                     id="Company"
                                     name="Company"
                                     value={formData.company}
                                     onChange={handleInputChange}
-                                    type="text" 
-                                    placeholder="Company *" 
+                                    type="text"
+                                    placeholder="Company *"
                                     required
-                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
                                 />
-                                <input 
+                                <input
                                     id="Email"
                                     name="Email"
-                                    ftype="email"
+                                    type="email"
                                     value={formData.email}
                                     onChange={handleInputChange}
-                                    type="text" 
-                                    placeholder="Work email" 
-                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                    placeholder="Work email"
+                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
                                 />
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <input 
+                                <input
                                     id="Mobile"
                                     name="Mobile"
                                     value={formData.mobile}
                                     onChange={handleInputChange}
-                                    type="tel" 
-                                    placeholder="Mobile Number" 
-                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                    type="tel"
+                                    placeholder="Mobile Number"
+                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
                                 />
-                                <select 
+                                <select
                                     id="Industry"
                                     name="Industry"
                                     value={formData.industry}
@@ -443,61 +443,61 @@ const Contact: React.FC = () => {
                             {/* Address Fields - Grouped for cleaner look */}
                             <div className="space-y-4 pt-2 border-t border-slate-100 mt-4">
                                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Address Details (Optional)</p>
-                                <input 
+                                <input
                                     id="Street"
                                     name="Street"
                                     value={formData.street}
                                     onChange={handleInputChange}
-                                    type="text" 
-                                    placeholder="Street" 
-                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                    type="text"
+                                    placeholder="Street"
+                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
                                 />
                                 <div className="grid grid-cols-2 gap-4">
-                                    <input 
+                                    <input
                                         id="City"
                                         name="City"
                                         value={formData.city}
                                         onChange={handleInputChange}
-                                        type="text" 
-                                        placeholder="City" 
-                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                        type="text"
+                                        placeholder="City"
+                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
                                     />
-                                    <input 
+                                    <input
                                         id="State"
                                         name="State"
                                         value={formData.state}
                                         onChange={handleInputChange}
-                                        type="text" 
-                                        placeholder="State" 
-                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                        type="text"
+                                        placeholder="State"
+                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
                                     />
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
-                                    <input 
+                                    <input
                                         id="Zip_Code"
                                         name="Zip Code"
                                         value={formData.zipCode}
                                         onChange={handleInputChange}
-                                        type="text" 
-                                        placeholder="Zip Code" 
-                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                        type="text"
+                                        placeholder="Zip Code"
+                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
                                     />
-                                    <input 
+                                    <input
                                         id="Country"
                                         name="Country"
                                         value={formData.country}
                                         onChange={handleInputChange}
-                                        type="text" 
-                                        placeholder="Country" 
-                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                        type="text"
+                                        placeholder="Country"
+                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
                                     />
                                 </div>
                             </div>
 
                             <div className="flex justify-center pt-6">
-                                <button 
+                                <button
                                     id="formsubmit"
-                                    type="submit" 
+                                    type="submit"
                                     className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-3 px-16 rounded-lg transition-all shadow-md text-[15px]"
                                 >
                                     Submit
