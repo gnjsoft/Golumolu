@@ -24,57 +24,142 @@ const Contact: React.FC = () => {
     const [isListening, setIsListening] = useState(false);
     const [showChat, setShowChat] = useState(false);
     
-    // --- INTEGRATION STATE START ---
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    // --- ZOHO CRM INTEGRATION START ---
     const [formData, setFormData] = useState({
-        fullName: '',
+        firstName: '',
+        lastName: '',
         company: '',
         email: '',
-        phone: ''
+        mobile: '',
+        description: '',
+        industry: '-None-',
+        street: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        country: ''
     });
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
+        if (name === 'description') setMessage(value);
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
+    useEffect(() => {
+        // Zoho Validation Scripts
+        const script = document.createElement('script');
+        script.id = 'zoho-validation-script';
+        script.innerHTML = `
+            function addAriaSelected1011574000000598028(event){
+                var optionElem = event.target;
+                var previousSelectedOption = optionElem.querySelector('[aria-selected=true]');
+                if (previousSelectedOption) {
+                    previousSelectedOption.removeAttribute('aria-selected');
+                }
+                optionElem.querySelectorAll('option') [optionElem.selectedIndex] .ariaSelected = 'true';
+            }
+            function validateEmail1011574000000598028(){
+                var form = document.forms['WebToLeads1011574000000598028'];
+                var emailFld = form.querySelectorAll('[ftype=email]');
+                var i;
+                for(i = 0; i < emailFld.length; i++ ) {
+                    var emailVal = emailFld[i].value;
+                    if ((emailVal.replace (/^\\s+|\\s+$/g,'') ) .length != 0) {
+                        var atpos = emailVal.indexOf('@');
+                        var dotpos = emailVal.lastIndexOf('.');
+                        if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
+                            alert('Please enter a valid email address. ');
+                            emailFld[i].focus();
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            window.checkMandatory1011574000000598028 = function(){
+                var mndFileds = new Array('Company', 'Last Name');
+                var fldLangVal = new Array('Company', 'Last Name');
+                for (var i = 0; i < mndFileds.length; i++ ) {
+                    var fieldObj = document.forms['WebToLeads1011574000000598028'] [mndFileds[i]];
+                    if (fieldObj) {
+                        if(((fieldObj.value) .replace (/^\\s+|\\s+$/g,'') ) .length == 0) {
+                            alert(fldLangVal[i] + ' cannot be empty.');
+                            fieldObj.focus();
+                            return false;
+                        } else if (fieldObj.nodeName == 'SELECT') {
+                            if (fieldObj.options[fieldObj.selectedIndex].value == '-None-') {
+                                alert(fldLangVal[i] + ' cannot be none.');
+                                fieldObj.focus();
+                                return false;
+                            }
+                        }
+                    }
+                }
+                if (typeof window.trackVisitor1011574000000598028 === 'function') {
+                    window.trackVisitor1011574000000598028();
+                }
+                if ( !validateEmail1011574000000598028 () ) {
+                    return false;
+                }
+                return true;
+            }
+        `;
+        document.body.appendChild(script);
 
-        // YAHAN APNA ZOHO FLOW WEBHOOK URL DALEIN
-        // const ZOHO_WEBHOOK_URL = "https://flow.zoho.in/60066916827/flow/webhook/incoming?zapikey=1001.b001194ee9a2b9a60877ad72907e7353.3d496912d67777489c8c4336424abb14&isdebug=false";
+        // SalesIQ Script
+        const siqScript = document.createElement('script');
+        siqScript.id = 'zsiqscript-init';
+        siqScript.innerHTML = `
+            var $zoho = $zoho || {};
+            $zoho.salesiq = $zoho.salesiq || {
+                widgetcode: 'siqaeb47d767d02bb566cd02fa5cf99f918a407495334bcd820371d94a53a377b07',
+                values: {},
+                ready: function(){}
+            };
+            var d = document;
+            var s = d.createElement('script');
+            s.type = 'text/javascript';
+            s.id = 'zsiqscript';
+            s.defer = true;
+            s.src = 'https://salesiq.zoho.in/widget';
+            var t = d.getElementsByTagName('script')[0];
+            t.parentNode.insertBefore(s, t);
+            
+            window.trackVisitor1011574000000598028 = function(){
+                try{
+                    if ($zoho && $zoho.salesiq && $zoho.salesiq.visitor) {
+                        var LDTuvidObj = document.forms['WebToLeads1011574000000598028'] ['LDTuvid'];
+                        if (LDTuvidObj) {
+                            LDTuvidObj.value = $zoho.salesiq.visitor.uniqueid();
+                        }
+                        var name = "";
+                        var firstnameObj = document.forms['WebToLeads1011574000000598028'] ['First Name'];
+                        var lastnameObj = document.forms['WebToLeads1011574000000598028'] ['Last Name'];
+                        if (firstnameObj) name += firstnameObj.value + ' ';
+                        if (lastnameObj) name += lastnameObj.value;
+                        $zoho.salesiq.visitor.name(name.trim());
+                        
+                        var emailObj = document.forms['WebToLeads1011574000000598028'] ['Email'];
+                        if (emailObj) {
+                            $zoho.salesiq.visitor.email(emailObj.value);
+                        }
+                    }
+                } catch (e){}
+            }
+        `;
+        document.body.appendChild(siqScript);
 
-         const ZOHO_WEBHOOK_URL = "https://flow.zoho.in/60066916827/flow/webhook/incoming?zapikey=1001.cd0edcd89c8c4820cc889969c7753f2f.8bd2b1b17d84083d05f68ef1c5aa3aef&isdebug=true";
-
-        const payload = {
-            ...formData,
-            message: message,
-            submittedAt: new Date().toISOString(),
-            source: "Website Contact Form"
+        return () => {
+            const s1 = document.getElementById('zoho-validation-script');
+            const s2 = document.getElementById('zsiqscript-init');
+            const s3 = document.getElementById('zsiqscript');
+            if (s1) document.body.removeChild(s1);
+            if (s2) document.body.removeChild(s2);
+            if (s3) s3.remove();
         };
-
-        try {
-            const response = await fetch(ZOHO_WEBHOOK_URL, {
-                method: 'POST',
-                mode: 'no-cors', // Zoho Flow ke liye aksar zaroori hota hai
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-
-            alert("Message sent successfully to Mailchimp!");
-            // Form reset karein
-            setFormData({ fullName: '', company: '', email: '', phone: '' });
-            setMessage('');
-            setFiles([]);
-        } catch (error) {
-            console.error("Submission error:", error);
-            alert("Failed to send message. Please check your connection.");
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
-    // --- INTEGRATION STATE END ---
+    }, []);
+    // --- ZOHO CRM INTEGRATION END ---
 
     const [chatMessages, setChatMessages] = useState<{sender: 'bot' | 'user', text: string}[]>([
         { sender: 'bot', text: 'Hello! How can we help you today?' }
@@ -216,12 +301,37 @@ const Contact: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* FORM UPDATED WITH ONSUBMIT */}
-                        <form className="space-y-5" onSubmit={handleSubmit}>
+                        {/* ZOHO CRM WEB-TO-LEAD FORM */}
+                        <form 
+                            id="webform1011574000000598028" 
+                            action="https://crm.zoho.in/crm/WebToLeadForm" 
+                            name="WebToLeads1011574000000598028" 
+                            method="POST" 
+                            onSubmit={(e) => {
+                                // @ts-ignore
+                                if (window.checkMandatory1011574000000598028 && !window.checkMandatory1011574000000598028()) {
+                                    e.preventDefault();
+                                }
+                            }}
+                            acceptCharset="UTF-8"
+                            className="space-y-5"
+                        >
+                            {/* Zoho Hidden Fields */}
+                            <input type='text' style={{display:'none'}} name='xnQsjsdp' value='cf7bd36beb1c64f66a0e87f8b0a94e633b40afa27134038a564fb09208b3a7bc' />
+                            <input type='hidden' name='zc_gad' id='zc_gad' value='' />
+                            <input type='text' style={{display:'none'}} name='xmIwtLD' value='dd13540ab1764c72e3bc0858c8adca168b9dccac578da049ef1298fc2f17650162185b05bbc3582c153b1da91f5dbeee' />
+                            <input type='text' style={{display:'none'}} name='actionType' value='TGVhZHM=' />
+                            <input type='text' style={{display:'none'}} name='returnURL' value='null' />
+                            <input type='text' style={{display:'none'}} id='ldeskuid' name='ldeskuid' />
+                            <input type='text' style={{display:'none'}} id='LDTuvid' name='LDTuvid' />
+                            <input type='text' style={{display: 'none'}} name='aG9uZXlwb3Q' value='' />
+
                             <div className="relative group">
                                 <textarea
-                                    value={message}
-                                    onChange={(e) => setMessage(e.target.value)}
+                                    id="Description"
+                                    name="Description"
+                                    value={formData.description}
+                                    onChange={handleInputChange}
                                     className="w-full border border-gray-200 rounded-lg p-4 h-32 resize-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent outline-none transition-all placeholder:text-slate-400 text-sm bg-gray-50/30"
                                     placeholder="How can we help you?"
                                 ></textarea>
@@ -238,106 +348,155 @@ const Contact: React.FC = () => {
                                 </button>
                             </div>
 
-                            <div
-                                onDragOver={handleDragOver}
-                                onDragLeave={handleDragLeave}
-                                onDrop={handleDrop}
-                                className={`border-2 border-dashed rounded-lg p-4 transition-colors duration-200 ${isDragging ? 'border-blue-500 bg-blue-50' : 'border-transparent'
-                                    }`}
-                            >
-                                <div className="flex items-center gap-2 text-sm text-slate-500">
-                                    <Upload size={16} className="text-slate-400" />
-                                    <span>
-                                        Drag and drop or
-                                        <button
-                                            type="button"
-                                            onClick={triggerFileInput}
-                                            className="text-blue-600 hover:underline font-medium mx-1"
-                                        >
-                                            browse
-                                        </button>
-                                        to upload your file(s)
-                                    </span>
-                                    <input
-                                        type="file"
-                                        ref={fileInputRef}
-                                        onChange={handleFileChange}
-                                        className="hidden"
-                                        multiple
-                                    />
-                                </div>
-
-                                {files.length > 0 && (
-                                    <div className="mt-3 space-y-2">
-                                        {files.map((file, index) => (
-                                            <div key={index} className="flex items-center justify-between bg-gray-50 p-2 rounded border border-gray-200 text-sm">
-                                                <div className="flex items-center gap-2 overflow-hidden">
-                                                    <Paperclip size={14} className="text-slate-400 shrink-0" />
-                                                    <span className="truncate text-slate-700 max-w-[200px]">{file.name}</span>
-                                                </div>
-                                                <button type="button" onClick={() => removeFile(index)} className="text-slate-400 hover:text-red-500">
-                                                    <X size={14} />
-                                                </button>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <input 
+                                    id="First_Name"
+                                    name="First Name"
+                                    value={formData.firstName}
+                                    onChange={handleInputChange}
+                                    type="text" 
+                                    placeholder="First Name" 
+                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                />
+                                <input 
+                                    id="Last_Name"
+                                    name="Last Name"
+                                    value={formData.lastName}
+                                    onChange={handleInputChange}
+                                    type="text" 
+                                    placeholder="Last Name *" 
+                                    required
+                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                />
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <input 
-                                    name="fullName"
-                                    value={formData.fullName}
-                                    onChange={handleInputChange}
-                                    type="text" 
-                                    placeholder="Full name" 
-                                    required
-                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
-                                />
-                                <input 
-                                    name="company"
+                                    id="Company"
+                                    name="Company"
                                     value={formData.company}
                                     onChange={handleInputChange}
                                     type="text" 
-                                    placeholder="Company" 
+                                    placeholder="Company *" 
+                                    required
+                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                />
+                                <input 
+                                    id="Email"
+                                    name="Email"
+                                    ftype="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    type="text" 
+                                    placeholder="Work email" 
                                     className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
                                 />
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <input 
-                                    name="email"
-                                    value={formData.email}
+                                    id="Mobile"
+                                    name="Mobile"
+                                    value={formData.mobile}
                                     onChange={handleInputChange}
-                                    type="email" 
-                                    placeholder="Work email" 
-                                    required
+                                    type="tel" 
+                                    placeholder="Mobile Number" 
                                     className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
                                 />
-                                <div className="flex relative">
-                                    <div className="bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg px-3 flex items-center gap-2">
-                                        <img src="https://flagcdn.com/w20/in.png" alt="India" className="w-5 h-auto rounded-sm" />
-                                        <ChevronDown size={12} className="text-slate-400" />
-                                    </div>
-                                    <span className="absolute left-[70px] top-1/2 -translate-y-1/2 text-sm text-slate-500 font-medium">+91</span>
+                                <select 
+                                    id="Industry"
+                                    name="Industry"
+                                    value={formData.industry}
+                                    onChange={(e) => {
+                                        handleInputChange(e);
+                                        // @ts-ignore
+                                        if (window.addAriaSelected1011574000000598028) window.addAriaSelected1011574000000598028(e);
+                                    }}
+                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
+                                >
+                                    <option value="-None-">-Select Industry-</option>
+                                    <option value="ASP (Application Service Provider)">ASP (Application Service Provider)</option>
+                                    <option value="Data/Telecom OEM">Data/Telecom OEM</option>
+                                    <option value="ERP (Enterprise Resource Planning)">ERP (Enterprise Resource Planning)</option>
+                                    <option value="Government/Military">Government/Military</option>
+                                    <option value="Large Enterprise">Large Enterprise</option>
+                                    <option value="ManagementISV">ManagementISV</option>
+                                    <option value="MSP (Management Service Provider)">MSP (Management Service Provider)</option>
+                                    <option value="Network Equipment Enterprise">Network Equipment Enterprise</option>
+                                    <option value="Non-management ISV">Non-management ISV</option>
+                                    <option value="Optical Networking">Optical Networking</option>
+                                    <option value="Service Provider">Service Provider</option>
+                                    <option value="Small/Medium Enterprise">Small/Medium Enterprise</option>
+                                    <option value="Storage Equipment">Storage Equipment</option>
+                                    <option value="Storage Service Provider">Storage Service Provider</option>
+                                    <option value="Systems Integrator">Systems Integrator</option>
+                                    <option value="Wireless Industry">Wireless Industry</option>
+                                    <option value="ERP">ERP</option>
+                                    <option value="Management ISV">Management ISV</option>
+                                </select>
+                            </div>
+
+                            {/* Address Fields - Grouped for cleaner look */}
+                            <div className="space-y-4 pt-2 border-t border-slate-100 mt-4">
+                                <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Address Details (Optional)</p>
+                                <input 
+                                    id="Street"
+                                    name="Street"
+                                    value={formData.street}
+                                    onChange={handleInputChange}
+                                    type="text" 
+                                    placeholder="Street" 
+                                    className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                />
+                                <div className="grid grid-cols-2 gap-4">
                                     <input 
-                                        name="phone"
-                                        value={formData.phone}
+                                        id="City"
+                                        name="City"
+                                        value={formData.city}
                                         onChange={handleInputChange}
-                                        type="tel" 
-                                        placeholder="00000 00000" 
-                                        className="w-full border border-gray-200 rounded-r-lg p-3 pl-12 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                        type="text" 
+                                        placeholder="City" 
+                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                    />
+                                    <input 
+                                        id="State"
+                                        name="State"
+                                        value={formData.state}
+                                        onChange={handleInputChange}
+                                        type="text" 
+                                        placeholder="State" 
+                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                    />
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <input 
+                                        id="Zip_Code"
+                                        name="Zip Code"
+                                        value={formData.zipCode}
+                                        onChange={handleInputChange}
+                                        type="text" 
+                                        placeholder="Zip Code" 
+                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
+                                    />
+                                    <input 
+                                        id="Country"
+                                        name="Country"
+                                        value={formData.country}
+                                        onChange={handleInputChange}
+                                        type="text" 
+                                        placeholder="Country" 
+                                        className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30" 
                                     />
                                 </div>
                             </div>
 
-                            <div className="flex justify-center pt-4">
+                            <div className="flex justify-center pt-6">
                                 <button 
+                                    id="formsubmit"
                                     type="submit" 
-                                    disabled={isSubmitting}
-                                    className={`${isSubmitting ? 'bg-gray-400' : 'bg-yellow-400 hover:bg-yellow-500'} text-slate-900 font-bold py-3 px-16 rounded-lg transition-all shadow-md text-[15px]`}
+                                    className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-3 px-16 rounded-lg transition-all shadow-md text-[15px]"
                                 >
-                                    {isSubmitting ? "Sending..." : "Send"}
+                                    Submit
                                 </button>
                             </div>
                         </form>
