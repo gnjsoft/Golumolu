@@ -189,7 +189,11 @@ const Contact: React.FC = () => {
                     for (let i = event.resultIndex; i < event.results.length; ++i) {
                         if (event.results[i].isFinal) {
                             const speech = event.results[i][0].transcript;
-                            setMessage(prev => prev + (prev.length > 0 && !prev.endsWith(' ') ? ' ' : '') + speech);
+                            setMessage(prev => {
+                                const newText = prev + (prev.length > 0 && !prev.endsWith(' ') ? ' ' : '') + speech;
+                                setFormData(f => ({ ...f, description: newText }));
+                                return newText;
+                            });
                         }
                     }
                 };
@@ -317,14 +321,14 @@ const Contact: React.FC = () => {
                             className="space-y-5"
                         >
                             {/* Zoho Hidden Fields */}
-                            <input type='text' style={{display:'none'}} name='xnQsjsdp' value='cf7bd36beb1c64f66a0e87f8b0a94e633b40afa27134038a564fb09208b3a7bc' />
-                            <input type='hidden' name='zc_gad' id='zc_gad' value='' />
-                            <input type='text' style={{display:'none'}} name='xmIwtLD' value='dd13540ab1764c72e3bc0858c8adca168b9dccac578da049ef1298fc2f17650162185b05bbc3582c153b1da91f5dbeee' />
-                            <input type='text' style={{display:'none'}} name='actionType' value='TGVhZHM=' />
-                            <input type='text' style={{display:'none'}} name='returnURL' value='null' />
+                            <input type='text' style={{display:'none'}} name='xnQsjsdp' value='cf7bd36beb1c64f66a0e87f8b0a94e633b40afa27134038a564fb09208b3a7bc' readOnly />
+                            <input type='hidden' name='zc_gad' id='zc_gad' value='' readOnly />
+                            <input type='text' style={{display:'none'}} name='xmIwtLD' value='dd13540ab1764c72e3bc0858c8adca168b9dccac578da049ef1298fc2f17650162185b05bbc3582c153b1da91f5dbeee' readOnly />
+                            <input type='text' style={{display:'none'}} name='actionType' value='TGVhZHM=' readOnly />
+                            <input type='text' style={{display:'none'}} name='returnURL' value='null' readOnly />
                             <input type='text' style={{display:'none'}} id='ldeskuid' name='ldeskuid' />
                             <input type='text' style={{display:'none'}} id='LDTuvid' name='LDTuvid' />
-                            <input type='text' style={{display: 'none'}} name='aG9uZXlwb3Q' value='' />
+                            <input type='text' style={{display: 'none'}} name='aG9uZXlwb3Q' value='' readOnly />
 
                             <div className="relative group">
                                 <textarea
