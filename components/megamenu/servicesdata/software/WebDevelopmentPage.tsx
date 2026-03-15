@@ -213,9 +213,9 @@ const WebDevelopmentPage: React.FC = () => {
                                         <div className="h-1.5 w-2 bg-slate-200 rounded-full"></div>
                                     </div>
                                     <div className="opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-500">
-                                        <div className={`flex items-center gap-2 font-bold text-sm ${iconColorMap[item.color]}`}>
+                                        <Link to="/contact" className={`flex items-center gap-2 font-bold text-sm ${iconColorMap[item.color]}`}>
                                             Learn More <ArrowRight size={16} />
-                                        </div>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

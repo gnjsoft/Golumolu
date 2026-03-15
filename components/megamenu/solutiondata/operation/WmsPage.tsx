@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Package, Scan, Layers, ArrowRight, Truck, Database } from 'lucide-react';
+import { Package, Scan, Layers, ArrowRight, Truck, Database, ShieldCheck, Zap, Users, CheckCircle2, Clock, TrendingUp, HelpCircle, LayoutGrid, BarChart3 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const WmsPage: React.FC = () => {
@@ -74,6 +74,105 @@ const WmsPage: React.FC = () => {
                   <div className="mt-8 flex gap-4 text-white font-mono text-sm">
                       <div className="bg-green-600 px-3 py-1 rounded">MATCH</div>
                       <div className="bg-slate-700 px-3 py-1 rounded">SKU: 84920</div>
+                  </div>
+              </div>
+          </div>
+
+          {/* Strategic Benefits Section */}
+          <div className="mt-32">
+              <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">Strategic WMS Benefits</h2>
+                  <p className="text-slate-600 max-w-2xl mx-auto">Transform your warehouse into a high-efficiency fulfillment engine with our specialized management tools.</p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-8">
+                  {[
+                      { icon: <TrendingUp className="text-amber-600" />, title: "99.9% Accuracy", desc: "Virtually eliminate picking errors and mis-shipments with digital verification at every step." },
+                      { icon: <Zap className="text-yellow-500" />, title: "Faster Fulfillment", desc: "Reduce order-to-shipment time by optimizing picking paths and automating label generation." },
+                      { icon: <LayoutGrid className="text-blue-500" />, title: "Space Optimization", desc: "Maximize your storage capacity with intelligent slotting and put-away algorithms." },
+                      { icon: <BarChart3 className="text-indigo-600" />, title: "Real-time Visibility", desc: "Know exactly what you have and where it is across multiple locations instantly." },
+                      { icon: <ShieldCheck className="text-green-500" />, title: "Loss Prevention", desc: "Reduce shrinkage and inventory discrepancies through strict digital tracking and audits." },
+                      { icon: <Users className="text-purple-500" />, title: "Labor Efficiency", desc: "Improve staff productivity with clear digital task assignments and performance tracking." }
+                  ].map((benefit, idx) => (
+                      <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                          <div className="mb-6 p-3 bg-slate-50 rounded-xl w-fit group-hover:bg-amber-50 transition-colors">
+                              {benefit.icon}
+                          </div>
+                          <h3 className="text-xl font-bold text-slate-900 mb-3">{benefit.title}</h3>
+                          <p className="text-slate-600 leading-relaxed">{benefit.desc}</p>
+                      </div>
+                  ))}
+              </div>
+          </div>
+
+          {/* Implementation Roadmap */}
+          <div className="mt-32 bg-slate-50 rounded-[3rem] p-12 md:p-20">
+              <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">Implementation Roadmap</h2>
+                  <p className="text-slate-600 max-w-2xl mx-auto">A structured approach to digitizing your warehouse operations without disrupting your current business.</p>
+              </div>
+              
+              <div className="relative">
+                  {/* Connector Line */}
+                  <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -translate-y-1/2 z-0"></div>
+                  
+                  <div className="grid md:grid-cols-4 gap-8 relative z-10">
+                      {[
+                          { step: "01", title: "Audit", desc: "Analyzing your current warehouse layout and physical inventory processes." },
+                          { step: "02", title: "Mapping", desc: "Designing digital workflows and bin locations within the WMS environment." },
+                          { step: "03", title: "Hardware", desc: "Setting up scanners, printers, and network infrastructure for the facility." },
+                          { step: "04", title: "Training", desc: "Hands-on staff training and go-live support to ensure a smooth transition." }
+                      ].map((item, idx) => (
+                          <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg text-center">
+                              <div className="w-12 h-12 bg-amber-500 text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-6 shadow-lg">
+                                  {item.step}
+                              </div>
+                              <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                              <p className="text-slate-600 text-sm">{item.desc}</p>
+                          </div>
+                      ))}
+                  </div>
+              </div>
+          </div>
+
+          {/* Industry Applications */}
+          <div className="mt-32">
+              <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">Industry Use Cases</h2>
+                  <p className="text-slate-600 max-w-2xl mx-auto">Our WMS is versatile enough to handle the specific requirements of various business models.</p>
+              </div>
+              <div className="grid md:grid-cols-4 gap-6">
+                  {[
+                      { title: "E-commerce", desc: "High-volume picking and seamless integration with online storefronts." },
+                      { title: "3PL Providers", desc: "Multi-tenant inventory management and client-specific billing." },
+                      { title: "Manufacturing", desc: "Raw material tracking and production line replenishment." },
+                      { title: "Food & Beverage", desc: "Expiry date tracking, FEFO picking, and cold storage management." }
+                  ].map((industry, idx) => (
+                      <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md hover:border-amber-200 transition-all">
+                          <h4 className="font-bold text-slate-900 mb-2">{industry.title}</h4>
+                          <p className="text-slate-500 text-sm">{industry.desc}</p>
+                      </div>
+                  ))}
+              </div>
+          </div>
+
+          {/* Final CTA */}
+          <div className="mt-32 bg-gradient-to-r from-amber-500 to-orange-600 rounded-[2rem] p-12 text-center text-white relative overflow-hidden shadow-2xl">
+              <div className="absolute top-0 left-0 w-full h-full opacity-10">
+                  <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+                  <div className="absolute bottom-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+              </div>
+              <div className="relative z-10 max-w-3xl mx-auto">
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to optimize your fulfillment?</h2>
+                  <p className="text-xl text-amber-100 mb-10 leading-relaxed">
+                      Stop losing money to inventory errors and slow picking. Modernize your warehouse with our advanced WMS today.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Link to="/contact" className="bg-white text-amber-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-amber-50 transition-all shadow-xl">
+                          Get a Free Audit
+                      </Link>
+                      <Link to="/contact" className="bg-amber-700 text-white border border-amber-500 px-10 py-4 rounded-full font-bold text-lg hover:bg-amber-800 transition-all">
+                          Talk to a Specialist
+                      </Link>
                   </div>
               </div>
           </div>

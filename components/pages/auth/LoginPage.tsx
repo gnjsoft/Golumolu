@@ -105,7 +105,7 @@ const LoginPage: React.FC = () => {
                     <div>
                         <div className="flex justify-between items-center mb-2">
                             <label className="block text-sm font-medium text-slate-700">Password</label>
-                            <button type="button" onClick={() => alert("Password reset functionality is not available in this demo.")} className="text-xs text-blue-600 hover:text-blue-800 font-medium">Forgot password?</button>
+                            <Link to="/forgot-password" className="text-xs text-blue-600 hover:text-blue-800 font-medium">Forgot password?</Link>
                         </div>
                         <div className="relative group">
                             <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors" size={20} />

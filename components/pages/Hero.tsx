@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Code, Cpu, Server, ShieldCheck, Award, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const SLIDES = [
   {
@@ -10,7 +11,8 @@ const SLIDES = [
     bgColor: "bg-blue-50",
     pillColor: "bg-blue-100 text-blue-700",
     buttonColor: "bg-blue-600 hover:bg-blue-700",
-    icon: Code
+    icon: Code,
+    learnMoreHref: "/services"
   },
   {
     id: 2,
@@ -20,7 +22,8 @@ const SLIDES = [
     bgColor: "bg-indigo-50",
     pillColor: "bg-indigo-100 text-indigo-700",
     buttonColor: "bg-indigo-600 hover:bg-indigo-700",
-    icon: Cpu
+    icon: Cpu,
+    learnMoreHref: "/hardware"
   },
   {
     id: 3,
@@ -30,7 +33,8 @@ const SLIDES = [
     bgColor: "bg-emerald-50",
     pillColor: "bg-emerald-100 text-emerald-700",
     buttonColor: "bg-emerald-600 hover:bg-emerald-700",
-    icon: Server
+    icon: Server,
+    learnMoreHref: "/solutions"
   }
 ];
 
@@ -101,15 +105,19 @@ const Hero: React.FC = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <button 
+                <Link 
+                  to="/contact"
                   className={`${slide.buttonColor} text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center group`}
                 >
                   Get Started
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-full font-bold text-lg transition-all hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900">
+                </Link>
+                <Link 
+                  to={slide.learnMoreHref}
+                  className="bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-full font-bold text-lg transition-all hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900"
+                >
                   Learn More
-                </button>
+                </Link>
               </div>
             </div>
           </div>

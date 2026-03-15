@@ -97,9 +97,9 @@ const FinancialManagementPage: React.FC = () => {
                       </div>
                       <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
                       <p className="text-slate-400 leading-relaxed">{item.desc}</p>
-                      <div className="mt-6 flex items-center text-yellow-400 text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">
+                      <Link to="/contact" className="mt-6 flex items-center text-yellow-400 text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">
                           Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                      </div>
+                      </Link>
                   </div>
               ))}
           </div>

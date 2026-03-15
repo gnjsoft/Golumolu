@@ -7,6 +7,7 @@ import Contact from './components/pages/Contact';
 import { AuthProvider } from './context/AuthContext';
 import LoginPage from './components/pages/auth/LoginPage';
 import SignupPage from './components/pages/auth/SignupPage';
+import ForgotPasswordPage from './components/pages/auth/ForgotPasswordPage';
 
 // Individual Top-Level Pages
 import AboutPage from './components/megamenu/aboutdata/AboutPage';
@@ -229,6 +230,9 @@ const AppContent: React.FC = () => {
       break;
     case '/signup':
       component = <div className="pt-20"><SignupPage /></div>;
+      break;
+    case '/forgot-password':
+      component = <div className="pt-20"><ForgotPasswordPage /></div>;
       break;
     case '/about':
       component = <AboutPage />;
