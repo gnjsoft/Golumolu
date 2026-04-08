@@ -14,13 +14,15 @@ const SoftwareConsultingPage: React.FC = () => {
     <div className="bg-white min-h-screen pt-20 font-sans">
       
       {/* Blueprint Header */}
-      <div className="bg-slate-50 py-24 px-4 text-center border-b border-slate-200 relative overflow-hidden">
+      <div className="bg-slate-900 py-24 px-4 text-center border-b border-slate-800 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=2070')] bg-cover bg-center opacity-30"></div>
         {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         
         <div className={`relative z-10 transition-all duration-1000 ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-4">Software Architecture & Consulting</h1>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">Expert advice on tech stack, scalability, and development best practices.</p>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Software Architecture & Consulting</h1>
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto">Expert advice on tech stack, scalability, and development best practices.</p>
         </div>
       </div>
 

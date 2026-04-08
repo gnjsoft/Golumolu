@@ -18,9 +18,8 @@ const PartnersPage: React.FC = () => {
   const techPartners = [
     { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" },
     { name: "Salesforce", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" },
-    { name: "Oracle", logo: "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" },
     { name: "SAP", logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" },
-    { name: "Adobe", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Adobe_Systems_logo_and_wordmark.svg" }
+    { name: "ServiceNow", logo: "https://cdn.worldvectorlogo.com/logos/servicenow-1.svg" }
   ];
 
   const hardwarePartners = [
@@ -46,11 +45,14 @@ const PartnersPage: React.FC = () => {
 
   return (
     <div className="bg-white min-h-screen pt-20">
-      <div className="bg-sky-50 py-24 text-center">
-        <h1 className={`text-4xl md:text-5xl font-bold text-slate-900 mb-6 transition-all duration-1000 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Strategic Partners</h1>
-        <p className={`text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          Collaborating with industry leaders to bring the best technology solutions to our clients.
-        </p>
+      <div className="relative bg-slate-900 py-24 text-center overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=2070')] bg-cover bg-center opacity-30"></div>
+        <div className="relative z-10">
+          <h1 className={`text-4xl md:text-5xl font-bold text-white mb-6 transition-all duration-1000 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>Strategic Partners</h1>
+          <p className={`text-xl text-slate-300 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Collaborating with industry leaders to bring the best technology solutions to our clients.
+          </p>
+        </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">

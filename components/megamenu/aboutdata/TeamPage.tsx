@@ -85,28 +85,28 @@ const TeamPage: React.FC = () => {
            </div>
        </div>
 
-       {/* Employee Voices */}
+        {/* Employee Voices */}
        <div className="py-24 bg-slate-900 text-white">
            <div className="max-w-7xl mx-auto px-4">
                <h2 className="text-3xl font-bold mb-12 text-center">Life at GnJ</h2>
                <div className="grid md:grid-cols-2 gap-8">
                    <div className={`bg-white/10 p-8 rounded-2xl backdrop-blur-sm transition-all duration-700 delay-1000 ${active ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
-                       <p className="italic text-slate-300 mb-6">"The best part about working here is the autonomy. I'm trusted to make decisions and solve problems in creative ways. Plus, the mentorship is incredible."</p>
+                       <p className="italic text-slate-300 mb-6">"At GnJ, we are driven by a commitment to excellence and innovation. Watching our team consistently deliver transformative solutions for our clients is incredibly rewarding. We've built a culture where strategic thinking and creativity thrive."</p>
                        <div className="flex items-center gap-4">
-                           <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center text-slate-900 font-bold">A</div>
+                           <div className="w-10 h-10 rounded-full bg-yellow-400 flex items-center justify-center text-slate-900 font-bold">G</div>
                            <div>
-                               <div className="font-bold">Alex Chen</div>
-                               <div className="text-sm text-slate-400">Senior Developer</div>
+                               <div className="font-bold">Gayatri Chourasiya</div>
+                               <div className="text-sm text-slate-400">MD, Director</div>
                            </div>
                        </div>
                    </div>
                    <div className={`bg-white/10 p-8 rounded-2xl backdrop-blur-sm transition-all duration-700 delay-1200 ${active ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
-                       <p className="italic text-slate-300 mb-6">"I joined as an intern and grew into a lead role. The company truly invests in your growth path. Every day is a new learning opportunity."</p>
+                       <p className="italic text-slate-300 mb-6">"Our vision has always been to build robust, scalable infrastructure that empowers businesses to grow without limits. I am incredibly proud of the resilient systems we design and the talented, forward-thinking team that makes it all possible."</p>
                        <div className="flex items-center gap-4">
-                           <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">M</div>
+                           <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">G</div>
                            <div>
-                               <div className="font-bold">Maria Gonzalez</div>
-                               <div className="text-sm text-slate-400">Product Manager</div>
+                               <div className="font-bold">Gaurav Bhole</div>
+                               <div className="text-sm text-slate-400">CEO, Director of Infrastructure</div>
                            </div>
                        </div>
                    </div>

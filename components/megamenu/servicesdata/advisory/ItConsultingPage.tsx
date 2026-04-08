@@ -13,16 +13,22 @@ const ItConsultingPage: React.FC = () => {
   return (
     <div className="bg-white min-h-screen pt-20 font-sans overflow-hidden">
       {/* Hero Section */}
-      <div className={`relative bg-slate-900 py-32 px-4 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,#0f172a_25%,#1e293b_25%,#1e293b_50%,#0f172a_50%,#0f172a_75%,#1e293b_75%,#1e293b_100%)] bg-[size:40px_40px] opacity-10"></div>
+      <div className={`relative bg-slate-50 py-32 px-4 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop')" }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-slate-50"></div>
+        
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="inline-block mb-4 overflow-hidden">
-             <span className={`block text-blue-400 font-bold tracking-widest uppercase text-sm transition-transform duration-700 delay-300 ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}>Strategy & Advisory</span>
+             <span className={`block text-blue-600 font-bold tracking-widest uppercase text-sm transition-transform duration-700 delay-300 ${isVisible ? 'translate-y-0' : 'translate-y-full'}`}>Strategy & Advisory</span>
           </div>
-          <h1 className={`text-5xl md:text-7xl font-bold text-white mb-6 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+          <h1 className={`text-5xl md:text-7xl font-bold text-slate-900 mb-6 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             Strategic IT Consulting
           </h1>
-          <p className={`text-xl text-slate-300 max-w-2xl mx-auto transition-opacity duration-700 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <p className={`text-xl text-slate-600 max-w-2xl mx-auto transition-opacity duration-700 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             Aligning technology with your business vision to drive sustainable growth.
           </p>
         </div>

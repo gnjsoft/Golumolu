@@ -99,9 +99,21 @@ const WebDevelopmentPage: React.FC = () => {
                                 </div>
                             </div>
                             <div className="grid grid-cols-3 gap-4">
-                                <div className="h-40 bg-white rounded-xl shadow-sm border border-slate-100 p-4"><div className="h-8 w-8 bg-purple-100 rounded-full mb-4"></div></div>
-                                <div className="h-40 bg-white rounded-xl shadow-sm border border-slate-100 p-4"><div className="h-8 w-8 bg-green-100 rounded-full mb-4"></div></div>
-                                <div className="h-40 bg-white rounded-xl shadow-sm border border-slate-100 p-4"><div className="h-8 w-8 bg-orange-100 rounded-full mb-4"></div></div>
+                                <div className="h-40 bg-white rounded-xl shadow-sm border border-slate-100 p-4 flex flex-col items-center justify-center relative overflow-hidden group">
+                                    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=400')] bg-cover bg-center opacity-80 group-hover:scale-110 transition-transform duration-500"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                                    <div className="relative z-10 text-white font-semibold mt-auto text-sm">Frontend</div>
+                                </div>
+                                <div className="h-40 bg-white rounded-xl shadow-sm border border-slate-100 p-4 flex flex-col items-center justify-center relative overflow-hidden group">
+                                    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=400')] bg-cover bg-center opacity-80 group-hover:scale-110 transition-transform duration-500"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                                    <div className="relative z-10 text-white font-semibold mt-auto text-sm">Backend</div>
+                                </div>
+                                <div className="h-40 bg-white rounded-xl shadow-sm border border-slate-100 p-4 flex flex-col items-center justify-center relative overflow-hidden group">
+                                    <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=400')] bg-cover bg-center opacity-80 group-hover:scale-110 transition-transform duration-500"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                                    <div className="relative z-10 text-white font-semibold mt-auto text-sm">UI/UX Design</div>
+                                </div>
                             </div>
                             <div className="h-64 bg-slate-900 rounded-xl shadow-xl p-6 flex items-center justify-center">
                                 <span className="text-slate-500 font-mono">{'<Code />'}</span>

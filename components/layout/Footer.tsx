@@ -95,7 +95,14 @@ const Footer: React.FC = () => {
               </div>
 
               <div>
-                <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Email</p>
+                <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Sales Email</p>
+                <a href={`mailto:${CONTACT_DATA.email.sales}`} className="text-white hover:text-yellow-400 font-medium transition-colors break-words">
+                  {CONTACT_DATA.email.sales}
+                </a>
+              </div>
+
+              <div>
+               <p className="text-slate-400 text-xs uppercase tracking-wider mb-1">Support Email</p>
                 <a href={`mailto:${CONTACT_DATA.email.support}`} className="text-white hover:text-yellow-400 font-medium transition-colors break-words">
                   {CONTACT_DATA.email.support}
                 </a>

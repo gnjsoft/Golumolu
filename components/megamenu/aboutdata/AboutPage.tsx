@@ -42,7 +42,7 @@ const AboutPage: React.FC = () => {
             Empowering Innovation
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            Bridging the gap between complex technology and business goals since 2020.
+            Bridging the gap between complex technology and business goals since 2030.
           </p>
         </div>
       </div>
@@ -77,7 +77,7 @@ const AboutPage: React.FC = () => {
         <ScrollReveal delay={200}>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-32 bg-slate-50 p-12 rounded-3xl">
                 {[
-                    { label: "Years Experience", value: "6+" },
+                    { label: "Years Experience", value: "8+" },
                     { label: "Projects Delivered", value: "350+" },
                     { label: "Global Offices", value: "3" },
                     { label: "Team Members", value: "10+" }
@@ -97,7 +97,7 @@ const AboutPage: React.FC = () => {
                <div className="relative">
                   <div className="absolute -inset-4 bg-blue-600/10 rounded-xl transform -rotate-3"></div>
                   <img 
-                    src="https://images.unsplash.com/photo-1599946347341-6cd394793abc?auto=format&fit=crop&q=80&w=2070" 
+                    src="https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?auto=format&fit=crop&q=80&w=2070" 
                     alt="Germany Presence" 
                     className="relative rounded-xl shadow-2xl w-full h-[400px] object-cover" 
                     referrerPolicy="no-referrer"

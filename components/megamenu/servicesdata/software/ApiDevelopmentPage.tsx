@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Network, Share2, Shield, Lock, Zap, Database, ArrowRight, Code, Key, Globe } from 'lucide-react';
+import { Network, Share2, Shield, Lock, Zap, Database, ArrowRight, Code, Key, Globe, RefreshCw } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ApiDevelopmentPage: React.FC = () => {
@@ -72,11 +72,12 @@ const ApiDevelopmentPage: React.FC = () => {
              <div className="h-0.5 w-24 bg-green-600 mx-auto mt-4"></div>
          </div>
 
-         <div className="grid md:grid-cols-3 gap-8">
+         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
              {[
                  { title: "RESTful APIs", icon: Globe, desc: "Standard, stateless architecture for web services." },
                  { title: "GraphQL", icon: Share2, desc: "Flexible querying for complex data relationships." },
-                 { title: "Microservices", icon: Network, desc: "Decoupled services for independent scaling." }
+                 { title: "Microservices", icon: Network, desc: "Decoupled services for independent scaling." },
+                 { title: "CI/CD Pipeline", icon: RefreshCw, desc: "Automated testing and deployment for rapid delivery." }
              ].map((item, idx) => (
                  <div key={idx} className="bg-[#161b22] p-8 rounded-xl border border-slate-800 hover:border-green-500/50 transition-colors group">
                      <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 text-green-500 group-hover:text-white group-hover:bg-green-600 transition-all">

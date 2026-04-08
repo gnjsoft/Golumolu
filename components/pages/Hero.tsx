@@ -12,6 +12,7 @@ const SLIDES = [
     pillColor: "bg-blue-100 text-blue-700",
     buttonColor: "bg-blue-600 hover:bg-blue-700",
     icon: Code,
+    iconText:"Modern Solutions",
     learnMoreHref: "/services"
   },
   {
@@ -23,6 +24,7 @@ const SLIDES = [
     pillColor: "bg-indigo-100 text-indigo-700",
     buttonColor: "bg-indigo-600 hover:bg-indigo-700",
     icon: Cpu,
+    iconText:"On Sale Refurbished",
     learnMoreHref: "/hardware"
   },
   {
@@ -34,6 +36,7 @@ const SLIDES = [
     pillColor: "bg-emerald-100 text-emerald-700",
     buttonColor: "bg-emerald-600 hover:bg-emerald-700",
     icon: Server,
+     iconText:"Deal Of the Day",
     learnMoreHref: "/solutions"
   }
 ];
@@ -77,7 +80,7 @@ const Hero: React.FC = () => {
             <div key={slide.id} className="animate-fade-in">
               <div className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold mb-8 transition-colors duration-500 ${slide.pillColor}`}>
                 <Icon size={16} className="mr-2" />
-                <span>Modern Solutions</span>
+                <span>{slide.iconText}</span>
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] mb-6 tracking-tight">

@@ -5,7 +5,7 @@ export const CONTACT_DATA = {
   },
   email: {
     support: "Support@gnjworldwide.com",
-    sales: "sales@gnjworldwide.com"
+    sales: "Sales@gnjworldwide.com"
   },
   social: {
     linkedin: "#",

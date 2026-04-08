@@ -6,12 +6,11 @@ const OFFERINGS = [
   {
     id: 'software-dev',
     title: "Software development",
-    description: "A software development company with 36 years of business excellence, we can engineer reliable, scalable and secure software solutions for any OS, browser and device. We bring together deep industry expertise and the latest IT advancements to deliver custom solutions and products that perfectly fit the needs and behavior of their users.",
+    description: "A software development company with 8 years of business excellence, we can engineer reliable, scalable and secure software solutions for any OS, browser and device. We bring together deep industry expertise and the latest IT advancements to deliver custom solutions and products that perfectly fit the needs and behavior of their users.",
     links: [
       { name: "Software consulting", href: "/services/software-consulting" },
       { name: "Custom software development", href: "/services/software-development" },
       { name: "Software development outsourcing", href: "/services/it-outsourcing" },
-      { name: "Software product development", href: "/services/software-development" },
       { name: "Team augmentation", href: "/services/it-outsourcing" },
       { name: "Cloud application development", href: "/services/infrastructure-services" },
       { name: "Legacy software modernization", href: "/services/software-modernization" },

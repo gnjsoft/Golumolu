@@ -45,9 +45,21 @@ const DesktopDevelopmentPage: React.FC = () => {
                                     <div className="w-8 h-8 bg-slate-700 rounded-lg"></div>
                                 </div>
                                 <div className="flex-1 p-6 grid grid-cols-2 gap-4">
-                                    <div className="bg-white rounded-lg shadow-sm p-4 h-32"></div>
-                                    <div className="bg-white rounded-lg shadow-sm p-4 h-32"></div>
-                                    <div className="col-span-2 bg-white rounded-lg shadow-sm p-4 h-32"></div>
+                                    <div className="bg-white rounded-lg shadow-sm p-4 h-32 flex flex-col items-center justify-center relative overflow-hidden group">
+                                        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=400')] bg-cover bg-center opacity-80 group-hover:scale-110 transition-transform duration-500"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                                        <div className="relative z-10 text-white font-semibold mt-auto text-sm">Native Apps</div>
+                                    </div>
+                                    <div className="bg-white rounded-lg shadow-sm p-4 h-32 flex flex-col items-center justify-center relative overflow-hidden group">
+                                        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=400')] bg-cover bg-center opacity-80 group-hover:scale-110 transition-transform duration-500"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                                        <div className="relative z-10 text-white font-semibold mt-auto text-sm">Cross-Platform</div>
+                                    </div>
+                                    <div className="col-span-2 bg-white rounded-lg shadow-sm p-4 h-32 flex flex-col items-center justify-center relative overflow-hidden group">
+                                        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800')] bg-cover bg-center opacity-80 group-hover:scale-110 transition-transform duration-500"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                                        <div className="relative z-10 text-white font-semibold mt-auto text-sm">Enterprise Solutions</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -64,9 +76,8 @@ const DesktopDevelopmentPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-2 flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-slate-100">
              {[
-                 { title: "Windows", icon: Monitor, desc: ".NET, WPF, UWP", color: "text-blue-600" },
-                 { title: "macOS", icon: Command, desc: "Swift, Cocoa", color: "text-slate-800" },
-                 { title: "Linux", icon: Terminal, desc: "Electron, Qt", color: "text-orange-600" },
+                 { title: "Windows", icon: Monitor, desc: ".NET, WPF, UWP, .EXE, .MSI", color: "text-blue-600" },
+                 { title: "Linux", icon: Terminal, desc: "Electron, Qt, Debian, Red hat Enterprices", color: "text-orange-600" },
              ].map((os, idx) => (
                  <div key={idx} className="flex-1 p-6 flex items-center gap-4 hover:bg-slate-50 transition-colors cursor-default">
                      <div className={`p-3 bg-slate-100 rounded-xl ${os.color}`}>
@@ -111,11 +122,15 @@ const DesktopDevelopmentPage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 text-center">
               <h2 className="text-2xl font-bold text-slate-900 mb-12">Engineered with</h2>
               <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-                  {/* Logos represented by text for this demo */}
-                  <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-blue-500 rounded"></div> Electron</span>
-                  <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-purple-600 rounded"></div> .NET MAUI</span>
-                  <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-orange-500 rounded"></div> Rust</span>
+                  <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-yellow-500 rounded"></div> Python</span>
+                  <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-red-500 rounded"></div> Java</span>
+                  <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-blue-700 rounded"></div> C</span>
                   <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-blue-800 rounded"></div> C++</span>
+                  <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-orange-500 rounded"></div> Rust</span>
+                  <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-yellow-400 rounded"></div> JavaScript with Electron</span>
+                  <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-cyan-500 rounded"></div> Golang</span>
+                  <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-blue-400 rounded"></div> Flutter</span>
+                  <span className="text-xl font-bold flex items-center gap-2"><div className="w-8 h-8 bg-blue-600 rounded"></div> Azure Windows Development</span>
               </div>
           </div>
       </div>

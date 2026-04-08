@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import jsonp from 'jsonp';
 import {
     Phone,
     Mail,
@@ -24,7 +25,9 @@ const Contact: React.FC = () => {
     const [isListening, setIsListening] = useState(false);
     const [showChat, setShowChat] = useState(false);
 
-    // --- ZOHO CRM INTEGRATION START ---
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -46,120 +49,49 @@ const Contact: React.FC = () => {
         if (name === 'description') setMessage(value);
     };
 
-    useEffect(() => {
-        // Zoho Validation Scripts
-        const script = document.createElement('script');
-        script.id = 'zoho-validation-script';
-        script.innerHTML = `
-            function addAriaSelected1011574000000598028(event){
-                var optionElem = event.target;
-                var previousSelectedOption = optionElem.querySelector('[aria-selected=true]');
-                if (previousSelectedOption) {
-                    previousSelectedOption.removeAttribute('aria-selected');
-                }
-                optionElem.querySelectorAll('option') [optionElem.selectedIndex] .ariaSelected = 'true';
-            }
-            function validateEmail1011574000000598028(){
-                var form = document.forms['WebToLeads1011574000000598028'];
-                var emailFld = form.querySelectorAll('[ftype=email]');
-                var i;
-                for(i = 0; i < emailFld.length; i++ ) {
-                    var emailVal = emailFld[i].value;
-                    if ((emailVal.replace (/^\\s+|\\s+$/g,'') ) .length != 0) {
-                        var atpos = emailVal.indexOf('@');
-                        var dotpos = emailVal.lastIndexOf('.');
-                        if(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= emailVal.length) {
-                            alert('Please enter a valid email address. ');
-                            emailFld[i].focus();
-                            return false;
-                        }
-                    }
-                }
-                return true;
-            }
-            window.checkMandatory1011574000000598028 = function(){
-                var mndFileds = new Array('Company', 'Last Name');
-                var fldLangVal = new Array('Company', 'Last Name');
-                for (var i = 0; i < mndFileds.length; i++ ) {
-                    var fieldObj = document.forms['WebToLeads1011574000000598028'] [mndFileds[i]];
-                    if (fieldObj) {
-                        if(((fieldObj.value) .replace (/^\\s+|\\s+$/g,'') ) .length == 0) {
-                            alert(fldLangVal[i] + ' cannot be empty.');
-                            fieldObj.focus();
-                            return false;
-                        } else if (fieldObj.nodeName == 'SELECT') {
-                            if (fieldObj.options[fieldObj.selectedIndex].value == '-None-') {
-                                alert(fldLangVal[i] + ' cannot be none.');
-                                fieldObj.focus();
-                                return false;
-                            }
-                        }
-                    }
-                }
-                if (typeof window.trackVisitor1011574000000598028 === 'function') {
-                    window.trackVisitor1011574000000598028();
-                }
-                if ( !validateEmail1011574000000598028 () ) {
-                    return false;
-                }
-                return true;
-            }
-        `;
-        document.body.appendChild(script);
+    const handleMailchimpSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus('idle');
 
-        // SalesIQ Script
-        const siqScript = document.createElement('script');
-        siqScript.id = 'zsiqscript-init';
-        siqScript.innerHTML = `
-            var $zoho = $zoho || {};
-            $zoho.salesiq = $zoho.salesiq || {
-                widgetcode: 'siqaeb47d767d02bb566cd02fa5cf99f918a407495334bcd820371d94a53a377b07',
-                values: {},
-                ready: function(){}
-            };
-            var d = document;
-            var s = d.createElement('script');
-            s.type = 'text/javascript';
-            s.id = 'zsiqscript';
-            s.defer = true;
-            s.src = 'https://salesiq.zoho.in/widget';
-            var t = d.getElementsByTagName('script')[0];
-            t.parentNode.insertBefore(s, t);
-            
-            window.trackVisitor1011574000000598028 = function(){
-                try{
-                    if ($zoho && $zoho.salesiq && $zoho.salesiq.visitor) {
-                        var LDTuvidObj = document.forms['WebToLeads1011574000000598028'] ['LDTuvid'];
-                        if (LDTuvidObj) {
-                            LDTuvidObj.value = $zoho.salesiq.visitor.uniqueid();
-                        }
-                        var name = "";
-                        var firstnameObj = document.forms['WebToLeads1011574000000598028'] ['First Name'];
-                        var lastnameObj = document.forms['WebToLeads1011574000000598028'] ['Last Name'];
-                        if (firstnameObj) name += firstnameObj.value + ' ';
-                        if (lastnameObj) name += lastnameObj.value;
-                        $zoho.salesiq.visitor.name(name.trim());
-                        
-                        var emailObj = document.forms['WebToLeads1011574000000598028'] ['Email'];
-                        if (emailObj) {
-                            $zoho.salesiq.visitor.email(emailObj.value);
-                        }
-                    }
-                } catch (e){}
-            }
-        `;
-        document.body.appendChild(siqScript);
+        // Replace this URL with your Mailchimp embedded form POST URL
+        // Make sure to change '/post?' to '/post-json?'
+        const MAILCHIMP_URL = 'https://gnjworldwide.us14.list-manage.com/subscribe/post?u=020b238a101ab45bba7fab536&amp;id=6f08c4fd21&amp;f_id=001b9be1f0" method="post" id="mc-embedded-subscribe-form';
 
-        return () => {
-            const s1 = document.getElementById('zoho-validation-script');
-            const s2 = document.getElementById('zsiqscript-init');
-            const s3 = document.getElementById('zsiqscript');
-            if (s1) document.body.removeChild(s1);
-            if (s2) document.body.removeChild(s2);
-            if (s3) s3.remove();
-        };
-    }, []);
-    // --- ZOHO CRM INTEGRATION END ---
+        // Map your form data to Mailchimp merge tags
+        // You may need to adjust these keys based on your Mailchimp audience settings
+        const params = new URLSearchParams({
+            EMAIL: formData.email,
+            FNAME: formData.firstName,
+            LNAME: formData.lastName,
+            PHONE: formData.mobile,     // Matches *|PHONE|*
+            COMPANY: formData.company,  // Matches *|COMPANY|*
+            MMERGE5: formData.industry, // Matches *|MMERGE5|* (Industry)
+            MMERGE7: formData.description, // Matches *|MMERGE7|* (Message)
+            MMERGE3: `${formData.street}, ${formData.city}, ${formData.state} ${formData.zipCode}, ${formData.country}`
+            // ^ Since your Address (MMERGE3) is set as 'Text', we combine your address fields into one string.
+        });
+
+        const url = `${MAILCHIMP_URL}&${params.toString()}`;
+
+        jsonp(url, { param: 'c' }, (err, data) => {
+            setIsSubmitting(false);
+            if (err) {
+                console.error('Failed to send to Mailchimp:', err);
+                setSubmitStatus('error');
+            } else if (data.result !== 'success') {
+                console.error('Mailchimp error:', data.msg);
+                setSubmitStatus('error');
+            } else {
+                setSubmitStatus('success');
+                setFormData({
+                    firstName: '', lastName: '', company: '', email: '', mobile: '',
+                    description: '', industry: '-None-', street: '', city: '', state: '', zipCode: '', country: ''
+                });
+                setMessage('');
+            }
+        });
+    };
 
     const [chatMessages, setChatMessages] = useState<{ sender: 'bot' | 'user', text: string }[]>([
         { sender: 'bot', text: 'Hello! How can we help you today?' }
@@ -305,35 +237,16 @@ const Contact: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* ZOHO CRM WEB-TO-LEAD FORM */}
+                        {/* MAILCHIMP FORM */}
                         <form
-                            id="webform1011574000000598028"
-                            action="https://crm.zoho.in/crm/WebToLeadForm"
-                            name="WebToLeads1011574000000598028"
-                            method="POST"
-                            onSubmit={(e) => {
-                                // @ts-ignore
-                                if (window.checkMandatory1011574000000598028 && !window.checkMandatory1011574000000598028()) {
-                                    e.preventDefault();
-                                }
-                            }}
-                            acceptCharset="UTF-8"
+                            onSubmit={handleMailchimpSubmit}
                             className="space-y-5"
                         >
-                            {/* Zoho Hidden Fields */}
-                            <input type='text' style={{ display: 'none' }} name='xnQsjsdp' value='cf7bd36beb1c64f66a0e87f8b0a94e633b40afa27134038a564fb09208b3a7bc' readOnly />
-                            <input type='hidden' name='zc_gad' id='zc_gad' value='' readOnly />
-                            <input type='text' style={{ display: 'none' }} name='xmIwtLD' value='dd13540ab1764c72e3bc0858c8adca168b9dccac578da049ef1298fc2f17650162185b05bbc3582c153b1da91f5dbeee' readOnly />
-                            <input type='text' style={{ display: 'none' }} name='actionType' value='TGVhZHM=' readOnly />
-                            <input type='text' style={{ display: 'none' }} name='returnURL' value='null' readOnly />
-                            <input type='text' style={{ display: 'none' }} id='ldeskuid' name='ldeskuid' />
-                            <input type='text' style={{ display: 'none' }} id='LDTuvid' name='LDTuvid' />
-                            <input type='text' style={{ display: 'none' }} name='aG9uZXlwb3Q' value='' readOnly />
 
                             <div className="relative group">
                                 <textarea
                                     id="Description"
-                                    name="Description"
+                                    name="description"
                                     value={formData.description}
                                     onChange={handleInputChange}
                                     className="w-full border border-gray-200 rounded-lg p-4 h-32 resize-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent outline-none transition-all placeholder:text-slate-400 text-sm bg-gray-50/30"
@@ -355,7 +268,7 @@ const Contact: React.FC = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <input
                                     id="First_Name"
-                                    name="First Name"
+                                    name="firstName"
                                     value={formData.firstName}
                                     onChange={handleInputChange}
                                     type="text"
@@ -365,7 +278,7 @@ const Contact: React.FC = () => {
                                 />
                                 <input
                                     id="Last_Name"
-                                    name="Last Name"
+                                    name="lastName"
                                     value={formData.lastName}
                                     onChange={handleInputChange}
                                     type="text"
@@ -378,7 +291,7 @@ const Contact: React.FC = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <input
                                     id="Company"
-                                    name="Company"
+                                    name="company"
                                     value={formData.company}
                                     onChange={handleInputChange}
                                     type="text"
@@ -388,7 +301,7 @@ const Contact: React.FC = () => {
                                 />
                                 <input
                                     id="Email"
-                                    name="Email"
+                                    name="email"
                                     type="email"
                                     value={formData.email}
                                     onChange={handleInputChange}
@@ -400,7 +313,7 @@ const Contact: React.FC = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <input
                                     id="Mobile"
-                                    name="Mobile"
+                                    name="mobile"
                                     value={formData.mobile}
                                     onChange={handleInputChange}
                                     type="tel"
@@ -409,13 +322,9 @@ const Contact: React.FC = () => {
                                 />
                                 <select
                                     id="Industry"
-                                    name="Industry"
+                                    name="industry"
                                     value={formData.industry}
-                                    onChange={(e) => {
-                                        handleInputChange(e);
-                                        // @ts-ignore
-                                        if (window.addAriaSelected1011574000000598028) window.addAriaSelected1011574000000598028(e);
-                                    }}
+                                    onChange={handleInputChange}
                                     className="w-full border border-gray-200 rounded-lg p-3 text-sm focus:ring-2 focus:ring-yellow-400 outline-none bg-gray-50/30"
                                 >
                                     <option value="-None-">-Select Industry-</option>
@@ -445,7 +354,7 @@ const Contact: React.FC = () => {
                                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Address Details (Optional)</p>
                                 <input
                                     id="Street"
-                                    name="Street"
+                                    name="street"
                                     value={formData.street}
                                     onChange={handleInputChange}
                                     type="text"
@@ -455,7 +364,7 @@ const Contact: React.FC = () => {
                                 <div className="grid grid-cols-2 gap-4">
                                     <input
                                         id="City"
-                                        name="City"
+                                        name="city"
                                         value={formData.city}
                                         onChange={handleInputChange}
                                         type="text"
@@ -464,7 +373,7 @@ const Contact: React.FC = () => {
                                     />
                                     <input
                                         id="State"
-                                        name="State"
+                                        name="state"
                                         value={formData.state}
                                         onChange={handleInputChange}
                                         type="text"
@@ -475,7 +384,7 @@ const Contact: React.FC = () => {
                                 <div className="grid grid-cols-2 gap-4">
                                     <input
                                         id="Zip_Code"
-                                        name="Zip Code"
+                                        name="zipCode"
                                         value={formData.zipCode}
                                         onChange={handleInputChange}
                                         type="text"
@@ -484,7 +393,7 @@ const Contact: React.FC = () => {
                                     />
                                     <input
                                         id="Country"
-                                        name="Country"
+                                        name="country"
                                         value={formData.country}
                                         onChange={handleInputChange}
                                         type="text"
@@ -498,11 +407,29 @@ const Contact: React.FC = () => {
                                 <button
                                     id="formsubmit"
                                     type="submit"
-                                    className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-3 px-16 rounded-lg transition-all shadow-md text-[15px]"
+                                    disabled={isSubmitting}
+                                    className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-3 px-16 rounded-lg transition-all shadow-md text-[15px] disabled:opacity-70 disabled:cursor-not-allowed flex items-center gap-2"
                                 >
-                                    Submit
+                                    {isSubmitting ? (
+                                        <>
+                                            <div className="w-5 h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin"></div>
+                                            Sending...
+                                        </>
+                                    ) : submitStatus === 'success' ? (
+                                        <>
+                                            <ShieldCheck size={20} />
+                                            Sent Successfully
+                                        </>
+                                    ) : (
+                                        'Submit'
+                                    )}
                                 </button>
                             </div>
+                            {submitStatus === 'error' && (
+                                <p className="text-red-500 text-sm text-center mt-2">
+                                    Failed to send message. Please try again later.
+                                </p>
+                            )}
                         </form>
                     </div>
 

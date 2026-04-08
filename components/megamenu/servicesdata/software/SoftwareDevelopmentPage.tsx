@@ -62,9 +62,6 @@ const SoftwareDevelopmentPage: React.FC = () => {
               <Link to="/contact" className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg hover:shadow-blue-500/50 flex items-center">
                 Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
-              <button className="px-8 py-4 rounded-lg font-bold text-white border border-slate-700 hover:bg-slate-800 transition-all">
-                View Tech Stack
-              </button>
             </div>
           </div>
           

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { Database, Server, BarChart, ArrowRight, Save, HardDrive, FileSpreadsheet, RefreshCw } from 'lucide-react';
+import { Database, Server, BarChart, ArrowRight, Save, HardDrive, FileSpreadsheet, RefreshCw, Check, Cloud, Layers, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const DatabaseDevelopmentPage: React.FC = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -44,8 +45,270 @@ const DatabaseDevelopmentPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Strategies Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-white">
+         <div className="text-center mb-16">
+             <h2 className="text-3xl font-bold text-slate-900">Our Modernization Strategies</h2>
+             <p className="text-slate-600 mt-4">We assess your specific needs to determine the best path forward.</p>
+         </div>
+
+         <div className="grid md:grid-cols-3 gap-8">
+             {[
+                 { 
+                     title: "Rehost (Lift & Shift)", 
+                     desc: "Migrating your existing applications to the cloud with minimal code changes.",
+                     color: "bg-blue-50 text-blue-600"
+                 },
+                 { 
+                     title: "Replatform", 
+                     desc: "Moving to a managed platform (PaaS) to reduce operational overhead.",
+                     color: "bg-green-50 text-green-600"
+                 },
+                 { 
+                     title: "Refactor / Re-architect", 
+                     desc: "Re-engineering applications into microservices for full cloud-native benefits.",
+                     color: "bg-orange-50 text-orange-600"
+                 }
+             ].map((item, idx) => (
+                 <div key={idx} className="p-8 border border-slate-100 rounded-2xl shadow-sm hover:shadow-lg transition-all bg-white">
+                     <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 font-bold text-lg ${item.color}`}>
+                         {idx + 1}
+                     </div>
+                     <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                     <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+                 </div>
+             ))}
+         </div>
+      </div>
+
+      {/* Visual Transformation Flow */}
+      <div className="bg-slate-50 py-24 relative overflow-hidden">
+          {/* Decorative background circles */}
+          <div className="absolute top-1/4 left-1/4 w-24 h-24 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+          <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-20 h-20 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+          <div className="absolute bottom-1/3 right-1/3 w-28 h-28 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+
+          <div className="max-w-5xl mx-auto px-4 relative z-10">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative">
+                  {/* Animated Data Packets */}
+                  <motion.div 
+                      className="hidden md:block absolute top-1/2 left-1/3 z-20 text-orange-400"
+                      initial={{ x: 0, opacity: 0, y: "-50%" }}
+                      whileInView={{ 
+                          x: ["0%", "150%", "300%"], 
+                          opacity: [0, 1, 0] 
+                      }}
+                      transition={{ 
+                          duration: 2, 
+                          repeat: Infinity, 
+                          ease: "linear" 
+                      }}
+                  >
+                      <Database size={20} />
+                  </motion.div>
+                  <motion.div 
+                      className="hidden md:block absolute top-1/2 left-1/3 z-20 text-blue-400"
+                      initial={{ x: 0, opacity: 0, y: "-150%" }}
+                      whileInView={{ 
+                          x: ["0%", "150%", "300%"], 
+                          opacity: [0, 1, 0] 
+                      }}
+                      transition={{ 
+                          duration: 2.5, 
+                          repeat: Infinity, 
+                          ease: "linear",
+                          delay: 0.5
+                      }}
+                  >
+                      <FileSpreadsheet size={20} />
+                  </motion.div>
+                  <motion.div 
+                      className="hidden md:block absolute top-1/2 left-1/3 z-20 text-green-400"
+                      initial={{ x: 0, opacity: 0, y: "50%" }}
+                      whileInView={{ 
+                          x: ["0%", "150%", "300%"], 
+                          opacity: [0, 1, 0] 
+                      }}
+                      transition={{ 
+                          duration: 1.8, 
+                          repeat: Infinity, 
+                          ease: "linear",
+                          delay: 1.2
+                      }}
+                  >
+                      <HardDrive size={20} />
+                  </motion.div>
+
+                  {/* Before */}
+                  <motion.div 
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 w-full md:w-[40%] relative z-10"
+                  >
+                      <div className="flex items-center gap-3 mb-6 border-b border-slate-50 pb-4">
+                          <Server size={24} className="text-slate-400" />
+                          <span className="font-bold text-slate-500 text-lg">On-Premise Server</span>
+                      </div>
+                      <div className="space-y-3">
+                          <div className="h-5 bg-slate-100 rounded-md w-full"></div>
+                          <div className="h-5 bg-slate-100 rounded-md w-full"></div>
+                          <div className="h-5 bg-slate-100 rounded-md w-2/3"></div>
+                      </div>
+                  </motion.div>
+
+                  {/* Arrow */}
+                  <motion.div 
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                      className="flex flex-col items-center text-orange-500 relative z-10"
+                  >
+                      <div className="text-sm font-bold uppercase tracking-widest mb-2">MIGRATION</div>
+                      <ArrowRight size={32} strokeWidth={2.5} className="hidden md:block" />
+                      <ArrowRight size={32} strokeWidth={2.5} className="md:hidden rotate-90" />
+                  </motion.div>
+
+                  {/* After */}
+                  <motion.div 
+                      initial={{ opacity: 0, x: 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="bg-white p-8 rounded-2xl shadow-md w-full md:w-[40%] border-t-4 border-orange-500 relative z-10"
+                  >
+                      <div className="flex items-center gap-3 mb-6 border-b border-slate-50 pb-4">
+                          <Cloud size={24} className="text-orange-500" />
+                          <span className="font-bold text-slate-900 text-lg">Cloud Microservices</span>
+                      </div>
+                      <div className="flex gap-3 flex-wrap">
+                          <motion.div whileHover={{ scale: 1.1 }} className="h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-500"><Database size={16} /></motion.div>
+                          <motion.div whileHover={{ scale: 1.1 }} className="h-10 w-10 bg-green-100 rounded-lg flex items-center justify-center text-green-500"><Server size={16} /></motion.div>
+                          <motion.div whileHover={{ scale: 1.1 }} className="h-10 w-10 bg-purple-100 rounded-lg flex items-center justify-center text-purple-500"><FileSpreadsheet size={16} /></motion.div>
+                          <motion.div whileHover={{ scale: 1.1 }} className="h-10 w-10 bg-orange-100 rounded-lg flex items-center justify-center text-orange-500"><HardDrive size={16} /></motion.div>
+                      </div>
+                  </motion.div>
+              </div>
+
+              {/* Migration Capabilities as Visual Flows */}
+              <div className="mt-24 grid lg:grid-cols-2 gap-8 relative z-10">
+                  {/* Flow 1: Cloud to On-Premises */}
+                  <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between gap-4"
+                  >
+                      <div className="flex-1 bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
+                          <Cloud size={24} className="mx-auto text-slate-400 mb-2" />
+                          <span className="font-bold text-slate-600 text-sm">Cloud</span>
+                      </div>
+                      <div className="flex flex-col items-center text-orange-500 px-2">
+                          <span className="text-[10px] font-bold uppercase tracking-wider mb-1 text-center">Reverse<br/>Migration</span>
+                          <ArrowRight size={20} strokeWidth={2.5} />
+                      </div>
+                      <div className="flex-1 bg-orange-50 p-4 rounded-xl text-center border border-orange-100">
+                          <Server size={24} className="mx-auto text-orange-500 mb-2" />
+                          <span className="font-bold text-slate-900 text-sm">On-Premises</span>
+                      </div>
+                  </motion.div>
+
+                  {/* Flow 2: Cloud Providers */}
+                  <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.1 }}
+                      className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between gap-4"
+                  >
+                      <div className="flex-1 bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
+                          <Database size={24} className="mx-auto text-slate-400 mb-2" />
+                          <span className="font-bold text-slate-600 text-sm">Legacy DB</span>
+                      </div>
+                      <div className="flex flex-col items-center text-blue-500 px-2">
+                          <span className="text-[10px] font-bold uppercase tracking-wider mb-1 text-center">Cloud<br/>Migration</span>
+                          <ArrowRight size={20} strokeWidth={2.5} />
+                      </div>
+                      <div className="flex-1 bg-blue-50 p-4 rounded-xl text-center border border-blue-100">
+                          <Cloud size={24} className="mx-auto text-blue-500 mb-2" />
+                          <span className="font-bold text-slate-900 text-sm">AWS / Azure / GCP</span>
+                      </div>
+                  </motion.div>
+
+                  {/* Flow 3: VMware Management */}
+                  <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 }}
+                      className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between gap-4"
+                  >
+                      <div className="flex-1 bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
+                          <Layers size={24} className="mx-auto text-slate-400 mb-2" />
+                          <span className="font-bold text-slate-600 text-sm">Standard VMware</span>
+                      </div>
+                      <div className="flex flex-col items-center text-green-500 px-2">
+                          <span className="text-[10px] font-bold uppercase tracking-wider mb-1 text-center">Optimize</span>
+                          <ArrowRight size={20} strokeWidth={2.5} />
+                      </div>
+                      <div className="flex-1 bg-green-50 p-4 rounded-xl text-center border border-green-100">
+                          <Zap size={24} className="mx-auto text-green-500 mb-2" />
+                          <span className="font-bold text-slate-900 text-sm">Managed VMware</span>
+                      </div>
+                  </motion.div>
+
+                  {/* Flow 4: Oracle Migration */}
+                  <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 }}
+                      className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between gap-4"
+                  >
+                      <div className="flex-1 bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
+                          <Database size={24} className="mx-auto text-slate-400 mb-2" />
+                          <span className="font-bold text-slate-600 text-sm">Oracle DB</span>
+                      </div>
+                      <div className="flex flex-col items-center text-purple-500 px-2">
+                          <span className="text-[10px] font-bold uppercase tracking-wider mb-1 text-center">Modernize</span>
+                          <ArrowRight size={20} strokeWidth={2.5} />
+                      </div>
+                      <div className="flex-1 bg-purple-50 p-4 rounded-xl text-center border border-purple-100">
+                          <RefreshCw size={24} className="mx-auto text-purple-500 mb-2" />
+                          <span className="font-bold text-slate-900 text-sm">Modern RDBMS</span>
+                      </div>
+                  </motion.div>
+              </div>
+          </div>
+      </div>
+
+      {/* Benefits List */}
+      <div className="py-24 max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 text-slate-900">The ROI of Modernization</h2>
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
+              {[
+                  "Reduced Infrastructure Costs",
+                  "Faster Time-to-Market",
+                  "Enhanced Security Compliance",
+                  "Improved Scalability",
+                  "Better Developer Productivity",
+                  "Superior User Experience"
+              ].map((benefit, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                      <div className="bg-green-100 text-green-600 rounded-full p-1">
+                          <Check size={16} />
+                      </div>
+                      <span className="text-lg text-slate-700 font-medium">{benefit}</span>
+                  </div>
+              ))}
+          </div>
+      </div>
+
       {/* Stacked Cards Layout for Services */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 -mt-12">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
          <div className="space-y-6">
             
             {/* Card 1 */}

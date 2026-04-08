@@ -11,9 +11,9 @@ export const NAV_ITEMS: MenuItem[] = [
           items: [
             { title: "About Company", href: "/about" },
             { title: "Mission", href: "/about/mission" },
-            { title: "Leadership", href: "/about/leadership" },
+            // { title: "Leadership", href: "/about/leadership" },
             { title: "Our Team", href: "/about/team" },
-            { title: "Portfolio", href: "/portfolio" },
+            // { title: "Portfolio", href: "/portfolio" },
             { title: "Client Reviews", href: "/reviews" },
             { title: "Partners", href: "/partners" },
             { title: "Locations", href: "/locations" }
@@ -43,7 +43,7 @@ export const NAV_ITEMS: MenuItem[] = [
             { title: "Desktop Development", href: "/services/desktop-development" },
             { title: "API Development", href: "/services/api-development" },
             { title: "Database Development", href: "/services/database-development" },
-            { title: "Software Modernization", href: "/services/software-modernization" },
+            // { title: "Software Modernization", href: "/services/software-modernization" },
           ]
         },
         {
@@ -341,8 +341,5 @@ export const NAV_ITEMS: MenuItem[] = [
       ]
     }
   },
-  {
-    title: "Pricing",
-    href: "/pricing",
-  }
+  
 ];
