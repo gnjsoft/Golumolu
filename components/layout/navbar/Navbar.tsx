@@ -262,6 +262,18 @@ const Navbar: React.FC = () => {
               </div>
             )}
 
+            <div className="relative ml-2 group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+              <a
+                href="https://calendly.com/gnjworldwide-support"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white text-sm font-bold py-2.5 px-6 rounded-full transition-all duration-300 transform group-hover:scale-105"
+              >
+                Meeting <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+
             <Link
               to="/contact"
               className="relative overflow-hidden group bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold py-2.5 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg ml-2"
@@ -585,7 +597,13 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          <div className="p-4 border-t border-gray-100">
+          <div className="p-4 border-t border-gray-100 flex flex-col gap-3">
+            <div className="relative w-full group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-500 rounded-2xl blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+              <a href="https://calendly.com/gnjworldwide-support" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="relative w-full flex justify-center items-center bg-gradient-to-r from-purple-600 to-pink-500 text-white font-bold py-4 rounded-2xl transition-all active:scale-95">
+                Book a Meeting <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="w-full flex justify-center items-center bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-4 rounded-2xl transition-all shadow-lg active:scale-95">
               Contact Us <ArrowRight className="ml-2 w-5 h-5" />
             </Link>

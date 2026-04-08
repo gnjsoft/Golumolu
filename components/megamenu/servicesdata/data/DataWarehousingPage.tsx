@@ -16,7 +16,7 @@ const DataWarehousingPage: React.FC = () => {
       <div className="relative bg-black text-white py-32 px-4 overflow-hidden">
          <div className="absolute inset-0">
              <img 
-                src="https://images.unsplash.com/photo-1558494949-ef2bb6ffa030?auto=format&fit=crop&q=80&w=2070" 
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=2070" 
                 alt="Server Room" 
                 className="w-full h-full object-cover opacity-30"
              />

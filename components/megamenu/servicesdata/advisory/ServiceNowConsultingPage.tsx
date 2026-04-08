@@ -12,10 +12,24 @@ const ServiceNowConsultingPage: React.FC = () => {
 
   return (
     <div className="bg-white min-h-screen pt-20 font-sans">
-      <div className="bg-[#293e40] text-white py-24 px-4 text-center overflow-hidden">
-        <div className={`transition-all duration-1000 transform ${active ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">ServiceNow Consulting</h1>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">Transform your enterprise workflows with the Now Platform.</p>
+      <div className="relative bg-slate-50 text-slate-900 py-32 px-4 flex flex-col items-center text-center overflow-hidden">
+        {/* ServiceNow Logo Background Watermark */}
+        <div 
+          className="absolute inset-0 bg-center bg-no-repeat opacity-5"
+          style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlwBBLfJlsQ1OJQLPE4UlRZonkVjSPVq-vZw&s')", backgroundSize: '800px' }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-slate-50"></div>
+        
+        <div className="relative z-10 flex flex-col items-center">
+          <div className={`mx-auto w-24 h-24 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-xl transition-transform duration-[800ms] ${active ? 'scale-100 rotate-0' : 'scale-0 rotate-180'}`}>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlwBBLfJlsQ1OJQLPE4UlRZonkVjSPVq-vZw&s" alt="ServiceNow" className="w-16 h-16 object-contain" />
+          </div>
+          <h1 className={`text-4xl md:text-6xl font-bold mb-6 transition-all duration-700 delay-200 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              ServiceNow Consulting
+          </h1>
+          <p className={`text-xl text-slate-600 max-w-2xl transition-all duration-700 delay-300 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              Transform your enterprise workflows with the Now Platform.
+          </p>
         </div>
       </div>
 

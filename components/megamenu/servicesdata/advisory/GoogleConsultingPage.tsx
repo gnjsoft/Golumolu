@@ -13,18 +13,25 @@ const GoogleConsultingPage: React.FC = () => {
   return (
     <div className="bg-white min-h-screen pt-20 font-sans">
       {/* Header */}
-      <div className="bg-slate-50 py-24 px-4 flex flex-col items-center border-b border-slate-100 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        <div className={`w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg mb-8 transition-all duration-1000 relative z-10 ${show ? 'scale-100 rotate-0' : 'scale-0 rotate-180'}`}>
-            {/* Multi-color Google-ish icon feel */}
-            <Cloud className="text-blue-500" size={40} />
+      <div className="relative bg-slate-50 text-slate-900 py-32 px-4 flex flex-col items-center text-center overflow-hidden">
+        {/* Google Logo Background Watermark */}
+        <div 
+          className="absolute inset-0 bg-center bg-no-repeat opacity-5"
+          style={{ backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg')", backgroundSize: '800px' }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-slate-50"></div>
+        
+        <div className="relative z-10 flex flex-col items-center">
+          <div className={`mx-auto w-24 h-24 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-xl transition-transform duration-[800ms] ${show ? 'scale-100 rotate-0' : 'scale-0 rotate-180'}`}>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" className="w-16 h-16 object-contain" />
+          </div>
+          <h1 className={`text-4xl md:text-6xl font-bold mb-6 transition-all duration-700 delay-200 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              Google Cloud Consulting
+          </h1>
+          <p className={`text-xl text-slate-600 max-w-2xl transition-all duration-700 delay-300 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              Unlock the power of GCP with our certified experts.
+          </p>
         </div>
-        <h1 className={`text-4xl md:text-5xl font-bold text-slate-900 mb-4 transition-all duration-700 delay-200 relative z-10 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            Google Cloud Consulting
-        </h1>
-        <p className={`text-xl text-slate-600 max-w-2xl text-center transition-all duration-700 delay-300 relative z-10 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            Unlock the power of GCP with our certified experts.
-        </p>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-20">
