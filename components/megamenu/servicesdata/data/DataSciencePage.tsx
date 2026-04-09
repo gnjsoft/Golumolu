@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Atom, Network, Microscope, ArrowRight, Dna, FlaskConical, Database, Search, Cpu, LineChart, ShieldCheck, Settings, BrainCircuit } from 'lucide-react';
+import { Atom, Network, Microscope, ArrowRight, Dna, FlaskConical, Database, Search, Cpu, LineChart, ShieldCheck, Settings, BrainCircuit, Rocket, TrendingUp, LifeBuoy, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const DataSciencePage: React.FC = () => {
@@ -120,6 +120,94 @@ const DataSciencePage: React.FC = () => {
                           </div>
                       </div>
                   ))}
+              </div>
+          </div>
+
+          {/* End-to-End Services Section */}
+          <div className="mt-32">
+              <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">End-to-End Data Science Services</h2>
+                  <div className="w-24 h-1.5 bg-indigo-500 mx-auto rounded-full"></div>
+                  <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
+                      We partner with you throughout the entire lifecycle of your data science initiatives.
+                  </p>
+              </div>
+              
+              <div className="space-y-24">
+                  {/* Implementation */}
+                  <div className="flex flex-col md:flex-row items-center gap-12">
+                      <div className="md:w-1/2">
+                          <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
+                              <Rocket size={32} />
+                          </div>
+                          <h3 className="text-3xl font-bold text-slate-900 mb-4">Data Science Solution Implementation</h3>
+                          <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                              From proof-of-concept to production-ready deployment, we build scalable and robust data science solutions tailored to your infrastructure. We ensure seamless integration with your existing systems.
+                          </p>
+                          <ul className="space-y-4">
+                              {["Custom Model Development & Training", "MLOps & CI/CD Pipeline Setup", "Cloud Infrastructure Deployment (AWS, GCP, Azure)", "API Integration & Frontend Connectivity"].map((point, i) => (
+                                  <li key={i} className="flex items-center text-slate-700 font-medium">
+                                      <CheckCircle2 className="text-indigo-500 mr-3 flex-shrink-0" size={20} />
+                                      {point}
+                                  </li>
+                              ))}
+                          </ul>
+                      </div>
+                      <div className="md:w-1/2 w-full bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-100 relative overflow-hidden group">
+                          <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-200 rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-700"></div>
+                          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" alt="Implementation" className="rounded-2xl shadow-lg relative z-10 w-full object-cover h-80" />
+                      </div>
+                  </div>
+
+                  {/* Evolution */}
+                  <div className="flex flex-col md:flex-row-reverse items-center gap-12">
+                      <div className="md:w-1/2">
+                          <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
+                              <TrendingUp size={32} />
+                          </div>
+                          <h3 className="text-3xl font-bold text-slate-900 mb-4">Data Science Evolution</h3>
+                          <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                              Continuously improve and adapt your models with new data, advanced algorithms, and evolving business requirements to maintain a competitive edge.
+                          </p>
+                          <ul className="space-y-4">
+                              {["Continuous Model Retraining", "Integration of New Data Sources", "Algorithm Upgrades & Optimization", "Scaling Infrastructure for Big Data"].map((point, i) => (
+                                  <li key={i} className="flex items-center text-slate-700 font-medium">
+                                      <CheckCircle2 className="text-indigo-500 mr-3 flex-shrink-0" size={20} />
+                                      {point}
+                                  </li>
+                              ))}
+                          </ul>
+                      </div>
+                      <div className="md:w-1/2 w-full bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-100 relative overflow-hidden group">
+                          <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-200 rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-700"></div>
+                          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" alt="Evolution" className="rounded-2xl shadow-lg relative z-10 w-full object-cover h-80" />
+                      </div>
+                  </div>
+
+                  {/* Support */}
+                  <div className="flex flex-col md:flex-row items-center gap-12">
+                      <div className="md:w-1/2">
+                          <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
+                              <LifeBuoy size={32} />
+                          </div>
+                          <h3 className="text-3xl font-bold text-slate-900 mb-4">Data Science Solution Support</h3>
+                          <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                              Ongoing monitoring, maintenance, and troubleshooting to ensure your models remain accurate, performant, and reliable over time.
+                          </p>
+                          <ul className="space-y-4">
+                              {["24/7 Model Monitoring & Alerting", "Data Drift & Concept Drift Detection", "Performance Reporting & Dashboards", "Security Patching & Compliance Audits"].map((point, i) => (
+                                  <li key={i} className="flex items-center text-slate-700 font-medium">
+                                      <CheckCircle2 className="text-indigo-500 mr-3 flex-shrink-0" size={20} />
+                                      {point}
+                                  </li>
+                              ))}
+                          </ul>
+                      </div>
+                      <div className="md:w-1/2 w-full bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-100 relative overflow-hidden group">
+                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-blue-200 rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-700"></div>
+                          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1000" alt="Support" className="rounded-2xl shadow-lg relative z-10 w-full object-cover h-80" />
+                      </div>
+                  </div>
               </div>
           </div>
 

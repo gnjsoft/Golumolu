@@ -40,9 +40,7 @@ const ArtificialIntelligencePage: React.FC = () => {
              <p className="text-2xl text-gray-400 max-w-3xl mx-auto mb-12 font-light">
                  Generative AI, Computer Vision, and Cognitive Computing solutions that redefine reality.
              </p>
-             <Link to="/contact" className="inline-flex items-center bg-white text-black font-bold py-4 px-12 rounded-full hover:bg-green-400 transition-all hover:scale-105">
-                 Explore AI Solutions <ArrowRight className="ml-2" />
-             </Link>
+           
          </div>
       </div>
 
