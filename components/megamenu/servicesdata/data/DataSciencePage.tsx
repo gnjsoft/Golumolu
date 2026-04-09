@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Atom, Network, Microscope, ArrowRight, Dna, FlaskConical } from 'lucide-react';
+import { Atom, Network, Microscope, ArrowRight, Dna, FlaskConical, Database, Search, Cpu, LineChart, ShieldCheck, Settings, BrainCircuit } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const DataSciencePage: React.FC = () => {
@@ -59,7 +59,71 @@ const DataSciencePage: React.FC = () => {
               ))}
           </div>
 
-          {/* Process Section */}
+          {/* Our Process Section */}
+          <div className="mt-32">
+              <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Data Science Process</h2>
+                  <div className="w-24 h-1.5 bg-indigo-500 mx-auto rounded-full"></div>
+                  <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
+                      A rigorous, scientific approach to ensure your data initiatives deliver measurable business value.
+                  </p>
+              </div>
+              
+              <div className="grid md:grid-cols-4 gap-8 relative">
+                  {/* Connecting Line */}
+                  <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-indigo-100 -z-10 transform -translate-y-1/2"></div>
+                  
+                  {[
+                      { step: "01", title: "Discovery", desc: "Understanding your business goals, data landscape, and defining the problem.", icon: Search },
+                      { step: "02", title: "Data Preparation", desc: "Cleaning, transforming, and engineering features for optimal model performance.", icon: Database },
+                      { step: "03", title: "Modeling", desc: "Training, testing, and tuning machine learning algorithms to find the best fit.", icon: BrainCircuit },
+                      { step: "04", title: "Deployment", desc: "Integrating the model into production systems and monitoring its performance.", icon: Cpu }
+                  ].map((item, idx) => (
+                      <div key={idx} className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 relative group hover:-translate-y-2 transition-all duration-300">
+                          <div className="w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-lg absolute -top-6 left-1/2 transform -translate-x-1/2 border-4 border-white group-hover:scale-110 transition-transform">
+                              {item.step}
+                          </div>
+                          <div className="mt-6 text-center">
+                              <div className="w-12 h-12 mx-auto bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-4">
+                                  <item.icon size={24} />
+                              </div>
+                              <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                              <p className="text-slate-600 text-sm">{item.desc}</p>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
+
+          {/* Use Cases Section */}
+          <div className="mt-32">
+              <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Real-World Use Cases</h2>
+                  <div className="w-24 h-1.5 bg-indigo-500 mx-auto rounded-full"></div>
+              </div>
+              
+              <div className="grid md:grid-cols-3 gap-8">
+                  {[
+                      { title: "Predictive Maintenance", desc: "Forecast equipment failures before they happen, minimizing downtime and saving costs.", icon: Settings },
+                      { title: "Customer Churn Prediction", desc: "Identify at-risk customers and take proactive measures to improve retention.", icon: LineChart },
+                      { title: "Fraud Detection", desc: "Detect anomalous patterns in real-time to prevent financial loss and secure transactions.", icon: ShieldCheck }
+                  ].map((item, idx) => (
+                      <div key={idx} className="flex gap-4 p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-indigo-50 transition-colors duration-300 group">
+                          <div className="flex-shrink-0">
+                              <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                                  <item.icon size={24} />
+                              </div>
+                          </div>
+                          <div>
+                              <h4 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h4>
+                              <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
+
+          {/* CTA Section */}
           <div className="mt-32">
               <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-indigo-900 rounded-3xl p-12 relative overflow-hidden">
                   {/* Decorative blobs */}
