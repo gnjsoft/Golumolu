@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Activity, ShieldCheck, Server, ArrowRight, Radio, RefreshCw, BarChart, CheckCircle2, Clock, Users, TrendingUp, Settings, Headphones, Target, Zap, Award } from 'lucide-react';
+import { Activity, ShieldCheck, Server, ArrowRight, Radio, RefreshCw, BarChart, CheckCircle2, Clock, Users, TrendingUp, Settings, Headphones, Target, Zap, Award, Cloud, Lock, MonitorSmartphone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ManagedItServicesPage: React.FC = () => {
@@ -84,6 +84,84 @@ const ManagedItServicesPage: React.FC = () => {
                       <h3 className="text-xl font-bold text-slate-900">Reporting & Strategy</h3>
                   </div>
                   <p className="text-slate-600">Monthly reports on system health and strategic advice for future IT investments.</p>
+              </div>
+          </div>
+
+          {/* Detailed Services Deep Dive */}
+          <div className="mt-32 space-y-24">
+              {/* Cybersecurity */}
+              <div className="flex flex-col md:flex-row items-center gap-12">
+                  <div className="md:w-1/2">
+                      <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                          <Lock size={32} />
+                      </div>
+                      <h3 className="text-3xl font-bold text-slate-900 mb-4">Advanced Cybersecurity & Compliance</h3>
+                      <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                          Protect your business from evolving cyber threats. We deploy enterprise-grade security protocols, continuous monitoring, and rapid incident response to keep your data safe and ensure regulatory compliance.
+                      </p>
+                      <ul className="space-y-4">
+                          {["Endpoint Detection & Response (EDR)", "Security Awareness Training", "Vulnerability Assessments & Penetration Testing", "Zero-Trust Architecture Implementation"].map((point, i) => (
+                              <li key={i} className="flex items-center text-slate-700 font-medium">
+                                  <CheckCircle2 className="text-emerald-500 mr-3 flex-shrink-0" size={20} />
+                                  {point}
+                              </li>
+                          ))}
+                      </ul>
+                  </div>
+                  <div className="md:w-1/2 w-full bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-100 relative overflow-hidden group">
+                      <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-200 rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-700"></div>
+                      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000" alt="Cybersecurity" className="rounded-2xl shadow-lg relative z-10 w-full object-cover h-80" />
+                  </div>
+              </div>
+
+              {/* Cloud Infrastructure */}
+              <div className="flex flex-col md:flex-row-reverse items-center gap-12">
+                  <div className="md:w-1/2">
+                      <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                          <Cloud size={32} />
+                      </div>
+                      <h3 className="text-3xl font-bold text-slate-900 mb-4">Cloud Infrastructure Management</h3>
+                      <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                          Maximize the ROI of your cloud investments. Our team manages, optimizes, and secures your cloud environments across AWS, Azure, and Google Cloud, ensuring high availability and scalability.
+                      </p>
+                      <ul className="space-y-4">
+                          {["Cloud Migration Strategy & Execution", "Cost Optimization & Resource Allocation", "Cloud Architecture Reviews", "24/7 Cloud Performance Monitoring"].map((point, i) => (
+                              <li key={i} className="flex items-center text-slate-700 font-medium">
+                                  <CheckCircle2 className="text-emerald-500 mr-3 flex-shrink-0" size={20} />
+                                  {point}
+                              </li>
+                          ))}
+                      </ul>
+                  </div>
+                  <div className="md:w-1/2 w-full bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-100 relative overflow-hidden group">
+                      <div className="absolute bottom-0 left-0 w-48 h-48 bg-teal-200 rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-700"></div>
+                      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000" alt="Cloud Infrastructure" className="rounded-2xl shadow-lg relative z-10 w-full object-cover h-80" />
+                  </div>
+              </div>
+
+              {/* End-User Support */}
+              <div className="flex flex-col md:flex-row items-center gap-12">
+                  <div className="md:w-1/2">
+                      <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+                          <MonitorSmartphone size={32} />
+                      </div>
+                      <h3 className="text-3xl font-bold text-slate-900 mb-4">End-User Helpdesk & Support</h3>
+                      <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                          Empower your team with lightning-fast IT support. Our dedicated helpdesk resolves issues quickly so your employees can stay productive without technical friction.
+                      </p>
+                      <ul className="space-y-4">
+                          {["24/7/365 Remote IT Support", "On-Site Troubleshooting & Dispatch", "Mobile Device Management (MDM)", "Automated Employee Onboarding/Offboarding"].map((point, i) => (
+                              <li key={i} className="flex items-center text-slate-700 font-medium">
+                                  <CheckCircle2 className="text-emerald-500 mr-3 flex-shrink-0" size={20} />
+                                  {point}
+                              </li>
+                          ))}
+                      </ul>
+                  </div>
+                  <div className="md:w-1/2 w-full bg-slate-50 rounded-3xl p-6 md:p-8 border border-slate-100 relative overflow-hidden group">
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-green-200 rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-700"></div>
+                      <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000" alt="IT Support" className="rounded-2xl shadow-lg relative z-10 w-full object-cover h-80" />
+                  </div>
               </div>
           </div>
       </div>
