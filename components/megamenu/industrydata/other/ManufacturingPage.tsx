@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Factory, Cog, Cpu, Truck, BarChart3, ArrowRight, Layers } from 'lucide-react';
+import { Factory, Cog, Cpu, Truck, BarChart3, ArrowRight, Layers, Lightbulb, Code, RefreshCw, ShieldCheck, Settings, Users, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ManufacturingPage: React.FC = () => {
@@ -45,6 +45,10 @@ const ManufacturingPage: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-24">
+          <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">Core Industry 4.0 Technologies</h2>
+              <p className="text-slate-600 max-w-2xl mx-auto">Leveraging advanced technologies to bring your manufacturing processes into the digital age.</p>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
               {[
                   { icon: Cpu, title: "Industrial IoT", desc: "Sensor integration for real-time machine monitoring and data collection." },
@@ -64,6 +68,114 @@ const ManufacturingPage: React.FC = () => {
                       <p className="text-slate-600">{item.desc}</p>
                   </div>
               ))}
+          </div>
+      </div>
+
+      {/* New Section: IT Services and Solutions for Manufacturing */}
+      <div className="bg-white py-24 border-t border-slate-200">
+          <div className="max-w-7xl mx-auto px-4">
+              <div className="text-center max-w-4xl mx-auto mb-20">
+                  <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">IT Services and Solutions for Manufacturing</h2>
+                  <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                      IT services for manufacturing are a way for manufacturers to digitally transform their business operations and ensure high quality, robust security, and seamless operation of their enterprise systems.
+                  </p>
+                  <p className="text-lg text-slate-600 leading-relaxed">
+                      With over a decade of experience in developing software for the manufacturing industry, GnJ Worldwide offers robust solutions and related services to support and modernize your enterprise’s operations. We ensure increased efficiency and optimized business costs, all without IT budget overruns.
+                  </p>
+              </div>
+
+              <div className="mb-16 text-center">
+                  <h3 className="text-3xl font-bold text-slate-900 mb-4">Full-Cycle IT Services</h3>
+                  <p className="text-slate-600 max-w-3xl mx-auto text-lg">
+                      GnJ Worldwide provides full-cycle IT services to help manufacturers design, build, revamp, and maintain their enterprise solutions, as well as implement cutting-edge Industry 4.0 technologies to embrace digital manufacturing process transformation.
+                  </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {/* Service 1 */}
+                  <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200 hover:border-orange-500 hover:shadow-xl transition-all group flex flex-col">
+                      <Lightbulb className="w-12 h-12 text-orange-600 mb-6 group-hover:scale-110 transition-transform" />
+                      <h4 className="text-2xl font-bold text-slate-900 mb-4">IT Strategy Consulting</h4>
+                      <p className="text-slate-600 mb-6 font-medium">We advise you on how to:</p>
+                      <ul className="space-y-3 text-slate-600 mb-8 flex-grow">
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Increase ROA via equipment effectiveness optimization and predictive maintenance.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Improve flexibility via M2M integration and smart automation.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Reduce costs and improve productivity via AI-based optimization.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Achieve compliance with OSHA, EPA, FDA, NIST, CPSC, and CMMC.</li>
+                      </ul>
+                      <Link to="/contact" className="text-orange-600 font-bold hover:text-orange-700 inline-flex items-center mt-auto">I'm interested <ArrowRight className="ml-2 w-5 h-5" /></Link>
+                  </div>
+
+                  {/* Service 2 */}
+                  <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200 hover:border-orange-500 hover:shadow-xl transition-all group flex flex-col">
+                      <Code className="w-12 h-12 text-orange-600 mb-6 group-hover:scale-110 transition-transform" />
+                      <h4 className="text-2xl font-bold text-slate-900 mb-4">Solution Consulting & Development</h4>
+                      <p className="text-slate-600 mb-6 font-medium">We help you:</p>
+                      <ul className="space-y-3 text-slate-600 mb-8 flex-grow">
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Design optimal functionality, architecture, and tech stack.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Accurately plan your software development project.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Reduce implementation and operational costs.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Ensure seamless user adoption with end-to-end development and maintenance.</li>
+                      </ul>
+                      <Link to="/contact" className="text-orange-600 font-bold hover:text-orange-700 inline-flex items-center mt-auto">I'm interested <ArrowRight className="ml-2 w-5 h-5" /></Link>
+                  </div>
+
+                  {/* Service 3 */}
+                  <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200 hover:border-orange-500 hover:shadow-xl transition-all group flex flex-col">
+                      <RefreshCw className="w-12 h-12 text-orange-600 mb-6 group-hover:scale-110 transition-transform" />
+                      <h4 className="text-2xl font-bold text-slate-900 mb-4">Software Modernization</h4>
+                      <p className="text-slate-600 mb-6 font-medium">Upgrade promptly with minimal disruption. We perform:</p>
+                      <ul className="space-y-3 text-slate-600 mb-8 flex-grow">
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Seamless migration to the cloud.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Software rearchitecting, recoding, and re-engineering.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Tech stack modernization and UX/UI revamps.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Software evolution with advanced Industry 4.0 features.</li>
+                      </ul>
+                      <Link to="/contact" className="text-orange-600 font-bold hover:text-orange-700 inline-flex items-center mt-auto">I'm interested <ArrowRight className="ml-2 w-5 h-5" /></Link>
+                  </div>
+
+                  {/* Service 4 */}
+                  <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200 hover:border-orange-500 hover:shadow-xl transition-all group flex flex-col">
+                      <ShieldCheck className="w-12 h-12 text-orange-600 mb-6 group-hover:scale-110 transition-transform" />
+                      <h4 className="text-2xl font-bold text-slate-900 mb-4">QA & Information Security</h4>
+                      <p className="text-slate-600 mb-6 font-medium">IT outsourcing for critical functions:</p>
+                      <ul className="space-y-3 text-slate-600 mb-8 flex-grow">
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Comprehensive testing (functional, performance, security).</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Software audits and thorough code reviews.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Network protection (DDoS, SIEM, IDS/IPS, SOAR, EDR).</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Vulnerability assessment, IAM, and data backup/recovery.</li>
+                      </ul>
+                      <Link to="/contact" className="text-orange-600 font-bold hover:text-orange-700 inline-flex items-center mt-auto">I'm interested <ArrowRight className="ml-2 w-5 h-5" /></Link>
+                  </div>
+
+                  {/* Service 5 */}
+                  <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200 hover:border-orange-500 hover:shadow-xl transition-all group flex flex-col">
+                      <Settings className="w-12 h-12 text-orange-600 mb-6 group-hover:scale-110 transition-transform" />
+                      <h4 className="text-2xl font-bold text-slate-900 mb-4">Managed IT Services</h4>
+                      <p className="text-slate-600 mb-6 font-medium">We manage your IT-driven business processes:</p>
+                      <ul className="space-y-3 text-slate-600 mb-8 flex-grow">
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Managed infrastructure and security services.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> IT automation and continuous application support.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Comprehensive L1–L3 IT help desk.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Data management and managed data analytics.</li>
+                      </ul>
+                      <Link to="/contact" className="text-orange-600 font-bold hover:text-orange-700 inline-flex items-center mt-auto">I'm interested <ArrowRight className="ml-2 w-5 h-5" /></Link>
+                  </div>
+
+                  {/* Service 6 */}
+                  <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200 hover:border-orange-500 hover:shadow-xl transition-all group flex flex-col">
+                      <Users className="w-12 h-12 text-orange-600 mb-6 group-hover:scale-110 transition-transform" />
+                      <h4 className="text-2xl font-bold text-slate-900 mb-4">IT Staff Augmentation</h4>
+                      <p className="text-slate-600 mb-6 font-medium">Experts with manufacturing-specific knowledge:</p>
+                      <ul className="space-y-3 text-slate-600 mb-8 flex-grow">
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Developers (Java, .NET, Python, PHP, C++, and more).</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Architects (Enterprise, Manufacturing IoT, Blockchain).</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> Testers for manual and automated testing.</li>
+                          <li className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" /> DevOps engineers, Data analysts, and Data scientists.</li>
+                      </ul>
+                      <Link to="/contact" className="text-orange-600 font-bold hover:text-orange-700 inline-flex items-center mt-auto">I'm interested <ArrowRight className="ml-2 w-5 h-5" /></Link>
+                  </div>
+              </div>
           </div>
       </div>
     </div>
