@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Server, Cloud, HardDrive, Network, Cpu, ArrowRight, Database } from 'lucide-react';
+import { Server, Cloud, HardDrive, Network, Cpu, ArrowRight, Database, Monitor, Smartphone, Layout, Wifi, Shield, Code, Settings, CheckCircle2, Globe, Lock, Clock, DollarSign, Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const InfrastructureServicesPage: React.FC = () => {
@@ -49,20 +49,126 @@ const InfrastructureServicesPage: React.FC = () => {
          </div>
       </div>
 
+      {/* Components Covered Section */}
       <div className="max-w-7xl mx-auto px-4 py-24">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">IT Infrastructure Components We Cover</h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                  We professionally handle modern enterprise IT infrastructures—massive, complex, and heterogeneous. From daily monitoring to long-term optimization, we manage all your IT components.
+              </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                  { icon: Cloud, title: "Cloud Services", desc: "Migration, management, and optimization for AWS, Azure, and Google Cloud." },
-                  { icon: Network, title: "Network Solutions", desc: "Design and implementation of secure LAN/WAN, VPN, and Wi-Fi networks." },
-                  { icon: Cpu, title: "Virtualization", desc: "Server consolidation and efficient resource management using VMware or Hyper-V." },
-                  { icon: Database, title: "Data Center", desc: "Setup and maintenance of physical server rooms and cooling systems." },
-                  { icon: HardDrive, title: "Storage & Backup", desc: "Scalable SAN/NAS storage solutions and automated disaster recovery." },
-                  { icon: Server, title: "Hardware Procurement", desc: "Sourcing and installation of enterprise-grade hardware." }
-              ].map((item, idx) => (
-                  <div key={idx} className="p-8 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors group">
-                      <item.icon className="w-10 h-10 text-slate-400 group-hover:text-blue-600 mb-4 transition-colors" />
-                      <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                      <p className="text-slate-600">{item.desc}</p>
+                  { icon: Monitor, title: "Hardware", items: ["Desktops & Laptops", "Mobile devices & tablets", "IoT devices"] },
+                  { icon: Layout, title: "Software & Integrations", items: ["Custom & off-the-shelf apps", "Custom & OOTB ESBs", "Message brokers"] },
+                  { icon: Wifi, title: "Networks", items: ["Switches & Routers", "Wireless access points", "Servers & VPNs"] },
+                  { icon: Database, title: "Data Storage", items: ["Databases", "Data warehouses", "Data lakes (Cloud & On-prem)"] },
+                  { icon: Cloud, title: "Cloud Infrastructure", items: ["IaaS & PaaS", "Virtual machines & Containers", "Serverless platforms", "Load balancers"] },
+                  { icon: Shield, title: "Security Tools", items: ["Firewalls & SIEM", "IAM & Antivirus", "Network security monitoring", "Encryption tools"] },
+                  { icon: Code, title: "Software Dev Infra", items: ["Dev & testing environments", "CI/CD pipelines", "Containerization tools", "Dependency management"] },
+                  { icon: Settings, title: "Cloud Management", items: ["Cloud management platforms", "Multi-cloud tools", "Cost optimization", "Governance & compliance"] }
+              ].map((comp, idx) => (
+                  <div key={idx} className="bg-slate-50 border border-slate-100 p-6 rounded-2xl hover:shadow-lg hover:border-blue-200 transition-all group">
+                      <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                          <comp.icon className="text-blue-600 group-hover:text-white transition-colors" size={24} />
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-900 mb-4">{comp.title}</h3>
+                      <ul className="space-y-2">
+                          {comp.items.map((item, i) => (
+                              <li key={i} className="flex items-start text-slate-600 text-sm">
+                                  <CheckCircle2 className="text-blue-500 mr-2 flex-shrink-0 mt-0.5" size={16} />
+                                  <span>{item}</span>
+                              </li>
+                          ))}
+                      </ul>
+                  </div>
+              ))}
+          </div>
+      </div>
+
+      {/* Technologies and Tools Section */}
+      <div className="bg-slate-900 py-24 text-white">
+          <div className="max-w-7xl mx-auto px-4">
+              <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6">Technologies & Tools We Work With</h2>
+                  <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+                      Our experts are proficient in a wide array of industry-leading platforms, databases, and DevOps tools.
+                  </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-12">
+                  {[
+                      { category: "Clouds & Platforms", tools: ["AWS", "Microsoft Azure", "Google Cloud", "DigitalOcean", "Rackspace", "Dynamics 365", "Salesforce", "ServiceNow", "SAP SE"] },
+                      { category: "Databases & Storage", tools: ["SQL Server", "MySQL", "PostgreSQL", "Oracle", "MongoDB", "Cassandra", "Apache Hive", "Redis"] },
+                      { category: "Big Data", tools: ["Apache Hadoop", "Apache Spark", "Apache Kafka", "Amazon Redshift", "Azure Cosmos DB", "Google Datastore"] },
+                      { category: "DevOps & CI/CD", tools: ["Docker", "Kubernetes", "Ansible", "Terraform", "Jenkins", "GitLab CI/CD", "Azure DevOps"] },
+                      { category: "Monitoring & Ticketing", tools: ["Zabbix", "Prometheus", "Grafana", "Datadog", "Elastic Stack", "Jira", "Zendesk"] },
+                      { category: "Remote Collaboration", tools: ["VPN", "RPD", "Microsoft Teams", "Zoom", "TeamViewer"] }
+                  ].map((tech, idx) => (
+                      <div key={idx} className="bg-slate-800/50 border border-slate-700 p-8 rounded-2xl">
+                          <h3 className="text-2xl font-bold mb-6 text-blue-400">{tech.category}</h3>
+                          <div className="flex flex-wrap gap-2">
+                              {tech.tools.map((tool, i) => (
+                                  <span key={i} className="bg-slate-800 border border-slate-600 px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors cursor-default">
+                                      {tool}
+                                  </span>
+                              ))}
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
+      </div>
+
+      {/* Challenges Addressed Section */}
+      <div className="max-w-7xl mx-auto px-4 py-24">
+          <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Equipped to Address Major Infrastructure Challenges</h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                  We tackle the most complex IT hurdles to ensure your business remains agile, secure, and cost-efficient.
+              </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                  {
+                      icon: Globe,
+                      title: "Mastering Multi-Cloud",
+                      desc: "As official partners of AWS and Microsoft Azure, we leverage the best features of major cloud providers to create a winning, customized multi-cloud strategy."
+                  },
+                  {
+                      icon: Cpu,
+                      title: "Heterogeneous Environments",
+                      desc: "Our team of 750+ IT professionals possesses the skills to seamlessly integrate and manage both legacy systems and modern tech stacks."
+                  },
+                  {
+                      icon: Lock,
+                      title: "Staying on Top of Security",
+                      desc: "With 22 years of cybersecurity experience, our SOC experts handle compliance, administration, and rigorous security testing to protect your assets."
+                  },
+                  {
+                      icon: Clock,
+                      title: "24/7/365 Availability",
+                      desc: "Through round-the-clock monitoring, architecture adjustments, and robust backups, we maximize uptime and prevent unforeseen infrastructure failures."
+                  },
+                  {
+                      icon: DollarSign,
+                      title: "Optimized IT Costs",
+                      desc: "We keep your IT expenses reasonable. By rightsizing cloud resources and utilizing Reserved/Spot instances, we can reduce costs by 20-40%."
+                  },
+                  {
+                      icon: Home,
+                      title: "Remote & Hybrid Workplaces",
+                      desc: "With over 80% of our projects implemented remotely, we excel at ensuring prompt transitions to telework and creating secure digital workspaces."
+                  }
+              ].map((challenge, idx) => (
+                  <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                      <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                          <challenge.icon className="text-blue-600" size={28} />
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-900 mb-4">{challenge.title}</h3>
+                      <p className="text-slate-600 leading-relaxed">{challenge.desc}</p>
                   </div>
               ))}
           </div>
