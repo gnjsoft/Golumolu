@@ -51,7 +51,7 @@ const MedicalLabsPage: React.FC = () => {
           <div className={`relative h-[600px] bg-indigo-50 rounded-[3rem] overflow-hidden flex items-center justify-center transition-all duration-1000 delay-300 ${active ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}>
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/graphy.png')] opacity-20"></div>
               <img 
-                src="https://images.unsplash.com/photo-1579165466741-7f35a4755657?auto=format&fit=crop&q=80&w=2000" 
+                src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=2000" 
                 className="relative w-full h-full object-cover mix-blend-multiply opacity-80 hover:scale-105 transition-transform duration-700" 
                 alt="Lab Technician" 
               />

@@ -71,7 +71,7 @@ const HomeHealthcarePage: React.FC = () => {
                   </ul>
               </div>
               <div className="md:w-1/2">
-                  <img src="https://images.unsplash.com/photo-1576091160550-2187d80a02ff?auto=format&fit=crop&q=80&w=2070" className="rounded-2xl opacity-80 hover:opacity-100 transition-opacity" alt="Agency Dashboard" />
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070" className="rounded-2xl opacity-80 hover:opacity-100 transition-opacity" alt="Agency Dashboard" />
               </div>
           </div>
       </div>
