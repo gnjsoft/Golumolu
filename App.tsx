@@ -454,6 +454,51 @@ const AppContent: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  useEffect(() => {
+    // Block right click
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    // Block keyboard shortcuts
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Prevent F12
+      if (e.key === 'F12') {
+        e.preventDefault();
+      }
+      // Prevent Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U, Ctrl+S, Ctrl+P, Ctrl+C
+      if (e.ctrlKey || e.metaKey) {
+        if (e.shiftKey && ['I', 'J', 'C', 'i', 'j', 'c'].includes(e.key)) {
+          e.preventDefault();
+        }
+        if (['U', 'S', 'P', 'C', 'u', 's', 'p', 'c'].includes(e.key)) {
+          e.preventDefault();
+        }
+      }
+    };
+
+    // Block drag and drop
+    const handleDragStart = (e: DragEvent) => {
+      e.preventDefault();
+    };
+
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('dragstart', handleDragStart);
+
+    // Disable text selection via CSS on body
+    document.body.style.userSelect = 'none';
+    document.body.style.webkitUserSelect = 'none';
+
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('dragstart', handleDragStart);
+      document.body.style.userSelect = '';
+      document.body.style.webkitUserSelect = '';
+    };
+  }, []);
+
   return (
     <AuthProvider>
       <BrowserRouter>
