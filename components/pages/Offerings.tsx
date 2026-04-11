@@ -36,7 +36,7 @@ const OFFERINGS = [
     description: "We offer comprehensive application services including management, modernization, and integration. Our team ensures your business applications are high-performing, secure, and adaptable to changing market demands.",
     links: [
       { name: "Application Management", href: "/services/application-maintenance" },
-      { name: "Application Modernization", href: "/services/software-modernization" },
+      { name: "Application Modernization", href: "/services/application-services" },
       { name: "Application Integration", href: "/services/api-development" },
       { name: "Application Security", href: "/services/cybersecurity" },
       { name: "API Management", href: "/services/api-development" },
