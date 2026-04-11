@@ -151,7 +151,7 @@ const Navbar: React.FC = () => {
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link to="/" className="flex items-center gap-2 cursor-pointer group">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLFhuje0RmSqoLeJdAVle1A5sTXcKRwVb07g&s" className="h-12 w-auto" alt="GnJ Worldwide Logo" />
+                <img src="https://gnjsoft.com/images/logo.png" className="h-12 w-auto" alt="GnJ Worldwide Logo" />
               </Link>
             </div>
 
