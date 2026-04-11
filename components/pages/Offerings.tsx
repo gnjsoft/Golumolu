@@ -13,7 +13,7 @@ const OFFERINGS = [
       { name: "Software development outsourcing", href: "/services/it-outsourcing" },
       { name: "Team augmentation", href: "/services/it-outsourcing" },
       { name: "Cloud application development", href: "/services/infrastructure-services" },
-      { name: "Legacy software modernization", href: "/services/software-modernization" },
+      { name: "Legacy software modernization", href: "/services/database-development" },
       { name: "Post-launch support", href: "/services/it-support" }
     ]
   },

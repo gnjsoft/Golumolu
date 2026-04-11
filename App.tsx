@@ -47,7 +47,6 @@ import MobileDevelopmentPage from './components/megamenu/servicesdata/software/M
 import DesktopDevelopmentPage from './components/megamenu/servicesdata/software/DesktopDevelopmentPage';
 import ApiDevelopmentPage from './components/megamenu/servicesdata/software/ApiDevelopmentPage';
 import DatabaseDevelopmentPage from './components/megamenu/servicesdata/software/DatabaseDevelopmentPage';
-import SoftwareModernizationPage from './components/megamenu/servicesdata/software/SoftwareModernizationPage';
 import DiscoveryPage from './components/megamenu/servicesdata/software/DiscoveryPage';
 
 // Specific Mega Menu Pages (Services - Strategy & Advisory)
@@ -277,7 +276,6 @@ const AppContent: React.FC = () => {
     case '/services/desktop-development': component = <DesktopDevelopmentPage />; break;
     case '/services/api-development': component = <ApiDevelopmentPage />; break;
     case '/services/database-development': component = <DatabaseDevelopmentPage />; break;
-    case '/services/software-modernization': component = <SoftwareModernizationPage />; break;
     case '/services/software-development/discovery': component = <DiscoveryPage />; break;
     
     // Services - Strategy & Advisory
