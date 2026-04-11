@@ -8,9 +8,9 @@ export const CONTACT_DATA = {
     sales: "Sales@gnjworldwide.com"
   },
   social: {
-    linkedin: "#",
-    facebook: "#",
-    instagram: "#",
+    linkedin: "https://www.linkedin.com/company/globalnextgen/?viewAsMember=true",
+    facebook: "https://www.facebook.com/GnJWorldwide",
+    instagram: "https://www.instagram.com/gnjworldwide",
     whatsapp: "https://wa.me/919099126937"
   },
   offices: [

@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
           {/* Column 1: Company */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-6 cursor-pointer">
-               <img src="https://www.gnjworldwide.com/Logo.png" className="h-10 w-auto" alt="GnJ Worldwide Logo" />
+               <img src="https://gnjsoft.com/images/logo.png" className="h-10 w-auto" alt="GnJ Worldwide Logo" />
                <span className="font-bold text-xl tracking-tight text-white">GnJ<span className="text-yellow-400">Worldwide</span></span>
             </Link>
             <h3 className="text-lg font-bold mb-6 text-white border-b border-blue-800 pb-2 inline-block">Company</h3>
