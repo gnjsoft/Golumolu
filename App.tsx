@@ -119,6 +119,7 @@ import TelecomPage from './components/megamenu/industrydata/other/TelecomPage';
 import RealEstatePage from './components/megamenu/industrydata/other/RealEstatePage';
 import ConstructionPage from './components/megamenu/industrydata/other/ConstructionPage';
 import TravelPage from './components/megamenu/industrydata/other/TravelPage';
+import AgriculturePage from './components/megamenu/industrydata/other/AgriculturePage';
 
 // Solutions - Operations
 import ErpPage from './components/megamenu/solutiondata/operation/ErpPage';
@@ -352,7 +353,7 @@ const AppContent: React.FC = () => {
     case '/industries/education': component = <ComingSoonPage />; break;
     case '/industries/government': component = <ComingSoonPage />; break;
     case '/industries/media': component = <ComingSoonPage />; break;
-    case '/industries/agriculture': component = <ComingSoonPage />; break;
+    case '/industries/agriculture': component = <AgriculturePage />; break;
     case '/industries/legal': component = <ComingSoonPage />; break;
     case '/industries/non-profit': component = <ComingSoonPage />; break;
     case '/industries/automotive': component = <ComingSoonPage />; break;

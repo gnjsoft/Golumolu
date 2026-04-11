@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Truck, Globe, Map, Package, ArrowRight, BarChart2, Anchor, ShieldCheck, Zap, Layers, Users, CheckCircle2, Clock, TrendingUp, HelpCircle } from 'lucide-react';
+import { 
+  Truck, Globe, Map, Package, ArrowRight, 
+  BarChart2, Anchor, ShieldCheck, Zap, Layers, 
+  Users, CheckCircle2, Clock, TrendingUp, 
+  Cpu, Database, Shield, Layout, 
+  FileText, DollarSign, Box, ShoppingCart,
+  Briefcase, Search, Lightbulb, Activity,
+  Eye, RefreshCw, Target, Link as LinkIcon
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ScmPage: React.FC = () => {
@@ -11,158 +19,172 @@ const ScmPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen pt-20 font-sans">
-      <div className="bg-indigo-900 text-white py-24 px-4 overflow-hidden relative">
-          {/* World Map Background Suggestion */}
-          <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/2000px-World_map_blank_without_borders.svg.png')] bg-cover bg-center opacity-10"></div>
+    <div className="bg-slate-50 min-h-screen pt-20 font-sans text-slate-900">
+      {/* Hero Section */}
+      <div className="relative py-32 px-4 overflow-hidden bg-indigo-350 text-white">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2070')] bg-cover bg-center opacity-20"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/50 to-indigo-950"></div>
           
           <div className="relative z-10 max-w-5xl mx-auto text-center">
-              <div className={`transition-all duration-1000 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-                  <div className="inline-block p-4 bg-indigo-800/50 rounded-full mb-6 border border-indigo-700 backdrop-blur-sm">
-                      <Globe size={48} className="text-indigo-300" />
+              <div className={`transition-all duration-1000 ${active ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+                  <div className="inline-block p-3 rounded-full bg-indigo-500/20 border border-indigo-500/30 mb-6 backdrop-blur-sm">
+                      <Truck size={40} className="text-indigo-400" />
                   </div>
-                  <h1 className="text-5xl md:text-7xl font-bold mb-6">Supply Chain Management</h1>
-                  <p className="text-xl text-indigo-200 max-w-2xl mx-auto mb-10">
-                      End-to-end visibility from raw material to last-mile delivery. Resilience, speed, and sustainability.
-                  </p>
-                  <Link to="/contact" className="bg-white text-indigo-900 font-bold py-3 px-8 rounded-full hover:bg-indigo-50 transition-colors inline-flex items-center shadow-lg">
-                      Optimize Logistics <ArrowRight className="ml-2" />
+              </div>
+              <h1 className={`text-5xl md:text-7xl font-bold mb-6 transition-all duration-1000 delay-200 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                  Supply Chain Software Development
+              </h1>
+              <p className={`text-xl text-indigo-100/80 mb-8 max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-300 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                  Get a robust supply chain solution bound to your unique needs while ensuring optimized project costs and minimized implementation risks.
+              </p>
+              <div className={`transition-all duration-1000 delay-500 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                  <Link to="/contact" className="bg-indigo-500 text-white hover:bg-indigo-400 font-bold py-4 px-10 rounded-xl transition-all inline-flex items-center group shadow-lg shadow-indigo-500/20">
+                      Optimize Your Supply Chain <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </Link>
               </div>
           </div>
       </div>
 
+      {/* About Section */}
       <div className="max-w-7xl mx-auto px-4 py-24">
-          <div className="grid md:grid-cols-3 gap-8">
-              {[
-                  { icon: Truck, title: "Fleet Management", desc: "Real-time tracking, fuel optimization, and predictive maintenance for your vehicles." },
-                  { icon: Map, title: "Route Planning", desc: "AI-driven algorithms to calculate the most efficient delivery paths and reduce costs." },
-                  { icon: Package, title: "Inventory Visibility", desc: "Track stock levels across multiple warehouses and stores in real-time." },
-                  { icon: Anchor, title: "Freight Forwarding", desc: "Digital documentation and tracking for ocean and air freight shipments." },
-                  { icon: BarChart2, title: "Demand Forecasting", desc: "Predict future sales to optimize procurement and prevent stockouts." },
-                  { icon: Globe, title: "Supplier Collaboration", desc: "Portals for vendors to manage orders, invoices, and performance." }
-              ].map((item, idx) => (
-                  <div 
-                    key={idx} 
-                    className={`bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:shadow-xl hover:bg-white hover:-translate-y-1 transition-all duration-500 group transform ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}
-                    style={{ transitionDelay: `${200 + (idx * 100)}ms` }}
-                  >
-                      <item.icon className="w-10 h-10 text-indigo-500 mb-4 group-hover:scale-110 transition-transform" />
-                      <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                      <p className="text-slate-600">{item.desc}</p>
-                  </div>
-              ))}
-          </div>
-          
-          <div className={`mt-24 bg-slate-900 rounded-3xl p-12 text-white flex flex-col md:flex-row items-center gap-12 transition-all duration-1000 delay-500 ${active ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="md:w-1/2">
-                  <h2 className="text-3xl font-bold mb-4">Real-Time Control Tower</h2>
-                  <p className="text-slate-400 mb-6 text-lg">
-                      Gain a unified view of your entire supply chain. Monitor disruptions, track shipments, and make informed decisions instantly.
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div className={`transition-all duration-1000 ${active ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+                  <h2 className="text-4xl font-bold mb-8">Innovating Business Operations with Supply Chain 4.0</h2>
+                  <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                      Supply chain software development aims to help companies drive improvements across their supply chain processes and innovate business operations with the help of effective software and Supply Chain 4.0 techs.
                   </p>
-                  <ul className="space-y-3 text-slate-300">
-                      <li className="flex items-center gap-2"><div className="w-2 h-2 bg-green-500 rounded-full"></div> Live Shipment Tracking</li>
-                      <li className="flex items-center gap-2"><div className="w-2 h-2 bg-green-500 rounded-full"></div> Alert Management</li>
-                      <li className="flex items-center gap-2"><div className="w-2 h-2 bg-green-500 rounded-full"></div> KPI Dashboards</li>
-                  </ul>
-              </div>
-              <div className="md:w-1/2 relative h-64 w-full bg-slate-800 rounded-xl overflow-hidden border border-slate-700">
-                  {/* Abstract Map UI */}
-                  <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-blue-500 rounded-full animate-ping"></div>
-                  <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-blue-500 rounded-full"></div>
-                  
-                  <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-blue-500 rounded-full animate-ping delay-700"></div>
-                  <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-blue-500 rounded-full"></div>
-                  
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                      <path d="M 150 80 Q 250 150 400 200" stroke="rgba(59, 130, 246, 0.5)" strokeWidth="2" fill="none" strokeDasharray="5,5" />
-                  </svg>
-                  
-                  <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur px-3 py-1 rounded text-xs text-green-400 border border-green-500/30">
-                      Shipment #2938: On Time
-                  </div>
-              </div>
-          </div>
-
-          {/* Strategic Benefits Section */}
-          <div className="mt-32">
-              <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">Strategic SCM Benefits</h2>
-                  <p className="text-slate-600 max-w-2xl mx-auto">Transform your supply chain from a cost center into a competitive advantage with our advanced management solutions.</p>
-              </div>
-              <div className="grid md:grid-cols-3 gap-8">
-                  {[
-                      { icon: <Zap className="text-yellow-500" />, title: "Increased Agility", desc: "Respond faster to market changes and supply disruptions with real-time data and AI insights." },
-                      { icon: <ShieldCheck className="text-green-500" />, title: "Risk Mitigation", desc: "Identify potential vulnerabilities in your supply chain before they become critical failures." },
-                      { icon: <TrendingUp className="text-blue-500" />, title: "Cost Efficiency", desc: "Reduce operational costs through optimized logistics, inventory, and procurement processes." },
-                      { icon: <Users className="text-purple-500" />, title: "Supplier Synergy", desc: "Build stronger, more transparent relationships with your vendors through collaborative portals." },
-                      { icon: <Layers className="text-indigo-500" />, title: "Seamless Integration", desc: "Connect your SCM with existing ERP and CRM systems for a unified enterprise view." },
-                      { icon: <Clock className="text-orange-500" />, title: "Faster Fulfillment", desc: "Accelerate your order-to-delivery cycle with automated workflows and route optimization." }
-                  ].map((benefit, idx) => (
-                      <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 group">
-                          <div className="mb-6 p-3 bg-slate-50 rounded-xl w-fit group-hover:bg-indigo-50 transition-colors">
-                              {benefit.icon}
-                          </div>
-                          <h3 className="text-xl font-bold text-slate-900 mb-3">{benefit.title}</h3>
-                          <p className="text-slate-600 leading-relaxed">{benefit.desc}</p>
-                      </div>
-                  ))}
-              </div>
-          </div>
-
-          {/* Implementation Roadmap */}
-          <div className="mt-32 bg-slate-50 rounded-[3rem] p-12 md:p-20">
-              <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">Implementation Roadmap</h2>
-                  <p className="text-slate-600 max-w-2xl mx-auto">A structured approach to ensuring your SCM deployment is successful and delivers immediate value.</p>
-              </div>
-              
-              <div className="relative">
-                  {/* Connector Line */}
-                  <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -translate-y-1/2 z-0"></div>
-                  
-                  <div className="grid md:grid-cols-4 gap-8 relative z-10">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                       {[
-                          { step: "01", title: "Discovery", desc: "Mapping your current supply chain and identifying optimization opportunities." },
-                          { step: "02", title: "Strategy", desc: "Designing a tailored SCM framework aligned with your business goals." },
-                          { step: "03", title: "Integration", desc: "Connecting the SCM solution with your existing data sources and systems." },
-                          { step: "04", title: "Execution", desc: "Rolling out the solution with staff training and continuous performance monitoring." }
-                      ].map((item, idx) => (
-                          <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg text-center">
-                              <div className="w-12 h-12 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-6 shadow-lg">
-                                  {item.step}
-                              </div>
-                              <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                              <p className="text-slate-600 text-sm">{item.desc}</p>
+                          { icon: Cpu, label: "IoT" },
+                          { icon: Activity, label: "AI/ML" },
+                          { icon: Database, label: "Big Data" },
+                          { icon: ShieldCheck, label: "Blockchain" },
+                          { icon: Layers, label: "AR & VR" }
+                      ].map((tech, i) => (
+                          <div key={i} className="flex flex-col items-center p-6 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                              <tech.icon className="w-8 h-8 text-indigo-600 mb-3" />
+                              <span className="font-bold text-sm text-slate-700">{tech.label}</span>
                           </div>
                       ))}
                   </div>
               </div>
-          </div>
-
-          {/* Industry Applications */}
-          <div className="mt-32">
-              <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">Tailored for Your Industry</h2>
-                  <p className="text-slate-600 max-w-2xl mx-auto">Our SCM solutions are flexible enough to meet the unique challenges of various sectors.</p>
+              <div className={`relative transition-all duration-1000 delay-300 ${active ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+                  <div className="bg-white p-8 rounded-[2.5rem] shadow-2xl border border-slate-200 relative z-10">
+                      <div className="space-y-6">
+                          <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                              <h3 className="font-bold text-xl">Supply Chain Control Tower</h3>
+                              <Globe className="text-indigo-500 animate-spin-slow" />
+                          </div>
+                          <div className="space-y-4">
+                              <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-xl">
+                                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                  <div className="flex-grow">
+                                      <div className="text-xs font-bold text-slate-400 uppercase">Real-time Visibility</div>
+                                      <div className="text-sm font-bold">100% End-to-End Tracking</div>
+                                  </div>
+                              </div>
+                              <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-xl">
+                                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                                  <div className="flex-grow">
+                                      <div className="text-xs font-bold text-slate-400 uppercase">Risk Management</div>
+                                      <div className="text-sm font-bold">AI-Powered Proactive Alerts</div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
               </div>
-              <div className="grid md:grid-cols-4 gap-6">
+          </div>
+      </div>
+
+      {/* Solutions Section */}
+      <div className="bg-slate-100 py-24">
+          <div className="max-w-7xl mx-auto px-4">
+              <div className="text-center mb-20">
+                  <h2 className="text-4xl font-bold mb-4">Supply Chain Solutions GnJ Worldwide Delivers</h2>
+                  <p className="text-slate-600 max-w-2xl mx-auto">We offer full-cycle development services to plan and implement integrated supply chain software solutions.</p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8">
                   {[
-                      { title: "Retail", desc: "Omnichannel fulfillment and inventory balancing across stores." },
-                      { title: "Manufacturing", desc: "Just-in-time procurement and production line synchronization." },
-                      { title: "Healthcare", desc: "Cold chain management and critical medical supply tracking." },
-                      { title: "Logistics", desc: "Last-mile delivery optimization and multi-modal freight tracking." }
-                  ].map((industry, idx) => (
-                      <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-md hover:border-indigo-200 transition-all">
-                          <h4 className="font-bold text-slate-900 mb-2">{industry.title}</h4>
-                          <p className="text-slate-500 text-sm">{industry.desc}</p>
+                      {
+                        title: "Supply Chain Planning & Optimization",
+                        icon: Target,
+                        features: ["Demand forecasting", "AI-supported optimization recommendations", "Supply chain digital twin modeling"],
+                        value: "Improved fulfillment, increased resource utilization, and synchronization."
+                      },
+                      {
+                        title: "Supply Chain Risk Management",
+                        icon: Shield,
+                        features: ["Control tower with AI visibility", "Configurable KPI dashboards", "Collaborative issue resolution with suppliers"],
+                        value: "End-to-end visibility, proactive risk management, and improved collaboration."
+                      },
+                      {
+                        title: "Inventory & Warehouse Management",
+                        icon: Box,
+                        features: ["Barcode/RFID/CV tracking", "Optimal safety stock calculation", "Automated replenishment triggers"],
+                        value: "Decreased carrying costs, increased speed/accuracy, and minimized loss."
+                      },
+                      {
+                        title: "Logistics Management",
+                        icon: Truck,
+                        features: ["Freight tracking", "Route schedule optimization", "IoT product condition monitoring"],
+                        value: "Improved vehicle utilization, decreased operating costs, on-time delivery."
+                      },
+                      {
+                        title: "Procurement Management",
+                        icon: ShoppingCart,
+                        features: ["Template-based requisitions/RFxs", "Automated approval workflows", "Automated three-way matching"],
+                        value: "Standardized purchasing and improved spend visibility."
+                      },
+                      {
+                        title: "Supplier Relationship Management",
+                        icon: Users,
+                        features: ["Analytics-based pre-qualification", "Supplier portal for capacity planning", "Automatic compliance alerts"],
+                        value: "Reduced regulatory risks and optimized sourcing strategy."
+                      },
+                      {
+                        title: "Order Management",
+                        icon: Layout,
+                        features: ["Multichannel processing", "Analytics-based order routing", "AI-guided picking and packing"],
+                        value: "Increased fill rate, reduced fulfillment costs, and customer satisfaction."
+                      },
+                      {
+                        title: "Supply Chain Analytics",
+                        icon: BarChart2,
+                        features: ["KPI monitoring and reporting", "ML-based diagnostic analytics", "AI-powered prescriptions"],
+                        value: "Accurate planning, minimized risks, and optimized costs."
+                      }
+                  ].map((solution, i) => (
+                      <div key={i} className="bg-white p-10 rounded-[2.5rem] shadow-lg border border-slate-200 hover:border-indigo-500 transition-all group flex flex-col">
+                          <div className="flex items-center gap-4 mb-6">
+                              <div className="bg-indigo-50 p-3 rounded-2xl group-hover:bg-indigo-600 transition-colors">
+                                  <solution.icon className="text-indigo-600 group-hover:text-white transition-colors" />
+                              </div>
+                              <h3 className="text-2xl font-bold">{solution.title}</h3>
+                          </div>
+                          <ul className="space-y-3 mb-8 flex-grow">
+                              {solution.features.map((feature, j) => (
+                                  <li key={j} className="flex items-start gap-3 text-slate-600">
+                                      <CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0 mt-0.5" />
+                                      <span className="text-sm font-medium">{feature}</span>
+                                  </li>
+                              ))}
+                          </ul>
+                          <div className="mt-auto pt-6 border-t border-slate-100">
+                              <div className="text-xs font-bold text-indigo-600 uppercase mb-2">Value Delivered</div>
+                              <p className="text-sm text-slate-500 italic">{solution.value}</p>
+                          </div>
                       </div>
                   ))}
               </div>
           </div>
+      </div>
 
-          {/* Final CTA */}
-          <div className="mt-32 bg-gradient-to-r from-indigo-600 to-blue-700 rounded-[2rem] p-12 text-center text-white relative overflow-hidden shadow-2xl">
+      {/* CTA Section */}
+      <div className="py-24 max-w-7xl mx-auto px-4">
+          <div className="bg-gradient-to-r from-indigo-600 to-blue-700 rounded-[3rem] p-12 md:p-20 text-white text-center relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 left-0 w-full h-full opacity-10">
                   <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
                   <div className="absolute bottom-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -170,13 +192,13 @@ const ScmPage: React.FC = () => {
               <div className="relative z-10 max-w-3xl mx-auto">
                   <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to transform your supply chain?</h2>
                   <p className="text-xl text-indigo-100 mb-10 leading-relaxed">
-                      Join the ranks of high-performing organizations that have turned their logistics into a strategic asset.
+                      Join the ranks of high-performing organizations that have turned their logistics into a strategic asset with Supply Chain 4.0.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <Link to="/contact" className="bg-white text-indigo-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-indigo-50 transition-all shadow-xl">
-                          Get Started Today
+                      <Link to="/contact" className="bg-white text-indigo-600 px-10 py-4 rounded-xl font-bold text-lg hover:bg-indigo-50 transition-all shadow-xl">
+                          Get a Free Consultation
                       </Link>
-                      <Link to="/contact" className="bg-indigo-800 text-white border border-indigo-500 px-10 py-4 rounded-full font-bold text-lg hover:bg-indigo-900 transition-all">
+                      <Link to="/contact" className="bg-indigo-800 text-white border border-indigo-500 px-10 py-4 rounded-xl font-bold text-lg hover:bg-indigo-900 transition-all">
                           Talk to an Expert
                       </Link>
                   </div>

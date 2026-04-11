@@ -156,11 +156,7 @@ export const NAV_ITEMS: MenuItem[] = [
             { title: "Real Estate", href: "/industries/real-estate" },
             { title: "Construction", href: "/industries/construction" },
             { title: "Travel & Hospitality", href: "/industries/travel" },
-            { title: "Media & Entertainment", href: "/industries/media" },
-            { title: "Agriculture", href: "/industries/agriculture" },
-            { title: "Legal Services", href: "/industries/legal" },
-            { title: "Non-Profit", href: "/industries/non-profit" },
-            { title: "Automotive", href: "/industries/automotive" }
+            { title: "Agriculture", href: "/industries/agriculture" }, 
           ]
         }
       ]
