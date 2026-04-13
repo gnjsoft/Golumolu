@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
     const handleClickOutside = (event: MouseEvent) => {
       // If the click is not on a dropdown button AND not inside the menu container, close menus
       if (
-        !(event.target as HTMLElement).closest('button[data-menu-trigger]') &&
+        !(event.target as HTMLElement).closest('[data-menu-trigger]') &&
         !(event.target as HTMLElement).closest('.mega-menu-container')
       ) {
         setActiveSubmenu(null);
@@ -512,10 +512,11 @@ const Navbar: React.FC = () => {
             {NAV_ITEMS.map((item) => (
               <div key={item.title} className="border-b border-gray-50 last:border-0 pb-2">
                 <div
+                  data-menu-trigger="true"
                   className="flex items-center justify-between w-full px-4 py-3 text-base font-semibold text-slate-800 rounded-xl hover:bg-slate-50 cursor-pointer active:bg-slate-100 transition-colors"
-                  onClick={() => {
+                  onClick={(e) => {
                     if (item.children || item.megaMenu) {
-                      setActiveSubmenu(activeSubmenu === item.title ? null : item.title);
+                      toggleSubmenu(item.title, e);
                     } else {
                       setIsMobileMenuOpen(false);
                     }
@@ -538,7 +539,7 @@ const Navbar: React.FC = () => {
 
                 {/* Mobile Submenu Rendering */}
                 {activeSubmenu === item.title && (
-                  <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50/50 rounded-xl mt-1">
+                  <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50/50 rounded-xl mt-1 mega-menu-container">
                     {item.megaMenu ? (
                       item.megaMenu.columns.map((col, idx) => (
                         <div key={idx} className="mb-4">
