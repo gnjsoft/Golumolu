@@ -1,182 +1,392 @@
 import React, { useEffect, useState } from 'react';
-import { BookOpen, Video, Award, TrendingUp, Smartphone, PlayCircle, Star, Zap, Check, Bot, BrainCircuit, Cpu, ArrowRight } from 'lucide-react';
+import { 
+  BookOpen, Video, Award, TrendingUp, Smartphone, PlayCircle, Star, 
+  Zap, Check, BrainCircuit, Cpu, ArrowRight, CheckCircle2, 
+  Layers, Settings, Users, BarChart3, Clock, DollarSign, Rocket, 
+  ShieldCheck, Search, PenTool, Monitor, Globe, Smartphone as Mobile,
+  MessageSquare, GraduationCap, FileText, Layout, RefreshCw, Code
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ElearningPage: React.FC = () => {
   const [active, setActive] = useState(false);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setActive(true);
-    const timer = setTimeout(() => setProgress(85), 800);
-    return () => clearTimeout(timer);
   }, []);
 
-  return (
-    <div className="bg-slate-50 min-h-screen pt-20 font-sans">
-      
-      {/* Hero with AI Imagery */}
-      <div className="bg-[#1e1b4b] text-white py-24 px-4 overflow-hidden relative">
-          <div className="absolute inset-0">
-              <img 
-                src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1965" 
-                alt="AI Learning Background" 
-                className="w-full h-full object-cover opacity-20 mix-blend-overlay"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1e1b4b] via-[#1e1b4b]/90 to-transparent"></div>
-          </div>
-          
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
-              <div className={`md:w-1/2 transition-all duration-1000 ${active ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
-                  <div className="inline-flex items-center gap-2 bg-indigo-500/20 backdrop-blur-md px-4 py-2 rounded-full border border-indigo-400/30 text-indigo-300 font-bold text-sm mb-6">
-                      <BrainCircuit size={16} className="text-indigo-400" /> AI-Powered Education
-                  </div>
-                  <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                      Intelligent <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Learning</span>
-                  </h1>
-                  <p className="text-xl text-indigo-100 mb-8 max-w-lg leading-relaxed">
-                      Adaptive Learning Management Systems (LMS) that use AI to personalize the journey. Engaging, scalable, and data-driven.
-                  </p>
-                  <Link to="/contact" className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-indigo-500 transition-all shadow-xl shadow-indigo-900/50 inline-flex items-center">
-                      Explore EdTech <PlayCircle className="ml-2" size={20} />
-                  </Link>
-              </div>
+  const solutionTypes = [
+    { title: "Learning Management Systems (LMS)", icon: Layout },
+    { title: "eLearning Portals", icon: Globe },
+    { title: "Learning Experience Platforms (LXP)", icon: Zap },
+    { title: "Remote Proctoring Software", icon: ShieldCheck },
+    { title: "Learning Content Management Systems (LCMS)", icon: FileText },
+    { title: "Mobile Learning Solutions", icon: Mobile },
+    { title: "Knowledge Management Solutions", icon: BookOpen }
+  ];
 
-              {/* Visual - Gamified Card */}
-              <div className={`md:w-1/2 flex justify-center transition-all duration-1000 delay-300 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
-                  <div className="bg-white text-slate-900 p-8 rounded-3xl shadow-2xl w-80 relative transform rotate-3 hover:rotate-0 transition-transform duration-500 border border-slate-200">
-                      <div className="absolute -top-6 -right-6 bg-yellow-400 p-4 rounded-full shadow-lg border-4 border-white animate-bounce">
-                          <Star size={32} className="text-white fill-current" />
-                      </div>
-                      
-                      <div className="flex items-center gap-3 mb-6">
-                          <div className="p-2 bg-indigo-100 rounded-lg text-indigo-600">
-                              <Bot size={24} />
+  const features = [
+    {
+      category: "Learning Content Development & Management",
+      icon: PenTool,
+      points: [
+        "Multiple content types (Text, Images, Video, Audio, AR/VR)",
+        "Built-in content authoring & course development",
+        "Learner-generated & third-party content aggregation",
+        "Reusable content and templates",
+        "Content tagging and intelligent search",
+        "Support for SCORM, AICC, xAPI, and LTI",
+        "Compliance with HIPAA, SOX, GLBA"
+      ]
+    },
+    {
+      category: "Learning Process Administration & Delivery",
+      icon: Settings,
+      points: [
+        "Instructor-led, blended, micro, and self-paced learning",
+        "Automated enrollment based on roles and skills",
+        "Learning event scheduling (workshops, exams)",
+        "Automated reminders and notifications",
+        "AI-driven personalized learning paths",
+        "Performance assessment & Online proctoring",
+        "VR and AR simulators"
+      ]
+    },
+    {
+      category: "Social Features",
+      icon: Users,
+      points: [
+        "Learners' profile pages",
+        "Learning communities",
+        "Discussion boards, chats, and forums",
+        "Likes, shares, and comments",
+        "Gamification (scores, badges, leaderboards, rewards)"
+      ]
+    },
+    {
+      category: "Analytics and Reporting",
+      icon: BarChart3,
+      points: [
+        "Learning history tracking",
+        "Learners' feedback gathering",
+        "Content usage & user activity dashboards",
+        "Performance assessment dashboards",
+        "User regulatory compliance reporting"
+      ]
+    }
+  ];
+
+  const benefits = [
+    {
+      title: "Quick Software Launch",
+      desc: "Mature Agile and DevOps cultures allow us to introduce an MVP in just 1–5 months.",
+      icon: Rocket
+    },
+    {
+      title: "Excellent Solution Quality",
+      desc: "Well-thought-out design, standardized coding, and rigorous parallel testing.",
+      icon: Award
+    },
+    {
+      title: "Optimized Development Budget",
+      desc: "Advice on optimal architecture, pragmatic tech stack, and right-sized team composition.",
+      icon: DollarSign
+    },
+    {
+      title: "High User Adoption",
+      desc: "Rich functional capabilities, engaging features, and user-friendly role-based UX.",
+      icon: Users
+    }
+  ];
+
+  const services = [
+    {
+      title: "Custom eLearning Development",
+      desc: "End-to-end development from needs analysis to implementation and support.",
+      icon: Code,
+      action: "I need this"
+    },
+    {
+      title: "Revamp of Legacy Learning Software",
+      desc: "Redesign of processes, cloud migration, and implementing new functionality.",
+      icon: RefreshCw,
+      action: "I need this"
+    },
+    {
+      title: "Adding Advanced Functionality",
+      desc: "Transforming processes with innovative techs like AI, VR, AR, and Big Data.",
+      icon: Zap,
+      action: "I need this"
+    },
+    {
+      title: "Customization of Open-Source Platforms",
+      desc: "Advising on and customizing platforms to support unique assessments and workflows.",
+      icon: Settings,
+      action: "I need this"
+    }
+  ];
+
+  const stats = [
+    { label: "Annual ROI", val: "120–430%", desc: "Due to optimal feature value/cost ratio and innovative techs." },
+    { label: "Learning Costs", val: "-20–50%", desc: "Savings on materials, equipment, staff, and trainers." },
+    { label: "Employee Productivity", val: "+30–60%", desc: "Improved skills and on-demand access to learning." },
+    { label: "Knowledge Retention", val: "+25–60%", desc: "Diversity of content and higher learning impact." }
+  ];
+
+  return (
+    <div className="bg-slate-50 min-h-screen pt-20 font-sans text-slate-900 overflow-hidden">
+      
+      {/* Hero Section */}
+      <div className="relative bg-indigo-900 py-24 px-4 overflow-hidden">
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-500/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
+          
+          <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+              <div className={`lg:w-1/2 transition-all duration-1000 ${active ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest mb-6 border border-indigo-500/20">
+                      <GraduationCap size={14} /> eLearning Software Development
+                  </div>
+                  <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                      Digital Transformation of <br/>
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Corporate Learning</span>
+                  </h1>
+                  <p className="text-xl text-slate-300 mb-8 leading-relaxed max-w-xl">
+                      GnJ Worldwide builds eLearning solutions that drive digital transformation, resulting in human capital ROI growth and reduced learning costs.
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                      <Link to="/contact" className="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-indigo-500 transition-all shadow-lg hover:shadow-indigo-500/30 flex items-center">
+                          Start Your Project <ArrowRight className="ml-2" />
+                      </Link>
+                  </div>
+              </div>
+              
+              <div className={`lg:w-1/2 w-full transition-all duration-1000 delay-300 ${active ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+                  <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-slate-100">
+                      <div className="flex items-center gap-4 mb-8">
+                          <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600">
+                              <BrainCircuit size={24} />
                           </div>
                           <div>
-                              <h3 className="text-lg font-bold">AI Tutor</h3>
-                              <p className="text-slate-500 text-xs">Personalized Plan</p>
+                              <div className="text-slate-900 font-bold">Smart Learning</div>
+                              <div className="text-xs text-slate-500">AI-Driven Personalization</div>
                           </div>
                       </div>
-                      
                       <div className="space-y-6">
-                          <div>
-                              <div className="flex justify-between text-sm font-bold mb-2">
-                                  <span>Python Basics</span>
-                                  <span className="text-green-500">Complete</span>
+                          <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                              <div className="flex justify-between text-xs font-bold text-slate-600 mb-2">
+                                  <span>Course Completion</span>
+                                  <span>94%</span>
                               </div>
-                              <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                                  <div className="h-full bg-green-500 w-full"></div>
-                              </div>
-                          </div>
-                          <div>
-                              <div className="flex justify-between text-sm font-bold mb-2">
-                                  <span>Machine Learning</span>
-                                  <span className="text-indigo-500">{progress}%</span>
-                              </div>
-                              <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                                  <div 
-                                    className="h-full bg-indigo-500 transition-all duration-[1500ms] ease-out" 
-                                    style={{ width: `${progress}%` }}
-                                  ></div>
+                              <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
+                                  <div className="h-full bg-indigo-500 w-[94%] transition-all duration-1000 delay-500"></div>
                               </div>
                           </div>
-                      </div>
-                      
-                      <div className="mt-8 flex justify-between items-center bg-slate-50 p-4 rounded-xl">
-                          <div className="flex -space-x-2">
-                              {[1,2,3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-slate-300 border-2 border-white"></div>)}
+                          <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                              <div className="flex justify-between text-xs font-bold text-slate-600 mb-2">
+                                  <span>Learner Engagement</span>
+                                  <span>+60%</span>
+                              </div>
+                              <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
+                                  <div className="h-full bg-purple-500 w-[60%] transition-all duration-1000 delay-700"></div>
+                              </div>
                           </div>
-                          <span className="text-xs font-bold text-slate-500">+120 Learners</span>
                       </div>
                   </div>
               </div>
           </div>
       </div>
 
-      {/* AI Tools & Imagery Section */}
+      {/* Introduction Section */}
       <div className="max-w-7xl mx-auto px-4 py-24">
-          <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Powered by Next-Gen AI Tools</h2>
-              <p className="text-slate-600 max-w-2xl mx-auto">Leveraging cutting-edge artificial intelligence to create immersive, adaptive, and efficient learning environments.</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-              {[
-                  { 
-                      title: "Smart Video Analytics", 
-                      desc: "AI indexes content, making lectures searchable by spoken word and creating auto-summaries.",
-                      image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=800",
-                      tag: "Computer Vision"
-                  },
-                  { 
-                      title: "Adaptive Assessments", 
-                      desc: "Quizzes that adjust difficulty in real-time based on student performance to maintain flow state.", 
-                      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800",
-                      tag: "Predictive AI"
-                  },
-                  { 
-                      title: "Automated Grading", 
-                      desc: "Save hours with AI that grades assignments, essays, and code, providing instant feedback.", 
-                      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=800",
-                      tag: "NLP"
-                  }
-              ].map((item, idx) => (
-                  <div key={idx} className="group bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                      <div className="relative h-48 overflow-hidden">
-                          <img 
-                            src={item.image} 
-                            alt={item.title} 
-                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
-                          />
-                          <div className="absolute inset-0 bg-indigo-900/30 group-hover:bg-indigo-900/10 transition-colors"></div>
-                          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur text-xs font-bold px-3 py-1 rounded-full text-indigo-900 shadow-sm">
-                              {item.tag}
+          <div className="bg-white rounded-[3rem] p-12 md:p-20 shadow-xl border border-slate-100">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                  <div>
+                      <h2 className="text-4xl font-bold text-slate-900 mb-8">Streamline Your Corporate Learning</h2>
+                      <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                          The goal of eLearning development is creating tools like LMS, LCMS, and LXP to help organizations increase learning efficiency and cut learning costs.
+                      </p>
+                      <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                          Our services cover consulting on implementation, solution design, coding, modernization of legacy systems, and customization of market-available platforms.
+                      </p>
+                      <div className="flex gap-4">
+                          <div className="flex items-center gap-2 text-indigo-600 font-bold">
+                              <CheckCircle2 size={20} /> Increased Efficiency
+                          </div>
+                          <div className="flex items-center gap-2 text-purple-600 font-bold">
+                              <CheckCircle2 size={20} /> Reduced Costs
                           </div>
                       </div>
-                      <div className="p-8">
-                          <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">{item.title}</h3>
-                          <p className="text-slate-600 leading-relaxed mb-6">{item.desc}</p>
-                          <div className="flex items-center text-indigo-600 font-bold text-sm">
-                              Learn more <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                      {solutionTypes.slice(0, 4).map((type, i) => (
+                          <div key={i} className="p-6 bg-slate-50 rounded-3xl border border-slate-100 text-center hover:bg-indigo-50 transition-colors group">
+                              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-indigo-600 mx-auto mb-4 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                                  <type.icon size={24} />
+                              </div>
+                              <h4 className="font-bold text-slate-900 text-sm">{type.title}</h4>
                           </div>
+                      ))}
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      {/* Key Features Grid */}
+      <div className="max-w-7xl mx-auto px-4 py-24">
+          <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Key Features We Deliver</h2>
+              <p className="text-slate-600 max-w-2xl mx-auto">Comprehensive functionality designed to support every aspect of the modern eLearning experience.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+              {features.map((group, gIdx) => (
+                  <div key={gIdx} className="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-lg transition-all">
+                      <div className="flex items-center gap-4 mb-8">
+                          <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center">
+                              <group.icon size={24} />
+                          </div>
+                          <h3 className="text-2xl font-bold text-slate-900">{group.category}</h3>
+                      </div>
+                      <ul className="space-y-3">
+                          {group.points.map((point, iIdx) => (
+                              <li key={iIdx} className="flex items-start gap-3 text-slate-600 text-sm">
+                                  <CheckCircle2 size={16} className="text-indigo-500 mt-0.5 shrink-0" />
+                                  <span>{point}</span>
+                              </li>
+                          ))}
+                      </ul>
+                  </div>
+              ))}
+          </div>
+      </div>
+
+      {/* Benefits Section */}
+      <div className="bg-slate-900 text-white py-24">
+          <div className="max-w-7xl mx-auto px-4">
+              <div className="text-center mb-20">
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6">Your Benefits with GnJ Worldwide</h2>
+                  <p className="text-slate-400 max-w-2xl mx-auto">Partner with us to ensure high-quality, cost-effective, and widely adopted learning solutions.</p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {benefits.map((benefit, idx) => (
+                      <div key={idx} className="bg-white/5 border border-white/10 p-8 rounded-[2.5rem] hover:bg-white/10 transition-all">
+                          <div className="w-12 h-12 bg-indigo-500/20 rounded-xl flex items-center justify-center text-indigo-400 mb-6">
+                              <benefit.icon size={24} />
+                          </div>
+                          <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
+                          <p className="text-sm text-slate-400 leading-relaxed">{benefit.desc}</p>
+                      </div>
+                  ))}
+              </div>
+          </div>
+      </div>
+
+      {/* Service Options */}
+      <div className="max-w-7xl mx-auto px-4 py-24">
+          <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Choose Your Service Option</h2>
+              <p className="text-slate-600 max-w-2xl mx-auto">From custom development to legacy revamp, we offer tailored engagement models.</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+              {services.map((service, idx) => (
+                  <div key={idx} className="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all flex flex-col md:flex-row gap-8 items-start">
+                      <div className="shrink-0 w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600">
+                          <service.icon size={32} />
+                      </div>
+                      <div className="flex-1">
+                          <h3 className="text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
+                          <p className="text-slate-600 mb-6 leading-relaxed">{service.desc}</p>
+                          <Link to="/contact" className="inline-flex items-center text-indigo-600 font-bold hover:gap-2 transition-all">
+                              {service.action} <ArrowRight size={18} className="ml-1" />
+                          </Link>
                       </div>
                   </div>
               ))}
           </div>
       </div>
 
-      {/* Analytics & Reporting Section */}
-      <div className="bg-slate-900 text-white py-24">
-          <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
-              <div className="flex-1">
-                  <div className="inline-block p-3 bg-white/10 rounded-xl mb-6">
-                      <TrendingUp size={32} className="text-green-400" />
-                  </div>
-                  <h2 className="text-3xl font-bold mb-6">Data-Driven Insights</h2>
-                  <p className="text-slate-400 text-lg mb-8">
-                      Don't just train—measure the impact. Our analytics engine provides deep insights into learner progress, course effectiveness, and ROI.
-                  </p>
-                  <ul className="space-y-4">
-                      {["Completion Rates", "Assessment Scores", "Time Spent Learning", "Skill Gap Analysis"].map((item, i) => (
-                          <li key={i} className="flex items-center gap-3">
-                              <div className="bg-green-500 rounded-full p-1"><Check size={12} className="text-black" /></div>
-                              <span className="font-medium text-slate-200">{item}</span>
-                          </li>
-                      ))}
-                  </ul>
-              </div>
-              <div className="flex-1 w-full">
-                  <div className="bg-white/5 border border-white/10 p-8 rounded-2xl relative backdrop-blur-sm">
-                      {/* Bar Chart Simulation */}
-                      <div className="flex items-end justify-between h-40 gap-4">
-                          {[40, 60, 30, 80, 55, 90, 70].map((h, i) => (
-                              <div key={i} className="w-full bg-gradient-to-t from-indigo-600 to-purple-400 rounded-t-sm opacity-80 hover:opacity-100 transition-opacity" style={{ height: `${h}%` }}></div>
+      {/* Timeframes & Pricing */}
+      <div className="bg-indigo-50 py-24 border-y border-indigo-100">
+          <div className="max-w-7xl mx-auto px-4">
+              <div className="grid lg:grid-cols-2 gap-16">
+                  {/* Timeframes */}
+                  <div>
+                      <h2 className="text-3xl font-bold text-slate-900 mb-10 flex items-center gap-3">
+                          <Clock className="text-indigo-600" /> Development Timeframes
+                      </h2>
+                      <div className="space-y-4">
+                          {[
+                              { label: "MVP Development", time: "3–5 months" },
+                              { label: "MVP with Innovative Component", time: "4–6 months" },
+                              { label: "Basic Module / Process Automation", time: "1–3 months" },
+                              { label: "Investment Payback Period", time: "0.1–0.9 years" },
+                              { label: "Regular Releases", time: "Every 2–6 weeks" }
+                          ].map((item, i) => (
+                              <div key={i} className="flex justify-between items-center p-5 bg-white rounded-2xl border border-indigo-100 shadow-sm">
+                                  <span className="font-bold text-slate-700 text-sm">{item.label}</span>
+                                  <span className="text-indigo-600 font-bold text-sm">{item.time}</span>
+                              </div>
                           ))}
                       </div>
-                      <div className="h-px bg-white/20 w-full mt-2"></div>
-                      <div className="mt-4 text-center text-sm text-slate-400 uppercase tracking-widest">Weekly Engagement</div>
+                  </div>
+                  {/* Pricing */}
+                  <div>
+                      <h2 className="text-3xl font-bold text-slate-900 mb-10 flex items-center gap-3">
+                          <DollarSign className="text-indigo-600" /> Pricing Models
+                      </h2>
+                      <div className="space-y-6">
+                          {[
+                              { title: "T&M with a cap", desc: "Used for midsize and big projects with unclear scope and agile development to react to user feedback." },
+                              { title: "Fixed-price", desc: "Used for small projects with a well-defined and stable scope. Can be divided into estimated phases." }
+                          ].map((item, i) => (
+                              <div key={i} className="p-6 bg-white rounded-2xl border border-indigo-100 shadow-sm">
+                                  <h4 className="font-bold text-slate-900 mb-2">{item.title}</h4>
+                                  <p className="text-sm text-slate-600">{item.desc}</p>
+                              </div>
+                          ))}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      {/* Why Opt Now Section */}
+      <div className="max-w-7xl mx-auto px-4 py-24">
+          <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Why Opt for eLearning Now?</h2>
+              <p className="text-slate-600 max-w-2xl mx-auto">Professionally implemented solutions deliver measurable business benefits and competitive advantage.</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {stats.map((stat, i) => (
+                  <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm text-center group hover:bg-indigo-600 transition-all duration-500">
+                      <div className="text-4xl font-black text-indigo-600 mb-4 group-hover:text-white transition-colors">{stat.val}</div>
+                      <h4 className="font-bold text-slate-900 mb-2 group-hover:text-white transition-colors">{stat.label}</h4>
+                      <p className="text-xs text-slate-500 group-hover:text-indigo-100 transition-colors leading-relaxed">{stat.desc}</p>
+                  </div>
+              ))}
+          </div>
+      </div>
+
+      {/* Final CTA */}
+      <div className="py-24 px-4">
+          <div className="max-w-5xl mx-auto bg-gradient-to-br from-indigo-600 to-purple-700 rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
+              <div className="absolute top-0 left-0 w-full h-full opacity-20">
+                  <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+                  <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+              </div>
+              <div className="relative z-10">
+                  <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">Ready to transform your learning?</h2>
+                  <p className="text-xl text-indigo-100 mb-12 max-w-2xl mx-auto leading-relaxed">
+                      Partner with GnJ Worldwide to build an eLearning solution that drives growth and efficiency.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Link to="/contact" className="bg-white text-indigo-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-indigo-50 transition-all shadow-xl">
+                          Get a Free Consultation
+                      </Link>
+                      <Link to="/contact" className="bg-indigo-900 text-white border border-indigo-400 px-10 py-4 rounded-full font-bold text-lg hover:bg-indigo-800 transition-all">
+                          Talk to an Expert
+                      </Link>
                   </div>
               </div>
           </div>
