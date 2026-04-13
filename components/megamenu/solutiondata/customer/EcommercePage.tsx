@@ -61,7 +61,7 @@ const EcommercePage: React.FC = () => {
                                   <h3 className="text-xl font-bold text-slate-900">Nike Air Max</h3>
                                   <p className="text-slate-500 text-sm">Running Collection</p>
                               </div>
-                              <div className="text-2xl font-bold text-slate-900">$129</div>
+                              <div className="text-2xl font-bold text-slate-900">₹10,770</div>
                           </div>
                           <button className="w-full bg-orange-500 text-white font-bold py-3 rounded-xl hover:bg-orange-600 transition-colors shadow-lg shadow-orange-200">
                               Add to Cart
