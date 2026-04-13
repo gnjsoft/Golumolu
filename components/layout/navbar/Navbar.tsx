@@ -468,7 +468,7 @@ const Navbar: React.FC = () => {
         <div className="lg:hidden fixed inset-0 z-50 bg-white animate-fade-in flex flex-col">
           <div className="flex items-center justify-between p-4 border-b border-gray-100">
             <div className="flex items-center gap-2">
-              <img src="https://www.gnjworldwide.com/Logo.png" className="h-8 w-auto" alt="Logo" />
+              <img src="https://gnjsoft.com/images/logo.png" className="h-8 w-auto" alt="Logo" />
               <span className="font-bold text-lg text-slate-900">GnJ<span className="text-yellow-500">Worldwide</span></span>
             </div>
             <button
