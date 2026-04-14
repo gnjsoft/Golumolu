@@ -1,384 +1,275 @@
 import React, { useEffect } from 'react';
-import { Database, Server, BarChart, ArrowRight, Save, HardDrive, FileSpreadsheet, RefreshCw, Check, Cloud, Layers, Zap } from 'lucide-react';
+import { 
+  Database, 
+  Globe, 
+  Smartphone, 
+  CheckCircle2, 
+  ArrowRight, 
+  Users, 
+  BarChart4, 
+  UserPlus, 
+  Package, 
+  Wrench, 
+  Home, 
+  UserSquare2, 
+  Search, 
+  Image as ImageIcon, 
+  HeartPulse, 
+  Lightbulb, 
+  Rocket, 
+  Zap, 
+  ShieldCheck, 
+  MousePointer2, 
+  Link2, 
+  LifeBuoy,
+  ChevronRight,
+  Monitor
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 
 const DatabaseDevelopmentPage: React.FC = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
+  const whatYouGet = [
+    {
+      title: "A web application",
+      icon: Globe,
+      desc: "Allows you to use data in a fast and convenient way with basic CRUD operations, rich search, filter, and reporting functionality."
+    },
+    {
+      title: "A database",
+      icon: Database,
+      desc: "Carefully shelves your data in a secure environment and can be integrated with other data sources to avoid manual input."
+    },
+    {
+      title: "A mobile application (optionally)",
+      icon: Smartphone,
+      desc: "Allows you to access the database and leverage its features wherever you are, reflecting today's on-the-go life."
+    }
+  ];
+
+  const softwareTypes = [
+    { title: "Customer database", icon: Users, desc: "Deliver exceptional service through quick management of customer profiles and contacts.", cta: "Go for it" },
+    { title: "Marketing database", icon: BarChart4, desc: "Back up your marketing strategy with the deepest customer insights.", cta: "Go for it" },
+    { title: "Membership database", icon: UserPlus, desc: "Keep track of members, manage fees and events, and coordinate volunteers with ease.", cta: "Go for it" },
+    { title: "Inventory database", icon: Package, desc: "Maintain accurate records and make quick, informed inventory management decisions.", cta: "Learn more" },
+    { title: "Equipment database", icon: Wrench, desc: "Track performance to minimize downtimes and stay proactive with scheduled maintenance.", cta: "Go for it" },
+    { title: "Real estate database", icon: Home, desc: "Find the best match for any request with handy management of property profiles.", cta: "Learn more" },
+    { title: "Employee database", icon: UserSquare2, desc: "Keep employee info organized, monitor time off, and manage payments in one place.", cta: "Learn more" },
+    { title: "Recruitment database", icon: Search, desc: "Boost your onboarding process and find the perfect candidate for any position.", cta: "Learn more" },
+    { title: "Image database", icon: ImageIcon, desc: "Store digital images in multiple formats with fast retrieval via indexing.", cta: "Learn more" },
+    { title: "Patient database", icon: HeartPulse, desc: "Manage medical data securely with full compliance (HIPAA, HL7, etc.).", cta: "Go for it" }
+  ];
+
+  const guidingPrinciples = [
+    { title: "Fast development", icon: Zap, desc: "Using Microsoft Power Apps and low-code software to create robust solutions quickly." },
+    { title: "Data consistency & safety", icon: ShieldCheck, desc: "Building solid foundations for clean and secure storage at the database level." },
+    { title: "Swift response time", icon: MousePointer2, desc: "Optimizing your database for your most frequent read and write requests." },
+    { title: "Sleek UX", icon: Monitor, desc: "Keeping applications intuitive and logical to ensure quick user adoption and effectiveness." },
+    { title: "Spotless integration", icon: Link2, desc: "Seamlessly integrating your database software with other information sources." },
+    { title: "Profound support", icon: LifeBuoy, desc: "Ensuring deep technical help and the quickest response to any software problem." }
+  ];
+
   return (
-    <div className="bg-slate-50 min-h-screen pt-20 font-sans">
+    <div className="bg-white min-h-screen pt-20 font-sans selection:bg-indigo-100 selection:text-indigo-900">
       
-      {/* 3D Data Hero */}
-      <div className="bg-indigo-900 text-white py-24 relative overflow-hidden">
-        {/* Isometric Grid Background */}
-        <div className="absolute inset-0 opacity-10 bg-[linear-gradient(30deg,#ffffff_12px,transparent_12px)] bg-[size:20px_20px]"></div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 flex flex-col items-center text-center">
-            <div className="w-20 h-20 bg-indigo-800 rounded-full flex items-center justify-center mb-8 border-4 border-indigo-700 shadow-2xl">
-                <Database size={40} className="text-indigo-300" />
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                Data <span className="text-indigo-400">Architecture</span>
-            </h1>
-            <p className="text-xl text-indigo-200 max-w-2xl mb-12">
-                We design, optimize, and manage the structured foundations that power your intelligent applications.
+      {/* --- HERO SECTION --- */}
+      <section className="relative overflow-hidden bg-slate-900 text-white py-24 lg:py-32">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+          <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-indigo-500 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500 rounded-full blur-[100px] opacity-20"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-900/50 border border-indigo-700 text-indigo-300 text-xs font-bold uppercase tracking-widest mb-6"
+            >
+              <Database size={14} />
+              Database Development
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl lg:text-7xl font-bold mb-8 leading-tight"
+            >
+              Clean, Secure & <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400">Organized Data</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl text-slate-300 mb-10 leading-relaxed"
+            >
+              GnJ Worldwide creates custom database solutions that keep data clean, organized, secure, and easily accessible for authorized users from multiple devices.
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap gap-4"
+            >
+              <Link to="/contact" className="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-indigo-500/50 flex items-center group">
+                Request Database Solution <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- WHAT YOU GET --- */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">What You Get</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              We build the database for organization and the applications for seamless access.
             </p>
-            
-            <div className="flex gap-6">
-                <div className="flex flex-col items-center">
-                    <div className="text-3xl font-bold text-white">SQL</div>
-                    <div className="text-xs text-indigo-400 uppercase tracking-widest mt-1">Relational</div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {whatYouGet.map((item, idx) => (
+              <div key={idx} className="p-10 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                <div className="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-8 shadow-sm">
+                  <item.icon size={32} />
                 </div>
-                <div className="h-12 w-px bg-indigo-700"></div>
-                <div className="flex flex-col items-center">
-                    <div className="text-3xl font-bold text-white">NoSQL</div>
-                    <div className="text-xs text-indigo-400 uppercase tracking-widest mt-1">Document</div>
+                <h4 className="text-2xl font-bold text-slate-900 mb-4">{item.title}</h4>
+                <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- SOFTWARE WE DELIVER --- */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Database Software We Deliver</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              We develop database software for a wide range of business purposes and industries.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            {softwareTypes.map((type, idx) => (
+              <div key={idx} className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6">
+                  <type.icon size={24} />
                 </div>
-                <div className="h-12 w-px bg-indigo-700"></div>
-                <div className="flex flex-col items-center">
-                    <div className="text-3xl font-bold text-white">Graph</div>
-                    <div className="text-xs text-indigo-400 uppercase tracking-widest mt-1">Network</div>
-                </div>
+                <h4 className="text-lg font-bold text-slate-900 mb-3">{type.title}</h4>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">{type.desc}</p>
+                <Link to="/contact" className="inline-flex items-center text-indigo-600 font-bold text-sm hover:text-indigo-800 transition-colors group">
+                  {type.cta} <ChevronRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- CONSULTING & DEVELOPMENT --- */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-10 rounded-3xl bg-slate-900 text-white shadow-2xl flex flex-col h-full">
+              <div className="w-16 h-16 rounded-2xl bg-indigo-600 flex items-center justify-center mb-8">
+                <Lightbulb size={32} />
+              </div>
+              <h4 className="text-3xl font-bold mb-6">Database Software Consulting</h4>
+              <ul className="space-y-4 mb-10 flex-grow">
+                {["Define functionality & tech stack", "Develop business case & ROI", "Design high-perf architecture", "Deliver UX/UI mock-ups", "Project cost & time estimates"].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-300">
+                    <CheckCircle2 size={18} className="text-indigo-400 mt-1 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link to="/contact" className="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-xl font-bold transition-all text-center">
+                Request Consulting
+              </Link>
             </div>
+
+            <div className="p-10 rounded-3xl bg-indigo-600 text-white shadow-2xl flex flex-col h-full">
+              <div className="w-16 h-16 rounded-2xl bg-white text-indigo-600 flex items-center justify-center mb-8">
+                <Rocket size={32} />
+              </div>
+              <h4 className="text-3xl font-bold mb-6">Full-cycle Development</h4>
+              <ul className="space-y-4 mb-10 flex-grow">
+                {["Solution consulting & planning", "Database, web & mobile development", "Third-party integrations", "User training & support", "Continuous software management"].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-indigo-100">
+                    <CheckCircle2 size={18} className="text-white mt-1 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link to="/contact" className="bg-white text-indigo-600 hover:bg-slate-900 hover:text-white px-8 py-4 rounded-xl font-bold transition-all text-center">
+                Request Development
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- GUIDING PRINCIPLES --- */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">What We're Guided By</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Our principles ensure we deliver robust, high-performance, and user-friendly database solutions.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {guidingPrinciples.map((principle, idx) => (
+              <div key={idx} className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6">
+                  <principle.icon size={28} />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900 mb-4">{principle.title}</h4>
+                <p className="text-slate-600 text-sm leading-relaxed">{principle.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- TECH MARQUEE --- */}
+      <div className="bg-white py-12 border-y border-slate-100 overflow-hidden">
+        <div className="flex whitespace-nowrap animate-marquee">
+          {[
+            "PostgreSQL", "MySQL", "MongoDB", "SQL Server", "Oracle", "Redis", "Cassandra", "DynamoDB", "Power Apps", "Low-Code", "ETL", "Data Warehousing", "BI Reporting"
+          ].map((tech, idx) => (
+            <span key={idx} className="text-2xl font-bold text-slate-200 mx-12 hover:text-indigo-600 transition-colors cursor-default">
+              {tech}
+            </span>
+          ))}
         </div>
       </div>
 
-      {/* Strategies Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-white">
-         <div className="text-center mb-16">
-             <h2 className="text-3xl font-bold text-slate-900">Our Modernization Strategies</h2>
-             <p className="text-slate-600 mt-4">We assess your specific needs to determine the best path forward.</p>
-         </div>
-
-         <div className="grid md:grid-cols-3 gap-8">
-             {[
-                 { 
-                     title: "Rehost (Lift & Shift)", 
-                     desc: "Migrating your existing applications to the cloud with minimal code changes.",
-                     color: "bg-blue-50 text-blue-600"
-                 },
-                 { 
-                     title: "Replatform", 
-                     desc: "Moving to a managed platform (PaaS) to reduce operational overhead.",
-                     color: "bg-green-50 text-green-600"
-                 },
-                 { 
-                     title: "Refactor / Re-architect", 
-                     desc: "Re-engineering applications into microservices for full cloud-native benefits.",
-                     color: "bg-orange-50 text-orange-600"
-                 }
-             ].map((item, idx) => (
-                 <div key={idx} className="p-8 border border-slate-100 rounded-2xl shadow-sm hover:shadow-lg transition-all bg-white">
-                     <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 font-bold text-lg ${item.color}`}>
-                         {idx + 1}
-                     </div>
-                     <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                     <p className="text-slate-600 leading-relaxed">{item.desc}</p>
-                 </div>
-             ))}
-         </div>
-      </div>
-
-      {/* Visual Transformation Flow */}
-      <div className="bg-slate-50 py-24 relative overflow-hidden">
-          {/* Decorative background circles */}
-          <div className="absolute top-1/4 left-1/4 w-24 h-24 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-          <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-20 h-20 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-          <div className="absolute bottom-1/3 right-1/3 w-28 h-28 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-
-          <div className="max-w-5xl mx-auto px-4 relative z-10">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative">
-                  {/* Animated Data Packets */}
-                  <motion.div 
-                      className="hidden md:block absolute top-1/2 left-1/3 z-20 text-orange-400"
-                      initial={{ x: 0, opacity: 0, y: "-50%" }}
-                      whileInView={{ 
-                          x: ["0%", "150%", "300%"], 
-                          opacity: [0, 1, 0] 
-                      }}
-                      transition={{ 
-                          duration: 2, 
-                          repeat: Infinity, 
-                          ease: "linear" 
-                      }}
-                  >
-                      <Database size={20} />
-                  </motion.div>
-                  <motion.div 
-                      className="hidden md:block absolute top-1/2 left-1/3 z-20 text-blue-400"
-                      initial={{ x: 0, opacity: 0, y: "-150%" }}
-                      whileInView={{ 
-                          x: ["0%", "150%", "300%"], 
-                          opacity: [0, 1, 0] 
-                      }}
-                      transition={{ 
-                          duration: 2.5, 
-                          repeat: Infinity, 
-                          ease: "linear",
-                          delay: 0.5
-                      }}
-                  >
-                      <FileSpreadsheet size={20} />
-                  </motion.div>
-                  <motion.div 
-                      className="hidden md:block absolute top-1/2 left-1/3 z-20 text-green-400"
-                      initial={{ x: 0, opacity: 0, y: "50%" }}
-                      whileInView={{ 
-                          x: ["0%", "150%", "300%"], 
-                          opacity: [0, 1, 0] 
-                      }}
-                      transition={{ 
-                          duration: 1.8, 
-                          repeat: Infinity, 
-                          ease: "linear",
-                          delay: 1.2
-                      }}
-                  >
-                      <HardDrive size={20} />
-                  </motion.div>
-
-                  {/* Before */}
-                  <motion.div 
-                      initial={{ opacity: 0, x: -50 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6 }}
-                      className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 w-full md:w-[40%] relative z-10"
-                  >
-                      <div className="flex items-center gap-3 mb-6 border-b border-slate-50 pb-4">
-                          <Server size={24} className="text-slate-400" />
-                          <span className="font-bold text-slate-500 text-lg">On-Premise Server</span>
-                      </div>
-                      <div className="space-y-3">
-                          <div className="h-5 bg-slate-100 rounded-md w-full"></div>
-                          <div className="h-5 bg-slate-100 rounded-md w-full"></div>
-                          <div className="h-5 bg-slate-100 rounded-md w-2/3"></div>
-                      </div>
-                  </motion.div>
-
-                  {/* Arrow */}
-                  <motion.div 
-                      initial={{ opacity: 0, scale: 0.5 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                      className="flex flex-col items-center text-orange-500 relative z-10"
-                  >
-                      <div className="text-sm font-bold uppercase tracking-widest mb-2">MIGRATION</div>
-                      <ArrowRight size={32} strokeWidth={2.5} className="hidden md:block" />
-                      <ArrowRight size={32} strokeWidth={2.5} className="md:hidden rotate-90" />
-                  </motion.div>
-
-                  {/* After */}
-                  <motion.div 
-                      initial={{ opacity: 0, x: 50 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      className="bg-white p-8 rounded-2xl shadow-md w-full md:w-[40%] border-t-4 border-orange-500 relative z-10"
-                  >
-                      <div className="flex items-center gap-3 mb-6 border-b border-slate-50 pb-4">
-                          <Cloud size={24} className="text-orange-500" />
-                          <span className="font-bold text-slate-900 text-lg">Cloud Microservices</span>
-                      </div>
-                      <div className="flex gap-3 flex-wrap">
-                          <motion.div whileHover={{ scale: 1.1 }} className="h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-500"><Database size={16} /></motion.div>
-                          <motion.div whileHover={{ scale: 1.1 }} className="h-10 w-10 bg-green-100 rounded-lg flex items-center justify-center text-green-500"><Server size={16} /></motion.div>
-                          <motion.div whileHover={{ scale: 1.1 }} className="h-10 w-10 bg-purple-100 rounded-lg flex items-center justify-center text-purple-500"><FileSpreadsheet size={16} /></motion.div>
-                          <motion.div whileHover={{ scale: 1.1 }} className="h-10 w-10 bg-orange-100 rounded-lg flex items-center justify-center text-orange-500"><HardDrive size={16} /></motion.div>
-                      </div>
-                  </motion.div>
-              </div>
-
-              {/* Migration Capabilities as Visual Flows */}
-              <div className="mt-24 grid lg:grid-cols-2 gap-8 relative z-10">
-                  {/* Flow 1: Cloud to On-Premises */}
-                  <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between gap-4"
-                  >
-                      <div className="flex-1 bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
-                          <Cloud size={24} className="mx-auto text-slate-400 mb-2" />
-                          <span className="font-bold text-slate-600 text-sm">Cloud</span>
-                      </div>
-                      <div className="flex flex-col items-center text-orange-500 px-2">
-                          <span className="text-[10px] font-bold uppercase tracking-wider mb-1 text-center">Reverse<br/>Migration</span>
-                          <ArrowRight size={20} strokeWidth={2.5} />
-                      </div>
-                      <div className="flex-1 bg-orange-50 p-4 rounded-xl text-center border border-orange-100">
-                          <Server size={24} className="mx-auto text-orange-500 mb-2" />
-                          <span className="font-bold text-slate-900 text-sm">On-Premises</span>
-                      </div>
-                  </motion.div>
-
-                  {/* Flow 2: Cloud Providers */}
-                  <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.1 }}
-                      className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between gap-4"
-                  >
-                      <div className="flex-1 bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
-                          <Database size={24} className="mx-auto text-slate-400 mb-2" />
-                          <span className="font-bold text-slate-600 text-sm">Legacy DB</span>
-                      </div>
-                      <div className="flex flex-col items-center text-blue-500 px-2">
-                          <span className="text-[10px] font-bold uppercase tracking-wider mb-1 text-center">Cloud<br/>Migration</span>
-                          <ArrowRight size={20} strokeWidth={2.5} />
-                      </div>
-                      <div className="flex-1 bg-blue-50 p-4 rounded-xl text-center border border-blue-100">
-                          <Cloud size={24} className="mx-auto text-blue-500 mb-2" />
-                          <span className="font-bold text-slate-900 text-sm">AWS / Azure / GCP</span>
-                      </div>
-                  </motion.div>
-
-                  {/* Flow 3: VMware Management */}
-                  <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.2 }}
-                      className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between gap-4"
-                  >
-                      <div className="flex-1 bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
-                          <Layers size={24} className="mx-auto text-slate-400 mb-2" />
-                          <span className="font-bold text-slate-600 text-sm">Standard VMware</span>
-                      </div>
-                      <div className="flex flex-col items-center text-green-500 px-2">
-                          <span className="text-[10px] font-bold uppercase tracking-wider mb-1 text-center">Optimize</span>
-                          <ArrowRight size={20} strokeWidth={2.5} />
-                      </div>
-                      <div className="flex-1 bg-green-50 p-4 rounded-xl text-center border border-green-100">
-                          <Zap size={24} className="mx-auto text-green-500 mb-2" />
-                          <span className="font-bold text-slate-900 text-sm">Managed VMware</span>
-                      </div>
-                  </motion.div>
-
-                  {/* Flow 4: Oracle Migration */}
-                  <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.3 }}
-                      className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between gap-4"
-                  >
-                      <div className="flex-1 bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
-                          <Database size={24} className="mx-auto text-slate-400 mb-2" />
-                          <span className="font-bold text-slate-600 text-sm">Oracle DB</span>
-                      </div>
-                      <div className="flex flex-col items-center text-purple-500 px-2">
-                          <span className="text-[10px] font-bold uppercase tracking-wider mb-1 text-center">Modernize</span>
-                          <ArrowRight size={20} strokeWidth={2.5} />
-                      </div>
-                      <div className="flex-1 bg-purple-50 p-4 rounded-xl text-center border border-purple-100">
-                          <RefreshCw size={24} className="mx-auto text-purple-500 mb-2" />
-                          <span className="font-bold text-slate-900 text-sm">Modern RDBMS</span>
-                      </div>
-                  </motion.div>
-              </div>
-          </div>
-      </div>
-
-      {/* Benefits List */}
-      <div className="py-24 max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-slate-900">The ROI of Modernization</h2>
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
-              {[
-                  "Reduced Infrastructure Costs",
-                  "Faster Time-to-Market",
-                  "Enhanced Security Compliance",
-                  "Improved Scalability",
-                  "Better Developer Productivity",
-                  "Superior User Experience"
-              ].map((benefit, idx) => (
-                  <div key={idx} className="flex items-center gap-3">
-                      <div className="bg-green-100 text-green-600 rounded-full p-1">
-                          <Check size={16} />
-                      </div>
-                      <span className="text-lg text-slate-700 font-medium">{benefit}</span>
-                  </div>
-              ))}
-          </div>
-      </div>
-
-      {/* Stacked Cards Layout for Services */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-         <div className="space-y-6">
-            
-            {/* Card 1 */}
-            <div className="bg-white p-8 rounded-xl shadow-lg border-l-8 border-indigo-500 flex flex-col md:flex-row items-center gap-8 transform transition-transform hover:-translate-y-1">
-                <div className="bg-indigo-50 p-4 rounded-full text-indigo-600">
-                    <FileSpreadsheet size={32} />
-                </div>
-                <div className="flex-1">
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">Schema Design & Architecture</h3>
-                    <p className="text-slate-600">We create normalized, efficient database schemas that reduce redundancy and ensure data integrity for your specific use case.</p>
-                </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-white p-8 rounded-xl shadow-lg border-l-8 border-blue-500 flex flex-col md:flex-row items-center gap-8 transform transition-transform hover:-translate-y-1">
-                <div className="bg-blue-50 p-4 rounded-full text-blue-600">
-                    <BarChart size={32} />
-                </div>
-                <div className="flex-1">
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">Performance Tuning</h3>
-                    <p className="text-slate-600">Optimization of queries, indexing strategies, and caching layers (Redis/Memcached) to ensure millisecond response times.</p>
-                </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white p-8 rounded-xl shadow-lg border-l-8 border-teal-500 flex flex-col md:flex-row items-center gap-8 transform transition-transform hover:-translate-y-1">
-                <div className="bg-teal-50 p-4 rounded-full text-teal-600">
-                    <RefreshCw size={32} />
-                </div>
-                <div className="flex-1">
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">Migration & ETL</h3>
-                    <p className="text-slate-600">Seamless data migration services from legacy systems to modern cloud databases with zero downtime and full data integrity.</p>
-                </div>
-            </div>
-
-         </div>
-      </div>
-
-      {/* Technology Grid */}
-      <div className="bg-white py-24">
-          <div className="max-w-7xl mx-auto px-4">
-              <h2 className="text-center text-3xl font-bold text-slate-900 mb-16">Supported Technologies</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {[
-                     { name: "PostgreSQL", type: "RDBMS" },
-                     { name: "MongoDB", type: "Document" },
-                     { name: "MySQL", type: "RDBMS" },
-                     { name: "Redis", type: "Cache" },
-                     { name: "SQL Server", type: "Enterprise" },
-                     { name: "Oracle", type: "Enterprise" },
-                     { name: "Cassandra", type: "Wide Column" },
-                     { name: "DynamoDB", type: "Cloud" },
-                  ].map((db, idx) => (
-                      <div key={idx} className="border border-slate-200 p-6 rounded-lg text-center hover:border-indigo-500 transition-colors group">
-                          <div className="font-bold text-lg text-slate-800 group-hover:text-indigo-600 transition-colors">{db.name}</div>
-                          <div className="text-xs text-slate-400 mt-1">{db.type}</div>
-                      </div>
-                  ))}
-              </div>
-          </div>
-      </div>
-
-      {/* CTA */}
-      <div className="bg-slate-900 text-white py-20 text-center">
-          <h2 className="text-3xl font-bold mb-6">Data is your most valuable asset.</h2>
-          <p className="text-slate-400 mb-8 max-w-xl mx-auto">Treat it that way. Let our architects build a foundation that scales with your business.</p>
-          <Link to="/contact" className="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-lg transition-colors">
-              Speak with an Architect
+      {/* --- CTA SECTION --- */}
+      <section className="py-24 bg-indigo-600 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,#fff_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 text-center text-white relative z-10">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to organize your data?</h2>
+          <p className="text-xl text-indigo-100 mb-12 max-w-2xl mx-auto">
+            Let our architects build a structured foundation that scales with your business and keeps your data secure.
+          </p>
+          <Link to="/contact" className="inline-block bg-white text-indigo-600 font-bold py-5 px-12 rounded-2xl hover:bg-slate-900 hover:text-white transition-all shadow-2xl transform hover:-translate-y-1">
+            Speak with an Architect
           </Link>
-      </div>
+        </div>
+      </section>
+
     </div>
   );
 };

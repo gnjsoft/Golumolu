@@ -43,7 +43,6 @@ export const NAV_ITEMS: MenuItem[] = [
             { title: "Desktop Development", href: "/services/desktop-development" },
             { title: "API Development", href: "/services/api-development" },
             { title: "Database Development", href: "/services/database-development" },
-            // { title: "Software Modernization", href: "/services/software-modernization" },
           ]
         },
         {

@@ -1,208 +1,316 @@
 import React, { useEffect } from 'react';
 import { 
   Code2, 
-  GitBranch, 
-  Terminal, 
-  Cpu, 
-  Rocket, 
-  CheckCircle, 
   ArrowRight, 
-  Layers 
+  CheckCircle2,
+  Stethoscope,
+  Building2,
+  ShieldCheck,
+  Banknote,
+  CreditCard,
+  TrendingUp,
+  Home,
+  ShoppingBag,
+  Factory,
+  Truck,
+  Droplets,
+  Zap,
+  Briefcase,
+  Phone,
+  HardHat,
+  Palmtree,
+  Settings,
+  Package,
+  Box,
+  Megaphone,
+  Wallet,
+  BarChart3,
+  Users,
+  MessageSquare,
+  ShieldAlert,
+  Brain,
+  Database,
+  Cpu,
+  Eye,
+  Link as LinkIcon,
+  Network,
+  Layers,
+  Glasses,
+  ChevronRight
 } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const SoftwareDevelopmentPage: React.FC = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
-  const navigate = useNavigate();
 
-  const handleStepClick = (title: string) => {
-    const routes: Record<string, string> = {
-      "Discovery": "/services/software-development/discovery",
-      "Development": "/services/web-development",
-      "Testing": "/services/testing-and-qa",
-      "Deployment": "/services/devops-consulting"
-    };
-    
-    const target = routes[title];
-    if (target) {
-      // Small delay for animation feedback
-      setTimeout(() => {
-        navigate(target);
-      }, 300);
+  const industries = [
+    { icon: Stethoscope, name: "Healthcare" },
+    { icon: Building2, name: "Banking" },
+    { icon: ShieldCheck, name: "Insurance" },
+    { icon: Banknote, name: "Lending" },
+    { icon: CreditCard, name: "Payments" },
+    { icon: TrendingUp, name: "Investment" },
+    { icon: Home, name: "Real estate" },
+    { icon: ShoppingBag, name: "Retail" },
+    { icon: Factory, name: "Manufacturing" },
+    { icon: Truck, name: "Logistics and Transportation" },
+    { icon: Droplets, name: "Oil and Gas" },
+    { icon: Zap, name: "Energy and utilities" },
+    { icon: Briefcase, name: "Professional services" },
+    { icon: Phone, name: "Telecoms" },
+    { icon: HardHat, name: "Engineering and construction" },
+    { icon: Palmtree, name: "Travel and hospitality" },
+  ];
+
+  const solutions = [
+    {
+      title: "Business & project management",
+      icon: Settings,
+      items: ["ERP", "Project management", "Task management", "Risk and issue management", "Compliance management", "Document management"],
+      href: "/solutions/erp"
+    },
+    {
+      title: "Sourcing & stock management",
+      icon: Package,
+      items: ["Procurement management software", "Vendor management", "Transportation management", "Supply chain management", "Inventory management", "Warehouse management"],
+      href: "/solutions/scm"
+    },
+    {
+      title: "Asset management",
+      icon: Box,
+      items: ["Asset utilization planning and control", "Remote asset monitoring", "MRO, including predictive maintenance, AR for maintenance", "Asset warranty and contract management"],
+      href: "/solutions/eam"
+    },
+    {
+      title: "Sales, marketing & customer service",
+      icon: Megaphone,
+      items: ["Customer relationship management", "Sales & marketing automation systems", "AdTech & MarTech", "Online catalogs", "Order management", "Customer feedback tools", "Promotions management software", "Loyalty management", "Customer service management", "Product information management", "Content management and digital asset management systems"],
+      href: "/solutions/crm"
+    },
+    {
+      title: "Corporate finance management",
+      icon: Wallet,
+      items: ["Financial accounting and reporting", "General ledger software", "Accounts receivable automation", "Billing and invoicing", "Cost control software", "Revenue management software", "Pricing software", "Treasury management", "Cash management systems"],
+      href: "/solutions/finance"
+    },
+    {
+      title: "Business analytics",
+      icon: BarChart3,
+      items: ["BI solutions (DWHs, OLAP/ROLAP cubes, visualization and reporting)", "Big data solutions", "Data science (including AI and ML) solutions"],
+      href: "/solutions/analytics"
+    },
+    {
+      title: "HR, talent & productivity management",
+      icon: Users,
+      items: ["HR policy management", "Recruitment management", "Onboarding management", "Workforce scheduling", "Employee performance monitoring", "Compensation & benefits management", "Corporate learning and development systems", "Central employee help desk"],
+      href: "/solutions/hr"
+    },
+    {
+      title: "Communication",
+      icon: MessageSquare,
+      items: ["Project team collaboration tools", "Secure messengers", "Secure videoconferencing", "Intranets", "Vendor portals", "Customer portals", "Partner portals", "Chatbots"],
+      href: "/solutions/portals"
+    },
+    {
+      title: "Security & emergency",
+      icon: ShieldAlert,
+      items: ["Information security systems", "Video surveillance", "Incident management systems", "Emergency response systems"],
+      href: "/services/cybersecurity"
     }
-  };
+  ];
+
+  const advancedTech = [
+    {
+      title: "Artificial intelligence",
+      icon: Brain,
+      desc: "Software capable of drawing insights and triggering actions based on historical and real-time data processing."
+    },
+    {
+      title: "Data science",
+      icon: Database,
+      desc: "Software that can find sophisticated patterns in data and continuously learn to deliver more accurate results."
+    },
+    {
+      title: "Big data",
+      icon: Network,
+      desc: "Scalable software that aggregates and processes huge volumes of data with high velocity."
+    },
+    {
+      title: "Computer vision",
+      icon: Eye,
+      desc: "Software to recognize patterns and classify objects in digital images and videos."
+    },
+    {
+      title: "Blockchain",
+      icon: LinkIcon,
+      desc: "Software with decentralized and highly secure data storage enabling direct peer-to-peer transactions."
+    },
+    {
+      title: "Internet of Things",
+      icon: Cpu,
+      desc: "Software that allows for fast processing and mining of data captured by physical objects."
+    },
+    {
+      title: "Augmented reality",
+      icon: Layers,
+      desc: "Software capable of laying virtual objects over real surroundings."
+    },
+    {
+      title: "Virtual reality",
+      icon: Glasses,
+      desc: "Software that creates fictional environment with 3D objects and realistic acoustics."
+    }
+  ];
 
   return (
     <div className="bg-white min-h-screen pt-20 font-sans selection:bg-blue-100 selection:text-blue-900">
       
-      {/* --- HERO SECTION (Unique to this page) --- */}
-      <div className="relative overflow-hidden bg-slate-900 text-white pb-20 pt-16 lg:pt-32">
-        {/* Abstract Tech Background */}
+      {/* --- HERO SECTION --- */}
+      <section className="relative overflow-hidden bg-slate-900 text-white py-24 lg:py-32">
         <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-            <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500 rounded-full blur-[100px] opacity-20"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+          <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500 rounded-full blur-[100px] opacity-20"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/50 border border-blue-700 text-blue-300 text-xs font-bold uppercase tracking-widest mb-6">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/50 border border-blue-700 text-blue-300 text-xs font-bold uppercase tracking-widest mb-6"
+            >
               <Code2 size={14} />
-              Engineering Excellence
-            </div>
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              We Build Software <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">That Scales.</span>
-            </h1>
-            <p className="text-xl text-slate-300 mb-8 leading-relaxed max-w-xl">
-              From complex enterprise platforms to consumer-facing apps, we engineer robust digital solutions tailored to your unique business logic.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/contact" className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg hover:shadow-blue-500/50 flex items-center">
-                Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
+              Software Development
+            </motion.div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl lg:text-7xl font-bold mb-8 leading-tight"
+            >
+              Software Development <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Services</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl text-slate-300 mb-10 leading-relaxed"
+            >
+              At GnJ Worldwide, we work with clients to shape software solutions across the full development lifecycle — from business analysis to delivery and support — and help modernize legacy systems or provide expert advisory at any stage of SDLC.
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap gap-4"
+            >
+              <Link to="/contact" className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-blue-500/50 flex items-center group">
+                Get a Consultation <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-            </div>
-          </div>
-          
-          {/* Hero Visual - Code Window */}
-          <div className="lg:w-1/2 w-full">
-            <div className="relative rounded-xl bg-[#1e1e1e] border border-slate-700 shadow-2xl overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-500">
-              <div className="flex items-center gap-2 px-4 py-3 bg-[#252526] border-b border-slate-700">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <div className="text-xs text-slate-400 font-mono ml-4">App.tsx</div>
-              </div>
-              <div className="p-6 font-mono text-sm overflow-hidden">
-                <div className="text-purple-400">const <span className="text-yellow-300">Success</span> = <span className="text-blue-400">async</span> () =&gt; {'{'}</div>
-                <div className="pl-4 text-slate-300">
-                  <span className="text-purple-400">const</span> solution = <span className="text-blue-400">await</span> <span className="text-green-400">GnJ</span>.build({'{'}
-                </div>
-                <div className="pl-8 text-blue-300">scalability: <span className="text-orange-300">true</span>,</div>
-                <div className="pl-8 text-blue-300">security: <span className="text-orange-300">"Enterprise-Grade"</span>,</div>
-                <div className="pl-8 text-blue-300">performance: <span className="text-orange-300">"Optimized"</span></div>
-                <div className="pl-4 text-slate-300">{'}'});</div>
-                <div className="pl-4 mt-2 text-slate-300"><span className="text-blue-400">return</span> solution.launch();</div>
-                <div className="text-purple-400">{'}'}</div>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* --- PROCESS SECTION --- */}
-      <div className="py-24 bg-white">
+      {/* --- EXPLORE SERVICES --- */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Development Lifecycle</h2>
-                <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
-            </div>
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Explore Services Tailored to You</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Browse our software development services based on your industry or the solution you need.
+            </p>
+          </div>
 
-            <div className="grid md:grid-cols-4 gap-8">
-                {[
-                    { icon: Terminal, title: "Discovery", desc: "Requirement gathering & architecture planning.", linkText: "Explore Phase" },
-                    { icon: Code2, title: "Development", desc: "Agile sprints with bi-weekly updates.", linkText: "View Services" },
-                    { icon: CheckCircle, title: "Testing", desc: "Automated QA & security auditing.", linkText: "QA Solutions" },
-                    { icon: Rocket, title: "Deployment", desc: "CI/CD pipelines & cloud infrastructure.", linkText: "DevOps Stack" }
-                ].map((step, idx) => (
-                    <motion.div 
-                        key={idx} 
-                        whileHover={{ scale: 1.02, y: -5 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => handleStepClick(step.title)}
-                        className="relative p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition-all duration-300 group cursor-pointer ring-2 ring-blue-600/0 hover:ring-blue-600/50"
-                    >
-                        <div className="w-14 h-14 bg-white text-blue-600 rounded-xl flex items-center justify-center shadow-sm mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                            <step.icon size={28} />
-                        </div>
-                        <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                        <p className="text-slate-600 leading-relaxed mb-4">{step.desc}</p>
-                        {idx !== 3 && (
-                            <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                                <ArrowRight className="text-slate-300" />
-                            </div>
-                        )}
-                        <div className="mt-auto flex items-center text-blue-600 text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                            {step.linkText} <ArrowRight className="ml-1 w-4 h-4" />
-                        </div>
-                    </motion.div>
-                ))}
+          <div className="mb-24">
+            <div className="flex items-center gap-4 mb-10">
+              <h3 className="text-2xl font-bold text-slate-900 whitespace-nowrap">Industry-specific expertise</h3>
+              <div className="h-px bg-slate-200 w-full"></div>
             </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+              {industries.map((industry, idx) => (
+                <div key={idx} className="flex flex-col items-center p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-center">
+                  <div className="w-12 h-12 rounded-xl bg-white text-blue-600 flex items-center justify-center mb-4 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <industry.icon size={24} />
+                  </div>
+                  <span className="text-xs font-bold text-slate-700 leading-tight">{industry.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-4 mb-10">
+              <h3 className="text-2xl font-bold text-slate-900 whitespace-nowrap">Solution-focused services</h3>
+              <div className="h-px bg-slate-200 w-full"></div>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {solutions.map((solution, idx) => (
+                <div key={idx} className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                  <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6">
+                    <solution.icon size={28} />
+                  </div>
+                  <h4 className="text-xl font-bold text-slate-900 mb-6">{solution.title}</h4>
+                  <ul className="space-y-3 mb-8 flex-grow">
+                    {solution.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-slate-600 text-sm">
+                        <CheckCircle2 size={16} className="text-green-500 mt-0.5 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to={solution.href} className="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group mt-auto">
+                    See more <ChevronRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* --- FEATURED CAPABILITIES (Grid Layout) --- */}
-      <div className="py-24 bg-slate-50">
+      {/* --- ADVANCED TASKS --- */}
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Full-Cycle Development Services</h2>
-                    <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                        We don't just write code; we build digital assets. Whether you are transforming a legacy system or building a SaaS product from scratch, our engineering team acts as your strategic partner.
-                    </p>
-                    
-                    <div className="space-y-4">
-                        {[
-                            "Custom Enterprise Software",
-                            "SaaS Product Development",
-                            "Legacy Software Modernization",
-                            "API Integration & Development",
-                            "Cloud-Native Solutions"
-                        ].map((item, i) => (
-                            <div key={i} className="flex items-center gap-3 p-4 bg-white rounded-lg border border-slate-200 shadow-sm">
-                                <div className="p-1 rounded-full bg-green-100 text-green-600">
-                                    <CheckCircle size={16} />
-                                </div>
-                                <span className="font-semibold text-slate-800">{item}</span>
-                            </div>
-                        ))}
-                    </div>
+          <div className="max-w-3xl mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Software for advanced business tasks</h2>
+            <p className="text-xl text-slate-600">
+              We work with all the mainstream technologies to expand the scope of functions the software can perform.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {advancedTech.map((tech, idx) => (
+              <div key={idx} className="p-8 rounded-2xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+                  <tech.icon size={24} />
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-4 translate-y-8">
-                        <div className="bg-blue-600 text-white p-8 rounded-2xl shadow-lg">
-                            <Layers size={32} className="mb-4 text-blue-200" />
-                            <h4 className="text-xl font-bold mb-2">Scalable Architecture</h4>
-                            <p className="text-blue-100 text-sm">Microservices ready & cloud agnostic.</p>
-                        </div>
-                        <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-                            <GitBranch size={32} className="mb-4 text-slate-400" />
-                            <h4 className="text-xl font-bold mb-2 text-slate-800">Clean Code</h4>
-                            <p className="text-slate-500 text-sm">Maintainable & well-documented.</p>
-                        </div>
-                    </div>
-                    <div className="space-y-4">
-                        <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
-                            <Cpu size={32} className="mb-4 text-slate-400" />
-                            <h4 className="text-xl font-bold mb-2 text-slate-800">High Performance</h4>
-                            <p className="text-slate-500 text-sm">Optimized for speed & efficiency.</p>
-                        </div>
-                        <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-lg">
-                            <Terminal size={32} className="mb-4 text-slate-400" />
-                            <h4 className="text-xl font-bold mb-2">Secure by Design</h4>
-                            <p className="text-slate-400 text-sm">OWASP compliant development.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <h4 className="text-lg font-bold text-slate-900 mb-3">{tech.title}</h4>
+                <p className="text-sm text-slate-500 leading-relaxed">{tech.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* --- CTA SECTION --- */}
-      <div className="py-20 bg-blue-600">
-        <div className="max-w-4xl mx-auto px-4 text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to engineer your vision?</h2>
-            <p className="text-xl text-blue-100 mb-10">
-                Book a free technical consultation with our solution architects.
-            </p>
-            <Link to="/contact" className="inline-block bg-white text-blue-600 font-bold py-4 px-10 rounded-full hover:bg-yellow-400 hover:text-slate-900 transition-all shadow-xl">
-                Schedule Call
-            </Link>
+      <section className="py-20 bg-blue-600 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,#fff_1px,transparent_1px)] bg-[size:20px_20px]"></div>
         </div>
-      </div>
+        <div className="max-w-4xl mx-auto px-4 text-center text-white relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to build your next big thing?</h2>
+          <p className="text-xl text-blue-100 mb-10">
+            Let's discuss your project requirements and how we can help you achieve your goals.
+          </p>
+          <Link to="/contact" className="inline-block bg-white text-blue-600 font-bold py-4 px-10 rounded-xl hover:bg-yellow-400 hover:text-slate-900 transition-all shadow-xl">
+            Schedule a Free Consultation
+          </Link>
+        </div>
+      </section>
 
     </div>
   );
