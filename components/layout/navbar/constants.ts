@@ -86,10 +86,8 @@ export const NAV_ITEMS: MenuItem[] = [
           title: "Security",
           items: [
             { title: "Cybersecurity", href: "/services/cybersecurity" },
-            { title: "Compliance Services", href: "/services/compliance-services" },
             { title: "Security Testing", href: "/services/security-testing" },
-            { title: "Penetration Testing", href: "/services/penetration-testing" },
-            { title: "SIEM Services", href: "/services/siem-services" }
+            { title: "Penetration Testing", href: "/services/penetration-testing" }
           ]
         }
       ]

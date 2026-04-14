@@ -103,7 +103,8 @@ const OFFERINGS = [
       { name: "Threat Detection & Response", href: "/services/cybersecurity" },
       { name: "Vulnerability Assessment", href: "/services/cybersecurity" },
       { name: "Identity & Access Management", href: "/services/cybersecurity" },
-      { name: "Compliance Management", href: "/services/compliance-services" },
+      { name: "Compliance Management", href: "/services/cybersecurity" },
+      { name: "SIEM & SOC Services", href: "/services/cybersecurity" },
       { name: "Security Audits", href: "/services/cybersecurity" },
       { name: "Penetration Testing", href: "/services/penetration-testing" }
     ]

@@ -79,10 +79,8 @@ import TestingAndQaPage from './components/megamenu/servicesdata/operations/Test
 
 // Specific Mega Menu Pages (Services - Security)
 import CybersecurityPage from './components/megamenu/servicesdata/security/CybersecurityPage';
-import ComplianceServicesPage from './components/megamenu/servicesdata/security/ComplianceServicesPage';
 import SecurityTestingPage from './components/megamenu/servicesdata/security/SecurityTestingPage';
 import PenetrationTestingPage from './components/megamenu/servicesdata/security/PenetrationTestingPage';
-import SiemServicesPage from './components/megamenu/servicesdata/security/SiemServicesPage';
 
 // Specific Mega Menu Pages (Industries - Healthcare)
 import HealthcareItPage from './components/megamenu/industrydata/healthcare/HealthcareItPage';
@@ -309,10 +307,10 @@ const AppContent: React.FC = () => {
 
     // Services - Security
     case '/services/cybersecurity': component = <CybersecurityPage />; break;
-    case '/services/compliance-services': component = <ComplianceServicesPage />; break;
+    case '/services/compliance-services': component = <CybersecurityPage />; break;
     case '/services/security-testing': component = <SecurityTestingPage />; break;
     case '/services/penetration-testing': component = <PenetrationTestingPage />; break;
-    case '/services/siem-services': component = <SiemServicesPage />; break;
+    case '/services/siem-services': component = <CybersecurityPage />; break;
 
     // Industries - Healthcare
     case '/industries/healthcare-it': component = <HealthcareItPage />; break;
