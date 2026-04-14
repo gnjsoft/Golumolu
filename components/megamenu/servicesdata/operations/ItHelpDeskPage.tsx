@@ -358,17 +358,6 @@ const ItHelpDeskPage: React.FC = () => {
               </div>
             ))}
           </div>
-          
-          <div className="mt-16 p-8 bg-indigo-50 rounded-3xl border border-indigo-100 text-center">
-            <h3 className="text-xl font-bold text-indigo-900 mb-4">Languages Our Teams Speak</h3>
-            <div className="flex flex-wrap justify-center gap-4 text-indigo-700 font-medium">
-              {["English", "Spanish", "German", "French", "Polish", "Czech", "Turkish", "and more"].map((lang, i) => (
-                <span key={i} className="flex items-center gap-2">
-                  <Globe size={16} /> {lang}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
