@@ -1,181 +1,436 @@
 import React, { useEffect, useState } from 'react';
-import { Ticket, CheckCircle, Clock, Zap, ArrowRight, MessageCircle, Headphones, Shield, BarChart, Users, Settings } from 'lucide-react';
+import { 
+  Ticket, 
+  CheckCircle, 
+  Clock, 
+  Zap, 
+  ArrowRight, 
+  MessageCircle, 
+  Headphones, 
+  Shield, 
+  BarChart, 
+  Users, 
+  Settings,
+  Search,
+  Globe,
+  Monitor,
+  Server,
+  Cloud,
+  Terminal,
+  Database,
+  Smartphone,
+  MessageSquare,
+  Phone,
+  Mail,
+  Share2,
+  CheckCircle2,
+  TrendingDown,
+  TrendingUp,
+  Target,
+  Award,
+  Activity,
+  Code,
+  Layers,
+  Cpu,
+  Lock,
+  MousePointer2,
+  AlertCircle
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
 
 const ItHelpDeskPage: React.FC = () => {
-  const [progress, setProgress] = useState(0);
+  const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const timer = setTimeout(() => setProgress(98), 500);
-    return () => clearTimeout(timer);
   }, []);
 
+  const serviceModels = [
+    {
+      title: "Help Desk Consulting",
+      icon: Search,
+      desc: "Full-fledged advisory help starting from feasibility studies to sourcing models, team lineup, and toolkit recommendations."
+    },
+    {
+      title: "Help Desk Outsourcing",
+      icon: Headphones,
+      desc: "ITIL-standard virtual help desk for L1-L3 issues, including white-label options under your own trademark."
+    },
+    {
+      title: "Customer Service Desk",
+      icon: Users,
+      desc: "Single point of contact for customers with coordinated case management and multi-channel communication."
+    },
+    {
+      title: "Outsourced NOC",
+      icon: Activity,
+      desc: "24/7/365 infrastructure monitoring and L2/L3 tech support to handle issues and prevent defects."
+    },
+    {
+      title: "Technical Support",
+      icon: Terminal,
+      desc: "Quick incident resolution and proactive problem management relying on root cause analysis and continuous monitoring."
+    },
+    {
+      title: "Managed Help Desk",
+      icon: Settings,
+      desc: "Taking over the entire help desk function, from process establishment to continuous monitoring and improvement."
+    }
+  ];
+
+  const supportProcess = [
+    { title: "Creation", desc: "User reports an issue via email, phone, or portal; ticket is created automatically." },
+    { title: "Processing", desc: "Ticket is categorized by type and urgency, then assigned to the appropriate engineer." },
+    { title: "Resolution", desc: "Support agent resolves the ticket or escalates it to the next level for in-depth expertise." },
+    { title: "Notification", desc: "The user is notified about their ticket's changed status and final resolution." },
+    { title: "Analysis", desc: "Deep dive into the incident to identify root causes and suggest improvements to prevent recurrence." },
+    { title: "Optimization", desc: "Continuous monitoring of KPIs and feedback to identify workflow improvement opportunities." }
+  ];
+
+  const componentsCovered = [
+    { name: "On-premises Data Centers", icon: Server },
+    { name: "Desktops, Laptops & Mobile", icon: Monitor },
+    { name: "Cloud Services (IaaS, PaaS, SaaS)", icon: Cloud },
+    { name: "Dev Infrastructure (CI/CD)", icon: Terminal },
+    { name: "Network & Cybersecurity", icon: Shield },
+    { name: "Data Storage & Databases", icon: Database },
+    { name: "Customer-facing Software", icon: Globe }
+  ];
+
+  const kpis = [
+    { label: "First Response Time (FRT)", value: "≤30 min", sub: "for emails", icon: Clock },
+    { label: "User Satisfaction (USAT)", value: "≥90%", sub: "target score", icon: Award },
+    { label: "Resolution Rate (RR)", value: "≥70%", sub: "of total tickets", icon: Target }
+  ];
+
+  const techStack = [
+    { category: "Ticketing", items: ["ServiceNow", "Jira", "Zendesk", "Freshdesk"] },
+    { category: "Monitoring", items: ["Zabbix", "Nagios", "Prometheus", "Grafana"] },
+    { category: "DevOps", items: ["Docker", "Kubernetes", "Ansible", "Terraform"] },
+    { category: "Clouds", items: ["AWS", "Azure", "Google Cloud", "DigitalOcean"] },
+    { category: "Languages", items: [".NET", "Java", "Python", "Node.js", "React"] },
+    { category: "Databases", items: ["SQL Server", "MySQL", "MongoDB", "Cosmos DB"] }
+  ];
+
+  const painsAndRemedies = [
+    {
+      pain: "High costs for in-house IT help desk team",
+      remedy: "IT help desk services provided by experienced L1-L3 engineers on a subscription or fixed-price basis."
+    },
+    {
+      pain: "Inability to handle varying demand",
+      remedy: "Scalable IT support due to a large pool of engineers and highly automated processes."
+    },
+    {
+      pain: "Frequent IT incidents",
+      remedy: "Well-described operational procedures and proactive root cause analysis."
+    },
+    {
+      pain: "Low customer/employee satisfaction",
+      remedy: "Mature processes for issue resolution plus a CSAT improvement plan based on user surveys."
+    }
+  ];
+
+  const bargainStats = [
+    { value: "40-70%", label: "fewer user errors" },
+    { value: "97%", label: "User Satisfaction Score" },
+    { value: "40%", label: "help desk cost reduction" },
+    { value: "3-5x", label: "fewer help requests" },
+    { value: "50-200%", label: "faster detection" },
+    { value: "20-50%", label: "increased ROI" }
+  ];
+
   return (
-    <div className="bg-white min-h-screen pt-20 font-sans">
-      <div className="bg-indigo-600 text-white py-24 px-4 text-center relative overflow-hidden">
-         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10"></div>
-         
-         <div className="relative z-10 max-w-4xl mx-auto">
-             <div className="w-20 h-20 bg-white/10 rounded-2xl mx-auto mb-6 flex items-center justify-center backdrop-blur-md">
-                 <Ticket size={40} className="text-white" />
-             </div>
-             <h1 className="text-4xl md:text-6xl font-bold mb-6">IT Help Desk Solutions</h1>
-             <p className="text-xl text-indigo-100 mb-10">
-                 Streamlined ticket management and rapid resolution for your enterprise.
-             </p>
-             
-             {/* Stats Bar */}
-             <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 flex flex-col md:flex-row justify-around gap-8 border border-white/20">
-                 <div>
-                     <div className="text-3xl font-bold text-yellow-400 mb-1">15 min</div>
-                     <div className="text-xs text-indigo-200 uppercase tracking-wide">Avg. Response Time</div>
-                 </div>
-                 <div>
-                     <div className="text-3xl font-bold text-green-400 mb-1">98%</div>
-                     <div className="text-xs text-indigo-200 uppercase tracking-wide">First Contact Resolution</div>
-                 </div>
-                 <div>
-                     <div className="text-3xl font-bold text-blue-300 mb-1">24/7</div>
-                     <div className="text-xs text-indigo-200 uppercase tracking-wide">Coverage</div>
-                 </div>
-             </div>
-         </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-4 py-24">
-          <div className="flex flex-col md:flex-row gap-16">
-              <div className="flex-1">
-                  <h2 className="text-3xl font-bold text-slate-900 mb-6">Service Level Agreements (SLAs)</h2>
-                  <p className="text-slate-600 text-lg mb-8">
-                      We adhere to strict SLAs to ensure your business operations are never hindered by technical issues. Our tiered support structure ensures the right expertise is applied to every problem.
-                  </p>
-                  <ul className="space-y-4">
-                      {["L1 Support: Basic troubleshooting & password resets", "L2 Support: Software issues & configuration", "L3 Support: Complex backend & server issues"].map((item, i) => (
-                          <li key={i} className="flex items-center gap-3 p-4 bg-slate-50 rounded-lg border border-slate-100">
-                              <div className="bg-indigo-100 text-indigo-600 rounded-full p-1"><CheckCircle size={16} /></div>
-                              <span className="font-semibold text-slate-800">{item}</span>
-                          </li>
-                      ))}
-                  </ul>
+    <div className="bg-white min-h-screen pt-20 font-sans selection:bg-indigo-100 selection:text-indigo-900">
+      
+      {/* --- HERO SECTION --- */}
+      <section className="relative bg-indigo-950 py-32 px-4 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#4f46e5_0%,transparent_50%)]"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-sm font-bold tracking-widest mb-8 backdrop-blur-sm">
+              <Ticket size={16} className="animate-pulse" /> IT HELP DESK SERVICES
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+              Stability & Support <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-300">For Your Enterprise</span>
+            </h1>
+            <p className="text-xl text-indigo-100/80 mb-10 leading-relaxed max-w-xl">
+              GnJ Worldwide resolves and prevents IT-related issues for employees and customers, ensuring the overall stability of your IT infrastructure.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/contact" className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 px-10 rounded-2xl transition-all shadow-xl shadow-indigo-500/20 flex items-center gap-2">
+                Get a Help Desk Team <ArrowRight size={20} />
+              </Link>
+            </div>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="hidden lg:block relative"
+          >
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-[3rem] shadow-2xl">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="p-6 bg-indigo-500/10 rounded-2xl border border-indigo-500/20">
+                  <div className="text-3xl font-bold text-indigo-400 mb-1">97%</div>
+                  <div className="text-xs text-indigo-200/60 uppercase tracking-wider">CSAT Score</div>
+                </div>
+                <div className="p-6 bg-indigo-500/10 rounded-2xl border border-indigo-500/20">
+                  <div className="text-3xl font-bold text-indigo-400 mb-1">≤30m</div>
+                  <div className="text-xs text-indigo-200/60 uppercase tracking-wider">Response Time</div>
+                </div>
+                <div className="p-6 bg-indigo-500/10 rounded-2xl border border-indigo-500/20">
+                  <div className="text-3xl font-bold text-indigo-400 mb-1">24/7</div>
+                  <div className="text-xs text-indigo-200/60 uppercase tracking-wider">Monitoring</div>
+                </div>
+                <div className="p-6 bg-indigo-500/10 rounded-2xl border border-indigo-500/20">
+                  <div className="text-3xl font-bold text-indigo-400 mb-1">ITIL</div>
+                  <div className="text-xs text-indigo-200/60 uppercase tracking-wider">Standards</div>
+                </div>
               </div>
-              <div className="flex-1 bg-slate-50 rounded-2xl p-8 border border-slate-100 flex flex-col justify-center items-center">
-                  <h3 className="text-xl font-bold text-slate-900 mb-8">Customer Satisfaction</h3>
-                  <div className="relative w-48 h-48">
-                      <svg className="w-full h-full transform -rotate-90">
-                          <circle cx="96" cy="96" r="88" stroke="#e2e8f0" strokeWidth="12" fill="none" />
-                          <circle 
-                            cx="96" 
-                            cy="96" 
-                            r="88" 
-                            stroke="#4f46e5" 
-                            strokeWidth="12" 
-                            fill="none" 
-                            strokeDasharray="552" 
-                            strokeDashoffset={552 - (552 * progress) / 100} 
-                            className="transition-all duration-[2s] ease-out"
-                          />
-                      </svg>
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-                          <span className="text-4xl font-bold text-slate-900">{progress}%</span>
-                          <span className="block text-xs text-slate-500">CSAT Score</span>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-      {/* Key Features of Our Help Desk */}
-      <div className="bg-slate-50 py-24">
-        <div className="max-w-6xl mx-auto px-4">
+      {/* --- SERVICE MODELS --- */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Key Features of Our Help Desk</h2>
-            <div className="w-24 h-1.5 bg-indigo-600 mx-auto rounded-full"></div>
-            <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
-              Our comprehensive IT Help Desk solutions are designed to empower your team, minimize downtime, and boost overall productivity.
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Help Desk Services by GnJ Worldwide</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              We offer a range of service models to fit your specific sourcing and support needs.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { title: "Omnichannel Support", desc: "Reach us via phone, email, live chat, or our dedicated self-service portal for immediate assistance.", icon: MessageCircle },
-              { title: "Advanced Ticketing System", desc: "Automated ticket routing, prioritization, and tracking to ensure no request falls through the cracks.", icon: Ticket },
-              { title: "Remote Troubleshooting", desc: "Secure remote access capabilities allow our technicians to resolve issues directly on your devices.", icon: Settings },
-              { title: "Knowledge Base Management", desc: "A comprehensive, searchable library of FAQs and guides to empower users to solve common issues.", icon: Users },
-              { title: "Asset & Inventory Tracking", desc: "Keep track of all hardware and software assets, managing lifecycles and compliance effortlessly.", icon: Shield },
-              { title: "Real-Time Analytics", desc: "Detailed reporting on ticket volumes, resolution times, and user satisfaction to drive continuous improvement.", icon: BarChart }
-            ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:border-indigo-100 transition-all duration-300 group">
-                <div className="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                  <feature.icon size={28} />
+            {serviceModels.map((model, idx) => (
+              <div key={idx} className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-indigo-200 hover:shadow-xl transition-all group">
+                <div className="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                  <model.icon size={28} />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{feature.desc}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">{model.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">{model.desc}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Why Choose Our Help Desk Solutions? */}
-      <div className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-100 to-purple-50 rounded-[3rem] transform -rotate-3 scale-105"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=1000" 
-                alt="Help Desk Support Team" 
-                className="relative rounded-[3rem] shadow-2xl object-cover h-[600px] w-full"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 animate-bounce-slow">
-                <div className="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center">
-                  <Headphones size={24} />
+      {/* --- SUPPORT PROCESS --- */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Our Help Desk Support Process</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Every ticket incoming to our IT help desk progresses through a mature, 6-step workflow.
+            </p>
+          </div>
+
+          <div className="relative">
+            <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-indigo-200 -translate-y-1/2"></div>
+            <div className="grid lg:grid-cols-6 gap-8 relative z-10">
+              {supportProcess.map((step, idx) => (
+                <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative group hover:border-indigo-500 transition-colors">
+                  <div className="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold mb-4 mx-auto lg:-mt-12 lg:mb-8 border-4 border-slate-50">
+                    {idx + 1}
+                  </div>
+                  <h4 className="font-bold text-slate-900 mb-2 text-center">{step.title}</h4>
+                  <p className="text-xs text-slate-500 text-center leading-relaxed">{step.desc}</p>
                 </div>
-                <div>
-                  <div className="text-2xl font-bold text-slate-900">24/7/365</div>
-                  <div className="text-sm text-slate-500 font-medium">Always-On Support</div>
-                </div>
-              </div>
+              ))}
             </div>
-            
+          </div>
+        </div>
+      </section>
+
+      {/* --- COMPONENTS & CHANNELS --- */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Why Choose Our Help Desk Solutions?</h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                We don't just fix IT problems; we prevent them. Our proactive approach to IT support ensures your business runs smoothly, allowing you to focus on growth rather than technical glitches.
-              </p>
-              
-              <div className="space-y-6">
-                {[
-                  { title: "Proactive Issue Resolution", desc: "We monitor your systems 24/7 to identify and resolve potential issues before they impact your users." },
-                  { title: "Scalable Support Models", desc: "Whether you need a fully outsourced help desk or overflow support for your internal team, we adapt to your needs." },
-                  { title: "Certified IT Professionals", desc: "Our technicians hold industry-leading certifications (ITIL, Microsoft, Cisco) to provide expert guidance." },
-                  { title: "Seamless Integration", desc: "We integrate our help desk tools with your existing IT infrastructure for a unified support experience." }
-                ].map((value, idx) => (
-                  <div key={idx} className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
-                        <Zap size={16} />
-                      </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">What IT Components We Cover</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {componentsCovered.map((comp, idx) => (
+                  <div key={idx} className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-indigo-600 shadow-sm">
+                      <comp.icon size={20} />
                     </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-slate-900 mb-1">{value.title}</h4>
-                      <p className="text-slate-600 text-sm">{value.desc}</p>
-                    </div>
+                    <span className="text-sm font-medium text-slate-700">{comp.name}</span>
                   </div>
                 ))}
               </div>
-              
-              <div className="mt-10">
-                <Link to="/contact" className="inline-flex items-center bg-indigo-600 text-white font-bold py-4 px-8 rounded-full hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-indigo-500/30">
-                  Get a Help Desk Quote <ArrowRight className="ml-2" size={18} />
-                </Link>
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 text-center lg:text-left">Support Channels</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                {[
+                  { name: "Self-service Portals", icon: Globe },
+                  { name: "Service Desk Software", icon: Monitor },
+                  { name: "Email Support", icon: Mail },
+                  { name: "Phone Support", icon: Phone },
+                  { name: "Instant Messaging", icon: MessageSquare },
+                  { name: "Social Media", icon: Share2 }
+                ].map((channel, idx) => (
+                  <div key={idx} className="text-center group">
+                    <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                      <channel.icon size={28} />
+                    </div>
+                    <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">{channel.name}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
+      {/* --- BEST PRACTICES & KPIs --- */}
+      <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-indigo-600/10 skew-x-12 transform origin-top-right"></div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Best Practices & KPIs</h2>
+            <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+              We track fundamental metrics to keep your help desk in peak health.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-20">
+            {kpis.map((kpi, idx) => (
+              <div key={idx} className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 text-center group hover:border-indigo-500 transition-all">
+                <kpi.icon className="mx-auto mb-6 text-indigo-400 group-hover:scale-110 transition-transform" size={40} />
+                <div className="text-4xl font-bold mb-2">{kpi.value}</div>
+                <div className="text-lg font-bold text-indigo-300 mb-1">{kpi.label}</div>
+                <div className="text-sm text-slate-400">{kpi.sub}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: "Continuity", desc: "FRT up to 30 minutes and immediate detection via monitoring." },
+              { title: "Satisfaction", desc: "36% reduction in issues and 97%+ CSAT score." },
+              { title: "Cost Optimization", desc: "Fewer incidents due to root cause mitigation and self-service." },
+              { title: "Scalable Tiers", desc: "L1-L3 structured support for basic to complex code-level issues." }
+            ].map((item, idx) => (
+              <div key={idx} className="flex gap-4">
+                <CheckCircle2 className="text-indigo-400 flex-shrink-0" size={24} />
+                <div>
+                  <h4 className="font-bold mb-2">{item.title}</h4>
+                  <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- TOOLS & TECHNOLOGIES --- */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Tools & Technologies</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {techStack.map((tech, idx) => (
+              <div key={idx} className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
+                <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                  <div className="w-2 h-6 bg-indigo-600 rounded-full"></div>
+                  {tech.category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {tech.items.map((item, i) => (
+                    <span key={i} className="px-3 py-1 bg-white border border-slate-200 rounded-lg text-sm text-slate-600 font-medium">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-16 p-8 bg-indigo-50 rounded-3xl border border-indigo-100 text-center">
+            <h3 className="text-xl font-bold text-indigo-900 mb-4">Languages Our Teams Speak</h3>
+            <div className="flex flex-wrap justify-center gap-4 text-indigo-700 font-medium">
+              {["English", "Spanish", "German", "French", "Polish", "Czech", "Turkish", "and more"].map((lang, i) => (
+                <span key={i} className="flex items-center gap-2">
+                  <Globe size={16} /> {lang}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- PAINS & REMEDIES --- */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">How We Remedy Your IT Pains</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {painsAndRemedies.map((item, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col md:flex-row gap-8 items-center">
+                <div className="flex-1">
+                  <div className="text-xs font-bold text-rose-500 uppercase tracking-widest mb-2 flex items-center gap-2">
+                    <AlertCircle size={14} /> Issue
+                  </div>
+                  <p className="text-slate-900 font-bold text-lg">{item.pain}</p>
+                </div>
+                <div className="hidden md:block">
+                  <ArrowRight className="text-slate-300" size={32} />
+                </div>
+                <div className="flex-1">
+                  <div className="text-xs font-bold text-emerald-500 uppercase tracking-widest mb-2 flex items-center gap-2">
+                    <CheckCircle2 size={14} /> Fixed
+                  </div>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item.remedy}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- BARGAIN STATS --- */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Why It's a Good Bargain</h2>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-6 gap-6">
+            {bargainStats.map((stat, idx) => (
+              <div key={idx} className="text-center p-6 rounded-2xl bg-indigo-50 border border-indigo-100 hover:bg-indigo-600 hover:text-white transition-all group">
+                <div className="text-3xl font-bold mb-1 group-hover:text-white transition-colors">{stat.value}</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-indigo-100 transition-colors">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- FINAL CTA --- */}
+      <section className="py-24 bg-indigo-600 text-center text-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to Optimize Your Support?</h2>
+          <p className="text-xl text-indigo-100 mb-12">
+            Let's discuss how our IT help desk services can reduce your costs and increase user satisfaction.
+          </p>
+          <Link to="/contact" className="inline-flex items-center bg-white text-indigo-600 font-bold py-5 px-12 rounded-2xl hover:bg-indigo-50 transition-all shadow-xl transform hover:-translate-y-1">
+            Discuss My Project <ArrowRight className="ml-2" size={20} />
+          </Link>
+        </div>
+      </section>
     </div>
   );
 };

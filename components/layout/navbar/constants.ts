@@ -73,7 +73,6 @@ export const NAV_ITEMS: MenuItem[] = [
         {
           title: "Operations & Support",
           items: [
-            { title: "IT Outsourcing", href: "/services/it-outsourcing" },
             { title: "Managed IT Services", href: "/services/managed-it-services" },
             { title: "Infrastructure Services", href: "/services/infrastructure-services" },
             { title: "IT Support", href: "/services/it-support" },

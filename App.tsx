@@ -69,7 +69,6 @@ import MachineLearningPage from './components/megamenu/servicesdata/data/Machine
 import ArtificialIntelligencePage from './components/megamenu/servicesdata/data/ArtificialIntelligencePage';
 
 // Specific Mega Menu Pages (Services - Operations & Support)
-import ItOutsourcingPage from './components/megamenu/servicesdata/operations/ItOutsourcingPage';
 import ManagedItServicesPage from './components/megamenu/servicesdata/operations/ManagedItServicesPage';
 import InfrastructureServicesPage from './components/megamenu/servicesdata/operations/InfrastructureServicesPage';
 import ItSupportPage from './components/megamenu/servicesdata/operations/ItSupportPage';
@@ -300,7 +299,6 @@ const AppContent: React.FC = () => {
     case '/services/artificial-intelligence': component = <ArtificialIntelligencePage />; break;
 
     // Services - Operations & Support
-    case '/services/it-outsourcing': component = <ItOutsourcingPage />; break;
     case '/services/managed-it-services': component = <ManagedItServicesPage />; break;
     case '/services/infrastructure-services': component = <InfrastructureServicesPage />; break;
     case '/services/it-support': component = <ItSupportPage />; break;
