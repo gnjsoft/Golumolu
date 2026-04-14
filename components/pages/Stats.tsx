@@ -40,7 +40,7 @@ const Stats: React.FC = () => {
           <div className="w-24 h-1 bg-yellow-400 rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 border-t border-slate-100 py-10 bg-blue-100 rounded-xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 border-t border-slate-100 py-12 px-6 bg-blue-100 rounded-3xl">
           {STATS.map((stat) => {
             const Icon = stat.icon;
             return (

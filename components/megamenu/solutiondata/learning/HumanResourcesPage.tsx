@@ -102,7 +102,7 @@ const HumanResourcesPage: React.FC = () => {
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6 border border-emerald-500/20">
                       <Heart size={14} /> HR Software Development
                   </div>
-                  <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                  <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
                       Empowering Your <br/>
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">Human Capital</span>
                   </h1>

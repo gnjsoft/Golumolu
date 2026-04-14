@@ -83,11 +83,11 @@ const Hero: React.FC = () => {
                 <span>{slide.iconText}</span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] mb-6 tracking-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] mb-6 tracking-tight">
                 {slide.title}
               </h1>
               
-              <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-lg">
+              <p className="text-base md:text-xl text-slate-600 mb-8 leading-relaxed max-w-lg">
                 {slide.subtitle}
               </p>
 
@@ -107,17 +107,17 @@ const Hero: React.FC = () => {
                  </div>
               </div>
               
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3 sm:gap-4">
                 <Link 
                   to="/contact"
-                  className={`${slide.buttonColor} text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center group`}
+                  className={`${slide.buttonColor} text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center group w-full sm:w-auto justify-center`}
                 >
                   Get Started
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link 
                   to={slide.learnMoreHref}
-                  className="bg-white text-slate-700 border border-slate-200 px-8 py-4 rounded-full font-bold text-lg transition-all hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900"
+                  className="bg-white text-slate-700 border border-slate-200 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg transition-all hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900 w-full sm:w-auto justify-center text-center"
                 >
                   Learn More
                 </Link>
@@ -126,7 +126,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Image Content */}
-          <div className="order-1 lg:order-2 relative h-[400px] lg:h-[600px] flex items-center justify-center">
+          <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[600px] flex items-center justify-center">
             {SLIDES.map((s, index) => {
               const SlideIcon = s.icon;
               return (

@@ -1,6 +1,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, ArrowRight, Search, LogOut, ChevronRight } from 'lucide-react';
+import { 
+  Menu, X, ChevronDown, ArrowRight, Search, LogOut, ChevronRight, 
+  Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin 
+} from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { NAV_ITEMS } from './constants';
 import { useAuth } from '../../../context/AuthContext';
@@ -479,6 +482,20 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
+          {/* Mobile Search */}
+          <div className="px-4 py-3 border-b border-slate-100">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
+              <input
+                type="text"
+                placeholder="Search services..."
+                className="w-full pl-9 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400 transition-all text-sm font-medium text-slate-700"
+                value={menuSearchQuery}
+                onChange={(e) => setMenuSearchQuery(e.target.value)}
+              />
+            </div>
+          </div>
+
           {/* Mobile Auth Status */}
           <div className="px-4 py-6 border-b border-slate-100 bg-slate-50/50">
             {isAuthenticated ? (
@@ -509,93 +526,138 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="flex-1 overflow-y-auto py-2 px-4 space-y-2">
-            {NAV_ITEMS.map((item) => (
-              <div key={item.title} className="border-b border-gray-50 last:border-0 pb-2">
-                <div
-                  data-menu-trigger="true"
-                  className="flex items-center justify-between w-full px-4 py-3 text-base font-semibold text-slate-800 rounded-xl hover:bg-slate-50 cursor-pointer active:bg-slate-100 transition-colors"
-                  onClick={(e) => {
-                    if (item.children || item.megaMenu) {
-                      toggleSubmenu(item.title, e);
-                    } else {
-                      setIsMobileMenuOpen(false);
-                    }
-                  }}
-                >
-                  {item.children || item.megaMenu ? (
-                    <span>{item.title}</span>
-                  ) : (
-                    <Link to={item.href} onClick={() => setIsMobileMenuOpen(false)}>
-                      {item.title}
-                    </Link>
-                  )}
-
-                  {(item.children || item.megaMenu) && (
-                    <ChevronDown
-                      className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${activeSubmenu === item.title ? 'rotate-180 text-yellow-500' : ''}`}
-                    />
-                  )}
-                </div>
-
-                {/* Mobile Submenu Rendering */}
-                {activeSubmenu === item.title && (
-                  <div className="pl-4 pr-2 py-2 space-y-1 bg-slate-50/50 rounded-xl mt-1 mega-menu-container">
-                    {item.megaMenu ? (
-                      item.megaMenu.columns.map((col, idx) => (
-                        <div key={idx} className="mb-4">
-                          {col.groups ? (
-                            col.groups.map((group, gIdx) => (
-                              <div key={gIdx} className="mb-4">
-                                {group.title && (
-                                  <h5 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 px-3">{group.title}</h5>
-                                )}
-                                {group.items.map(subItem => (
-                                  <Link
-                                    key={subItem.title}
-                                    to={subItem.href}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className="block py-2 px-3 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                                  >
-                                    {subItem.title}
-                                  </Link>
-                                ))}
-                              </div>
-                            ))
-                          ) : (
-                            <>
-                              {col.title && (
-                                <h5 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 px-3">{col.title}</h5>
-                              )}
-                              {col.items?.map(subItem => (
-                                <Link
-                                  key={subItem.title}
-                                  to={subItem.href}
-                                  onClick={() => setIsMobileMenuOpen(false)}
-                                  className="block py-2 px-3 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                                >
-                                  {subItem.title}
-                                </Link>
-                              ))}
-                            </>
-                          )}
+            {menuSearchQuery ? (
+              <div className="py-4 space-y-4">
+                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider px-2">Search Results</h4>
+                {NAV_ITEMS.flatMap(item => item.megaMenu ? getFilteredItems(item.megaMenu, menuSearchQuery) : []).length > 0 ? (
+                  <div className="space-y-1">
+                    {NAV_ITEMS.flatMap(item => item.megaMenu ? getFilteredItems(item.megaMenu, menuSearchQuery) : []).map((res, idx) => (
+                      <Link
+                        key={idx}
+                        to={res.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="flex items-center justify-between p-4 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors"
+                      >
+                        <div>
+                          <div className="font-bold text-slate-900 text-sm">{res.title}</div>
+                          {res.context && <div className="text-[10px] text-slate-500">{res.context}</div>}
                         </div>
-                      ))
-                    ) : (
-                      item.children?.map((subItem) => (
-                        <Link
-                          key={subItem.title}
-                          to={subItem.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-2 px-3 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                        >
-                          {subItem.title}
-                        </Link>
-                      ))
-                    )}
+                        <ChevronRight size={14} className="text-slate-400" />
+                      </Link>
+                    ))}
                   </div>
+                ) : (
+                  <div className="text-center py-8 text-slate-400 text-sm">No results found</div>
                 )}
               </div>
-            ))}
+            ) : (
+              NAV_ITEMS.map((item) => (
+                <div key={item.title} className="border-b border-gray-50 last:border-0 pb-2">
+                  <div
+                    data-menu-trigger="true"
+                    className={`flex items-center justify-between w-full px-4 py-3 text-base font-semibold rounded-xl transition-colors cursor-pointer ${activeSubmenu === item.title ? 'bg-slate-100 text-slate-900' : 'text-slate-800 hover:bg-slate-50'}`}
+                    onClick={(e) => {
+                      if (item.children || item.megaMenu) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        toggleSubmenu(item.title, e);
+                      } else {
+                        setIsMobileMenuOpen(false);
+                      }
+                    }}
+                  >
+                    {item.children || item.megaMenu ? (
+                      <span>{item.title}</span>
+                    ) : (
+                      <Link to={item.href} onClick={() => setIsMobileMenuOpen(false)} className="w-full">
+                        {item.title}
+                      </Link>
+                    )}
+
+                    {(item.children || item.megaMenu) && (
+                      <ChevronDown
+                        className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${activeSubmenu === item.title ? 'rotate-180 text-yellow-500' : ''}`}
+                      />
+                    )}
+                  </div>
+
+                  {/* Mobile Submenu Rendering */}
+                  {activeSubmenu === item.title && (
+                    <div className="pl-4 pr-2 py-3 space-y-1 bg-slate-50/80 rounded-2xl mt-2 border border-slate-100/50 mega-menu-container animate-fade-in">
+                      {item.megaMenu ? (
+                        <div className="space-y-6">
+                          {item.megaMenu.columns.map((col, idx) => (
+                            <div key={idx} className="space-y-2">
+                              {col.groups ? (
+                                col.groups.map((group, gIdx) => (
+                                  <div key={gIdx} className="space-y-1">
+                                    {group.title && (
+                                      <h5 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 px-4 flex items-center gap-2">
+                                        <span className="w-1 h-1 bg-yellow-400 rounded-full"></span>
+                                        {group.title}
+                                      </h5>
+                                    )}
+                                    <div className={item.title === "About" ? "grid grid-cols-2 gap-1" : "grid grid-cols-1 gap-1"}>
+                                      {group.items.map(subItem => (
+                                        <Link
+                                          key={subItem.title}
+                                          to={subItem.href}
+                                          onClick={() => setIsMobileMenuOpen(false)}
+                                          className="flex items-center justify-between py-3 px-4 text-[13px] font-medium text-slate-600 hover:text-blue-600 hover:bg-white hover:shadow-sm rounded-xl transition-all"
+                                        >
+                                          {subItem.title}
+                                          <ChevronRight size={14} className="text-slate-300" />
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))
+                              ) : (
+                                <div className="space-y-1">
+                                  {col.title && (
+                                    <h5 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 px-4 flex items-center gap-2">
+                                      <span className="w-1 h-1 bg-yellow-400 rounded-full"></span>
+                                      {col.title}
+                                    </h5>
+                                  )}
+                                  <div className={item.title === "About" ? "grid grid-cols-2 gap-1" : "grid grid-cols-1 gap-1"}>
+                                    {col.items?.map(subItem => (
+                                      <Link
+                                        key={subItem.title}
+                                        to={subItem.href}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center justify-between py-3 px-4 text-[13px] font-medium text-slate-600 hover:text-blue-600 hover:bg-white hover:shadow-sm rounded-xl transition-all"
+                                      >
+                                        {subItem.title}
+                                        <ChevronRight size={14} className="text-slate-300" />
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="grid grid-cols-1 gap-1">
+                          {item.children?.map((subItem) => (
+                            <Link
+                              key={subItem.title}
+                              to={subItem.href}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="flex items-center justify-between py-3 px-4 text-[13px] font-medium text-slate-600 hover:text-blue-600 hover:bg-white hover:shadow-sm rounded-xl transition-all"
+                            >
+                              {subItem.title}
+                              <ChevronRight size={14} className="text-slate-300" />
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))
+            )}
           </div>
 
           <div className="p-4 border-t border-gray-100 flex flex-col gap-3">

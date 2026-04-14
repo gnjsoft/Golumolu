@@ -94,7 +94,7 @@ const IntranetsPage: React.FC = () => {
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest mb-6 border border-indigo-500/20">
                       <Monitor size={14} /> SharePoint Excellence
                   </div>
-                  <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+                  <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
                       Design a Powerful <br/>
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-500">SharePoint Intranet</span>
                   </h1>

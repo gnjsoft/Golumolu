@@ -20,7 +20,7 @@ const RealEstatePage: React.FC = () => {
     <div className="bg-slate-50 min-h-screen pt-20 font-sans text-slate-900">
       {/* Hero Section */}
       <div className="relative py-32 px-4 overflow-hidden bg-emerald-950 text-white">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070')] bg-cover bg-center opacity-20"></div>
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070')] bg-cover bg-center opacity-20" referrerPolicy="no-referrer"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/50 to-emerald-950"></div>
           
           <div className="relative z-10 max-w-5xl mx-auto text-center">
@@ -115,7 +115,7 @@ const RealEstatePage: React.FC = () => {
                       </div>
                       <div className="order-1 lg:order-2 bg-white p-8 rounded-[2.5rem] shadow-xl border border-slate-200">
                           <div className="aspect-video rounded-2xl bg-slate-50 flex items-center justify-center overflow-hidden relative group">
-                              <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000" alt="PMS Interface" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                              <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000" alt="PMS Interface" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                               <div className="absolute inset-0 bg-emerald-900/20 group-hover:bg-emerald-900/0 transition-colors"></div>
                           </div>
                       </div>
@@ -125,7 +125,7 @@ const RealEstatePage: React.FC = () => {
                   <div className="grid lg:grid-cols-2 gap-12 items-center">
                       <div className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-slate-200">
                           <div className="aspect-video rounded-2xl bg-slate-50 flex items-center justify-center overflow-hidden relative group">
-                              <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=1000" alt="Marketplace Interface" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                              <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=1000" alt="Marketplace Interface" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                               <div className="absolute inset-0 bg-emerald-900/20 group-hover:bg-emerald-900/0 transition-colors"></div>
                           </div>
                       </div>
@@ -183,7 +183,7 @@ const RealEstatePage: React.FC = () => {
                       </div>
                       <div className="order-1 lg:order-2 bg-white p-8 rounded-[2.5rem] shadow-xl border border-slate-200">
                           <div className="aspect-video rounded-2xl bg-slate-50 flex items-center justify-center overflow-hidden relative group">
-                              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" alt="ERP Dashboard" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000" alt="ERP Dashboard" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                               <div className="absolute inset-0 bg-emerald-900/20 group-hover:bg-emerald-900/0 transition-colors"></div>
                           </div>
                       </div>
@@ -193,7 +193,7 @@ const RealEstatePage: React.FC = () => {
                   <div className="grid lg:grid-cols-2 gap-12 items-center">
                       <div className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-slate-200">
                           <div className="aspect-video rounded-2xl bg-slate-50 flex items-center justify-center overflow-hidden relative group">
-                              <img src="https://images.unsplash.com/photo-1551288049-bbbda546697a?auto=format&fit=crop&q=80&w=1000" alt="Asset Management" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                              <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=1000" alt="Asset Management" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                               <div className="absolute inset-0 bg-emerald-900/20 group-hover:bg-emerald-900/0 transition-colors"></div>
                           </div>
                       </div>

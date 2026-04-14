@@ -130,12 +130,12 @@ const Offerings: React.FC = () => {
         <div className="flex flex-col lg:flex-row shadow-2xl rounded-3xl overflow-hidden border border-slate-100 bg-white">
           
           {/* Sidebar */}
-          <div className="lg:w-1/3 bg-blue-50/50 p-0 flex flex-col">
+          <div className="lg:w-1/3 bg-blue-50/50 p-0 flex flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible scrollbar-hide">
             {OFFERINGS.map((offering) => (
               <button
                 key={offering.id}
                 onClick={() => setActiveId(offering.id)}
-                className={`text-left px-8 py-5 text-[15px] font-semibold transition-all duration-300 border-b border-blue-100/50 last:border-0 flex justify-between items-center group ${
+                className={`text-left px-6 lg:px-8 py-4 lg:py-5 text-[14px] lg:text-[15px] font-semibold transition-all duration-300 border-r lg:border-r-0 lg:border-b border-blue-100/50 last:border-0 flex justify-between items-center group whitespace-nowrap lg:whitespace-normal shrink-0 lg:shrink ${
                   activeId === offering.id
                     ? 'bg-[#007bff] text-white shadow-md z-10'
                     : 'text-slate-600 hover:bg-blue-100/50 hover:text-blue-700'
@@ -143,7 +143,7 @@ const Offerings: React.FC = () => {
               >
                 {offering.title}
                 {activeId === offering.id && (
-                  <ChevronRight size={18} className="text-white animate-fade-in" />
+                  <ChevronRight size={18} className="hidden lg:block text-white animate-fade-in" />
                 )}
               </button>
             ))}

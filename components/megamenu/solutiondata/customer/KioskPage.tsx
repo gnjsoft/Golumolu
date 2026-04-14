@@ -88,7 +88,7 @@ const KioskPage: React.FC = () => {
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 text-cyan-600 text-xs font-bold uppercase tracking-widest mb-6 border border-cyan-100">
                       <Cpu size={14} /> Interactive Systems
                   </div>
-                  <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
+                  <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
                       Interactive <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600">Kiosk Software</span>
                   </h1>
                   <p className="text-xl text-slate-600 mb-10 leading-relaxed">

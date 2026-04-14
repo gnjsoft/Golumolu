@@ -101,7 +101,7 @@ const MarketingPage: React.FC = () => {
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-bold tracking-widest uppercase mb-8 backdrop-blur-md">
                       <Megaphone size={14} /> Custom Marketing Software Development
                   </div>
-                  <h1 className="text-5xl md:text-8xl font-bold mb-8 tracking-tight leading-tight">
+                  <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-8 tracking-tight leading-tight">
                       Software That <br/>
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">Drives Markets</span>
                   </h1>
