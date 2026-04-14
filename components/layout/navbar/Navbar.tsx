@@ -583,72 +583,80 @@ const Navbar: React.FC = () => {
 
                   {/* Mobile Submenu Rendering */}
                   {activeSubmenu === item.title && (
-                    <div className="pl-4 pr-2 py-3 space-y-1 bg-slate-50/80 rounded-2xl mt-2 border border-slate-100/50 mega-menu-container animate-fade-in">
+                    <div className="pl-4 pr-2 py-5 bg-slate-50/90 rounded-2xl mt-2 border border-slate-100 animate-fade-in shadow-inner overflow-hidden">
                       {item.megaMenu ? (
-                        <div className="space-y-6">
-                          {item.megaMenu.columns.map((col, idx) => (
-                            <div key={idx} className="space-y-2">
-                              {col.groups ? (
-                                col.groups.map((group, gIdx) => (
-                                  <div key={gIdx} className="space-y-1">
-                                    {group.title && (
-                                      <h5 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 px-4 flex items-center gap-2">
-                                        <span className="w-1 h-1 bg-yellow-400 rounded-full"></span>
-                                        {group.title}
-                                      </h5>
-                                    )}
-                                    <div className={item.title === "About" ? "grid grid-cols-2 gap-1" : "grid grid-cols-1 gap-1"}>
-                                      {group.items.map(subItem => (
-                                        <Link
-                                          key={subItem.title}
-                                          to={subItem.href}
-                                          onClick={() => setIsMobileMenuOpen(false)}
-                                          className="flex items-center justify-between py-3 px-4 text-[13px] font-medium text-slate-600 hover:text-blue-600 hover:bg-white hover:shadow-sm rounded-xl transition-all"
-                                        >
-                                          {subItem.title}
-                                          <ChevronRight size={14} className="text-slate-300" />
-                                        </Link>
-                                      ))}
-                                    </div>
-                                  </div>
-                                ))
-                              ) : (
-                                <div className="space-y-1">
-                                  {col.title && (
-                                    <h5 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2 px-4 flex items-center gap-2">
-                                      <span className="w-1 h-1 bg-yellow-400 rounded-full"></span>
+                        <div className="flex flex-col gap-10 w-full">
+                          {item.megaMenu.columns.map((col, idx) => {
+                            const hasItems = col.items && col.items.length > 0;
+                            const hasGroups = col.groups && col.groups.length > 0;
+                            if (!col.title && !hasItems && !hasGroups) return null;
+
+                            return (
+                              <div key={idx} className="w-full flex flex-col gap-4">
+                                {col.title && (
+                                  <div className="px-4 flex items-center gap-3">
+                                    <div className="w-1.5 h-4 bg-yellow-400 rounded-full"></div>
+                                    <h5 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">
                                       {col.title}
                                     </h5>
-                                  )}
-                                  <div className={item.title === "About" ? "grid grid-cols-2 gap-1" : "grid grid-cols-1 gap-1"}>
+                                  </div>
+                                )}
+                                
+                                {col.groups ? (
+                                  <div className="flex flex-col gap-8 w-full">
+                                    {col.groups.map((group, gIdx) => (
+                                      <div key={gIdx} className="flex flex-col gap-3 w-full">
+                                        {group.title && (
+                                          <h5 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4">
+                                            {group.title}
+                                          </h5>
+                                        )}
+                                        <div className="grid grid-cols-1 gap-2 px-2 w-full">
+                                          {group.items.map(subItem => (
+                                            <Link
+                                              key={subItem.title}
+                                              to={subItem.href}
+                                              onClick={() => setIsMobileMenuOpen(false)}
+                                              className="flex items-center justify-between p-4 rounded-xl bg-white border border-slate-100 shadow-sm active:scale-[0.98] transition-all w-full"
+                                            >
+                                              <span className="text-sm font-bold text-slate-800">{subItem.title}</span>
+                                              <ChevronRight size={16} className="text-slate-300" />
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <div className="grid grid-cols-1 gap-2 px-2 w-full">
                                     {col.items?.map(subItem => (
                                       <Link
                                         key={subItem.title}
                                         to={subItem.href}
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-between py-3 px-4 text-[13px] font-medium text-slate-600 hover:text-blue-600 hover:bg-white hover:shadow-sm rounded-xl transition-all"
+                                        className="flex items-center justify-between p-4 rounded-xl bg-white border border-slate-100 shadow-sm active:scale-[0.98] transition-all w-full"
                                       >
-                                        {subItem.title}
-                                        <ChevronRight size={14} className="text-slate-300" />
+                                        <span className="text-sm font-bold text-slate-800">{subItem.title}</span>
+                                        <ChevronRight size={16} className="text-slate-300" />
                                       </Link>
                                     ))}
                                   </div>
-                                </div>
-                              )}
-                            </div>
-                          ))}
+                                )}
+                              </div>
+                            );
+                          })}
                         </div>
                       ) : (
-                        <div className="grid grid-cols-1 gap-1">
+                        <div className="flex flex-col gap-2 px-2 w-full">
                           {item.children?.map((subItem) => (
                             <Link
                               key={subItem.title}
                               to={subItem.href}
                               onClick={() => setIsMobileMenuOpen(false)}
-                              className="flex items-center justify-between py-3 px-4 text-[13px] font-medium text-slate-600 hover:text-blue-600 hover:bg-white hover:shadow-sm rounded-xl transition-all"
+                              className="flex items-center justify-between p-4 rounded-xl bg-white border border-slate-100 shadow-sm active:scale-[0.98] transition-all w-full"
                             >
-                              {subItem.title}
-                              <ChevronRight size={14} className="text-slate-300" />
+                              <span className="text-sm font-bold text-slate-800">{subItem.title}</span>
+                              <ChevronRight size={16} className="text-slate-300" />
                             </Link>
                           ))}
                         </div>
