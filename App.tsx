@@ -155,12 +155,8 @@ import ElearningPage from './components/megamenu/solutiondata/learning/Elearning
 import TechArtificialIntelligencePage from './components/megamenu/technologydata/ArtificialIntelligencePage';
 import TechDataSciencePage from './components/megamenu/technologydata/DataSciencePage';
 import TechMachineLearningPage from './components/megamenu/technologydata/MachineLearningPage';
-import TechImageAnalysisPage from './components/megamenu/technologydata/ImageAnalysisPage';
-import TechBlockchainPage from './components/megamenu/technologydata/BlockchainPage';
 import TechBigDataPage from './components/megamenu/technologydata/BigDataPage';
 import TechInternetOfThingsPage from './components/megamenu/technologydata/InternetOfThingsPage';
-import TechVirtualRealityPage from './components/megamenu/technologydata/VirtualRealityPage';
-import TechAugmentedRealityPage from './components/megamenu/technologydata/AugmentedRealityPage';
 import TechCloudPage from './components/megamenu/technologydata/CloudPage';
 import TechSaasPage from './components/megamenu/technologydata/SaasPage';
 
@@ -389,12 +385,8 @@ const AppContent: React.FC = () => {
     case '/technologies/artificial-intelligence': component = <TechArtificialIntelligencePage />; break;
     case '/technologies/data-science': component = <TechDataSciencePage />; break;
     case '/technologies/machine-learning': component = <TechMachineLearningPage />; break;
-    case '/technologies/image-analysis': component = <TechImageAnalysisPage />; break;
-    case '/technologies/blockchain': component = <TechBlockchainPage />; break;
     case '/technologies/big-data': component = <TechBigDataPage />; break;
     case '/technologies/iot': component = <TechInternetOfThingsPage />; break;
-    case '/technologies/vr': component = <TechVirtualRealityPage />; break;
-    case '/technologies/ar': component = <TechAugmentedRealityPage />; break;
     case '/technologies/cloud': component = <TechCloudPage />; break;
     case '/technologies/saas': component = <TechSaasPage />; break;
 

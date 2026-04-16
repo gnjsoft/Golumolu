@@ -150,12 +150,13 @@ const MachineLearningPage: React.FC = () => {
     {
       step: "1",
       title: "Business Analysis",
-      desc: "Defining business needs, analyzing existing environment, and designing implementation roadmap.",
+      desc: "Defining business needs and designing a strategic roadmap for ML implementation.",
       items: [
-        "Defining business needs for ML",
-        "Analyzing existing ML environment",
-        "Regulatory compliance requirements",
-        "Implementation strategy & roadmap"
+        "Defining business needs for machine learning",
+        "Analyzing existing ML environment (if any)",
+        "Determining regulatory compliance requirements",
+        "Designing implementation strategy and roadmap",
+        "Deciding on ML solution deliverables"
       ],
       icon: Search,
       color: "text-purple-600",
@@ -164,12 +165,12 @@ const MachineLearningPage: React.FC = () => {
     {
       step: "2",
       title: "Technical Design",
-      desc: "Designing optimal feature sets and architecting scalable, secure systems.",
+      desc: "Architecting scalable systems and selecting optimal technologies for your ML solution.",
       items: [
-        "Optimal feature set design",
-        "System architecture (scalability/security)",
-        "Technology selection (languages/frameworks)",
-        "Role-specific UX/UI design"
+        "Designing an optimal feature set",
+        "Architecting systems for scalability and security",
+        "Selecting optimal ML technologies and frameworks",
+        "Designing role-specific UX and UI"
       ],
       icon: PenTool,
       color: "text-blue-600",
@@ -178,12 +179,11 @@ const MachineLearningPage: React.FC = () => {
     {
       step: "3",
       title: "Data Preparation",
-      desc: "Exploratory analysis, collection, cleansing, and structuring of data sources.",
+      desc: "Collecting, cleansing, and structuring data to ensure high-quality model inputs.",
       items: [
         "Exploratory analysis of data sources",
-        "Data collection & cleansing",
-        "Data structuring",
-        "Model evaluation criteria definition"
+        "Data collection, cleansing, and structuring",
+        "Defining model evaluation criteria"
       ],
       icon: Database,
       color: "text-green-600",
@@ -192,12 +192,12 @@ const MachineLearningPage: React.FC = () => {
     {
       step: "4",
       title: "Development & Implementation",
-      desc: "Exploration, testing, evaluation, and fine-tuning of ML models.",
+      desc: "Building, testing, and deploying refined ML models for production use.",
       items: [
-        "ML model exploration & refinement",
-        "Testing and evaluation",
-        "Parameter fine-tuning",
-        "Model deployment"
+        "ML model exploration and refinement",
+        "ML model testing and evaluation",
+        "Fine-tuning parameters for acceptable results",
+        "Deploying the ML models"
       ],
       icon: Code,
       color: "text-pink-600",
@@ -206,12 +206,10 @@ const MachineLearningPage: React.FC = () => {
     {
       step: "5",
       title: "Reporting",
-      desc: "Delivering output in agreed formats and integrating into self-service apps.",
+      desc: "Delivering actionable insights and integrating models into self-service applications.",
       items: [
-        "Agreed format output delivery",
-        "Application integration",
-        "Self-service dashboarding",
-        "Actionable insight visualization"
+        "Delivering ML output in agreed formats",
+        "Integrating models into applications for self-service"
       ],
       icon: BarChart,
       color: "text-orange-600",
@@ -220,12 +218,11 @@ const MachineLearningPage: React.FC = () => {
     {
       step: "6",
       title: "Support & Maintenance",
-      desc: "Continuous monitoring, tuning, and building new models for accuracy.",
+      desc: "Continuous monitoring and tuning to ensure long-term model accuracy and relevance.",
       items: [
-        "Continuous monitoring & tuning",
-        "Adding new data for deeper insight",
-        "Building new models for new questions",
-        "Performance optimization"
+        "Continuous monitoring and tuning for accuracy",
+        "Adding new data for deeper insights",
+        "Building new models for new business questions"
       ],
       icon: LifeBuoy,
       color: "text-teal-600",
@@ -249,7 +246,7 @@ const MachineLearningPage: React.FC = () => {
     },
     {
       title: "Machine Learning Support",
-      desc: "For companies that need to fix inefficiencies and get tailored recommendations on increasing quality of insights.",
+      desc: "For companies that need to fix inefficiencies within their current ML environment and get tailored recommendations on increasing the quality of ML insights in the future.",
       icon: Wrench,
       cta: "Go for support"
     }
@@ -289,7 +286,7 @@ const MachineLearningPage: React.FC = () => {
               Solve Business Problems with <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Accurate Forecasting</span>
             </h1>
             <p className="text-xl text-slate-300 mb-10 leading-relaxed max-w-xl">
-              GnJ Worldwide renders full-cycle machine learning services to introduce powerful data analytics, root-cause analysis, and data mining.
+              GnJ Worldwide provides comprehensive machine learning services, from strategic consulting and custom model development to ongoing support and maintenance, helping you unlock actionable insights from your data.
             </p>
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <Link to="/contact" className="bg-purple-600 hover:bg-purple-500 text-white font-bold py-4 px-10 rounded-2xl transition-all shadow-xl shadow-purple-500/20 flex items-center gap-2">
@@ -399,9 +396,9 @@ const MachineLearningPage: React.FC = () => {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Scope of Our ML Services</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Scope of Our Machine Learning Services</h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              End-to-end support from business analysis to continuous model maintenance.
+              Depending on your needs and current ML environment (if any), our machine learning consulting services may include:
             </p>
           </div>
 

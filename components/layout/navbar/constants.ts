@@ -239,12 +239,8 @@ export const NAV_ITEMS: MenuItem[] = [
             { title: "Artificial Intelligence", href: "/technologies/artificial-intelligence" },
             { title: "Data Science", href: "/technologies/data-science" },
             { title: "Machine Learning", href: "/technologies/machine-learning" },
-            { title: "Image Analysis", href: "/technologies/image-analysis" },
-            { title: "Blockchain", href: "/technologies/blockchain" },
             { title: "Big Data", href: "/technologies/big-data" },
             { title: "Internet of Things", href: "/technologies/iot" },
-            { title: "Virtual Reality", href: "/technologies/vr" },
-            { title: "Augmented Reality", href: "/technologies/ar" },
             { title: "Cloud", href: "/technologies/cloud" },
             { title: "Software as a Service (SaaS)", href: "/technologies/saas" }
           ]
