@@ -184,10 +184,8 @@ import TechPowerBiPage from './components/megamenu/technologydata/microsoft/Powe
 
 // Technologies (Amazon/Partners)
 import TechAwsPage from './components/megamenu/technologydata/amazon/AwsPage';
-import TechAdobeCommercePage from './components/megamenu/technologydata/amazon/AdobeCommercePage';
 import TechServiceNowPage from './components/megamenu/technologydata/amazon/ServiceNowPage';
 import TechSalesforcePage from './components/megamenu/technologydata/amazon/SalesforcePage';
-import TechPimcorePage from './components/megamenu/technologydata/amazon/PimcorePage';
 
 // New About Section Pages
 import MissionPage from './components/megamenu/aboutdata/MissionPage';
@@ -420,10 +418,8 @@ const AppContent: React.FC = () => {
 
     // Technologies (Amazon/Partners)
     case '/technologies/aws': component = <TechAwsPage />; break;
-    case '/technologies/adobe-commerce': component = <TechAdobeCommercePage />; break;
     case '/technologies/servicenow': component = <TechServiceNowPage />; break;
     case '/technologies/salesforce': component = <TechSalesforcePage />; break;
-    case '/technologies/pimcore': component = <TechPimcorePage />; break;
 
     // About
     case '/about/mission': component = <MissionPage />; break;
