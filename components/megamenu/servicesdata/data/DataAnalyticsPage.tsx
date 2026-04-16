@@ -158,25 +158,25 @@ const DataAnalyticsPage: React.FC = () => {
     {
       title: "DA Consulting",
       desc: "Optimal strategy selection and guidance on designing proprietary solutions.",
-      cost: "$10K–$50K+",
+      cost: "₹8.5L – ₹42.5L+",
       icon: Lightbulb
     },
     {
       title: "DA Implementation",
       desc: "Tailored solutions with single point of truth, sexy reports, and role-dependent workflows.",
-      cost: "$30K–$1M+",
+      cost: "₹25L – ₹8.3Cr+",
       icon: Cpu
     },
     {
       title: "DA Modernization",
       desc: "Upgrade performance, accuracy, visuals, and achieve regulatory compliance.",
-      cost: "$20K–$200K+",
+      cost: "₹17L – ₹1.7Cr+",
       icon: Zap
     },
     {
       title: "Data Management",
       desc: "Robust framework for efficiency and security in all data-related processes.",
-      cost: "$30K–$1M+",
+      cost: "₹25L – ₹8.3Cr+",
       icon: Database
     }
   ];

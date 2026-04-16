@@ -56,7 +56,7 @@ const AccountingSoftwarePage: React.FC = () => {
                   
                   <div className="grid sm:grid-cols-2 gap-6">
                       <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
-                          <div className="text-blue-600 font-bold text-3xl mb-2">$200k - $400k</div>
+                          <div className="text-blue-600 font-bold text-3xl mb-2">₹1.7Cr - ₹3.4Cr</div>
                           <div className="text-slate-500 text-sm">Estimated development cost for midsize companies</div>
                       </div>
                       <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
@@ -75,7 +75,7 @@ const AccountingSoftwarePage: React.FC = () => {
                           <div className="space-y-4">
                               <div className="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
                                   <span className="text-sm font-medium text-slate-600">Net Revenue</span>
-                                  <span className="font-bold text-blue-600">$1,284,000</span>
+                                  <span className="font-bold text-blue-600">₹10.7Cr</span>
                               </div>
                               <div className="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
                                   <span className="text-sm font-medium text-slate-600">Operating Margin</span>

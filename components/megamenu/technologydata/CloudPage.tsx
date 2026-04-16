@@ -416,11 +416,11 @@ const CloudPage: React.FC = () => {
                 <div className="grid grid-cols-2 gap-6 mb-8">
                   <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
                     <p className="text-xs text-slate-400 uppercase mb-1">Medium App</p>
-                    <p className="text-xl font-bold text-slate-900">$20k - $250k</p>
+                    <p className="text-xl font-bold text-slate-900">₹17L - ₹2.1Cr</p>
                   </div>
                   <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
                     <p className="text-xs text-slate-400 uppercase mb-1">Large Modernization</p>
-                    <p className="text-xl font-bold text-slate-900">$500k+</p>
+                    <p className="text-xl font-bold text-slate-900">₹4.2Cr+</p>
                   </div>
                 </div>
                 <Link to="/contact" className="inline-flex items-center bg-blue-600 text-white font-bold py-4 px-10 rounded-2xl hover:bg-blue-700 transition-all shadow-lg group">

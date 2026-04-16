@@ -175,7 +175,7 @@ const DigitalTransformationPage: React.FC = () => {
   ];
 
   const clientValues = [
-    { title: "Flexibility in scope and cost", desc: "Start within one business area and gradually expand. Initial investment $100k-$500k.", icon: DollarSign },
+    { title: "Flexibility in scope and cost", desc: "Start within one business area and gradually expand. Initial investment ₹85L-₹4.2Cr.", icon: DollarSign },
     { title: "Minimal business disruptions", desc: "Step-by-step implementation and off-hours releases to minimize impact.", icon: Timer },
     { title: "Streamlined user adoption", desc: "Involving stakeholders in UX design and gathering feedback from first adopters.", icon: Users },
     { title: "Realistic timelines", desc: "Pragmatic planning and mature risk management practices for predictable delivery.", icon: CheckCircle2 },

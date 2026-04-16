@@ -86,12 +86,12 @@ const PythonPage: React.FC = () => {
   ];
 
   const costExamples = [
-    { title: "Ecommerce Web App", price: "$55k – $200k", desc: "Personalized product recommendations for a midsize retailer." },
-    { title: "Fraud Detection", price: "$70k – $200k", desc: "Intelligent system for financial transactions." },
-    { title: "Crypto Payment", price: "$100k – $150k", desc: "Integrated solution for marketplaces and gaming platforms." },
-    { title: "SaaS Platform", price: "$100k – $200k", desc: "Subscription-based content management with 3rd-party integrations." },
-    { title: "ML Inventory System", price: "$150k – $400k", desc: "Image recognition trained to recognize many item types." },
-    { title: "Supply Chain Intelligence", price: "$200k – $400k", desc: "ML/AI-powered analytics extracting data from multiple sources." }
+    { title: "Ecommerce Web App", price: "₹47L – ₹1.7Cr", desc: "Personalized product recommendations for a midsize retailer." },
+    { title: "Fraud Detection", price: "₹60L – ₹1.7Cr", desc: "Intelligent system for financial transactions." },
+    { title: "Crypto Payment", price: "₹85L – ₹1.25Cr", desc: "Integrated solution for marketplaces and gaming platforms." },
+    { title: "SaaS Platform", price: "₹85L – ₹1.7Cr", desc: "Subscription-based content management with 3rd-party integrations." },
+    { title: "ML Inventory System", price: "₹1.25Cr – ₹3.4Cr", desc: "Image recognition trained to recognize many item types." },
+    { title: "Supply Chain Intelligence", price: "₹1.7Cr – ₹3.4Cr", desc: "ML/AI-powered analytics extracting data from multiple sources." }
   ];
 
   return (
@@ -295,7 +295,7 @@ const PythonPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4">
           <motion.div {...fadeIn} className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Development Cost Estimates</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">Transparent pricing ranging from $55,000 to $400,000+ based on complexity.</p>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">Transparent pricing ranging from ₹47L to ₹3.4Cr+ based on complexity.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

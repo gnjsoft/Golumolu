@@ -128,20 +128,20 @@ const MobileDevelopmentPage: React.FC = () => {
   const complexityLevels = [
     { 
       level: "Simple app", 
-      price: "$30,000–$80,000", 
-      productPrice: "$80,000–$150,000",
+      price: "₹25L–₹67L", 
+      productPrice: "₹67L–₹1.25Cr",
       features: ["Simple UI and navigation", "Basic features (one primary function)", "Low programming complexity", "Fast development"]
     },
     { 
       level: "Medium complexity", 
-      price: "$80,000–$200,000", 
-      productPrice: "$150,000–$300,000",
+      price: "₹67L–₹1.7Cr", 
+      productPrice: "₹1.25Cr–₹2.5Cr",
       features: ["Interactive interface", "Multi-step user journeys", "Multiple use cases", "Data storage & API integrations"]
     },
     { 
       level: "High complexity", 
-      price: "$200,000–$500,000", 
-      productPrice: "$300,000+",
+      price: "₹1.7Cr–₹4.2Cr", 
+      productPrice: "₹2.5Cr+",
       features: ["Rich & dynamic interface", "Advanced interactions", "Complex business logic", "Custom back-end & algorithms"]
     }
   ];
@@ -345,7 +345,7 @@ const MobileDevelopmentPage: React.FC = () => {
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Cost of Mobile App Development</h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              The development cost of a mobile app of average complexity varies between $80,000 and $200,000.
+              The development cost of a mobile app of average complexity varies between ₹67L and ₹1.7Cr.
             </p>
           </div>
 

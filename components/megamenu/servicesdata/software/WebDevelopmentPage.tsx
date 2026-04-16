@@ -72,10 +72,10 @@ const WebDevelopmentPage: React.FC = () => {
   ];
 
   const costs = [
-    { price: "From $20,000", title: "Corporate Website", desc: "For a custom branded corporate website." },
-    { price: "From $70,000", title: "Customer Portal", desc: "For a self-service customer web portal." },
-    { price: "From $200,000", title: "Ecommerce Solution", desc: "With custom visual interface and business logic, integrated into IT infrastructure." },
-    { price: "From $400,000", title: "Enterprise Software", desc: "For complex enterprise web software, e.g., a custom EHR system." }
+    { price: "From ₹17L", title: "Corporate Website", desc: "For a custom branded corporate website." },
+    { price: "From ₹60L", title: "Customer Portal", desc: "For a self-service customer web portal." },
+    { price: "From ₹1.7Cr", title: "Ecommerce Solution", desc: "With custom visual interface and business logic, integrated into IT infrastructure." },
+    { price: "From ₹3.4Cr", title: "Enterprise Software", desc: "For complex enterprise web software, e.g., a custom EHR system." }
   ];
 
   const successFactors = [
