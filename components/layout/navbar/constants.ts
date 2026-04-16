@@ -280,7 +280,7 @@ export const NAV_ITEMS: MenuItem[] = [
             { title: "Amazon Web Services", href: "/technologies/aws" },
             { title: "ServiceNow®", href: "/technologies/servicenow" },
             { title: "Salesforce", href: "/technologies/salesforce" },
-            { title: "All technologies", href: "/technologies/all" }
+            { title: "All technologies", href: "/technologies" }
           ]
         },
 
