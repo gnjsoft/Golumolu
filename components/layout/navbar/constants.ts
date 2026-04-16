@@ -142,7 +142,6 @@ export const NAV_ITEMS: MenuItem[] = [
             { title: "Oil & Gas", href: "/industries/oil-gas" },
             { title: "Professional Services", href: "/industries/professional-services" },
             { title: "Education", href: "/industries/education" },
-            { title: "Government", href: "/industries/government" }
           ]
         },
         {
