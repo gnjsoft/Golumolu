@@ -373,7 +373,7 @@ const MachineLearningPage: React.FC = () => {
               <div className="bg-white/10 backdrop-blur-md p-10 rounded-[2.5rem] border border-white/20">
                 <h4 className="text-xl font-bold mb-2">Separate ML Component</h4>
                 <div className="text-5xl font-bold mb-6 whitespace-nowrap">₹25L – ₹1.6Cr</div>
-                <p className="text-sm text-indigo-100">Strategic modules, specific forecasting algorithms, or standalone models. ($30k – $200k)</p>
+                <p className="text-sm text-indigo-100">Strategic modules, specific forecasting algorithms, or standalone models.</p>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-10 rounded-[2.5rem] border border-white/20">
                 <h4 className="text-xl font-bold mb-2">End-to-End Solution</h4>

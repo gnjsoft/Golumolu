@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { 
-  Wifi, Cpu, Globe, Activity, Smartphone, ArrowRight, Radio, 
-  Zap, ShieldCheck, Settings, RefreshCw, Laptop, Boxes, 
-  Target, Share2, BookOpen, Kanban, ClipboardList, 
-  ClipboardCheck, Warehouse, Layout, Pill, Heart, 
-  Stethoscope, Building2, Truck, Microscope, Image as ImageIcon, 
-  TrendingUp, Users, ShieldAlert, PenTool, Wrench, 
-  Package, Eye, Video, Bell, Thermometer, Battery, 
+import {
+  Wifi, Cpu, Globe, Activity, Smartphone, ArrowRight, Radio,
+  Zap, ShieldCheck, Settings, RefreshCw, Laptop, Boxes,
+  Target, Share2, BookOpen, Kanban, ClipboardList,
+  ClipboardCheck, Warehouse, Layout, Pill, Heart,
+  Stethoscope, Building2, Truck, Microscope, Image as ImageIcon,
+  TrendingUp, Users, ShieldAlert, PenTool, Wrench,
+  Package, Eye, Video, Bell, Thermometer, Battery,
   Cloud, Network, Database, Bot, Gauge, HardDrive, HeartPulse
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -130,9 +130,9 @@ const InternetOfThingsPage: React.FC = () => {
         {/* Background Effects */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.15),transparent_70%)]"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -142,7 +142,7 @@ const InternetOfThingsPage: React.FC = () => {
               <Wifi size={14} className="animate-pulse" /> Internet of Things Services
             </div>
             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter text-white">
-              Building a <br/> <span className="text-emerald-400">Sustainable</span> Future
+              Building a <br /> <span className="text-emerald-400">Sustainable</span> Future
             </h1>
             <p className="text-xl text-slate-400 mb-10 leading-relaxed max-w-xl">
               GnJ Worldwide drives value-centered IoT solutions and builds multi-level data pipelines: from edge computing to cloud data processing and data science.
@@ -154,7 +154,7 @@ const InternetOfThingsPage: React.FC = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -213,9 +213,9 @@ const InternetOfThingsPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {useCases.map((useCase, idx) => (
-              <motion.div 
-                key={idx} 
-                {...fadeIn} 
+              <motion.div
+                key={idx}
+                {...fadeIn}
                 transition={{ delay: idx * 0.05 }}
                 className="bg-slate-800/30 p-8 rounded-[2rem] border border-slate-700 hover:border-emerald-500/50 transition-all group"
               >
@@ -236,7 +236,7 @@ const InternetOfThingsPage: React.FC = () => {
       {/* Turnkey IoT Solution */}
       <section className="py-24 bg-slate-950 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 blur-[120px] rounded-full"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <motion.div {...fadeIn} className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">From Planning to Launch</h2>
@@ -245,9 +245,9 @@ const InternetOfThingsPage: React.FC = () => {
 
           <div className="grid lg:grid-cols-3 gap-12">
             {turnkeySolutions.map((solution, idx) => (
-              <motion.div 
-                key={idx} 
-                {...fadeIn} 
+              <motion.div
+                key={idx}
+                {...fadeIn}
                 transition={{ delay: idx * 0.1 }}
                 className="relative group"
               >
@@ -312,7 +312,7 @@ const InternetOfThingsPage: React.FC = () => {
                   <p className="text-xs text-slate-500">Predictive modeling for asset health.</p>
                 </div>
                 <div className="p-6 bg-slate-950/50 rounded-3xl border border-emerald-500/10 text-center">
-                  <Lock size={32} className="mx-auto mb-4 text-emerald-400" />
+                  <ShieldCheck size={32} className="mx-auto mb-4 text-emerald-400" />
                   <h5 className="font-bold text-white mb-2">Security First</h5>
                   <p className="text-xs text-slate-500">DDoS protection & data encryption.</p>
                 </div>
