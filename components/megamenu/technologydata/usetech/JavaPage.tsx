@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { FaJava } from 'react-icons/fa';
 
 const JavaPage: React.FC = () => {
   useEffect(() => {
@@ -101,7 +102,7 @@ const JavaPage: React.FC = () => {
             className="lg:w-1/2 text-left"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-orange-100 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md">
-              <Coffee size={14} className="animate-pulse" /> Java Application Development
+              <span className="animate-pulse flex items-center"><FaJava size={14} /></span> Java Application Development
             </div>
             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter">
               Robust <br/> <span className="text-orange-200">Enterprise</span> Java
@@ -127,7 +128,7 @@ const JavaPage: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-white">
-                      <TerminalIcon size={24} />
+                      <FaJava size={24} />
                     </div>
                     <div>
                       <h4 className="font-bold text-white">Spring Boot</h4>

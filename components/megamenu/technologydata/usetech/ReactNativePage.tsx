@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { FaReact } from 'react-icons/fa';
 
 const ReactNativePage: React.FC = () => {
   useEffect(() => {
@@ -107,7 +108,7 @@ const ReactNativePage: React.FC = () => {
             className="lg:w-1/2 text-left"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#61dafb]/10 border border-[#61dafb]/20 text-[#61dafb] text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md">
-              <Atom size={14} className="animate-spin-slow" /> React Native Developers for Hire
+              <span className="animate-spin-slow flex items-center"><FaReact size={14} /></span> React Native Developers for Hire
             </div>
             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter">
               Cross-Platform <br/> <span className="text-[#61dafb]">Efficiency</span>
@@ -133,7 +134,7 @@ const ReactNativePage: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-[#61dafb]/20 rounded-xl flex items-center justify-center text-[#61dafb]">
-                      <Smartphone size={24} />
+                      <FaReact size={24} />
                     </div>
                     <div>
                       <h4 className="font-bold text-white">Native Performance</h4>

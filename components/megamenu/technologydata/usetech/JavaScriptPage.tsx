@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { SiJavascript } from 'react-icons/si';
 
 const JavaScriptPage: React.FC = () => {
   useEffect(() => {
@@ -110,7 +111,7 @@ const JavaScriptPage: React.FC = () => {
             className="lg:w-1/2 text-left"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/10 border border-black/20 text-black text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md">
-              <Zap size={14} className="animate-pulse" /> JavaScript Development Services
+              <span className="animate-pulse flex items-center"><SiJavascript size={14} /></span> JavaScript Development Services
             </div>
             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter">
               Interactive <br/> <span className="text-black/70">Experiences</span> with JS

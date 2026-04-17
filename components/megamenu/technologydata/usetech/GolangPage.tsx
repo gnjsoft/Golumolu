@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { FaGolang } from 'react-icons/fa6';
 
 const GolangPage: React.FC = () => {
   useEffect(() => {
@@ -119,7 +120,7 @@ const GolangPage: React.FC = () => {
             className="lg:w-1/2 text-left"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-cyan-100 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md">
-              <Zap size={14} className="animate-pulse" /> Golang Development Services
+              <span className="animate-pulse flex items-center"><FaGolang size={14} /></span> Golang Development Services
             </div>
             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter">
               High-Load <br/> <span className="text-cyan-200">Scalability</span> with Go
@@ -145,7 +146,7 @@ const GolangPage: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-white">
-                      <Terminal size={24} />
+                      <FaGolang size={24} />
                     </div>
                     <div>
                       <h4 className="font-bold text-white">Go 1.22+</h4>

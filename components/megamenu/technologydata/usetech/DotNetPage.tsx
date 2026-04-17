@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { SiDotnet } from 'react-icons/si';
 
 const DotNetPage: React.FC = () => {
   useEffect(() => {
@@ -95,7 +96,7 @@ const DotNetPage: React.FC = () => {
             className="lg:w-1/2 text-left"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-purple-100 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md">
-              <Box size={14} className="animate-pulse" /> .NET Development Services
+              <span className="animate-pulse flex items-center"><SiDotnet size={14} /></span> .NET Development Services
             </div>
             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter">
               Enterprise <br/> <span className="text-purple-200">Impact</span> with .NET
@@ -121,7 +122,7 @@ const DotNetPage: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-white">
-                      <TerminalIcon size={24} />
+                      <SiDotnet size={24} />
                     </div>
                     <div>
                       <h4 className="font-bold text-white">.NET Core</h4>

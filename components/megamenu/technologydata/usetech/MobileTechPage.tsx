@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { FaMobileAlt } from 'react-icons/fa';
 
 const MobileTechPage: React.FC = () => {
   useEffect(() => {
@@ -145,7 +146,7 @@ const MobileTechPage: React.FC = () => {
             className="lg:w-1/2 text-left"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md">
-              <Smartphone size={14} className="animate-pulse" /> Mobile App Development Services
+              <span className="animate-pulse flex items-center"><FaMobileAlt size={14} /></span> Mobile App Development Services
             </div>
             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter">
               Native & <br/> <span className="text-blue-500">Cross-Platform</span>
@@ -171,7 +172,7 @@ const MobileTechPage: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center text-blue-400">
-                      <Smartphone size={24} />
+                      <FaMobileAlt size={24} />
                     </div>
                     <div>
                       <h4 className="font-bold text-white">iOS & Android</h4>

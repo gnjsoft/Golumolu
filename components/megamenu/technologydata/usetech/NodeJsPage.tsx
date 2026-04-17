@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { FaNodeJs } from 'react-icons/fa';
 
 const NodeJsPage: React.FC = () => {
   useEffect(() => {
@@ -115,7 +116,7 @@ const NodeJsPage: React.FC = () => {
             className="lg:w-1/2 text-left"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#68A063]/10 border border-[#68A063]/20 text-[#68A063] text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md">
-              <Hexagon size={14} className="animate-pulse" /> Node.js Development Services
+              <span className="animate-pulse flex items-center"><FaNodeJs size={14} /></span> Node.js Development Services
             </div>
             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter">
               Fast & <br/> <span className="text-[#68A063]">Scalable</span> Node.js
@@ -141,7 +142,7 @@ const NodeJsPage: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-[#68A063]/20 rounded-xl flex items-center justify-center text-[#68A063]">
-                      <Terminal size={24} />
+                      <FaNodeJs size={24} />
                     </div>
                     <div>
                       <h4 className="font-bold text-white">V8 Engine</h4>

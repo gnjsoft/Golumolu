@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { FaPython } from 'react-icons/fa';
 
 const PythonPage: React.FC = () => {
   const [typed, setTyped] = useState('');
@@ -109,7 +110,7 @@ const PythonPage: React.FC = () => {
             className="lg:w-1/2 text-left"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-blue-100 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-md">
-              <Terminal size={14} className="animate-pulse text-[#ffd343]" /> Python Development Services
+              <span className="animate-pulse text-[#ffd343] flex items-center"><FaPython size={14} /></span> Python Development Services
             </div>
             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-tight tracking-tighter">
               Scalable <br/> <span className="text-[#ffd343]">Intelligence</span> with Python
