@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { 
   BookOpen, Video, Award, TrendingUp, Smartphone, PlayCircle, Star, 
   Zap, Check, BrainCircuit, Cpu, ArrowRight, CheckCircle2, 
-  Layers, Settings, Users, BarChart3, Clock, DollarSign, Rocket, 
+  Layers, Settings, Users, BarChart3, Clock, IndianRupee, Rocket, 
   ShieldCheck, Search, PenTool, Monitor, Globe, Smartphone as Mobile,
   MessageSquare, GraduationCap, FileText, Layout, RefreshCw, Code
 } from 'lucide-react';
@@ -91,7 +91,7 @@ const ElearningPage: React.FC = () => {
     {
       title: "Optimized Development Budget",
       desc: "Advice on optimal architecture, pragmatic tech stack, and right-sized team composition.",
-      icon: DollarSign
+      icon: IndianRupee
     },
     {
       title: "High User Adoption",
@@ -333,7 +333,7 @@ const ElearningPage: React.FC = () => {
                   {/* Pricing */}
                   <div>
                       <h2 className="text-3xl font-bold text-slate-900 mb-10 flex items-center gap-3">
-                          <DollarSign className="text-indigo-600" /> Pricing Models
+                          <IndianRupee className="text-indigo-600" /> Pricing Models
                       </h2>
                       <div className="space-y-6">
                           {[

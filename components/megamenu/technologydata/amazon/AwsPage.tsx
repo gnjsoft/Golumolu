@@ -3,7 +3,7 @@ import {
   Cloud, Server, Database, Shield, Zap, ArrowRight, Activity, 
   Globe, CheckCircle2, Cpu, Network, HardDrive, Layout, 
   BarChart3, Share2, Rocket, Settings, ShieldCheck, 
-  Users, RefreshCw, LifeBuoy, DollarSign, Microscope,
+  Users, RefreshCw, LifeBuoy, IndianRupee, Microscope,
   Briefcase, Handshake, Sparkles, Monitor, Terminal,
   MessageSquare, FileText, Search, Layers, Repeat,
   Clock, Calculator, UserCheck, HelpCircle, TrendingUp
@@ -457,7 +457,7 @@ const AwsPage: React.FC = () => {
                 {managedPricing.map((item, i) => (
                   <div key={i} className="flex gap-4">
                     <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shrink-0 shadow-sm">
-                      <DollarSign size={20} className="text-[#FF9900]" />
+                      <IndianRupee size={20} className="text-[#FF9900]" />
                     </div>
                     <div>
                       <p className="font-bold text-slate-900">{item.model}</p>
@@ -625,7 +625,7 @@ const AwsPage: React.FC = () => {
               <h2 className="text-3xl font-bold mb-8">Tangible Value</h2>
               <div className="grid gap-6">
                 {[
-                  { title: "Reduced Costs", desc: "Cut development efforts and resource consumption through DevOps and native services.", icon: DollarSign },
+                  { title: "Reduced Costs", desc: "Cut development efforts and resource consumption through DevOps and native services.", icon: IndianRupee },
                   { title: "Fault-Tolerant Operation", desc: "Failsafe app architectures and performance management workflows.", icon: Activity },
                   { title: "Enhanced Security", desc: "Proper adjustment of AWS-driven environment on component and access levels.", icon: ShieldCheck }
                 ].map((item, i) => (

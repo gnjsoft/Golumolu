@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { 
   Scan, Bug, AlertCircle, FileCode, CheckCircle, ArrowRight, Radar, 
   HeartPulse, Landmark, Zap, Factory, Monitor, Server, Users, FileText, 
-  ShieldCheck, BarChart, Wrench, Award, DollarSign, Terminal, Code, Layers
+  ShieldCheck, BarChart, Wrench, Award, IndianRupee, Terminal, Code, Layers
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
@@ -121,7 +121,7 @@ const SecurityTestingPage: React.FC = () => {
     },
     {
       title: "Cost optimization",
-      icon: DollarSign,
+      icon: IndianRupee,
       desc: "Identify only the required scope of testing activities and reuse knowledge in case of long-term cooperation."
     }
   ];

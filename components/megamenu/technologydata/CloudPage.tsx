@@ -8,7 +8,7 @@ import {
   TrendingUp, Users, ShieldAlert, PenTool, Wrench, 
   Package, Eye, Video, Bell, Thermometer, Battery, 
   Network, Bot, Gauge, HardDrive, Lock, Activity, 
-  Search, Cpu, MessageSquare, CheckCircle2, DollarSign, 
+  Search, Cpu, MessageSquare, CheckCircle2, IndianRupee, 
   Calculator, FileCheck, Landmark, Smartphone, Wallet, 
   Rocket, Fingerprint, Languages, Glasses, Handshake, 
   Gift, Users2, Scale, AlertTriangle, HeartPulse, 
@@ -98,7 +98,7 @@ const CloudPage: React.FC = () => {
     { title: "Resilience", icon: Activity, desc: "Message queues and automated recovery to eliminate the possibility of app failure escalation." },
     { title: "Flexibility", icon: RefreshCw, desc: "Layered architectures and standardized APIs to easily adopt updates and integrations." },
     { title: "Security", icon: Lock, desc: "ISO 27001 compliant systems following CIS, NIST, and OWASP recommendations." },
-    { title: "Cost-efficiency", icon: DollarSign, desc: "Reusable code, automated CI/CD, and optimal cloud service selection to reduce costs." },
+    { title: "Cost-efficiency", icon: IndianRupee, desc: "Reusable code, automated CI/CD, and optimal cloud service selection to reduce costs." },
     { title: "Compliance", icon: ClipboardCheck, desc: "Meeting HIPAA, PCI DSS, GDPR, and other global/local standards with in-house experts." }
   ];
 
@@ -437,7 +437,7 @@ const CloudPage: React.FC = () => {
                 ].map((price, idx) => (
                   <div key={idx} className="flex gap-4">
                     <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <DollarSign size={20} />
+                      <IndianRupee size={20} />
                     </div>
                     <div>
                       <h5 className="font-bold text-slate-900 text-sm mb-1">{price.title}</h5>

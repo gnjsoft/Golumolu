@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { 
   Truck, Map, Package, Clock, Navigation, BarChart, 
   Users, Ship, Plane, Globe, Monitor, Database, 
-  Warehouse, ClipboardList, Fuel, DollarSign, 
+  Warehouse, ClipboardList, Fuel, IndianRupee, 
   LineChart, UserCheck, ShoppingCart, Handshake, 
   Cpu, Layers, Smartphone, CheckCircle2, ArrowRight,
   ShieldCheck, Lightbulb, Code, Settings
@@ -144,7 +144,7 @@ const LogisticsPage: React.FC = () => {
                   {[
                       { 
                         title: "Financial Accounting", 
-                        icon: DollarSign, 
+                        icon: IndianRupee, 
                         desc: "Automated bookkeeping and AI-powered forecasting of operational expenses to reveal key cost drivers." 
                       },
                       { 

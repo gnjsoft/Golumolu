@@ -15,7 +15,7 @@ import {
   Lightbulb, Video, Binary, Network, Monitor, 
   Tv, Glasses, Cpu, ListChecks, MapPin, 
   Mic, Sparkles, Calendar, User, Scan, Bell, 
-  Link as LinkIcon, Activity, DollarSign, Target, Rocket,
+  Link as LinkIcon, Activity, IndianRupee, Target, Rocket,
   FileCode, Share2, MousePointer2, Zap as ZapIcon,
   LayoutTemplate, Component, Link2, PieChart
 } from 'lucide-react';
@@ -78,7 +78,7 @@ const PowerAppsPage: React.FC = () => {
 
   const benefits = [
     { title: "2-3x Development Speed", icon: ZapIcon, desc: "Accelerated UI development for simple apps due to drag-and-drop designer." },
-    { title: "-74% Development Costs", icon: DollarSign, desc: "Significant cost reduction by using templates and ready-made components." },
+    { title: "-74% Development Costs", icon: IndianRupee, desc: "Significant cost reduction by using templates and ready-made components." },
     { title: "Maximized ROI", icon: Target, desc: "Build on top of the Microsoft ecosystem you already own, cutting licensing complexity." },
     { title: "Easy Visual Changes", icon: MousePointer2, desc: "Add fields or tweak workflows visually with no coding required for updates." }
   ];

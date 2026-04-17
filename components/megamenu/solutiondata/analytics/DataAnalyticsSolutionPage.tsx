@@ -3,7 +3,7 @@ import {
   BarChart2, TrendingUp, Search, ArrowRight, Layers, Database, 
   Stethoscope, Landmark, Factory, ShoppingCart, Truck, Building2, 
   Briefcase, Zap, Droplets, Phone, GraduationCap, Plane, Film, 
-  DollarSign, TruckIcon, Megaphone, Users, Settings, UserCheck,
+  IndianRupee, TruckIcon, Megaphone, Users, Settings, UserCheck,
   CheckCircle2, Cpu, Globe, ShieldCheck, Activity, Microscope,
   PieChart, LineChart, Layout
 } from 'lucide-react';
@@ -125,7 +125,7 @@ const DataAnalyticsSolutionPage: React.FC = () => {
   ];
 
   const analyticsAreas = [
-    { title: "Financial Analytics", icon: DollarSign, desc: "Monitoring revenue, expenses, and profitability. Budget planning and financial risk management." },
+    { title: "Financial Analytics", icon: IndianRupee, desc: "Monitoring revenue, expenses, and profitability. Budget planning and financial risk management." },
     { title: "Supply Chain Analytics", icon: TruckIcon, desc: "Demand forecasting, supplier performance monitoring, and predictive route optimization." },
     { title: "Marketing & Sales", icon: Megaphone, desc: "Pricing analytics, sales trend prediction, and competitor benchmarking." },
     { title: "Customer Analytics", icon: Users, desc: "Behavior analysis, predictive modeling, and churn risk management." },

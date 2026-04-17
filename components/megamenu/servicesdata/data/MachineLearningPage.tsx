@@ -22,7 +22,7 @@ import {
   ShoppingCart, 
   Factory, 
   Briefcase, 
-  DollarSign, 
+  IndianRupee, 
   Globe, 
   MessageSquare, 
   LayoutDashboard, 
@@ -122,7 +122,7 @@ const MachineLearningPage: React.FC = () => {
     },
     {
       category: 'Financial management',
-      icon: DollarSign,
+      icon: IndianRupee,
       items: [
         "Financial planning and analysis",
         "Financial modeling",

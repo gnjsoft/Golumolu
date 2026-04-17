@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { 
   CreditCard, FileCheck, PieChart, ArrowRight, ShieldCheck, 
-  DollarSign, Users, Activity, Lock, Laptop, Code, Settings, 
+  Users, Activity, Lock, Laptop, Code, Settings, 
   RefreshCw, Search, Cloud, Zap, Cpu, Network, MessageSquare, 
   Monitor, Eye, FileText, UserCheck, Briefcase, Shield, 
   Globe, HeartPulse, Pill, BarChart3, Bot, Video, Building2,

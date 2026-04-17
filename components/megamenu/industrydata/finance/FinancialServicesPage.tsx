@@ -12,7 +12,7 @@ import {
   Cloud, Globe, Bot, Video, Brain, HeartPulse, Stethoscope, 
   Clock, HardDrive, UserPlus, AlertTriangle, Radio, Layout, 
   CheckCircle2, Headphones, Pill, BarChart, Heart, 
-  Coins, DollarSign, Calculator, FileCheck, Landmark as BankIcon,
+  Coins, Calculator, FileCheck, Landmark as BankIcon,
   Smartphone
 } from 'lucide-react';
 import { Link } from 'react-router-dom';

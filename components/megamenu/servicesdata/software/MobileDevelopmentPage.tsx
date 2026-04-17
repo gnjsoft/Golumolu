@@ -40,7 +40,7 @@ import {
   Bell, 
   BarChart3, 
   Target, 
-  DollarSign, 
+  IndianRupee, 
   Users2, 
   Lock, 
   BookOpen, 
@@ -115,7 +115,7 @@ const MobileDevelopmentPage: React.FC = () => {
 
   const projectFlow = [
     { title: "Project scoping", desc: "Techniques for analyzing requirements and avoiding scope creep.", icon: Target },
-    { title: "Cost estimation", desc: "Vast set of factors we consider to estimate accurately.", icon: DollarSign },
+    { title: "Cost estimation", desc: "Vast set of factors we consider to estimate accurately.", icon: IndianRupee },
     { title: "Collaboration", desc: "Forms of collaboration to keep you informed of progress.", icon: Users2 },
     { title: "Risk management", desc: "Effective risk mitigation strategies for your project.", icon: AlertTriangle },
     { title: "Documentation", desc: "Comprehensive scope of documents at each SDLC stage.", icon: BookOpen },

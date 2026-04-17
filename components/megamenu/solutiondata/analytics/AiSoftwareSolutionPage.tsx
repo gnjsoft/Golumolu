@@ -181,7 +181,7 @@ const AiSoftwareSolutionPage: React.FC = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
                   <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
-                      <div className="text-3xl font-bold text-purple-400">₹32.6L Cr</div>
+                      <div className="text-3xl font-bold text-purple-400">₹32.6 Lakh Crores</div>
                       <div className="text-xs text-slate-500 uppercase tracking-widest mt-1">Market Value (2025)</div>
                   </div>
                   <div className={`bg-white/5 p-6 rounded-2xl border border-white/10 transition-all duration-1000 delay-500 ${active ? 'scale-110 border-purple-500/50' : ''}`}>
@@ -189,7 +189,7 @@ const AiSoftwareSolutionPage: React.FC = () => {
                       <div className="text-xs text-slate-500 uppercase tracking-widest mt-1">CAGR (2026-2033)</div>
                   </div>
                   <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
-                      <div className="text-3xl font-bold text-blue-400">₹292L Cr</div>
+                      <div className="text-3xl font-bold text-blue-400">₹292 Lakh Crores</div>
                       <div className="text-xs text-slate-500 uppercase tracking-widest mt-1">Projected Market (2033)</div>
                   </div>
               </div>

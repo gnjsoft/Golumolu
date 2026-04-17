@@ -4,7 +4,7 @@ import {
   Smartphone, Wallet, Building2, Rocket, RefreshCw, 
   Settings, BarChart3, Lock, Cpu, Network, MessageSquare, 
   Bot, Eye, FileText, CheckCircle2, ShieldCheck, 
-  Coins, DollarSign, Calculator, FileCheck, Landmark,
+  Coins, Calculator, FileCheck, Landmark,
   Layout, Headphones, Pill, BarChart, Heart, 
   Share2, UserCog, BookOpen, Boxes, Boxes as BlockchainIcon, Truck, Kanban, 
   Terminal, ClipboardList, ClipboardCheck, Warehouse, 

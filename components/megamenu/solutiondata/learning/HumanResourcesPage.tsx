@@ -3,7 +3,7 @@ import {
   Users, Heart, Calendar, Award, Briefcase, Smile, 
   CheckCircle2, UserPlus, TrendingUp, ArrowRight, 
   Database, ShieldCheck, Zap, Search, Layout, 
-  Settings, Activity, Clock, DollarSign, Rocket,
+  Settings, Activity, Clock, IndianRupee, Rocket,
   MessageSquare, BarChart3, Globe, Code, Headphones
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -246,7 +246,7 @@ const HumanResourcesPage: React.FC = () => {
                   {/* Pricing */}
                   <div>
                       <h2 className="text-3xl font-bold text-slate-900 mb-10 flex items-center gap-3">
-                          <DollarSign className="text-emerald-600" /> Pricing Models
+                          <IndianRupee className="text-emerald-600" /> Pricing Models
                       </h2>
                       <div className="space-y-6">
                           {[

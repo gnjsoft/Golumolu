@@ -4,7 +4,7 @@ import {
   ShoppingBag, Truck, Globe, Megaphone, Users, UserCheck, 
   CreditCard, MonitorSmartphone, BarChart3, Calculator, 
   FileText, ShieldCheck, ArrowRight, CheckCircle2, 
-  Lightbulb, PenTool, Target, DollarSign, Puzzle, BookOpen,
+  Lightbulb, PenTool, Target, IndianRupee, Puzzle, BookOpen,
   Headphones, Server, Shield
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -40,7 +40,7 @@ const RetailPage: React.FC = () => {
     { icon: Lightbulb, title: "A thorough discovery stage", desc: "We dig into your business processes, align the opinions and needs of engaged stakeholders, and elicit full requirements to ensure that all software features will be valuable to users." },
     { icon: PenTool, title: "Mindful UX design", desc: "Our UX designers plan easily understandable interfaces and intuitive workflows and make sure that the software is accessible to all target user groups, including employees and customers." },
     { icon: Target, title: "Accurate project scoping", desc: "We fully define the client’s goals, constraints, and expected deliverables to accurately estimate the project’s cost and timelines." },
-    { icon: DollarSign, title: "Rigorous budget management", desc: "We control change requests to prevent scope creep and routinely monitor the expenditures in the course of the project to ensure we don’t go over the budget." },
+    { icon: IndianRupee, title: "Rigorous budget management", desc: "We control change requests to prevent scope creep and routinely monitor the expenditures in the course of the project to ensure we don’t go over the budget." },
     { icon: Puzzle, title: "Designing for integration", desc: "We design new software with your existing IT infrastructure and tech stack in mind to minimize integration efforts and ensure compatibility with your current business systems." },
     { icon: BookOpen, title: "Comprehensive user training", desc: "We prepare clear user documentation and arrange online sessions to help your employees smoothly transfer their workflows to the new software and fully adopt its capabilities." }
   ];

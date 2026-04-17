@@ -4,7 +4,7 @@ import {
     Smartphone, Zap, ShieldCheck, Activity, BarChart3,
     Database, Cpu, Layers, Users, CheckCircle2,
     Wallet, Landmark, Shield, Layout,
-    FileText, Clock, DollarSign, Box, ShoppingCart,
+    FileText, Clock, IndianRupee, Box, ShoppingCart,
     Briefcase, Search, Lightbulb, Fingerprint, Mic,
     QrCode, Nfc, Link as LinkIcon, RefreshCw, Target, Settings
 } from 'lucide-react';
@@ -168,7 +168,7 @@ const PaymentManagementPage: React.FC = () => {
                 <div className="grid md:grid-cols-3 gap-8">
                     {[
                         { icon: Globe, title: "P2P Transfers", desc: "Domestic and international money transfers." },
-                        { icon: DollarSign, title: "Multi-currency", desc: "Including support for crypto payments." },
+                        { icon: IndianRupee, title: "Multi-currency", desc: "Including support for crypto payments." },
                         { icon: Activity, title: "AI Planning", desc: "AI-powered budget, savings, and payment planning." },
                         { icon: QrCode, title: "QR Payments", desc: "Online and offline QR-code-based payments." },
                         { icon: Nfc, title: "NFC Payments", desc: "NFC-enabled onsite mobile payments." },

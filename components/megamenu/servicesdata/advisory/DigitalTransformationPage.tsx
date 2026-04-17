@@ -33,7 +33,7 @@ import {
   Smartphone,
   Box,
   Timer,
-  DollarSign,
+  IndianRupee,
   Heart
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -63,7 +63,7 @@ const DigitalTransformationPage: React.FC = () => {
     },
     {
       title: "Corporate finance",
-      icon: DollarSign,
+      icon: IndianRupee,
       desc: "We help companies digitalize up to 90% of corporate finance-related tasks.",
       elements: ["Automation of document processing", "AI-powered big data processing", "In-house banking automation", "Blockchain-based recordkeeping"]
     },
@@ -175,7 +175,7 @@ const DigitalTransformationPage: React.FC = () => {
   ];
 
   const clientValues = [
-    { title: "Flexibility in scope and cost", desc: "Start within one business area and gradually expand. Initial investment ₹85L-₹4.2Cr.", icon: DollarSign },
+    { title: "Flexibility in scope and cost", desc: "Start within one business area and gradually expand. Initial investment ₹85L-₹4.2Cr.", icon: IndianRupee },
     { title: "Minimal business disruptions", desc: "Step-by-step implementation and off-hours releases to minimize impact.", icon: Timer },
     { title: "Streamlined user adoption", desc: "Involving stakeholders in UX design and gathering feedback from first adopters.", icon: Users },
     { title: "Realistic timelines", desc: "Pragmatic planning and mature risk management practices for predictable delivery.", icon: CheckCircle2 },

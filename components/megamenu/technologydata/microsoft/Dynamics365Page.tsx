@@ -12,7 +12,7 @@ import {
   Handshake, Calculator, AlertTriangle, Lightbulb, 
   Video, Binary, Network, Box, Monitor, Tv, Glasses, 
   Cpu, ListChecks, MapPin, Sparkles, Calendar, User, 
-  Scan, Bell, Link as LinkIcon, Activity, DollarSign, 
+  Scan, Bell, Link as LinkIcon, Activity, 
   Target, Rocket, FileCode, Layers, MousePointer2, 
   LayoutTemplate, Component, Link2, PieChart, 
   Headphones, Megaphone, Star, Globe

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Server, Cloud, HardDrive, Network, Cpu, ArrowRight, Database, Monitor, Smartphone, Layout, Wifi, Shield, Code, Settings, CheckCircle2, Globe, Lock, Clock, DollarSign, Home } from 'lucide-react';
+import { Server, Cloud, HardDrive, Network, Cpu, ArrowRight, Database, Monitor, Smartphone, Layout, Wifi, Shield, Code, Settings, CheckCircle2, Globe, Lock, Clock, IndianRupee, Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const InfrastructureServicesPage: React.FC = () => {
@@ -153,7 +153,7 @@ const InfrastructureServicesPage: React.FC = () => {
                       desc: "Through round-the-clock monitoring, architecture adjustments, and robust backups, we maximize uptime and prevent unforeseen infrastructure failures."
                   },
                   {
-                      icon: DollarSign,
+                      icon: IndianRupee,
                       title: "Optimized IT Costs",
                       desc: "We keep your IT expenses reasonable. By rightsizing cloud resources and utilizing Reserved/Spot instances, we can reduce costs by 20-40%."
                   },

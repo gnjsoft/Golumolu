@@ -26,7 +26,7 @@ import {
   Workflow, 
   CloudRain, 
   Server, 
-  DollarSign,
+  IndianRupee,
   TrendingUp,
   Award
 } from 'lucide-react';
@@ -313,7 +313,7 @@ const ApplicationMaintenancePage: React.FC = () => {
                   <h4 className="text-xl font-bold text-slate-900 mb-2">{service.title}</h4>
                   <p className="text-slate-600 text-sm leading-relaxed mb-4">{service.desc}</p>
                   <div className="flex items-center gap-2 text-xs font-bold text-orange-600 uppercase tracking-wider">
-                    <DollarSign size={14} /> {service.pricing}
+                    <IndianRupee size={14} /> {service.pricing}
                   </div>
                 </div>
               </motion.div>

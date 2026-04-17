@@ -4,7 +4,7 @@ import {
   Mail, CheckCircle2, Zap, Settings, Database, TrendingUp, 
   ShieldCheck, Search, RefreshCw, Layers, UserCheck, Heart,
   PieChart, LineChart, Layout, Globe, Box, Briefcase, 
-  Target, Rocket, Clock, DollarSign, Code
+  Target, Rocket, Clock, IndianRupee, Code
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 

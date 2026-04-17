@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { 
-  TrendingUp, PieChart, DollarSign, Shield, ArrowRight, 
+  TrendingUp, PieChart, IndianRupee, Shield, ArrowRight, 
   Activity, Landmark, Search, Cpu, Settings, 
   RefreshCw, ShieldCheck, BarChart3, 
   FileText, CreditCard, Receipt, Calculator, 
@@ -28,7 +28,7 @@ const FinancialManagementPage: React.FC = () => {
         <div className="relative z-10 max-w-7xl mx-auto text-center">
             <div className={`transition-all duration-1000 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
                 <div className="inline-flex items-center gap-2 text-yellow-400 font-bold tracking-widest uppercase mb-6 text-sm border border-yellow-500/30 px-4 py-1 rounded-full bg-yellow-500/10">
-                    <DollarSign size={16} /> Financial Software Consulting
+                    <IndianRupee size={16} /> Financial Software Consulting
                 </div>
                 <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight font-serif tracking-tight">
                     Bring Corporate Financial <br/>
@@ -138,7 +138,7 @@ const FinancialManagementPage: React.FC = () => {
                       { icon: Wallet, title: "Payment Automation", desc: "Advanced analytics for accurate liquidity and working capital planning." },
                       { icon: Target, title: "Cost Control", desc: "Automated budgeting, allocation, and variance analysis." },
                       { icon: TrendingUp, title: "Revenue Management", desc: "Real-time tracking and automated recognition per accounting standards." },
-                      { icon: DollarSign, title: "Pricing Software", desc: "Analytics-based price optimization for maximized profitability." },
+                      { icon: IndianRupee, title: "Pricing Software", desc: "Analytics-based price optimization for maximized profitability." },
                       { icon: Globe, title: "Cash Management", desc: "Forecasting and reporting cash flows across international branches." },
                       { icon: Briefcase, title: "Treasury Software", desc: "Automation across cash, investment, debt, and risk management." },
                       { icon: Activity, title: "Financial Modeling", desc: "Simulating and forecasting complex financial scenarios." },

@@ -17,7 +17,7 @@ import {
   Layout, MapPin, CreditCard as PaymentIcon, 
   Mic, MessageSquare as ChatIcon, Sparkles, 
   Calendar, User, Scan, Bell, Link as LinkIcon, 
-  Activity, DollarSign, Target, Rocket
+  Activity, IndianRupee, Target, Rocket
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
@@ -321,7 +321,7 @@ const MobileTechPage: React.FC = () => {
             <div className="lg:w-1/2">
               <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-8">Cost of Mobile App Development</h2>
               <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                The development cost of a mobile app of average complexity typically varies between <span className="text-blue-600 font-bold">$80,000 and $200,000</span>.
+                The development cost of a mobile app of average complexity typically varies between <span className="text-blue-600 font-bold">₹66,00,000 and ₹1,66,00,000</span>.
               </p>
               <div className="space-y-4">
                 <p className="font-bold text-slate-900">Key cost factors include:</p>
@@ -344,7 +344,7 @@ const MobileTechPage: React.FC = () => {
             <div className="lg:w-1/2 w-full">
               <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-4">
-                  <DollarSign size={48} className="text-blue-100" />
+                  <IndianRupee size={48} className="text-blue-100" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-6">Get a Tailored Estimate</h3>
                 <p className="text-slate-600 mb-8">Discuss your requirements with our experts to calculate the cost accurately for your specific project.</p>

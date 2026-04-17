@@ -4,7 +4,7 @@ import {
   Activity, TrendingUp, Zap, Shield, BarChart3, 
   Users, Target, Layers, Globe, CheckCircle2,
   Cpu, Database, ShieldCheck, Layout, 
-  FileText, Clock, DollarSign, Box, ShoppingCart,
+  FileText, Clock, IndianRupee, Box, ShoppingCart,
   Briefcase, Search, Lightbulb, Eye
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -218,7 +218,7 @@ const OperationsManagementPage: React.FC = () => {
                               "Scalability and security requirements"
                           ].map((factor, i) => (
                               <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-blue-100 shadow-sm">
-                                  <DollarSign className="text-blue-500 w-5 h-5 shrink-0" />
+                                  <IndianRupee className="text-blue-500 w-5 h-5 shrink-0" />
                                   <span className="text-sm font-bold text-slate-700">{factor}</span>
                               </div>
                           ))}

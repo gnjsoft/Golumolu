@@ -4,7 +4,7 @@ import {
   MousePointer, Power, Cpu, Cloud, Smartphone, Settings, 
   ShieldCheck, Zap, Terminal, Printer, Layout, Utensils, 
   Hotel, Image, Lock, Globe, RefreshCw, Database, Activity,
-  CheckCircle2, Code
+  CheckCircle2, Code, IndianRupee
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -33,7 +33,7 @@ const KioskPage: React.FC = () => {
       icon: Zap,
       items: [
         { title: "Billing & Payments", desc: "Secure card reading and payment processing.", icon: CreditCard },
-        { title: "Cash Disbursement", desc: "Withdrawals or change issuing for purchases.", icon: DollarSign },
+        { title: "Cash Disbursement", desc: "Withdrawals or change issuing for purchases.", icon: IndianRupee },
         { title: "Order Placement", desc: "Product ordering from digital menus.", icon: Utensils },
         { title: "Booking & Queues", desc: "Hotel booking, travel tickets, and e-queues.", icon: Hotel },
         { title: "Printing on-demand", desc: "User-provided image and document printing.", icon: Image }
@@ -330,24 +330,5 @@ const KioskPage: React.FC = () => {
     </div>
   );
 };
-
-// Helper for DollarSign icon which was missing in imports but used in logic
-const DollarSign = ({ size, className }: { size: number, className?: string }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className={className}
-  >
-    <line x1="12" y1="1" x2="12" y2="23"></line>
-    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-  </svg>
-);
 
 export default KioskPage;

@@ -9,7 +9,7 @@ import {
   HeartPulse, Clock, MessageCircle, HelpCircle, Lightbulb, 
   Infinity, PieChart, CloudCog, CloudDownload, CloudUpload, 
   CloudSync, Gem, Map, MousePointer2, Layers2, ShieldHalf, 
-  Smartphone as MobileIcon, CheckCircle2, DollarSign, 
+  Smartphone as MobileIcon, CheckCircle2, 
   FileCheck, Fingerprint, Languages, Glasses, Gift, Users2, 
   Scale, Video as VideoIcon, HeartPulse as HeartPulseIcon, 
   Microscope as LabIcon, Building as FactoryIcon, 

@@ -6,7 +6,7 @@ import {
   Settings, RefreshCw, Laptop, Boxes, Target, Share2, 
   BookOpen, Kanban, ClipboardList, ClipboardCheck, 
   Warehouse, Radio, Layout, Pill, Heart, Coins, 
-  DollarSign, Calculator, FileCheck, Landmark, 
+  Calculator, FileCheck, Landmark, 
   Smartphone, Wallet, Rocket, Fingerprint, Languages, 
   Glasses, Handshake, Gift, Users2, Scale, AlertTriangle, 
   Video, HeartPulse, Clock, HardDrive as HardDriveIcon, 

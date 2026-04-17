@@ -4,7 +4,7 @@ import {
   BarChart2, Anchor, ShieldCheck, Zap, Layers, 
   Users, CheckCircle2, Clock, TrendingUp, 
   Cpu, Database, Shield, Layout, 
-  FileText, DollarSign, Box, ShoppingCart,
+  FileText, IndianRupee, Box, ShoppingCart,
   Briefcase, Search, Lightbulb, Activity,
   Eye, RefreshCw, Target, Link as LinkIcon
 } from 'lucide-react';

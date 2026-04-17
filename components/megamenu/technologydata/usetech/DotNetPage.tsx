@@ -8,7 +8,7 @@ import {
   TrendingUp, Users, ShieldAlert, PenTool, Wrench, 
   Package, Eye, Video, Bell, Thermometer, Battery, 
   Network, Bot, Gauge, HardDrive, Lock, Activity, 
-  Search, Cpu, MessageSquare, CheckCircle2, DollarSign, 
+  Search, Cpu, MessageSquare, CheckCircle2, IndianRupee, 
   Calculator, FileCheck, Landmark, Smartphone, Wallet, 
   Rocket, Fingerprint, Languages, Glasses, Handshake, 
   Gift, Users2, Scale, AlertTriangle, HeartPulse, 

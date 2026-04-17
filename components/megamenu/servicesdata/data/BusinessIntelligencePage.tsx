@@ -13,7 +13,7 @@ import {
   Zap, 
   Globe, 
   CheckCircle2, 
-  DollarSign, 
+  IndianRupee, 
   Settings, 
   Layers,
   Heart,
@@ -172,7 +172,7 @@ const BusinessIntelligencePage: React.FC = () => {
   const areaSolutions = [
     {
       name: 'Financial',
-      icon: DollarSign,
+      icon: IndianRupee,
       items: [
         "Keeping track of revenue, expenses and profitability.",
         "Financial performance analysis.",
@@ -335,7 +335,7 @@ const BusinessIntelligencePage: React.FC = () => {
                     <div className="text-amber-400 font-bold">Implementation Cost</div>
                     <Calculator className="text-amber-400" size={20} />
                   </div>
-                  <div className="text-3xl font-bold text-white mb-2">$80K – $1M+</div>
+                  <div className="text-3xl font-bold text-white mb-2">₹66L – ₹8.3Cr+</div>
                   <div className="text-sm text-slate-400">Depending on solution complexity</div>
                 </div>
                 <div className="grid grid-cols-2 gap-4">

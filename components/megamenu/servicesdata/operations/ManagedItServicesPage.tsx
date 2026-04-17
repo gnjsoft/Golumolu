@@ -33,7 +33,7 @@ import {
   ChevronUp,
   Search,
   CheckCircle,
-  DollarSign
+  IndianRupee
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
@@ -411,7 +411,7 @@ const ManagedItServicesPage: React.FC = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "Cost Savings", desc: "Pay only for actual work done and scale the team without lengthy hiring processes.", icon: DollarSign },
+              { title: "Cost Savings", desc: "Pay only for actual work done and scale the team without lengthy hiring processes.", icon: IndianRupee },
               { title: "Diverse Expertise", desc: "Instant access to a broad pool of IT experts equipped to solve unique problems.", icon: Award },
               { title: "24/7 Support", desc: "Teams covering different time zones and holidays for reliable around-the-clock support.", icon: Headphones },
               { title: "Uninterrupted Services", desc: "Full responsibility for service delivery, ensuring work doesn't halt if an employee is out.", icon: Zap }

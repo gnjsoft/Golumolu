@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { 
   Network, Package, ShieldAlert, Clock, 
   Smartphone, BarChart, CreditCard, Users, 
-  DollarSign, HardHat, Settings, Layers,
+  IndianRupee, HardHat, Settings, Layers,
   FileText, Briefcase, Search, Lightbulb, 
   Code, Headphones, Monitor, Zap, ArrowRight,
   CheckCircle2, Laptop, Globe, UserCheck,
@@ -78,7 +78,7 @@ const TelecomPage: React.FC = () => {
                       },
                       { 
                         title: "Fraud Detection", 
-                        icon: DollarSign, 
+                        icon: IndianRupee, 
                         desc: "Embed real-time monitoring to detect and mitigate fraudulent activities." 
                       },
                       { 

@@ -13,7 +13,7 @@ import {
   Zap, 
   Globe, 
   CheckCircle2, 
-  DollarSign, 
+  IndianRupee, 
   Settings, 
   Layers,
   Heart,
@@ -146,7 +146,7 @@ const DataAnalyticsPage: React.FC = () => {
   ];
 
   const analyticsAreas = [
-    { title: "Financial analytics", icon: DollarSign, desc: "Monitoring revenue, expenses and profitability. Budget planning and financial risk forecasting." },
+    { title: "Financial analytics", icon: IndianRupee, desc: "Monitoring revenue, expenses and profitability. Budget planning and financial risk forecasting." },
     { title: "Supply chain analytics", icon: Truck, desc: "Demand forecasting, supplier performance monitoring, and predictive route optimization." },
     { title: "Marketing & sales analytics", icon: TrendingUp, desc: "Sales channel analytics, pricing strategies, and product performance analysis." },
     { title: "Customer analytics", icon: Users, desc: "Behavior analysis, segmentation, and churn risk management." },

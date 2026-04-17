@@ -16,7 +16,7 @@ import {
   ShieldCheck, 
   LifeBuoy, 
   RefreshCw, 
-  DollarSign, 
+  IndianRupee, 
   Target, 
   ClipboardList, 
   Users2, 
@@ -80,7 +80,7 @@ const WebDevelopmentPage: React.FC = () => {
 
   const successFactors = [
     { title: "Scoping", icon: Target, desc: "Requirements engineering, feasibility assessment, and scoping with strict scope creep control." },
-    { title: "Cost estimation", icon: DollarSign, desc: "Consideration of all cost factors with sample top-down and bottom-up estimates." },
+    { title: "Cost estimation", icon: IndianRupee, desc: "Consideration of all cost factors with sample top-down and bottom-up estimates." },
     { title: "Quality management", icon: ClipboardList, desc: "ISO 9001-certified management system with software quality and project health KPIs." },
     { title: "Collaboration", icon: Users2, desc: "Collaboration flow from planning to success measurement with tactical communication forms." },
     { title: "Security management", icon: Lock, desc: "ISO 27001-supported security management procedures during the development project." },

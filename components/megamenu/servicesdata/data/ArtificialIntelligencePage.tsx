@@ -9,7 +9,7 @@ import {
   Cloud, Lock, Settings, RefreshCw, Laptop, Boxes, 
   Target, Share2, BookOpen, Kanban, ClipboardList, 
   ClipboardCheck, Warehouse, Radio, Layout, Pill, 
-  BarChart, Heart, Coins, DollarSign, Calculator, 
+  BarChart, Heart, Coins, IndianRupee, Calculator, 
   FileCheck, Landmark as BankIcon, Smartphone, Wallet, 
   Rocket, Fingerprint, Languages, Glasses, Handshake, 
   Gift, Users2, Scale, AlertTriangle, Video, HeartPulse, 
@@ -232,7 +232,7 @@ const ArtificialIntelligencePage: React.FC = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
                     <p className="text-[10px] text-slate-500 uppercase mb-1">Market Value (2033)</p>
-                    <p className="text-lg font-bold text-white">$3,497B</p>
+                    <p className="text-lg font-bold text-white">₹2,90,251B</p>
                   </div>
                   <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
                     <p className="text-[10px] text-slate-500 uppercase mb-1">CAGR</p>
@@ -250,7 +250,7 @@ const ArtificialIntelligencePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.div {...fadeIn}>
             <p className="text-slate-400 text-lg max-w-4xl mx-auto leading-relaxed italic">
-              "The global AI market was valued at <span className="text-white font-bold">Rupees 390.91 billion</span> in 2025 and is expected to reach <span className="text-white font-bold">$3,497.26 billion</span> by 2033, as AI becomes integral to business operations."
+              "The global AI market was valued at <span className="text-white font-bold">Rupees 390.91 billion</span> in 2025 and is expected to reach <span className="text-white font-bold">₹2,90,251 billion</span> by 2033, as AI becomes integral to business operations."
             </p>
             <p className="mt-4 text-sm text-slate-500">— Grand View Research</p>
           </motion.div>

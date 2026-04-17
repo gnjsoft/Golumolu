@@ -25,7 +25,7 @@ import {
   Database,
   BarChart3,
   ShoppingCart,
-  DollarSign,
+  IndianRupee,
   FileText,
   Megaphone,
   BrainCircuit,
@@ -77,7 +77,7 @@ const SoftwareConsultingPage: React.FC = () => {
     { name: "Healthcare", icon: Stethoscope },
     { name: "Banking", icon: Landmark },
     { name: "Insurance", icon: Heart },
-    { name: "Lending", icon: DollarSign },
+    { name: "Lending", icon: IndianRupee },
     { name: "Payments", icon: Zap },
     { name: "Investment", icon: TrendingUp },
     { name: "Real estate", icon: Box },
@@ -107,7 +107,7 @@ const SoftwareConsultingPage: React.FC = () => {
 
   const bestPractices = [
     { title: "Risk-proof project scoping", desc: "Accurately scope the project at the start and assess feasibility of alterations to avoid scope creep.", icon: Target },
-    { title: "Realistic cost estimation", desc: "Analyze the project from different perspectives to factor in all risks and estimate cost precisely.", icon: DollarSign },
+    { title: "Realistic cost estimation", desc: "Analyze the project from different perspectives to factor in all risks and estimate cost precisely.", icon: IndianRupee },
     { title: "Focus on user experience", desc: "Research user expectations to design winning UX/UI and ensure high user adoption.", icon: Eye },
     { title: "Healthy collaboration", desc: "Foster collaboration based on transparency, efficiency, and mutual respect.", icon: Users },
     { title: "Quality throughout SDLC", desc: "Introduce quality control mechanisms at every stage to detect and solve issues early.", icon: ClipboardCheck },

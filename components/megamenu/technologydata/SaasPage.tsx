@@ -10,7 +10,7 @@ import {
   Building2, Microscope, Image as ImageIcon, TrendingUp, 
   ShieldAlert, Wrench, Package, Eye, Video, 
   Network, Bot, Gauge, HardDrive, Lock, Search, 
-  Cpu, CheckCircle2, DollarSign, Calculator, FileCheck, 
+  Cpu, CheckCircle2, Calculator, FileCheck, 
   Landmark, Smartphone, Fingerprint, Languages, 
   Glasses, Handshake, Gift, Users2, Scale, AlertTriangle, 
   Video as VideoIcon, HeartPulse as HeartPulseIcon, 

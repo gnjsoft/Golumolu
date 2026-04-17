@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { DollarSign, FileText, CheckCircle, Percent, ArrowRight } from 'lucide-react';
+import { IndianRupee, FileText, CheckCircle, Percent, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const LendingPage: React.FC = () => {
@@ -8,7 +8,7 @@ const LendingPage: React.FC = () => {
   return (
     <div className="bg-white min-h-screen pt-20 font-sans">
       <div className="bg-blue-600 text-white py-24 px-4 flex flex-col items-center text-center">
-          <DollarSign size={64} className="mb-6 opacity-80" />
+          <IndianRupee size={64} className="mb-6 opacity-80" />
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Digital Lending Solutions</h1>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
               End-to-end Loan Origination Systems (LOS) and Loan Management Systems (LMS) for banks, credit unions, and alternative lenders.

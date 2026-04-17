@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { 
   Cloud, Server, Shield, Database, ArrowRight, Zap, Globe,
-  TrendingUp, DollarSign, Users, CheckCircle2, ListChecks, 
+  TrendingUp, IndianRupee, Users, CheckCircle2, ListChecks, 
   Workflow, ShieldCheck, RefreshCw, SearchCode, BarChart3, 
   Settings, LifeBuoy, Terminal, Infinity, Gauge, Search, 
   MessageSquare, Microscope, Building2, Truck, ShoppingCart, 
@@ -32,7 +32,7 @@ const AzurePage: React.FC = () => {
   };
 
   const benefits = [
-    { title: "Optimal Migration Costs", icon: DollarSign, desc: "We devise a pragmatic Azure migration strategy to cut down on development costs." },
+    { title: "Optimal Migration Costs", icon: IndianRupee, desc: "We devise a pragmatic Azure migration strategy to cut down on development costs." },
     { title: "Reduced Consumption Costs", icon: TrendingUp, desc: "We automate resource orchestration and select Azure services to reduce cloud consumption costs." },
     { title: "Increased Dev Speed", icon: Zap, desc: "We help set up Azure services and CI/CD pipelines to speed up development efforts." },
     { title: "Tuned App Performance", icon: Gauge, desc: "We set up auto-scaling routines and performance testing to ensure stability and high performance." },
