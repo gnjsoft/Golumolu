@@ -2,18 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, User, ArrowRight, Loader2, CheckCircle } from 'lucide-react';
 import { useAuth } from '../../../context/AuthContext';
+import SuccessPopup from '../../SuccessPopup';
 
 const SignupPage: React.FC = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
     const { signup, loginWithGoogle } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const handleSuccessClose = () => {
+        setShowSuccess(false);
+        navigate('/');
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -22,7 +29,7 @@ const SignupPage: React.FC = () => {
         try {
             await signup(email, password, name);
             setIsLoading(false);
-            navigate('/');
+            setShowSuccess(true);
         } catch (error: any) {
             console.error("Signup error:", error);
             alert(error.message || "Failed to create account. Please try again.");
@@ -33,21 +40,16 @@ const SignupPage: React.FC = () => {
     const handleSocialLogin = async () => {
         setIsLoading(true);
         try {
-            // Sirf Google login call hoga
             await loginWithGoogle();
-
-            // Success hone par hi redirect hoga
-            navigate('/');
+            setIsLoading(false);
+            setShowSuccess(true);
         } catch (error: any) {
             console.error("Social login error:", error);
-
-            // User ko error dikhane ke liye
             if (error.code === 'auth/popup-closed-by-user') {
                 alert("Login window was closed. Please try again.");
             } else {
                 alert(error.message || "Google login failed.");
             }
-        } finally {
             setIsLoading(false);
         }
     };
@@ -156,6 +158,13 @@ const SignupPage: React.FC = () => {
                     Already have an account? <Link to="/login" className="text-slate-900 font-bold hover:underline">Log In</Link>
                 </div>
             </div>
+
+            <SuccessPopup 
+                isOpen={showSuccess} 
+                onClose={handleSuccessClose} 
+                title="Account Created!" 
+                message="Welcome to GnJ Worldwide. Your account has been successfully created and you are now logged in."
+            />
         </div>
     );
 };

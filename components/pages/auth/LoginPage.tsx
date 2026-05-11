@@ -2,17 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, ArrowRight, Loader2 } from 'lucide-react';
 import { useAuth } from '../../../context/AuthContext';
+import SuccessPopup from '../../SuccessPopup';
 
 const LoginPage: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
     const { login, loginWithGoogle } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const handleSuccessClose = () => {
+        setShowSuccess(false);
+        navigate('/');
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -21,7 +28,7 @@ const LoginPage: React.FC = () => {
         try {
             await login(email, password);
             setIsLoading(false);
-            navigate('/');
+            setShowSuccess(true);
         } catch (error: any) {
             console.error("Login error:", error);
             alert(error.message || "Failed to sign in. Please check your credentials.");
@@ -32,21 +39,16 @@ const LoginPage: React.FC = () => {
     const handleSocialLogin = async () => {
         setIsLoading(true);
         try {
-            // Sirf Google login call hoga
             await loginWithGoogle();
-
-            // Success hone par hi redirect hoga
-            navigate('/');
+            setIsLoading(false);
+            setShowSuccess(true);
         } catch (error: any) {
             console.error("Social login error:", error);
-
-            // User ko error dikhane ke liye
             if (error.code === 'auth/popup-closed-by-user') {
                 alert("Login window was closed. Please try again.");
             } else {
                 alert(error.message || "Google login failed.");
             }
-        } finally {
             setIsLoading(false);
         }
     };
@@ -139,6 +141,13 @@ const LoginPage: React.FC = () => {
                     Don't have an account? <Link to="/signup" className="text-blue-600 font-bold hover:underline">Sign Up</Link>
                 </div>
             </div>
+
+            <SuccessPopup 
+                isOpen={showSuccess} 
+                onClose={handleSuccessClose} 
+                title="Welcome Back!" 
+                message="Thank you for logging in. Your session has been successfully restored."
+            />
         </div>
     );
 };
