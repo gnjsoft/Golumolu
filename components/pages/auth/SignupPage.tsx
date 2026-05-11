@@ -10,12 +10,17 @@ const SignupPage: React.FC = () => {
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
-    const { signup, loginWithGoogle } = useAuth();
+    const { signup, loginWithGoogle, isAuthenticated } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+        
+        // Redirect if already logged in
+        if (isAuthenticated) {
+            navigate('/');
+        }
+    }, [isAuthenticated, navigate]);
 
     const handleSuccessClose = () => {
         setShowSuccess(false);
@@ -32,7 +37,11 @@ const SignupPage: React.FC = () => {
             setShowSuccess(true);
         } catch (error: any) {
             console.error("Signup error:", error);
-            alert(error.message || "Failed to create account. Please try again.");
+            if (error.code === 'auth/email-already-in-use') {
+                alert("This email is already registered. Please log in instead.");
+            } else {
+                alert(error.message || "Failed to create account. Please try again.");
+            }
             setIsLoading(false);
         }
     };

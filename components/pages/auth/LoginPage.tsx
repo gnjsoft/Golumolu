@@ -9,12 +9,17 @@ const LoginPage: React.FC = () => {
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
-    const { login, loginWithGoogle } = useAuth();
+    const { login, loginWithGoogle, isAuthenticated } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+
+        // Redirect if already logged in
+        if (isAuthenticated) {
+            navigate('/');
+        }
+    }, [isAuthenticated, navigate]);
 
     const handleSuccessClose = () => {
         setShowSuccess(false);
@@ -31,7 +36,16 @@ const LoginPage: React.FC = () => {
             setShowSuccess(true);
         } catch (error: any) {
             console.error("Login error:", error);
-            alert(error.message || "Failed to sign in. Please check your credentials.");
+            // Handle common firebase auth errors
+            if (error.code === 'auth/invalid-credential') {
+                alert("Invalid email or password. Please try again.");
+            } else if (error.code === 'auth/user-not-found') {
+                alert("No account found with this email. Please sign up.");
+            } else if (error.code === 'auth/wrong-password') {
+                alert("Incorrect password. Please try again.");
+            } else {
+                alert(error.message || "Failed to sign in. Please check your credentials.");
+            }
             setIsLoading(false);
         }
     };
