@@ -40,6 +40,10 @@ import TpLinkPage from './components/megamenu/hardware/brand/TpLinkPage';
 
 import ComingSoonPage from './components/pages/ComingSoonPage';
 import UserPolicyPage from './components/pages/UserPolicyPage';
+import TermsPage from './components/pages/TermsPage';
+import ProductPolicyPage from './components/pages/ProductPolicyPage';
+import RefundPolicyPage from './components/pages/RefundPolicyPage';
+import GuidelinesPage from './components/pages/GuidelinesPage';
 
 // Specific Mega Menu Pages (Services - Software Engineering)
 import SoftwareDevelopmentPage from './components/megamenu/servicesdata/software/SoftwareDevelopmentPage';
@@ -232,6 +236,18 @@ const AppContent: React.FC = () => {
       break;
     case '/user-policy':
       component = <UserPolicyPage />;
+      break;
+    case '/terms':
+      component = <TermsPage />;
+      break;
+    case '/product-policy':
+      component = <ProductPolicyPage />;
+      break;
+    case '/refund-policy':
+      component = <RefundPolicyPage />;
+      break;
+    case '/guidelines':
+      component = <GuidelinesPage />;
       break;
     case '/services':
       component = <ServicesPage />;
