@@ -212,6 +212,24 @@ const AppContent: React.FC = () => {
     }
   }, [navigate]);
 
+  // Facebook Pixel Tracker Effect
+  useEffect(() => {
+    const pixelId = (import.meta as any).env.VITE_FACEBOOK_PIXEL_ID || '1234567890123456';
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      try {
+        if (!(window as any).__FB_INITIALIZED__) {
+          (window as any).fbq('init', pixelId);
+          (window as any).__FB_INITIALIZED__ = true;
+          (window as any).__FACEBOOK_PIXEL_ID__ = pixelId;
+        }
+        (window as any).fbq('track', 'PageView');
+        console.log(`[Meta Pixel] Tracked PageView for route: ${pathname} with Pixel ID: ${pixelId}`);
+      } catch (err) {
+        console.error('[Meta Pixel] Error tracking page view:', err);
+      }
+    }
+  }, [pathname]);
+
   // Route matching logic
   let component = <HomePage />;
 
@@ -265,7 +283,7 @@ const AppContent: React.FC = () => {
     // Hardware
     case '/hardware': component = <HardwarePage />; break;
     case '/hardware/desktops': component = <ComingSoonPage />; break;
-    case '/hardware/laptops': component = <ComingSoonPage />; break;
+    case '/hardware/laptops': component = <LaptopsPage />; break;
     case '/hardware/workstations': component = <ComingSoonPage />; break;
     case '/hardware/servers': component = <ComingSoonPage />; break;
     case '/hardware/networking': component = <ComingSoonPage />; break;
