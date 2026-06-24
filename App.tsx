@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom';
+import ReactPixel from 'react-facebook-pixel';
 import Layout from './components/layout/Layout';
 import HomePage from './components/pages/HomePage';
 import Contact from './components/pages/Contact';
@@ -216,15 +217,15 @@ const AppContent: React.FC = () => {
   useEffect(() => {
     const rawPixelId = (import.meta as any).env.VITE_FACEBOOK_PIXEL_ID || '1234567890123456';
     const pixelId = String(rawPixelId).trim();
-    if (typeof window !== 'undefined' && (window as any).fbq) {
+    if (typeof window !== 'undefined') {
       try {
         if (!(window as any).__FB_INITIALIZED__) {
-          (window as any).fbq('init', pixelId);
+          ReactPixel.init(pixelId, undefined, { autoConfig: true, debug: false });
           (window as any).__FB_INITIALIZED__ = true;
           (window as any).__FACEBOOK_PIXEL_ID__ = pixelId;
         }
-        (window as any).fbq('track', 'PageView');
-        console.log(`[Meta Pixel] Tracked PageView for route: ${pathname} with Pixel ID: ${pixelId}`);
+        ReactPixel.pageView();
+        console.log(`[Meta Pixel] Tracked PageView using react-facebook-pixel for route: ${pathname} with Pixel ID: ${pixelId}`);
       } catch (err) {
         console.error('[Meta Pixel] Error tracking page view:', err);
       }

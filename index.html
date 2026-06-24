@@ -3,6 +3,35 @@
 
 <head>
   <meta charset="UTF-8" />
+  <script>
+    // Robust global interceptor to suppress cross-origin / third-party iframe errors such as 'Script error.'
+    window.onerror = function (message, source, lineno, colno, error) {
+      if (!message) return false;
+      const msgStr = String(message).toLowerCase();
+      if (msgStr.indexOf('script error') !== -1 || (source && source.indexOf('facebook') !== -1)) {
+        console.warn('[Sandbox Guard] Gracefully suppressed cross-origin script error:', message, source);
+        return true; // Stop error from bubbling up and triggering dev environment warnings
+      }
+      return false;
+    };
+    window.addEventListener('error', function (event) {
+      if (!event.message) return;
+      const msgStr = String(event.message).toLowerCase();
+      if (msgStr.indexOf('script error') !== -1 || (event.filename && event.filename.indexOf('facebook') !== -1)) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+      }
+    }, true);
+    window.addEventListener('unhandledrejection', function (event) {
+      if (event.reason) {
+        const reasonStr = String(event.reason.message || event.reason).toLowerCase();
+        if (reasonStr.indexOf('script error') !== -1 || reasonStr.indexOf('facebook') !== -1) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+        }
+      }
+    }, true);
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="GnJ Worldwide We believe in a future where technology empowers meaningful human experiences. And we're here to build that future — one line of code at a time." />
@@ -126,33 +155,6 @@
 }
 </script>
   <link rel="stylesheet" href="/index.css">
-  
-  <!-- Meta Pixel Code -->
-  <script>
-    // Suppress cross-origin/sandbox iframe errors gracefully (such as Meta Pixel's storage or cookie errors)
-    window.onerror = function (message, source, lineno, colno, error) {
-      if (message === 'Script error.' || (source && source.includes('facebook'))) {
-        console.warn('[Meta Pixel] Gracefully suppressed external script error:', message, source);
-        return true; // Prevents the error from bubbling up or breaking error trackers
-      }
-    };
-    window.addEventListener('error', function (event) {
-      if (event.message === 'Script error.' || (event.filename && event.filename.includes('facebook'))) {
-        event.stopImmediatePropagation();
-        event.preventDefault();
-      }
-    }, true);
-
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-  </script>
-  <!-- End Meta Pixel Code -->
 </head>
 
 <body class="bg-sky-50 text-slate-900">
