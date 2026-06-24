@@ -1,9 +1,0 @@
-declare module 'react-facebook-pixel' {
-  const ReactPixel: {
-    init: (pixelId: string, advancedMatching?: any, options?: any) => void;
-    pageView: () => void;
-    track: (event: string, data?: any) => void;
-    trackCustom: (event: string, data?: any) => void;
-  };
-  export default ReactPixel;
-}

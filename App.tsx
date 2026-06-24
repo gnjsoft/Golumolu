@@ -1,7 +1,8 @@
 
 import React, { useEffect } from 'react';
-import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom';
+// @ts-ignore
 import ReactPixel from 'react-facebook-pixel';
+import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import HomePage from './components/pages/HomePage';
 import Contact from './components/pages/Contact';
@@ -213,22 +214,23 @@ const AppContent: React.FC = () => {
     }
   }, [navigate]);
 
-  // Facebook Pixel Tracker Effect
+  // Facebook Pixel Tracker Effect using react-facebook-pixel
   useEffect(() => {
-    const rawPixelId = (import.meta as any).env.VITE_FACEBOOK_PIXEL_ID || '1234567890123456';
-    const pixelId = String(rawPixelId).trim();
-    if (typeof window !== 'undefined') {
-      try {
-        if (!(window as any).__FB_INITIALIZED__) {
-          ReactPixel.init(pixelId, undefined, { autoConfig: true, debug: false });
-          (window as any).__FB_INITIALIZED__ = true;
-          (window as any).__FACEBOOK_PIXEL_ID__ = pixelId;
-        }
-        ReactPixel.pageView();
-        console.log(`[Meta Pixel] Tracked PageView using react-facebook-pixel for route: ${pathname} with Pixel ID: ${pixelId}`);
-      } catch (err) {
-        console.error('[Meta Pixel] Error tracking page view:', err);
-      }
+    const rawPixelId = (import.meta as any).env.VITE_FACEBOOK_PIXEL_ID;
+    const pixelId = (rawPixelId && typeof rawPixelId === 'string' ? rawPixelId.trim() : '') || '2424260711419228';
+    
+    try {
+      // Initialize the Pixel on first load
+      ReactPixel.init(pixelId, undefined, {
+        autoConfig: true,
+        debug: false
+      });
+      
+      // Track page views on every route change
+      ReactPixel.pageView();
+      console.log(`[Meta Pixel] Tracked PageView for route: ${pathname} with Pixel ID: ${pixelId}`);
+    } catch (err) {
+      console.error('[Meta Pixel] Error tracking page view with react-facebook-pixel:', err);
     }
   }, [pathname]);
 
