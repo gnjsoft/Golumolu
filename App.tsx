@@ -214,7 +214,8 @@ const AppContent: React.FC = () => {
 
   // Facebook Pixel Tracker Effect
   useEffect(() => {
-    const pixelId = (import.meta as any).env.VITE_FACEBOOK_PIXEL_ID || '1234567890123456';
+    const rawPixelId = (import.meta as any).env.VITE_FACEBOOK_PIXEL_ID || '1234567890123456';
+    const pixelId = String(rawPixelId).trim();
     if (typeof window !== 'undefined' && (window as any).fbq) {
       try {
         if (!(window as any).__FB_INITIALIZED__) {

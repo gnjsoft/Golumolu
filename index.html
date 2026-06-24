@@ -129,6 +129,20 @@
   
   <!-- Meta Pixel Code -->
   <script>
+    // Suppress cross-origin/sandbox iframe errors gracefully (such as Meta Pixel's storage or cookie errors)
+    window.onerror = function (message, source, lineno, colno, error) {
+      if (message === 'Script error.' || (source && source.includes('facebook'))) {
+        console.warn('[Meta Pixel] Gracefully suppressed external script error:', message, source);
+        return true; // Prevents the error from bubbling up or breaking error trackers
+      }
+    };
+    window.addEventListener('error', function (event) {
+      if (event.message === 'Script error.' || (event.filename && event.filename.includes('facebook'))) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+      }
+    }, true);
+
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
