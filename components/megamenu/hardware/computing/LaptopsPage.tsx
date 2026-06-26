@@ -33,6 +33,30 @@ import {
 } from 'lucide-react';
 import { CONTACT_DATA } from '../../../../data/ContactData';
 
+// Product images generated dynamically
+import dellLaptop from '../../../../src/assets/images/dell_latitude_laptop_1782465457461.jpg';
+import thinkpadLaptop from '../../../../src/assets/images/thinkpad_business_laptop_1782465471798.jpg';
+import hpLaptop from '../../../../src/assets/images/hp_elitebook_laptop_1782465486891.jpg';
+import appleLaptop from '../../../../src/assets/images/macbook_pro_laptop_1782465505513.jpg';
+import asusLaptop from '../../../../src/assets/images/asus_creator_laptop_1782465539560.jpg';
+
+const getLaptopImage = (brand: string) => {
+    switch (brand) {
+        case 'Dell':
+            return dellLaptop;
+        case 'Lenovo':
+            return thinkpadLaptop;
+        case 'HP':
+            return hpLaptop;
+        case 'Apple':
+            return appleLaptop;
+        case 'ASUS':
+            return asusLaptop;
+        default:
+            return dellLaptop;
+    }
+};
+
 // Laptop Product Interface
 interface LaptopProduct {
     id: string;
@@ -629,7 +653,7 @@ const LaptopsPage: React.FC = () => {
 
                                                     {/* Dynamic stylized visual laptop representing key features */}
                                                     <div className="flex items-center justify-center py-4 relative z-10">
-                                                        <Laptop size={64} className="text-white drop-shadow-xl animate-pulse" />
+                                                        <img src={getLaptopImage(product.brand)} alt={product.name} className="w-36 h-24 object-cover rounded-xl shadow-lg border border-white/20 transition-transform duration-500 group-hover:scale-105" referrerPolicy="no-referrer" />
                                                     </div>
 
                                                     {/* Tags block */}
@@ -979,7 +1003,7 @@ const LaptopsPage: React.FC = () => {
                                         transition={{ duration: 0.3 }}
                                         className="space-y-4 text-center mt-4"
                                     >
-                                        <Laptop size={110} className="text-white drop-shadow-2xl mx-auto" />
+                                        <img src={getLaptopImage(activeProduct.brand)} alt={activeProduct.name} className="w-64 h-48 object-cover rounded-2xl shadow-2xl mx-auto border-2 border-white/20" referrerPolicy="no-referrer" />
 
                                         <div className="space-y-1">
                                             <span className="text-xs font-bold uppercase text-amber-400 tracking-wider">

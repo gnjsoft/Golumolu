@@ -21,8 +21,8 @@ const Footer: React.FC = () => {
           {/* Column 1: Company */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-6 cursor-pointer">
-               <img src="https://gnjsoft.com/images/logo.png" className="h-10 w-auto" alt="GnJ Worldwide Logo" />
-               <span className="font-bold text-xl tracking-tight text-white">GnJ<span className="text-yellow-400">Worldwide</span></span>
+               <img src="https://gnjsoft.com/images/logo.png" className="h-10 w-auto" alt="GnJ worldwide Logo" />
+               <span className="font-bold text-xl tracking-tight text-white">GnJ<span className="text-yellow-400">worldwide</span></span>
             </Link>
             <h3 className="text-lg font-bold mb-6 text-white border-b border-blue-800 pb-2 inline-block">Company</h3>
             <ul className="space-y-3">
@@ -158,7 +158,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-blue-900/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
           <div className="flex items-center gap-2">
-            <span>© 2026 GNJ Worldwide | Designed by GNJ Worldwide </span>
+            <span>© 2026 GnJ worldwide | Designed by GnJ worldwide </span>
           </div>
           
           <div className="flex flex-wrap justify-center gap-6">

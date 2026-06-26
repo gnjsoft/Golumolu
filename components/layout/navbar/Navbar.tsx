@@ -154,7 +154,7 @@ const Navbar: React.FC = () => {
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link to="/" className="flex items-center gap-2 cursor-pointer group">
-                <img src="https://gnjsoft.com/images/logo.png" className="h-12 w-auto" alt="GnJ Worldwide Logo" />
+                <img src="https://gnjsoft.com/images/logo.png" className="h-12 w-auto" alt="GnJ worldwide Logo" />
               </Link>
             </div>
 
@@ -472,7 +472,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center justify-between p-4 border-b border-gray-100">
             <div className="flex items-center gap-2">
               <img src="https://gnjsoft.com/images/logo.png" className="h-8 w-auto" alt="Logo" />
-              <span className="font-bold text-lg text-slate-900">GnJ<span className="text-yellow-500">Worldwide</span></span>
+              <span className="font-bold text-lg text-slate-900">GnJ<span className="text-yellow-500">worldwide</span></span>
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}

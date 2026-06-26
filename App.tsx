@@ -286,7 +286,7 @@ const AppContent: React.FC = () => {
     
     // Hardware
     case '/hardware': component = <HardwarePage />; break;
-    case '/hardware/desktops': component = <ComingSoonPage />; break;
+    case '/hardware/desktops': component = <DesktopsPage />; break;
     case '/hardware/laptops': component = <LaptopsPage />; break;
     case '/hardware/workstations': component = <ComingSoonPage />; break;
     case '/hardware/servers': component = <ComingSoonPage />; break;
